@@ -1,0 +1,13 @@
+{
+  "name": "typetrack",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Bare-bones typing test with wpm tracking over time. No dependencies, no build step.",
+  "scripts": {
+    "test": "node --test",
+    "start": "npx serve ."
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
