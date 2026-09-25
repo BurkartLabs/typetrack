@@ -334,8 +334,14 @@
     const W = cssW - pad.l - pad.r, H = cssH - pad.t - pad.b;
     const n = opts.xs.length;
     const all = opts.series.flatMap((s) => s.values).filter(Number.isFinite);
-    const yMax = Math.max(10, Math.ceil((Math.max(...all, 0) * 1.1) / 10) * 10);
     const yMin = opts.yMin ?? 0;
+    // round tick step (10/20/25/50/100…) so axis labels are whole, round numbers
+    const top = Math.max(10, Math.max(...all, 0) * 1.1);
+    const rough = (top - yMin) / 4;
+    const mag = Math.pow(10, Math.floor(Math.log10(rough)));
+    const step = [1, 2, 2.5, 5, 10].map((m) => m * mag).find((s) => s >= rough);
+    const steps = Math.ceil((top - yMin) / step);
+    const yMax = yMin + steps * step;
     const x = (i) => pad.l + (n <= 1 ? W / 2 : (i / (n - 1)) * W);
     const y = (v) => pad.t + H - ((v - yMin) / (yMax - yMin)) * H;
 
@@ -345,7 +351,6 @@
     const sub = css("--sub");
     ctx.strokeStyle = sub; ctx.globalAlpha = 0.25; ctx.lineWidth = 1;
     ctx.fillStyle = sub;
-    const steps = 4;
     for (let k = 0; k <= steps; k++) {
       const v = yMin + ((yMax - yMin) * k) / steps;
       const yy = y(v);
