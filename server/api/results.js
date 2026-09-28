@@ -4,6 +4,7 @@ const { HttpError, send, readJson, KB } = require("../http.js");
 const { requireUser } = require("../auth.js");
 const { verifyResult } = require("../validate.js");
 const { rankOf } = require("./leaderboard.js");
+const { checkChallenge } = require("./weekly.js");
 
 const RESULT_BODY = 1024 * KB;
 
@@ -20,23 +21,27 @@ async function create(app, req, res) {
   const user = requireUser(app, req);
   const body = await readJson(req, RESULT_BODY);
   const v = verifyResult(body);
-  const ranked = app.isRanked(v.lang, v.words) ? 1 : 0;
+  // A weekly challenge run is checked against the week's seeded words and kept off the standard boards
+  // (its words are known in advance, so it is not a standard test).
+  const challenge = body.challenge == null ? null : checkChallenge(app, body.challenge, v);
+  const ranked = !challenge && app.isRanked(v.lang, v.words) ? 1 : 0;
   const ts = Date.now();
   const info = app.db
     .prepare(
-      `INSERT INTO results (user_id, ts, lang, mode, target, wpm, raw, acc, duration, words_json, log_json, chars_json, ranked)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+      `INSERT INTO results (user_id, ts, lang, mode, target, wpm, raw, acc, duration, words_json, log_json, chars_json, ranked, challenge)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
     )
     .run(
       user.id, ts, v.lang, v.mode, v.target, v.wpm, v.raw, v.acc, v.duration,
       JSON.stringify(v.words), JSON.stringify(v.log.map((e) => [e[0], e[1]])),
-      JSON.stringify(cleanChars(v.chars)), ranked
+      JSON.stringify(cleanChars(v.chars)), ranked, challenge
     );
   const id = Number(info.lastInsertRowid);
   send(res, 201, {
     id,
     rank: ranked ? rankOf(app, { mode: v.mode, target: v.target, lang: v.lang, userId: user.id }) : null,
     ranked: Boolean(ranked),
+    challenge,
     wpm: v.wpm,
     acc: v.acc,
   });

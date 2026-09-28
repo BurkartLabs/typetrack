@@ -12,6 +12,7 @@ const results = require("./api/results.js");
 const leaderboard = require("./api/leaderboard.js");
 const games = require("./api/games.js");
 const profile = require("./api/profile.js");
+const weekly = require("./api/weekly.js");
 
 const ROOT = path.resolve(__dirname, "..");
 const PUBLIC = path.join(ROOT, "public");
@@ -47,6 +48,9 @@ const ROUTES = [
   ["GET", /^\/api\/me$/, auth.me],
   ["POST", /^\/api\/results$/, results.create],
   ["GET", /^\/api\/leaderboard$/, leaderboard.list],
+  ["GET", /^\/api\/leaderboard\/me$/, leaderboard.me],
+  ["GET", /^\/api\/weekly$/, weekly.standings],
+  ["GET", /^\/api\/weekly\/winners$/, weekly.winners],
   ["GET", /^\/api\/ghosts\/(\d{1,15})$/, results.ghost],
   ["POST", /^\/api\/games\/([^/]+)\/score$/, games.score],
   ["GET", /^\/api\/games\/([^/]+)\/leaderboard$/, games.leaderboard],
@@ -127,6 +131,7 @@ function start({ port = Number(process.env.PORT) || 5177, dataDir = process.env.
     publicDir: pub,
     opts: { trustProxy },
     limiters: { login: rateLimiter(limits), register: rateLimiter(limits) },
+    wordsDir: path.resolve(wordsDir || path.join(pub, "words")),
     isRanked: wordLists(path.resolve(wordsDir || path.join(pub, "words"))),
   };
 

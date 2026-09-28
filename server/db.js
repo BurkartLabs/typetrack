@@ -50,6 +50,11 @@ const MIGRATIONS = [
   CREATE INDEX game_scores_board ON game_scores(game, score DESC);
   CREATE INDEX game_scores_user ON game_scores(user_id, game);
   `,
+  // Weekly tournaments: a result submitted for a challenge ('weekly:2026-W40') carries it here.
+  `
+  ALTER TABLE results ADD COLUMN challenge TEXT;
+  CREATE INDEX results_challenge ON results(challenge, wpm DESC);
+  `,
 ];
 
 function open(dataDir) {
