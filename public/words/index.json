@@ -14,8 +14,32 @@
       "translate": false
     },
     {
+      "code": "ar",
+      "name": "العربية",
+      "dir": "rtl",
+      "lists": [
+        "common-1k",
+        "common-200",
+        "rare"
+      ],
+      "quotes": true,
+      "translate": true
+    },
+    {
       "code": "de",
       "name": "deutsch",
+      "dir": "ltr",
+      "lists": [
+        "common-1k",
+        "common-200",
+        "rare"
+      ],
+      "quotes": true,
+      "translate": true
+    },
+    {
+      "code": "el",
+      "name": "ελληνικά",
       "dir": "ltr",
       "lists": [
         "common-1k",
@@ -50,6 +74,18 @@
       "translate": true
     },
     {
+      "code": "he",
+      "name": "עברית",
+      "dir": "rtl",
+      "lists": [
+        "common-1k",
+        "common-200",
+        "rare"
+      ],
+      "quotes": true,
+      "translate": true
+    },
+    {
       "code": "it",
       "name": "italiano",
       "dir": "ltr",
@@ -59,6 +95,30 @@
         "rare"
       ],
       "quotes": true,
+      "translate": true
+    },
+    {
+      "code": "ja",
+      "name": "japanese (romaji)",
+      "dir": "ltr",
+      "lists": [
+        "common-1k",
+        "common-200",
+        "rare"
+      ],
+      "quotes": false,
+      "translate": true
+    },
+    {
+      "code": "ko",
+      "name": "korean (romanised)",
+      "dir": "ltr",
+      "lists": [
+        "common-1k",
+        "common-200",
+        "rare"
+      ],
+      "quotes": false,
       "translate": true
     },
     {
@@ -119,6 +179,18 @@
         "rare"
       ],
       "quotes": true,
+      "translate": true
+    },
+    {
+      "code": "zh",
+      "name": "chinese (pinyin)",
+      "dir": "ltr",
+      "lists": [
+        "common-1k",
+        "common-200",
+        "rare"
+      ],
+      "quotes": false,
       "translate": true
     }
   ],
