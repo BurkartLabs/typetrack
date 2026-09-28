@@ -1,13 +1,14 @@
 :root {
-  --bg: #323437;
-  --main: #e2b714;
-  --caret: #e2b714;
-  --sub: #646669;
-  --sub-alt: #2c2e31;
-  --text: #d1d0c5;
-  --error: #ca4754;
-  --error-extra: #7e2a33;
-  --font: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --bg: #161618;
+  --main: #b3202e;
+  --caret: #d4283a;
+  --sub: #5c5b60;
+  --sub-alt: #1f1f22;
+  --text: #e6e1dc;
+  --error: #ff6b4a;
+  --error-extra: #8a3a26;
+  --edge: #2a2a2e;
+  --font: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   --line: 2.6rem;
 }
 
@@ -17,7 +18,8 @@ html, body { height: 100%; }
 
 body {
   margin: 0;
-  background: var(--bg);
+  background: radial-gradient(ellipse 80% 40% at 50% -10%, rgba(179,32,46,.10), transparent 70%), var(--bg);
+  background-attachment: fixed;
   color: var(--text);
   font-family: var(--font);
   font-size: 16px;
@@ -48,15 +50,20 @@ button.danger:hover { color: var(--error); }
 .top {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 32px;
-  margin-bottom: 40px;
+  margin-bottom: 48px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--edge);
 }
 .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--sub); }
-.logo-mark { color: var(--main); font-size: 1.6rem; line-height: 1; }
-.logo-text { font-size: 1.6rem; color: var(--text); letter-spacing: -.02em; }
+.logo-mark { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 4px; background: var(--main); color: var(--bg); font-size: 1rem; font-weight: 700; line-height: 1; }
+.logo-text { font-size: 1.3rem; font-weight: 700; color: var(--text); letter-spacing: .08em; text-transform: uppercase; }
 nav { display: flex; gap: 20px; }
 nav a { color: var(--sub); text-decoration: none; transition: color .12s; }
-nav a:hover, nav a.active { color: var(--text); }
+nav a { text-transform: uppercase; letter-spacing: .12em; font-size: .8rem; padding-bottom: 4px; border-bottom: 2px solid transparent; }
+nav a:hover { color: var(--text); }
+nav a.active { color: var(--text); border-bottom-color: var(--main); }
 
 main { flex: 1; max-width: 1100px; width: 100%; margin: 0 auto; }
 .view[hidden] { display: none; }
@@ -67,9 +74,12 @@ main { flex: 1; max-width: 1100px; width: 100%; margin: 0 auto; }
   flex-wrap: wrap;
   align-items: center;
   gap: 4px;
-  background: var(--sub-alt);
-  border-radius: 8px;
-  padding: 4px 10px;
+  background: transparent;
+  border: 1px solid var(--edge);
+  border-radius: 2px;
+  padding: 4px 6px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
   width: max-content;
   max-width: 100%;
   margin: 0 auto 60px;
@@ -78,7 +88,9 @@ main { flex: 1; max-width: 1100px; width: 100%; margin: 0 auto; }
 }
 .config .group { display: flex; flex-wrap: wrap; }
 .config .group[hidden] { display: none; }
-.config .sep { width: 4px; height: 1.6em; background: var(--bg); border-radius: 2px; margin: 0 8px; }
+.config .sep { width: 1px; height: 1.4em; background: var(--edge); margin: 0 8px; }
+.config button { border-radius: 2px; }
+.config button.active { background: var(--main); color: var(--text); }
 .typing-active .config { opacity: 0; pointer-events: none; }
 .typing-active .top { opacity: 0; transition: opacity .2s; }
 .top { transition: opacity .2s; }
@@ -86,8 +98,9 @@ main { flex: 1; max-width: 1100px; width: 100%; margin: 0 auto; }
 /* ── typing area ───────────────────────────────────────────────────── */
 .typing { position: relative; max-width: 1000px; margin: 0 auto; }
 .counter {
-  color: var(--main);
+  color: var(--caret);
   font-size: 1.5rem;
+  font-weight: 700;
   height: 2rem;
   margin-bottom: 4px;
   opacity: 0;
@@ -115,12 +128,12 @@ main { flex: 1; max-width: 1100px; width: 100%; margin: 0 auto; }
 .letter.extra { color: var(--error-extra); }
 .caret {
   position: absolute;
-  width: 2px;
-  height: calc(var(--line) * .7);
+  width: .6em;
+  height: 3px;
   background: var(--caret);
-  border-radius: 1px;
+  box-shadow: 0 0 8px rgba(212,40,58,.6);
   left: 0;
-  top: calc(var(--line) * .15);
+  top: calc(var(--line) * .82);
   transition: left .08s ease-out, top .08s ease-out;
   animation: blink 1s ease-in-out infinite;
 }
@@ -135,8 +148,8 @@ main { flex: 1; max-width: 1100px; width: 100%; margin: 0 auto; }
 /* ── results ───────────────────────────────────────────────────────── */
 .result { max-width: 1000px; margin: 0 auto; }
 .result-grid { display: grid; grid-template-columns: 180px 1fr; gap: 24px; align-items: end; }
-.big .label { color: var(--sub); font-size: 1.6rem; line-height: 1; }
-.big .value { color: var(--main); font-size: 4rem; line-height: 1.1; margin-bottom: 12px; font-variant-numeric: tabular-nums; }
+.big .label { color: var(--sub); font-size: 1rem; text-transform: uppercase; letter-spacing: .12em; line-height: 1; }
+.big .value { color: var(--caret); font-weight: 700; font-size: 4rem; line-height: 1.1; margin-bottom: 12px; font-variant-numeric: tabular-nums; }
 .result-details { display: flex; flex-wrap: wrap; gap: 20px 48px; margin-top: 28px; }
 .result-details > div { display: flex; flex-direction: column; }
 .result-details .label { color: var(--sub); font-size: .8rem; }
@@ -159,6 +172,7 @@ main { flex: 1; max-width: 1100px; width: 100%; margin: 0 auto; }
 .legend .line { width: 18px; height: 2px; background: var(--text); }
 .tooltip {
   position: absolute;
+  border: 1px solid var(--edge);
   pointer-events: none;
   background: var(--sub-alt);
   color: var(--text);
@@ -179,11 +193,12 @@ main { flex: 1; max-width: 1100px; width: 100%; margin: 0 auto; }
 .tiles {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 16px 24px;
+  gap: 16px;
   margin-bottom: 40px;
 }
+.tile { border-left: 3px solid var(--main); background: var(--sub-alt); padding: 10px 14px; }
 .tile .label { color: var(--sub); font-size: .8rem; }
-.tile .value { color: var(--main); font-size: 2rem; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.tile .value { color: var(--caret); font-size: 2rem; line-height: 1.2; font-variant-numeric: tabular-nums; }
 .tile .value small { font-size: .9rem; color: var(--sub); margin-left: 4px; }
 .tile .value .up { color: var(--text); }
 .tile .value .down { color: var(--error); }

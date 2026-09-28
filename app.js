@@ -180,7 +180,7 @@
     const shift = Math.max(0, Math.round(top / lineH) - 1) * lineH;
     el.words.style.transform = `translateY(${-shift}px)`;
     el.caret.style.left = left + "px";
-    el.caret.style.top = top - shift + lineH * 0.15 + "px";
+    el.caret.style.top = top - shift + lineH * 0.82 + "px";
     if (lastCaretWord !== test.index) lastCaretWord = test.index;
   }
 
