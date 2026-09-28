@@ -79,19 +79,11 @@ async function get(app, req, res, params) {
       } else if (typeof l === "number") level = l;
     }
     if (Array.isArray(p.BADGES)) {
-      const days = [...new Set(results.map((r) => new Date(r.ts).toISOString().slice(0, 10)))];
-      const summary = {
-        ...Engine.summarize(results),
-        results,
-        games,
-        gameBest,
-        pbs,
-        xp,
-        level,
-        days,
-        streak: typeof p.streak === "function" ? safe(() => p.streak(days), 0) : 0,
-      };
-      badges = p.BADGES.filter((b) => safe(() => Boolean(b.test(summary)), false)).map((b) => ({ id: b.id, name: b.name, desc: b.desc }));
+      // progress.summarize builds the shape the badge tests read (bestWpm, tests, streak, ...)
+      const summary = typeof p.summarize === "function"
+        ? safe(() => p.summarize(results, games.map((g) => ({ game: g.game, score: g.score, ts: g.ts, meta: g.meta })), { xp }), null)
+        : null;
+      badges = p.BADGES.filter((b) => summary && safe(() => Boolean(b.test(summary)), false)).map((b) => ({ id: b.id, name: b.name, desc: b.desc }));
     }
   }
 

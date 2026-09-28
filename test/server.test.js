@@ -290,7 +290,7 @@ test("profile shows joined, pbs and test count; unknown user is 404", async () =
   assert.equal(p.json.pbs.length, 1);
   assert.equal(typeof p.json.xp, "number");
   assert.ok(p.json.level >= 1);
-  assert.ok(Array.isArray(p.json.badges));
+  assert.ok(p.json.badges.some((b) => b.id === "tests-1"), "first-test badge earned: " + JSON.stringify(p.json.badges));
   assert.equal((await call("GET", "/api/profile/nobody-here")).status, 404);
 });
 
