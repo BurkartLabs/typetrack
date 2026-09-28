@@ -1,0 +1,59 @@
+/* sign in / create account (views/login.js, views/register.js) */
+.auth { max-width: 380px; margin: 24px auto 48px; }
+.auth-title {
+  margin: 0 0 24px;
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  padding-left: 12px;
+  border-left: 3px solid var(--main);
+}
+.auth-form { display: flex; flex-direction: column; gap: 16px; }
+.auth-field { display: flex; flex-direction: column; gap: 6px; }
+.auth-field span { color: var(--sub); font-size: .75rem; text-transform: uppercase; letter-spacing: .12em; }
+.auth-field input {
+  font: inherit;
+  color: var(--text);
+  background: var(--sub-alt);
+  border: 1px solid var(--edge);
+  border-radius: 2px;
+  padding: 10px 12px;
+  outline: none;
+  transition: border-color .12s;
+}
+.auth-field input:focus { border-color: var(--main); }
+.auth-field input:-webkit-autofill {
+  -webkit-text-fill-color: var(--text);
+  -webkit-box-shadow: 0 0 0 40px var(--sub-alt) inset;
+}
+.auth-submit {
+  margin-top: 8px;
+  padding: 10px 12px;
+  border-radius: 2px;
+  background: var(--main);
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: .85rem;
+  transition: background .12s, opacity .12s;
+}
+.auth-submit:hover { color: var(--text); background: var(--caret); }
+.auth-submit:disabled { opacity: .5; cursor: default; }
+.auth-msg {
+  margin: 0 0 16px;
+  padding: 8px 12px;
+  border: 1px solid var(--edge);
+  border-left: 3px solid var(--sub);
+  border-radius: 2px;
+  background: var(--sub-alt);
+  font-size: .85rem;
+  color: var(--sub);
+}
+.auth-msg[hidden] { display: none; }
+.auth-msg.ok { color: var(--text); border-left-color: var(--main); }
+.auth-msg.error { color: var(--error); border-left-color: var(--error); }
+.auth-alt { margin-top: 24px; color: var(--sub); font-size: .85rem; text-align: center; }
+.auth-alt a { color: var(--text); text-decoration: none; border-bottom: 1px solid var(--main); }
+.auth-alt a:hover { color: var(--caret); }
