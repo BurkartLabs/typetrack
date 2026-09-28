@@ -1,0 +1,1614 @@
+[
+ {
+  "en": "one",
+  "word": "один"
+ },
+ {
+  "en": "two",
+  "word": "два"
+ },
+ {
+  "en": "three",
+  "word": "три"
+ },
+ {
+  "en": "four",
+  "word": "четыре"
+ },
+ {
+  "en": "five",
+  "word": "пять"
+ },
+ {
+  "en": "six",
+  "word": "шесть"
+ },
+ {
+  "en": "seven",
+  "word": "семь"
+ },
+ {
+  "en": "eight",
+  "word": "восемь"
+ },
+ {
+  "en": "nine",
+  "word": "девять"
+ },
+ {
+  "en": "ten",
+  "word": "десять"
+ },
+ {
+  "en": "eleven",
+  "word": "одиннадцать"
+ },
+ {
+  "en": "twelve",
+  "word": "двенадцать"
+ },
+ {
+  "en": "thirteen",
+  "word": "тринадцать"
+ },
+ {
+  "en": "fourteen",
+  "word": "четырнадцать"
+ },
+ {
+  "en": "fifteen",
+  "word": "пятнадцать"
+ },
+ {
+  "en": "sixteen",
+  "word": "шестнадцать"
+ },
+ {
+  "en": "seventeen",
+  "word": "семнадцать"
+ },
+ {
+  "en": "eighteen",
+  "word": "восемнадцать"
+ },
+ {
+  "en": "nineteen",
+  "word": "девятнадцать"
+ },
+ {
+  "en": "twenty",
+  "word": "двадцать"
+ },
+ {
+  "en": "thirty",
+  "word": "тридцать"
+ },
+ {
+  "en": "forty",
+  "word": "сорок"
+ },
+ {
+  "en": "fifty",
+  "word": "пятьдесят"
+ },
+ {
+  "en": "sixty",
+  "word": "шестьдесят"
+ },
+ {
+  "en": "seventy",
+  "word": "семьдесят"
+ },
+ {
+  "en": "eighty",
+  "word": "восемьдесят"
+ },
+ {
+  "en": "ninety",
+  "word": "девяносто"
+ },
+ {
+  "en": "hundred",
+  "word": "сто"
+ },
+ {
+  "en": "thousand",
+  "word": "тысяча"
+ },
+ {
+  "en": "red",
+  "word": "красный"
+ },
+ {
+  "en": "orange",
+  "word": "оранжевый"
+ },
+ {
+  "en": "yellow",
+  "word": "жёлтый"
+ },
+ {
+  "en": "green",
+  "word": "зелёный"
+ },
+ {
+  "en": "blue",
+  "word": "синий"
+ },
+ {
+  "en": "purple",
+  "word": "фиолетовый"
+ },
+ {
+  "en": "pink",
+  "word": "розовый"
+ },
+ {
+  "en": "brown",
+  "word": "коричневый"
+ },
+ {
+  "en": "black",
+  "word": "чёрный"
+ },
+ {
+  "en": "white",
+  "word": "белый"
+ },
+ {
+  "en": "gray",
+  "word": "серый"
+ },
+ {
+  "en": "gold",
+  "word": "золотой"
+ },
+ {
+  "en": "monday",
+  "word": "понедельник"
+ },
+ {
+  "en": "tuesday",
+  "word": "вторник"
+ },
+ {
+  "en": "wednesday",
+  "word": "среда"
+ },
+ {
+  "en": "thursday",
+  "word": "четверг"
+ },
+ {
+  "en": "friday",
+  "word": "пятница"
+ },
+ {
+  "en": "saturday",
+  "word": "суббота"
+ },
+ {
+  "en": "sunday",
+  "word": "воскресенье"
+ },
+ {
+  "en": "january",
+  "word": "январь"
+ },
+ {
+  "en": "february",
+  "word": "февраль"
+ },
+ {
+  "en": "march",
+  "word": "март"
+ },
+ {
+  "en": "april",
+  "word": "апрель"
+ },
+ {
+  "en": "may",
+  "word": "май"
+ },
+ {
+  "en": "june",
+  "word": "июнь"
+ },
+ {
+  "en": "july",
+  "word": "июль"
+ },
+ {
+  "en": "august",
+  "word": "август"
+ },
+ {
+  "en": "september",
+  "word": "сентябрь"
+ },
+ {
+  "en": "october",
+  "word": "октябрь"
+ },
+ {
+  "en": "november",
+  "word": "ноябрь"
+ },
+ {
+  "en": "december",
+  "word": "декабрь"
+ },
+ {
+  "en": "mother",
+  "word": "мать"
+ },
+ {
+  "en": "father",
+  "word": "отец"
+ },
+ {
+  "en": "sister",
+  "word": "сестра"
+ },
+ {
+  "en": "brother",
+  "word": "брат"
+ },
+ {
+  "en": "son",
+  "word": "сын"
+ },
+ {
+  "en": "daughter",
+  "word": "дочь"
+ },
+ {
+  "en": "grandmother",
+  "word": "бабушка"
+ },
+ {
+  "en": "grandfather",
+  "word": "дедушка"
+ },
+ {
+  "en": "aunt",
+  "word": "тётя"
+ },
+ {
+  "en": "uncle",
+  "word": "дядя"
+ },
+ {
+  "en": "cousin",
+  "word": "кузен"
+ },
+ {
+  "en": "husband",
+  "word": "муж"
+ },
+ {
+  "en": "wife",
+  "word": "жена"
+ },
+ {
+  "en": "baby",
+  "word": "младенец"
+ },
+ {
+  "en": "child",
+  "word": "ребёнок"
+ },
+ {
+  "en": "friend",
+  "word": "друг"
+ },
+ {
+  "en": "family",
+  "word": "семья"
+ },
+ {
+  "en": "parent",
+  "word": "родитель"
+ },
+ {
+  "en": "man",
+  "word": "мужчина"
+ },
+ {
+  "en": "woman",
+  "word": "женщина"
+ },
+ {
+  "en": "head",
+  "word": "голова"
+ },
+ {
+  "en": "hair",
+  "word": "волосы"
+ },
+ {
+  "en": "eye",
+  "word": "глаз"
+ },
+ {
+  "en": "ear",
+  "word": "ухо"
+ },
+ {
+  "en": "nose",
+  "word": "нос"
+ },
+ {
+  "en": "mouth",
+  "word": "рот"
+ },
+ {
+  "en": "tooth",
+  "word": "зуб"
+ },
+ {
+  "en": "tongue",
+  "word": "язык"
+ },
+ {
+  "en": "neck",
+  "word": "шея"
+ },
+ {
+  "en": "shoulder",
+  "word": "плечо"
+ },
+ {
+  "en": "arm",
+  "word": "рука"
+ },
+ {
+  "en": "hand",
+  "word": "кисть"
+ },
+ {
+  "en": "finger",
+  "word": "палец"
+ },
+ {
+  "en": "chest",
+  "word": "грудь"
+ },
+ {
+  "en": "back",
+  "word": "спина"
+ },
+ {
+  "en": "stomach",
+  "word": "живот"
+ },
+ {
+  "en": "leg",
+  "word": "нога"
+ },
+ {
+  "en": "knee",
+  "word": "колено"
+ },
+ {
+  "en": "foot",
+  "word": "стопа"
+ },
+ {
+  "en": "heart",
+  "word": "сердце"
+ },
+ {
+  "en": "brain",
+  "word": "мозг"
+ },
+ {
+  "en": "skin",
+  "word": "кожа"
+ },
+ {
+  "en": "blood",
+  "word": "кровь"
+ },
+ {
+  "en": "dog",
+  "word": "собака"
+ },
+ {
+  "en": "cat",
+  "word": "кошка"
+ },
+ {
+  "en": "bird",
+  "word": "птица"
+ },
+ {
+  "en": "fish",
+  "word": "рыба"
+ },
+ {
+  "en": "horse",
+  "word": "лошадь"
+ },
+ {
+  "en": "cow",
+  "word": "корова"
+ },
+ {
+  "en": "pig",
+  "word": "свинья"
+ },
+ {
+  "en": "sheep",
+  "word": "овца"
+ },
+ {
+  "en": "goat",
+  "word": "коза"
+ },
+ {
+  "en": "chicken",
+  "word": "курица"
+ },
+ {
+  "en": "duck",
+  "word": "утка"
+ },
+ {
+  "en": "mouse",
+  "word": "мышь"
+ },
+ {
+  "en": "rabbit",
+  "word": "кролик"
+ },
+ {
+  "en": "lion",
+  "word": "лев"
+ },
+ {
+  "en": "tiger",
+  "word": "тигр"
+ },
+ {
+  "en": "bear",
+  "word": "медведь"
+ },
+ {
+  "en": "wolf",
+  "word": "волк"
+ },
+ {
+  "en": "fox",
+  "word": "лиса"
+ },
+ {
+  "en": "deer",
+  "word": "олень"
+ },
+ {
+  "en": "monkey",
+  "word": "обезьяна"
+ },
+ {
+  "en": "elephant",
+  "word": "слон"
+ },
+ {
+  "en": "snake",
+  "word": "змея"
+ },
+ {
+  "en": "frog",
+  "word": "лягушка"
+ },
+ {
+  "en": "bee",
+  "word": "пчела"
+ },
+ {
+  "en": "butterfly",
+  "word": "бабочка"
+ },
+ {
+  "en": "sun",
+  "word": "солнце"
+ },
+ {
+  "en": "moon",
+  "word": "луна"
+ },
+ {
+  "en": "star",
+  "word": "звезда"
+ },
+ {
+  "en": "sky",
+  "word": "небо"
+ },
+ {
+  "en": "cloud",
+  "word": "облако"
+ },
+ {
+  "en": "rain",
+  "word": "дождь"
+ },
+ {
+  "en": "snow",
+  "word": "снег"
+ },
+ {
+  "en": "wind",
+  "word": "ветер"
+ },
+ {
+  "en": "storm",
+  "word": "буря"
+ },
+ {
+  "en": "fire",
+  "word": "огонь"
+ },
+ {
+  "en": "water",
+  "word": "вода"
+ },
+ {
+  "en": "earth",
+  "word": "земля"
+ },
+ {
+  "en": "mountain",
+  "word": "гора"
+ },
+ {
+  "en": "river",
+  "word": "река"
+ },
+ {
+  "en": "lake",
+  "word": "озеро"
+ },
+ {
+  "en": "sea",
+  "word": "море"
+ },
+ {
+  "en": "ocean",
+  "word": "океан"
+ },
+ {
+  "en": "forest",
+  "word": "лес"
+ },
+ {
+  "en": "tree",
+  "word": "дерево"
+ },
+ {
+  "en": "flower",
+  "word": "цветок"
+ },
+ {
+  "en": "grass",
+  "word": "трава"
+ },
+ {
+  "en": "leaf",
+  "word": "лист"
+ },
+ {
+  "en": "stone",
+  "word": "камень"
+ },
+ {
+  "en": "sand",
+  "word": "песок"
+ },
+ {
+  "en": "island",
+  "word": "остров"
+ },
+ {
+  "en": "beach",
+  "word": "пляж"
+ },
+ {
+  "en": "valley",
+  "word": "долина"
+ },
+ {
+  "en": "desert",
+  "word": "пустыня"
+ },
+ {
+  "en": "bread",
+  "word": "хлеб"
+ },
+ {
+  "en": "butter",
+  "word": "масло"
+ },
+ {
+  "en": "cheese",
+  "word": "сыр"
+ },
+ {
+  "en": "milk",
+  "word": "молоко"
+ },
+ {
+  "en": "egg",
+  "word": "яйцо"
+ },
+ {
+  "en": "meat",
+  "word": "мясо"
+ },
+ {
+  "en": "rice",
+  "word": "рис"
+ },
+ {
+  "en": "salt",
+  "word": "соль"
+ },
+ {
+  "en": "sugar",
+  "word": "сахар"
+ },
+ {
+  "en": "pepper",
+  "word": "перец"
+ },
+ {
+  "en": "apple",
+  "word": "яблоко"
+ },
+ {
+  "en": "banana",
+  "word": "банан"
+ },
+ {
+  "en": "grape",
+  "word": "виноград"
+ },
+ {
+  "en": "lemon",
+  "word": "лимон"
+ },
+ {
+  "en": "potato",
+  "word": "картофель"
+ },
+ {
+  "en": "tomato",
+  "word": "помидор"
+ },
+ {
+  "en": "onion",
+  "word": "лук"
+ },
+ {
+  "en": "carrot",
+  "word": "морковь"
+ },
+ {
+  "en": "soup",
+  "word": "суп"
+ },
+ {
+  "en": "cake",
+  "word": "торт"
+ },
+ {
+  "en": "coffee",
+  "word": "кофе"
+ },
+ {
+  "en": "tea",
+  "word": "чай"
+ },
+ {
+  "en": "wine",
+  "word": "вино"
+ },
+ {
+  "en": "beer",
+  "word": "пиво"
+ },
+ {
+  "en": "juice",
+  "word": "сок"
+ },
+ {
+  "en": "honey",
+  "word": "мёд"
+ },
+ {
+  "en": "chocolate",
+  "word": "шоколад"
+ },
+ {
+  "en": "fruit",
+  "word": "фрукт"
+ },
+ {
+  "en": "vegetable",
+  "word": "овощ"
+ },
+ {
+  "en": "house",
+  "word": "дом"
+ },
+ {
+  "en": "door",
+  "word": "дверь"
+ },
+ {
+  "en": "window",
+  "word": "окно"
+ },
+ {
+  "en": "wall",
+  "word": "стена"
+ },
+ {
+  "en": "roof",
+  "word": "крыша"
+ },
+ {
+  "en": "floor",
+  "word": "пол"
+ },
+ {
+  "en": "table",
+  "word": "стол"
+ },
+ {
+  "en": "chair",
+  "word": "стул"
+ },
+ {
+  "en": "bed",
+  "word": "кровать"
+ },
+ {
+  "en": "kitchen",
+  "word": "кухня"
+ },
+ {
+  "en": "bathroom",
+  "word": "ванная"
+ },
+ {
+  "en": "garden",
+  "word": "сад"
+ },
+ {
+  "en": "key",
+  "word": "ключ"
+ },
+ {
+  "en": "mirror",
+  "word": "зеркало"
+ },
+ {
+  "en": "lamp",
+  "word": "лампа"
+ },
+ {
+  "en": "clock",
+  "word": "часы"
+ },
+ {
+  "en": "book",
+  "word": "книга"
+ },
+ {
+  "en": "pen",
+  "word": "ручка"
+ },
+ {
+  "en": "paper",
+  "word": "бумага"
+ },
+ {
+  "en": "letter",
+  "word": "письмо"
+ },
+ {
+  "en": "phone",
+  "word": "телефон"
+ },
+ {
+  "en": "computer",
+  "word": "компьютер"
+ },
+ {
+  "en": "television",
+  "word": "телевизор"
+ },
+ {
+  "en": "car",
+  "word": "машина"
+ },
+ {
+  "en": "bicycle",
+  "word": "велосипед"
+ },
+ {
+  "en": "train",
+  "word": "поезд"
+ },
+ {
+  "en": "plane",
+  "word": "самолёт"
+ },
+ {
+  "en": "boat",
+  "word": "лодка"
+ },
+ {
+  "en": "road",
+  "word": "дорога"
+ },
+ {
+  "en": "city",
+  "word": "город"
+ },
+ {
+  "en": "bridge",
+  "word": "мост"
+ },
+ {
+  "en": "school",
+  "word": "школа"
+ },
+ {
+  "en": "hospital",
+  "word": "больница"
+ },
+ {
+  "en": "market",
+  "word": "рынок"
+ },
+ {
+  "en": "shop",
+  "word": "магазин"
+ },
+ {
+  "en": "shirt",
+  "word": "рубашка"
+ },
+ {
+  "en": "dress",
+  "word": "платье"
+ },
+ {
+  "en": "pants",
+  "word": "брюки"
+ },
+ {
+  "en": "shoes",
+  "word": "туфли"
+ },
+ {
+  "en": "hat",
+  "word": "шляпа"
+ },
+ {
+  "en": "coat",
+  "word": "пальто"
+ },
+ {
+  "en": "jacket",
+  "word": "куртка"
+ },
+ {
+  "en": "glove",
+  "word": "перчатка"
+ },
+ {
+  "en": "sock",
+  "word": "носок"
+ },
+ {
+  "en": "belt",
+  "word": "ремень"
+ },
+ {
+  "en": "big",
+  "word": "большой"
+ },
+ {
+  "en": "small",
+  "word": "маленький"
+ },
+ {
+  "en": "tall",
+  "word": "высокий"
+ },
+ {
+  "en": "short",
+  "word": "низкий"
+ },
+ {
+  "en": "long",
+  "word": "длинный"
+ },
+ {
+  "en": "wide",
+  "word": "широкий"
+ },
+ {
+  "en": "heavy",
+  "word": "тяжёлый"
+ },
+ {
+  "en": "light",
+  "word": "лёгкий"
+ },
+ {
+  "en": "fast",
+  "word": "быстрый"
+ },
+ {
+  "en": "slow",
+  "word": "медленный"
+ },
+ {
+  "en": "hot",
+  "word": "горячий"
+ },
+ {
+  "en": "cold",
+  "word": "холодный"
+ },
+ {
+  "en": "warm",
+  "word": "тёплый"
+ },
+ {
+  "en": "new",
+  "word": "новый"
+ },
+ {
+  "en": "old",
+  "word": "старый"
+ },
+ {
+  "en": "young",
+  "word": "молодой"
+ },
+ {
+  "en": "good",
+  "word": "хороший"
+ },
+ {
+  "en": "bad",
+  "word": "плохой"
+ },
+ {
+  "en": "beautiful",
+  "word": "красивый"
+ },
+ {
+  "en": "ugly",
+  "word": "уродливый"
+ },
+ {
+  "en": "happy",
+  "word": "счастливый"
+ },
+ {
+  "en": "sad",
+  "word": "грустный"
+ },
+ {
+  "en": "angry",
+  "word": "злой"
+ },
+ {
+  "en": "afraid",
+  "word": "испуганный"
+ },
+ {
+  "en": "tired",
+  "word": "уставший"
+ },
+ {
+  "en": "hungry",
+  "word": "голодный"
+ },
+ {
+  "en": "thirsty",
+  "word": "жаждущий"
+ },
+ {
+  "en": "rich",
+  "word": "богатый"
+ },
+ {
+  "en": "poor",
+  "word": "бедный"
+ },
+ {
+  "en": "strong",
+  "word": "сильный"
+ },
+ {
+  "en": "weak",
+  "word": "слабый"
+ },
+ {
+  "en": "clean",
+  "word": "чистый"
+ },
+ {
+  "en": "dirty",
+  "word": "грязный"
+ },
+ {
+  "en": "easy",
+  "word": "простой"
+ },
+ {
+  "en": "difficult",
+  "word": "трудный"
+ },
+ {
+  "en": "dangerous",
+  "word": "опасный"
+ },
+ {
+  "en": "safe",
+  "word": "безопасный"
+ },
+ {
+  "en": "quiet",
+  "word": "тихий"
+ },
+ {
+  "en": "loud",
+  "word": "громкий"
+ },
+ {
+  "en": "empty",
+  "word": "пустой"
+ },
+ {
+  "en": "full",
+  "word": "полный"
+ },
+ {
+  "en": "dark",
+  "word": "тёмный"
+ },
+ {
+  "en": "bright",
+  "word": "яркий"
+ },
+ {
+  "en": "be",
+  "word": "быть"
+ },
+ {
+  "en": "have",
+  "word": "иметь"
+ },
+ {
+  "en": "do",
+  "word": "делать"
+ },
+ {
+  "en": "go",
+  "word": "идти"
+ },
+ {
+  "en": "come",
+  "word": "приходить"
+ },
+ {
+  "en": "see",
+  "word": "видеть"
+ },
+ {
+  "en": "look",
+  "word": "смотреть"
+ },
+ {
+  "en": "hear",
+  "word": "слышать"
+ },
+ {
+  "en": "listen",
+  "word": "слушать"
+ },
+ {
+  "en": "speak",
+  "word": "говорить"
+ },
+ {
+  "en": "say",
+  "word": "сказать"
+ },
+ {
+  "en": "tell",
+  "word": "рассказывать"
+ },
+ {
+  "en": "ask",
+  "word": "спрашивать"
+ },
+ {
+  "en": "reply",
+  "word": "отвечать"
+ },
+ {
+  "en": "know",
+  "word": "знать"
+ },
+ {
+  "en": "think",
+  "word": "думать"
+ },
+ {
+  "en": "understand",
+  "word": "понимать"
+ },
+ {
+  "en": "learn",
+  "word": "изучать"
+ },
+ {
+  "en": "teach",
+  "word": "учить"
+ },
+ {
+  "en": "read",
+  "word": "читать"
+ },
+ {
+  "en": "write",
+  "word": "писать"
+ },
+ {
+  "en": "eat",
+  "word": "есть"
+ },
+ {
+  "en": "drink",
+  "word": "пить"
+ },
+ {
+  "en": "sleep",
+  "word": "спать"
+ },
+ {
+  "en": "walk",
+  "word": "ходить"
+ },
+ {
+  "en": "run",
+  "word": "бегать"
+ },
+ {
+  "en": "jump",
+  "word": "прыгать"
+ },
+ {
+  "en": "sit",
+  "word": "сидеть"
+ },
+ {
+  "en": "stand",
+  "word": "стоять"
+ },
+ {
+  "en": "fall",
+  "word": "падать"
+ },
+ {
+  "en": "fly",
+  "word": "летать"
+ },
+ {
+  "en": "swim",
+  "word": "плавать"
+ },
+ {
+  "en": "drive",
+  "word": "водить"
+ },
+ {
+  "en": "buy",
+  "word": "покупать"
+ },
+ {
+  "en": "sell",
+  "word": "продавать"
+ },
+ {
+  "en": "pay",
+  "word": "платить"
+ },
+ {
+  "en": "give",
+  "word": "давать"
+ },
+ {
+  "en": "take",
+  "word": "брать"
+ },
+ {
+  "en": "open",
+  "word": "открывать"
+ },
+ {
+  "en": "close",
+  "word": "закрывать"
+ },
+ {
+  "en": "start",
+  "word": "начинать"
+ },
+ {
+  "en": "finish",
+  "word": "заканчивать"
+ },
+ {
+  "en": "stop",
+  "word": "останавливать"
+ },
+ {
+  "en": "wait",
+  "word": "ждать"
+ },
+ {
+  "en": "help",
+  "word": "помогать"
+ },
+ {
+  "en": "love",
+  "word": "любить"
+ },
+ {
+  "en": "want",
+  "word": "хотеть"
+ },
+ {
+  "en": "need",
+  "word": "нуждаться"
+ },
+ {
+  "en": "like",
+  "word": "нравиться"
+ },
+ {
+  "en": "live",
+  "word": "жить"
+ },
+ {
+  "en": "die",
+  "word": "умирать"
+ },
+ {
+  "en": "work",
+  "word": "работать"
+ },
+ {
+  "en": "play",
+  "word": "играть"
+ },
+ {
+  "en": "win",
+  "word": "выигрывать"
+ },
+ {
+  "en": "lose",
+  "word": "проигрывать"
+ },
+ {
+  "en": "find",
+  "word": "находить"
+ },
+ {
+  "en": "forget",
+  "word": "забывать"
+ },
+ {
+  "en": "remember",
+  "word": "помнить"
+ },
+ {
+  "en": "laugh",
+  "word": "смеяться"
+ },
+ {
+  "en": "cry",
+  "word": "плакать"
+ },
+ {
+  "en": "sing",
+  "word": "петь"
+ },
+ {
+  "en": "dance",
+  "word": "танцевать"
+ },
+ {
+  "en": "cook",
+  "word": "готовить"
+ },
+ {
+  "en": "wash",
+  "word": "мыть"
+ },
+ {
+  "en": "break",
+  "word": "ломать"
+ },
+ {
+  "en": "build",
+  "word": "строить"
+ },
+ {
+  "en": "cut",
+  "word": "резать"
+ },
+ {
+  "en": "push",
+  "word": "толкать"
+ },
+ {
+  "en": "pull",
+  "word": "тянуть"
+ },
+ {
+  "en": "throw",
+  "word": "бросать"
+ },
+ {
+  "en": "catch",
+  "word": "ловить"
+ },
+ {
+  "en": "hold",
+  "word": "держать"
+ },
+ {
+  "en": "touch",
+  "word": "трогать"
+ },
+ {
+  "en": "smell",
+  "word": "нюхать"
+ },
+ {
+  "en": "taste",
+  "word": "пробовать"
+ },
+ {
+  "en": "time",
+  "word": "время"
+ },
+ {
+  "en": "day",
+  "word": "день"
+ },
+ {
+  "en": "night",
+  "word": "ночь"
+ },
+ {
+  "en": "morning",
+  "word": "утро"
+ },
+ {
+  "en": "evening",
+  "word": "вечер"
+ },
+ {
+  "en": "week",
+  "word": "неделя"
+ },
+ {
+  "en": "month",
+  "word": "месяц"
+ },
+ {
+  "en": "year",
+  "word": "год"
+ },
+ {
+  "en": "hour",
+  "word": "час"
+ },
+ {
+  "en": "minute",
+  "word": "минута"
+ },
+ {
+  "en": "today",
+  "word": "сегодня"
+ },
+ {
+  "en": "tomorrow",
+  "word": "завтра"
+ },
+ {
+  "en": "yesterday",
+  "word": "вчера"
+ },
+ {
+  "en": "now",
+  "word": "сейчас"
+ },
+ {
+  "en": "soon",
+  "word": "скоро"
+ },
+ {
+  "en": "spring",
+  "word": "весна"
+ },
+ {
+  "en": "summer",
+  "word": "лето"
+ },
+ {
+  "en": "autumn",
+  "word": "осень"
+ },
+ {
+  "en": "winter",
+  "word": "зима"
+ },
+ {
+  "en": "north",
+  "word": "север"
+ },
+ {
+  "en": "south",
+  "word": "юг"
+ },
+ {
+  "en": "east",
+  "word": "восток"
+ },
+ {
+  "en": "west",
+  "word": "запад"
+ },
+ {
+  "en": "left",
+  "word": "лево"
+ },
+ {
+  "en": "right",
+  "word": "право"
+ },
+ {
+  "en": "up",
+  "word": "верх"
+ },
+ {
+  "en": "down",
+  "word": "низ"
+ },
+ {
+  "en": "inside",
+  "word": "внутри"
+ },
+ {
+  "en": "outside",
+  "word": "снаружи"
+ },
+ {
+  "en": "near",
+  "word": "близко"
+ },
+ {
+  "en": "far",
+  "word": "далеко"
+ },
+ {
+  "en": "name",
+  "word": "имя"
+ },
+ {
+  "en": "word",
+  "word": "слово"
+ },
+ {
+  "en": "language",
+  "word": "язык"
+ },
+ {
+  "en": "question",
+  "word": "вопрос"
+ },
+ {
+  "en": "answer",
+  "word": "ответ"
+ },
+ {
+  "en": "problem",
+  "word": "проблема"
+ },
+ {
+  "en": "idea",
+  "word": "идея"
+ },
+ {
+  "en": "dream",
+  "word": "мечта"
+ },
+ {
+  "en": "story",
+  "word": "история"
+ },
+ {
+  "en": "music",
+  "word": "музыка"
+ },
+ {
+  "en": "picture",
+  "word": "картина"
+ },
+ {
+  "en": "number",
+  "word": "число"
+ },
+ {
+  "en": "country",
+  "word": "страна"
+ },
+ {
+  "en": "world",
+  "word": "мир"
+ },
+ {
+  "en": "war",
+  "word": "война"
+ },
+ {
+  "en": "peace",
+  "word": "мир"
+ },
+ {
+  "en": "king",
+  "word": "король"
+ },
+ {
+  "en": "queen",
+  "word": "королева"
+ },
+ {
+  "en": "teacher",
+  "word": "учитель"
+ },
+ {
+  "en": "student",
+  "word": "студент"
+ },
+ {
+  "en": "doctor",
+  "word": "врач"
+ },
+ {
+  "en": "police",
+  "word": "полиция"
+ },
+ {
+  "en": "money",
+  "word": "деньги"
+ },
+ {
+  "en": "job",
+  "word": "работа"
+ }
+]

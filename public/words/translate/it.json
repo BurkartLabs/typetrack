@@ -1,0 +1,1614 @@
+[
+ {
+  "en": "one",
+  "word": "uno"
+ },
+ {
+  "en": "two",
+  "word": "due"
+ },
+ {
+  "en": "three",
+  "word": "tre"
+ },
+ {
+  "en": "four",
+  "word": "quattro"
+ },
+ {
+  "en": "five",
+  "word": "cinque"
+ },
+ {
+  "en": "six",
+  "word": "sei"
+ },
+ {
+  "en": "seven",
+  "word": "sette"
+ },
+ {
+  "en": "eight",
+  "word": "otto"
+ },
+ {
+  "en": "nine",
+  "word": "nove"
+ },
+ {
+  "en": "ten",
+  "word": "dieci"
+ },
+ {
+  "en": "eleven",
+  "word": "undici"
+ },
+ {
+  "en": "twelve",
+  "word": "dodici"
+ },
+ {
+  "en": "thirteen",
+  "word": "tredici"
+ },
+ {
+  "en": "fourteen",
+  "word": "quattordici"
+ },
+ {
+  "en": "fifteen",
+  "word": "quindici"
+ },
+ {
+  "en": "sixteen",
+  "word": "sedici"
+ },
+ {
+  "en": "seventeen",
+  "word": "diciassette"
+ },
+ {
+  "en": "eighteen",
+  "word": "diciotto"
+ },
+ {
+  "en": "nineteen",
+  "word": "diciannove"
+ },
+ {
+  "en": "twenty",
+  "word": "venti"
+ },
+ {
+  "en": "thirty",
+  "word": "trenta"
+ },
+ {
+  "en": "forty",
+  "word": "quaranta"
+ },
+ {
+  "en": "fifty",
+  "word": "cinquanta"
+ },
+ {
+  "en": "sixty",
+  "word": "sessanta"
+ },
+ {
+  "en": "seventy",
+  "word": "settanta"
+ },
+ {
+  "en": "eighty",
+  "word": "ottanta"
+ },
+ {
+  "en": "ninety",
+  "word": "novanta"
+ },
+ {
+  "en": "hundred",
+  "word": "cento"
+ },
+ {
+  "en": "thousand",
+  "word": "mille"
+ },
+ {
+  "en": "red",
+  "word": "rosso"
+ },
+ {
+  "en": "orange",
+  "word": "arancione"
+ },
+ {
+  "en": "yellow",
+  "word": "giallo"
+ },
+ {
+  "en": "green",
+  "word": "verde"
+ },
+ {
+  "en": "blue",
+  "word": "blu"
+ },
+ {
+  "en": "purple",
+  "word": "viola"
+ },
+ {
+  "en": "pink",
+  "word": "rosa"
+ },
+ {
+  "en": "brown",
+  "word": "marrone"
+ },
+ {
+  "en": "black",
+  "word": "nero"
+ },
+ {
+  "en": "white",
+  "word": "bianco"
+ },
+ {
+  "en": "gray",
+  "word": "grigio"
+ },
+ {
+  "en": "gold",
+  "word": "dorato"
+ },
+ {
+  "en": "monday",
+  "word": "lunedì"
+ },
+ {
+  "en": "tuesday",
+  "word": "martedì"
+ },
+ {
+  "en": "wednesday",
+  "word": "mercoledì"
+ },
+ {
+  "en": "thursday",
+  "word": "giovedì"
+ },
+ {
+  "en": "friday",
+  "word": "venerdì"
+ },
+ {
+  "en": "saturday",
+  "word": "sabato"
+ },
+ {
+  "en": "sunday",
+  "word": "domenica"
+ },
+ {
+  "en": "january",
+  "word": "gennaio"
+ },
+ {
+  "en": "february",
+  "word": "febbraio"
+ },
+ {
+  "en": "march",
+  "word": "marzo"
+ },
+ {
+  "en": "april",
+  "word": "aprile"
+ },
+ {
+  "en": "may",
+  "word": "maggio"
+ },
+ {
+  "en": "june",
+  "word": "giugno"
+ },
+ {
+  "en": "july",
+  "word": "luglio"
+ },
+ {
+  "en": "august",
+  "word": "agosto"
+ },
+ {
+  "en": "september",
+  "word": "settembre"
+ },
+ {
+  "en": "october",
+  "word": "ottobre"
+ },
+ {
+  "en": "november",
+  "word": "novembre"
+ },
+ {
+  "en": "december",
+  "word": "dicembre"
+ },
+ {
+  "en": "mother",
+  "word": "madre"
+ },
+ {
+  "en": "father",
+  "word": "padre"
+ },
+ {
+  "en": "sister",
+  "word": "sorella"
+ },
+ {
+  "en": "brother",
+  "word": "fratello"
+ },
+ {
+  "en": "son",
+  "word": "figlio"
+ },
+ {
+  "en": "daughter",
+  "word": "figlia"
+ },
+ {
+  "en": "grandmother",
+  "word": "nonna"
+ },
+ {
+  "en": "grandfather",
+  "word": "nonno"
+ },
+ {
+  "en": "aunt",
+  "word": "zia"
+ },
+ {
+  "en": "uncle",
+  "word": "zio"
+ },
+ {
+  "en": "cousin",
+  "word": "cugino"
+ },
+ {
+  "en": "husband",
+  "word": "marito"
+ },
+ {
+  "en": "wife",
+  "word": "moglie"
+ },
+ {
+  "en": "baby",
+  "word": "neonato"
+ },
+ {
+  "en": "child",
+  "word": "bambino"
+ },
+ {
+  "en": "friend",
+  "word": "amico"
+ },
+ {
+  "en": "family",
+  "word": "famiglia"
+ },
+ {
+  "en": "parent",
+  "word": "genitore"
+ },
+ {
+  "en": "man",
+  "word": "uomo"
+ },
+ {
+  "en": "woman",
+  "word": "donna"
+ },
+ {
+  "en": "head",
+  "word": "testa"
+ },
+ {
+  "en": "hair",
+  "word": "capelli"
+ },
+ {
+  "en": "eye",
+  "word": "occhio"
+ },
+ {
+  "en": "ear",
+  "word": "orecchio"
+ },
+ {
+  "en": "nose",
+  "word": "naso"
+ },
+ {
+  "en": "mouth",
+  "word": "bocca"
+ },
+ {
+  "en": "tooth",
+  "word": "dente"
+ },
+ {
+  "en": "tongue",
+  "word": "lingua"
+ },
+ {
+  "en": "neck",
+  "word": "collo"
+ },
+ {
+  "en": "shoulder",
+  "word": "spalla"
+ },
+ {
+  "en": "arm",
+  "word": "braccio"
+ },
+ {
+  "en": "hand",
+  "word": "mano"
+ },
+ {
+  "en": "finger",
+  "word": "dito"
+ },
+ {
+  "en": "chest",
+  "word": "petto"
+ },
+ {
+  "en": "back",
+  "word": "schiena"
+ },
+ {
+  "en": "stomach",
+  "word": "stomaco"
+ },
+ {
+  "en": "leg",
+  "word": "gamba"
+ },
+ {
+  "en": "knee",
+  "word": "ginocchio"
+ },
+ {
+  "en": "foot",
+  "word": "piede"
+ },
+ {
+  "en": "heart",
+  "word": "cuore"
+ },
+ {
+  "en": "brain",
+  "word": "cervello"
+ },
+ {
+  "en": "skin",
+  "word": "pelle"
+ },
+ {
+  "en": "blood",
+  "word": "sangue"
+ },
+ {
+  "en": "dog",
+  "word": "cane"
+ },
+ {
+  "en": "cat",
+  "word": "gatto"
+ },
+ {
+  "en": "bird",
+  "word": "uccello"
+ },
+ {
+  "en": "fish",
+  "word": "pesce"
+ },
+ {
+  "en": "horse",
+  "word": "cavallo"
+ },
+ {
+  "en": "cow",
+  "word": "mucca"
+ },
+ {
+  "en": "pig",
+  "word": "maiale"
+ },
+ {
+  "en": "sheep",
+  "word": "pecora"
+ },
+ {
+  "en": "goat",
+  "word": "capra"
+ },
+ {
+  "en": "chicken",
+  "word": "pollo"
+ },
+ {
+  "en": "duck",
+  "word": "anatra"
+ },
+ {
+  "en": "mouse",
+  "word": "topo"
+ },
+ {
+  "en": "rabbit",
+  "word": "coniglio"
+ },
+ {
+  "en": "lion",
+  "word": "leone"
+ },
+ {
+  "en": "tiger",
+  "word": "tigre"
+ },
+ {
+  "en": "bear",
+  "word": "orso"
+ },
+ {
+  "en": "wolf",
+  "word": "lupo"
+ },
+ {
+  "en": "fox",
+  "word": "volpe"
+ },
+ {
+  "en": "deer",
+  "word": "cervo"
+ },
+ {
+  "en": "monkey",
+  "word": "scimmia"
+ },
+ {
+  "en": "elephant",
+  "word": "elefante"
+ },
+ {
+  "en": "snake",
+  "word": "serpente"
+ },
+ {
+  "en": "frog",
+  "word": "rana"
+ },
+ {
+  "en": "bee",
+  "word": "ape"
+ },
+ {
+  "en": "butterfly",
+  "word": "farfalla"
+ },
+ {
+  "en": "sun",
+  "word": "sole"
+ },
+ {
+  "en": "moon",
+  "word": "luna"
+ },
+ {
+  "en": "star",
+  "word": "stella"
+ },
+ {
+  "en": "sky",
+  "word": "cielo"
+ },
+ {
+  "en": "cloud",
+  "word": "nuvola"
+ },
+ {
+  "en": "rain",
+  "word": "pioggia"
+ },
+ {
+  "en": "snow",
+  "word": "neve"
+ },
+ {
+  "en": "wind",
+  "word": "vento"
+ },
+ {
+  "en": "storm",
+  "word": "tempesta"
+ },
+ {
+  "en": "fire",
+  "word": "fuoco"
+ },
+ {
+  "en": "water",
+  "word": "acqua"
+ },
+ {
+  "en": "earth",
+  "word": "terra"
+ },
+ {
+  "en": "mountain",
+  "word": "montagna"
+ },
+ {
+  "en": "river",
+  "word": "fiume"
+ },
+ {
+  "en": "lake",
+  "word": "lago"
+ },
+ {
+  "en": "sea",
+  "word": "mare"
+ },
+ {
+  "en": "ocean",
+  "word": "oceano"
+ },
+ {
+  "en": "forest",
+  "word": "foresta"
+ },
+ {
+  "en": "tree",
+  "word": "albero"
+ },
+ {
+  "en": "flower",
+  "word": "fiore"
+ },
+ {
+  "en": "grass",
+  "word": "erba"
+ },
+ {
+  "en": "leaf",
+  "word": "foglia"
+ },
+ {
+  "en": "stone",
+  "word": "pietra"
+ },
+ {
+  "en": "sand",
+  "word": "sabbia"
+ },
+ {
+  "en": "island",
+  "word": "isola"
+ },
+ {
+  "en": "beach",
+  "word": "spiaggia"
+ },
+ {
+  "en": "valley",
+  "word": "valle"
+ },
+ {
+  "en": "desert",
+  "word": "deserto"
+ },
+ {
+  "en": "bread",
+  "word": "pane"
+ },
+ {
+  "en": "butter",
+  "word": "burro"
+ },
+ {
+  "en": "cheese",
+  "word": "formaggio"
+ },
+ {
+  "en": "milk",
+  "word": "latte"
+ },
+ {
+  "en": "egg",
+  "word": "uovo"
+ },
+ {
+  "en": "meat",
+  "word": "carne"
+ },
+ {
+  "en": "rice",
+  "word": "riso"
+ },
+ {
+  "en": "salt",
+  "word": "sale"
+ },
+ {
+  "en": "sugar",
+  "word": "zucchero"
+ },
+ {
+  "en": "pepper",
+  "word": "pepe"
+ },
+ {
+  "en": "apple",
+  "word": "mela"
+ },
+ {
+  "en": "banana",
+  "word": "banana"
+ },
+ {
+  "en": "grape",
+  "word": "uva"
+ },
+ {
+  "en": "lemon",
+  "word": "limone"
+ },
+ {
+  "en": "potato",
+  "word": "patata"
+ },
+ {
+  "en": "tomato",
+  "word": "pomodoro"
+ },
+ {
+  "en": "onion",
+  "word": "cipolla"
+ },
+ {
+  "en": "carrot",
+  "word": "carota"
+ },
+ {
+  "en": "soup",
+  "word": "zuppa"
+ },
+ {
+  "en": "cake",
+  "word": "torta"
+ },
+ {
+  "en": "coffee",
+  "word": "caffè"
+ },
+ {
+  "en": "tea",
+  "word": "tè"
+ },
+ {
+  "en": "wine",
+  "word": "vino"
+ },
+ {
+  "en": "beer",
+  "word": "birra"
+ },
+ {
+  "en": "juice",
+  "word": "succo"
+ },
+ {
+  "en": "honey",
+  "word": "miele"
+ },
+ {
+  "en": "chocolate",
+  "word": "cioccolato"
+ },
+ {
+  "en": "fruit",
+  "word": "frutta"
+ },
+ {
+  "en": "vegetable",
+  "word": "verdura"
+ },
+ {
+  "en": "house",
+  "word": "casa"
+ },
+ {
+  "en": "door",
+  "word": "porta"
+ },
+ {
+  "en": "window",
+  "word": "finestra"
+ },
+ {
+  "en": "wall",
+  "word": "muro"
+ },
+ {
+  "en": "roof",
+  "word": "tetto"
+ },
+ {
+  "en": "floor",
+  "word": "pavimento"
+ },
+ {
+  "en": "table",
+  "word": "tavolo"
+ },
+ {
+  "en": "chair",
+  "word": "sedia"
+ },
+ {
+  "en": "bed",
+  "word": "letto"
+ },
+ {
+  "en": "kitchen",
+  "word": "cucina"
+ },
+ {
+  "en": "bathroom",
+  "word": "bagno"
+ },
+ {
+  "en": "garden",
+  "word": "giardino"
+ },
+ {
+  "en": "key",
+  "word": "chiave"
+ },
+ {
+  "en": "mirror",
+  "word": "specchio"
+ },
+ {
+  "en": "lamp",
+  "word": "lampada"
+ },
+ {
+  "en": "clock",
+  "word": "orologio"
+ },
+ {
+  "en": "book",
+  "word": "libro"
+ },
+ {
+  "en": "pen",
+  "word": "penna"
+ },
+ {
+  "en": "paper",
+  "word": "carta"
+ },
+ {
+  "en": "letter",
+  "word": "lettera"
+ },
+ {
+  "en": "phone",
+  "word": "telefono"
+ },
+ {
+  "en": "computer",
+  "word": "computer"
+ },
+ {
+  "en": "television",
+  "word": "televisione"
+ },
+ {
+  "en": "car",
+  "word": "auto"
+ },
+ {
+  "en": "bicycle",
+  "word": "bicicletta"
+ },
+ {
+  "en": "train",
+  "word": "treno"
+ },
+ {
+  "en": "plane",
+  "word": "aereo"
+ },
+ {
+  "en": "boat",
+  "word": "barca"
+ },
+ {
+  "en": "road",
+  "word": "strada"
+ },
+ {
+  "en": "city",
+  "word": "città"
+ },
+ {
+  "en": "bridge",
+  "word": "ponte"
+ },
+ {
+  "en": "school",
+  "word": "scuola"
+ },
+ {
+  "en": "hospital",
+  "word": "ospedale"
+ },
+ {
+  "en": "market",
+  "word": "mercato"
+ },
+ {
+  "en": "shop",
+  "word": "negozio"
+ },
+ {
+  "en": "shirt",
+  "word": "camicia"
+ },
+ {
+  "en": "dress",
+  "word": "vestito"
+ },
+ {
+  "en": "pants",
+  "word": "pantaloni"
+ },
+ {
+  "en": "shoes",
+  "word": "scarpe"
+ },
+ {
+  "en": "hat",
+  "word": "cappello"
+ },
+ {
+  "en": "coat",
+  "word": "cappotto"
+ },
+ {
+  "en": "jacket",
+  "word": "giacca"
+ },
+ {
+  "en": "glove",
+  "word": "guanto"
+ },
+ {
+  "en": "sock",
+  "word": "calzino"
+ },
+ {
+  "en": "belt",
+  "word": "cintura"
+ },
+ {
+  "en": "big",
+  "word": "grande"
+ },
+ {
+  "en": "small",
+  "word": "piccolo"
+ },
+ {
+  "en": "tall",
+  "word": "alto"
+ },
+ {
+  "en": "short",
+  "word": "basso"
+ },
+ {
+  "en": "long",
+  "word": "lungo"
+ },
+ {
+  "en": "wide",
+  "word": "largo"
+ },
+ {
+  "en": "heavy",
+  "word": "pesante"
+ },
+ {
+  "en": "light",
+  "word": "leggero"
+ },
+ {
+  "en": "fast",
+  "word": "veloce"
+ },
+ {
+  "en": "slow",
+  "word": "lento"
+ },
+ {
+  "en": "hot",
+  "word": "caldo"
+ },
+ {
+  "en": "cold",
+  "word": "freddo"
+ },
+ {
+  "en": "warm",
+  "word": "tiepido"
+ },
+ {
+  "en": "new",
+  "word": "nuovo"
+ },
+ {
+  "en": "old",
+  "word": "vecchio"
+ },
+ {
+  "en": "young",
+  "word": "giovane"
+ },
+ {
+  "en": "good",
+  "word": "buono"
+ },
+ {
+  "en": "bad",
+  "word": "cattivo"
+ },
+ {
+  "en": "beautiful",
+  "word": "bello"
+ },
+ {
+  "en": "ugly",
+  "word": "brutto"
+ },
+ {
+  "en": "happy",
+  "word": "felice"
+ },
+ {
+  "en": "sad",
+  "word": "triste"
+ },
+ {
+  "en": "angry",
+  "word": "arrabbiato"
+ },
+ {
+  "en": "afraid",
+  "word": "spaventato"
+ },
+ {
+  "en": "tired",
+  "word": "stanco"
+ },
+ {
+  "en": "hungry",
+  "word": "affamato"
+ },
+ {
+  "en": "thirsty",
+  "word": "assetato"
+ },
+ {
+  "en": "rich",
+  "word": "ricco"
+ },
+ {
+  "en": "poor",
+  "word": "povero"
+ },
+ {
+  "en": "strong",
+  "word": "forte"
+ },
+ {
+  "en": "weak",
+  "word": "debole"
+ },
+ {
+  "en": "clean",
+  "word": "pulito"
+ },
+ {
+  "en": "dirty",
+  "word": "sporco"
+ },
+ {
+  "en": "easy",
+  "word": "facile"
+ },
+ {
+  "en": "difficult",
+  "word": "difficile"
+ },
+ {
+  "en": "dangerous",
+  "word": "pericoloso"
+ },
+ {
+  "en": "safe",
+  "word": "sicuro"
+ },
+ {
+  "en": "quiet",
+  "word": "tranquillo"
+ },
+ {
+  "en": "loud",
+  "word": "rumoroso"
+ },
+ {
+  "en": "empty",
+  "word": "vuoto"
+ },
+ {
+  "en": "full",
+  "word": "pieno"
+ },
+ {
+  "en": "dark",
+  "word": "scuro"
+ },
+ {
+  "en": "bright",
+  "word": "luminoso"
+ },
+ {
+  "en": "be",
+  "word": "essere"
+ },
+ {
+  "en": "have",
+  "word": "avere"
+ },
+ {
+  "en": "do",
+  "word": "fare"
+ },
+ {
+  "en": "go",
+  "word": "andare"
+ },
+ {
+  "en": "come",
+  "word": "venire"
+ },
+ {
+  "en": "see",
+  "word": "vedere"
+ },
+ {
+  "en": "look",
+  "word": "guardare"
+ },
+ {
+  "en": "hear",
+  "word": "sentire"
+ },
+ {
+  "en": "listen",
+  "word": "ascoltare"
+ },
+ {
+  "en": "speak",
+  "word": "parlare"
+ },
+ {
+  "en": "say",
+  "word": "dire"
+ },
+ {
+  "en": "tell",
+  "word": "raccontare"
+ },
+ {
+  "en": "ask",
+  "word": "chiedere"
+ },
+ {
+  "en": "reply",
+  "word": "rispondere"
+ },
+ {
+  "en": "know",
+  "word": "sapere"
+ },
+ {
+  "en": "think",
+  "word": "pensare"
+ },
+ {
+  "en": "understand",
+  "word": "capire"
+ },
+ {
+  "en": "learn",
+  "word": "imparare"
+ },
+ {
+  "en": "teach",
+  "word": "insegnare"
+ },
+ {
+  "en": "read",
+  "word": "leggere"
+ },
+ {
+  "en": "write",
+  "word": "scrivere"
+ },
+ {
+  "en": "eat",
+  "word": "mangiare"
+ },
+ {
+  "en": "drink",
+  "word": "bere"
+ },
+ {
+  "en": "sleep",
+  "word": "dormire"
+ },
+ {
+  "en": "walk",
+  "word": "camminare"
+ },
+ {
+  "en": "run",
+  "word": "correre"
+ },
+ {
+  "en": "jump",
+  "word": "saltare"
+ },
+ {
+  "en": "sit",
+  "word": "sedersi"
+ },
+ {
+  "en": "stand",
+  "word": "alzarsi"
+ },
+ {
+  "en": "fall",
+  "word": "cadere"
+ },
+ {
+  "en": "fly",
+  "word": "volare"
+ },
+ {
+  "en": "swim",
+  "word": "nuotare"
+ },
+ {
+  "en": "drive",
+  "word": "guidare"
+ },
+ {
+  "en": "buy",
+  "word": "comprare"
+ },
+ {
+  "en": "sell",
+  "word": "vendere"
+ },
+ {
+  "en": "pay",
+  "word": "pagare"
+ },
+ {
+  "en": "give",
+  "word": "dare"
+ },
+ {
+  "en": "take",
+  "word": "prendere"
+ },
+ {
+  "en": "open",
+  "word": "aprire"
+ },
+ {
+  "en": "close",
+  "word": "chiudere"
+ },
+ {
+  "en": "start",
+  "word": "cominciare"
+ },
+ {
+  "en": "finish",
+  "word": "finire"
+ },
+ {
+  "en": "stop",
+  "word": "fermare"
+ },
+ {
+  "en": "wait",
+  "word": "aspettare"
+ },
+ {
+  "en": "help",
+  "word": "aiutare"
+ },
+ {
+  "en": "love",
+  "word": "amare"
+ },
+ {
+  "en": "want",
+  "word": "volere"
+ },
+ {
+  "en": "need",
+  "word": "necessitare"
+ },
+ {
+  "en": "like",
+  "word": "piacere"
+ },
+ {
+  "en": "live",
+  "word": "vivere"
+ },
+ {
+  "en": "die",
+  "word": "morire"
+ },
+ {
+  "en": "work",
+  "word": "lavorare"
+ },
+ {
+  "en": "play",
+  "word": "giocare"
+ },
+ {
+  "en": "win",
+  "word": "vincere"
+ },
+ {
+  "en": "lose",
+  "word": "perdere"
+ },
+ {
+  "en": "find",
+  "word": "trovare"
+ },
+ {
+  "en": "forget",
+  "word": "dimenticare"
+ },
+ {
+  "en": "remember",
+  "word": "ricordare"
+ },
+ {
+  "en": "laugh",
+  "word": "ridere"
+ },
+ {
+  "en": "cry",
+  "word": "piangere"
+ },
+ {
+  "en": "sing",
+  "word": "cantare"
+ },
+ {
+  "en": "dance",
+  "word": "ballare"
+ },
+ {
+  "en": "cook",
+  "word": "cucinare"
+ },
+ {
+  "en": "wash",
+  "word": "lavare"
+ },
+ {
+  "en": "break",
+  "word": "rompere"
+ },
+ {
+  "en": "build",
+  "word": "costruire"
+ },
+ {
+  "en": "cut",
+  "word": "tagliare"
+ },
+ {
+  "en": "push",
+  "word": "spingere"
+ },
+ {
+  "en": "pull",
+  "word": "tirare"
+ },
+ {
+  "en": "throw",
+  "word": "lanciare"
+ },
+ {
+  "en": "catch",
+  "word": "afferrare"
+ },
+ {
+  "en": "hold",
+  "word": "tenere"
+ },
+ {
+  "en": "touch",
+  "word": "toccare"
+ },
+ {
+  "en": "smell",
+  "word": "odorare"
+ },
+ {
+  "en": "taste",
+  "word": "assaggiare"
+ },
+ {
+  "en": "time",
+  "word": "tempo"
+ },
+ {
+  "en": "day",
+  "word": "giorno"
+ },
+ {
+  "en": "night",
+  "word": "notte"
+ },
+ {
+  "en": "morning",
+  "word": "mattina"
+ },
+ {
+  "en": "evening",
+  "word": "sera"
+ },
+ {
+  "en": "week",
+  "word": "settimana"
+ },
+ {
+  "en": "month",
+  "word": "mese"
+ },
+ {
+  "en": "year",
+  "word": "anno"
+ },
+ {
+  "en": "hour",
+  "word": "ora"
+ },
+ {
+  "en": "minute",
+  "word": "minuto"
+ },
+ {
+  "en": "today",
+  "word": "oggi"
+ },
+ {
+  "en": "tomorrow",
+  "word": "domani"
+ },
+ {
+  "en": "yesterday",
+  "word": "ieri"
+ },
+ {
+  "en": "now",
+  "word": "adesso"
+ },
+ {
+  "en": "soon",
+  "word": "presto"
+ },
+ {
+  "en": "spring",
+  "word": "primavera"
+ },
+ {
+  "en": "summer",
+  "word": "estate"
+ },
+ {
+  "en": "autumn",
+  "word": "autunno"
+ },
+ {
+  "en": "winter",
+  "word": "inverno"
+ },
+ {
+  "en": "north",
+  "word": "nord"
+ },
+ {
+  "en": "south",
+  "word": "sud"
+ },
+ {
+  "en": "east",
+  "word": "est"
+ },
+ {
+  "en": "west",
+  "word": "ovest"
+ },
+ {
+  "en": "left",
+  "word": "sinistra"
+ },
+ {
+  "en": "right",
+  "word": "destra"
+ },
+ {
+  "en": "up",
+  "word": "sopra"
+ },
+ {
+  "en": "down",
+  "word": "sotto"
+ },
+ {
+  "en": "inside",
+  "word": "dentro"
+ },
+ {
+  "en": "outside",
+  "word": "fuori"
+ },
+ {
+  "en": "near",
+  "word": "vicino"
+ },
+ {
+  "en": "far",
+  "word": "lontano"
+ },
+ {
+  "en": "name",
+  "word": "nome"
+ },
+ {
+  "en": "word",
+  "word": "parola"
+ },
+ {
+  "en": "language",
+  "word": "lingua"
+ },
+ {
+  "en": "question",
+  "word": "domanda"
+ },
+ {
+  "en": "answer",
+  "word": "risposta"
+ },
+ {
+  "en": "problem",
+  "word": "problema"
+ },
+ {
+  "en": "idea",
+  "word": "idea"
+ },
+ {
+  "en": "dream",
+  "word": "sogno"
+ },
+ {
+  "en": "story",
+  "word": "storia"
+ },
+ {
+  "en": "music",
+  "word": "musica"
+ },
+ {
+  "en": "picture",
+  "word": "immagine"
+ },
+ {
+  "en": "number",
+  "word": "numero"
+ },
+ {
+  "en": "country",
+  "word": "paese"
+ },
+ {
+  "en": "world",
+  "word": "mondo"
+ },
+ {
+  "en": "war",
+  "word": "guerra"
+ },
+ {
+  "en": "peace",
+  "word": "pace"
+ },
+ {
+  "en": "king",
+  "word": "re"
+ },
+ {
+  "en": "queen",
+  "word": "regina"
+ },
+ {
+  "en": "teacher",
+  "word": "insegnante"
+ },
+ {
+  "en": "student",
+  "word": "studente"
+ },
+ {
+  "en": "doctor",
+  "word": "medico"
+ },
+ {
+  "en": "police",
+  "word": "polizia"
+ },
+ {
+  "en": "money",
+  "word": "soldi"
+ },
+ {
+  "en": "job",
+  "word": "lavoro"
+ }
+]
