@@ -1,0 +1,1602 @@
+[
+{
+"en": "the",
+"word": "το"
+},
+{
+"en": "and",
+"word": "και"
+},
+{
+"en": "to",
+"word": "να"
+},
+{
+"en": "of",
+"word": "του"
+},
+{
+"en": "in",
+"word": "σε"
+},
+{
+"en": "is",
+"word": "είναι"
+},
+{
+"en": "i",
+"word": "εγώ"
+},
+{
+"en": "you",
+"word": "εσύ"
+},
+{
+"en": "he",
+"word": "αυτός"
+},
+{
+"en": "she",
+"word": "αυτή"
+},
+{
+"en": "we",
+"word": "εμείς"
+},
+{
+"en": "they",
+"word": "αυτοί"
+},
+{
+"en": "this",
+"word": "αυτό"
+},
+{
+"en": "that",
+"word": "εκείνο"
+},
+{
+"en": "what",
+"word": "τι"
+},
+{
+"en": "who",
+"word": "ποιος"
+},
+{
+"en": "where",
+"word": "πού"
+},
+{
+"en": "when",
+"word": "πότε"
+},
+{
+"en": "why",
+"word": "γιατί"
+},
+{
+"en": "how",
+"word": "πώς"
+},
+{
+"en": "yes",
+"word": "ναι"
+},
+{
+"en": "no",
+"word": "όχι"
+},
+{
+"en": "not",
+"word": "δεν"
+},
+{
+"en": "all",
+"word": "όλα"
+},
+{
+"en": "one",
+"word": "ένα"
+},
+{
+"en": "two",
+"word": "δύο"
+},
+{
+"en": "three",
+"word": "τρία"
+},
+{
+"en": "four",
+"word": "τέσσερα"
+},
+{
+"en": "five",
+"word": "πέντε"
+},
+{
+"en": "six",
+"word": "έξι"
+},
+{
+"en": "seven",
+"word": "επτά"
+},
+{
+"en": "eight",
+"word": "οκτώ"
+},
+{
+"en": "nine",
+"word": "εννέα"
+},
+{
+"en": "ten",
+"word": "δέκα"
+},
+{
+"en": "hundred",
+"word": "εκατό"
+},
+{
+"en": "thousand",
+"word": "χίλια"
+},
+{
+"en": "first",
+"word": "πρώτος"
+},
+{
+"en": "last",
+"word": "τελευταίος"
+},
+{
+"en": "man",
+"word": "άντρας"
+},
+{
+"en": "woman",
+"word": "γυναίκα"
+},
+{
+"en": "child",
+"word": "παιδί"
+},
+{
+"en": "father",
+"word": "πατέρας"
+},
+{
+"en": "mother",
+"word": "μητέρα"
+},
+{
+"en": "son",
+"word": "γιος"
+},
+{
+"en": "daughter",
+"word": "κόρη"
+},
+{
+"en": "brother",
+"word": "αδελφός"
+},
+{
+"en": "sister",
+"word": "αδελφή"
+},
+{
+"en": "friend",
+"word": "φίλος"
+},
+{
+"en": "house",
+"word": "σπίτι"
+},
+{
+"en": "street",
+"word": "δρόμος"
+},
+{
+"en": "city",
+"word": "πόλη"
+},
+{
+"en": "country",
+"word": "χώρα"
+},
+{
+"en": "world",
+"word": "κόσμος"
+},
+{
+"en": "life",
+"word": "ζωή"
+},
+{
+"en": "time",
+"word": "χρόνος"
+},
+{
+"en": "day",
+"word": "μέρα"
+},
+{
+"en": "night",
+"word": "νύχτα"
+},
+{
+"en": "hour",
+"word": "ώρα"
+},
+{
+"en": "water",
+"word": "νερό"
+},
+{
+"en": "fire",
+"word": "φωτιά"
+},
+{
+"en": "earth",
+"word": "γη"
+},
+{
+"en": "sky",
+"word": "ουρανός"
+},
+{
+"en": "sun",
+"word": "ήλιος"
+},
+{
+"en": "moon",
+"word": "φεγγάρι"
+},
+{
+"en": "star",
+"word": "αστέρι"
+},
+{
+"en": "sea",
+"word": "θάλασσα"
+},
+{
+"en": "mountain",
+"word": "βουνό"
+},
+{
+"en": "tree",
+"word": "δέντρο"
+},
+{
+"en": "flower",
+"word": "λουλούδι"
+},
+{
+"en": "animal",
+"word": "ζώο"
+},
+{
+"en": "dog",
+"word": "σκύλος"
+},
+{
+"en": "cat",
+"word": "γάτα"
+},
+{
+"en": "bird",
+"word": "πουλί"
+},
+{
+"en": "fish",
+"word": "ψάρι"
+},
+{
+"en": "food",
+"word": "φαγητό"
+},
+{
+"en": "bread",
+"word": "ψωμί"
+},
+{
+"en": "meat",
+"word": "κρέας"
+},
+{
+"en": "milk",
+"word": "γάλα"
+},
+{
+"en": "egg",
+"word": "αυγό"
+},
+{
+"en": "fruit",
+"word": "φρούτο"
+},
+{
+"en": "vegetable",
+"word": "λαχανικό"
+},
+{
+"en": "table",
+"word": "τραπέζι"
+},
+{
+"en": "chair",
+"word": "καρέκλα"
+},
+{
+"en": "door",
+"word": "πόρτα"
+},
+{
+"en": "window",
+"word": "παράθυρο"
+},
+{
+"en": "room",
+"word": "δωμάτιο"
+},
+{
+"en": "bed",
+"word": "κρεβάτι"
+},
+{
+"en": "book",
+"word": "βιβλίο"
+},
+{
+"en": "paper",
+"word": "χαρτί"
+},
+{
+"en": "pen",
+"word": "στυλό"
+},
+{
+"en": "phone",
+"word": "τηλέφωνο"
+},
+{
+"en": "car",
+"word": "αυτοκίνητο"
+},
+{
+"en": "war",
+"word": "πόλεμος"
+},
+{
+"en": "peace",
+"word": "ειρήνη"
+},
+{
+"en": "love",
+"word": "αγάπη"
+},
+{
+"en": "joy",
+"word": "χαρά"
+},
+{
+"en": "sadness",
+"word": "λύπη"
+},
+{
+"en": "anger",
+"word": "θυμός"
+},
+{
+"en": "fear",
+"word": "φόβος"
+},
+{
+"en": "hope",
+"word": "ελπίδα"
+},
+{
+"en": "dream",
+"word": "όνειρο"
+},
+{
+"en": "idea",
+"word": "ιδέα"
+},
+{
+"en": "problem",
+"word": "πρόβλημα"
+},
+{
+"en": "solution",
+"word": "λύση"
+},
+{
+"en": "question",
+"word": "ερώτηση"
+},
+{
+"en": "answer",
+"word": "απάντηση"
+},
+{
+"en": "work",
+"word": "δουλειά"
+},
+{
+"en": "school",
+"word": "σχολείο"
+},
+{
+"en": "teacher",
+"word": "δάσκαλος"
+},
+{
+"en": "student",
+"word": "μαθητής"
+},
+{
+"en": "language",
+"word": "γλώσσα"
+},
+{
+"en": "word",
+"word": "λέξη"
+},
+{
+"en": "voice",
+"word": "φωνή"
+},
+{
+"en": "music",
+"word": "μουσική"
+},
+{
+"en": "song",
+"word": "τραγούδι"
+},
+{
+"en": "dance",
+"word": "χορός"
+},
+{
+"en": "game",
+"word": "παιχνίδι"
+},
+{
+"en": "money",
+"word": "χρήμα"
+},
+{
+"en": "law",
+"word": "νόμος"
+},
+{
+"en": "freedom",
+"word": "ελευθερία"
+},
+{
+"en": "power",
+"word": "δύναμη"
+},
+{
+"en": "god",
+"word": "θεός"
+},
+{
+"en": "soul",
+"word": "ψυχή"
+},
+{
+"en": "body",
+"word": "σώμα"
+},
+{
+"en": "head",
+"word": "κεφάλι"
+},
+{
+"en": "eye",
+"word": "μάτι"
+},
+{
+"en": "ear",
+"word": "αυτί"
+},
+{
+"en": "nose",
+"word": "μύτη"
+},
+{
+"en": "mouth",
+"word": "στόμα"
+},
+{
+"en": "hand",
+"word": "χέρι"
+},
+{
+"en": "foot",
+"word": "πόδι"
+},
+{
+"en": "heart",
+"word": "καρδιά"
+},
+{
+"en": "blood",
+"word": "αίμα"
+},
+{
+"en": "bone",
+"word": "οστό"
+},
+{
+"en": "skin",
+"word": "δέρμα"
+},
+{
+"en": "tooth",
+"word": "δόντι"
+},
+{
+"en": "morning",
+"word": "πρωί"
+},
+{
+"en": "noon",
+"word": "μεσημέρι"
+},
+{
+"en": "evening",
+"word": "βράδυ"
+},
+{
+"en": "week",
+"word": "εβδομάδα"
+},
+{
+"en": "month",
+"word": "μήνας"
+},
+{
+"en": "spring",
+"word": "άνοιξη"
+},
+{
+"en": "summer",
+"word": "καλοκαίρι"
+},
+{
+"en": "autumn",
+"word": "φθινόπωρο"
+},
+{
+"en": "winter",
+"word": "χειμώνας"
+},
+{
+"en": "rain",
+"word": "βροχή"
+},
+{
+"en": "snow",
+"word": "χιόνι"
+},
+{
+"en": "wind",
+"word": "άνεμος"
+},
+{
+"en": "cold",
+"word": "κρύο"
+},
+{
+"en": "heat",
+"word": "ζέστη"
+},
+{
+"en": "cloud",
+"word": "σύννεφο"
+},
+{
+"en": "forest",
+"word": "δάσος"
+},
+{
+"en": "field",
+"word": "χωράφι"
+},
+{
+"en": "lake",
+"word": "λίμνη"
+},
+{
+"en": "river",
+"word": "ποτάμι"
+},
+{
+"en": "island",
+"word": "νησί"
+},
+{
+"en": "coast",
+"word": "ακτή"
+},
+{
+"en": "sand",
+"word": "άμμο"
+},
+{
+"en": "stone",
+"word": "πέτρα"
+},
+{
+"en": "rock",
+"word": "βράχος"
+},
+{
+"en": "soil",
+"word": "χώμα"
+},
+{
+"en": "wood",
+"word": "ξύλο"
+},
+{
+"en": "glass",
+"word": "γυαλί"
+},
+{
+"en": "gold",
+"word": "χρυσός"
+},
+{
+"en": "silver",
+"word": "ασήμι"
+},
+{
+"en": "iron",
+"word": "σίδερος"
+},
+{
+"en": "bridge",
+"word": "γέφυρα"
+},
+{
+"en": "building",
+"word": "κτίριο"
+},
+{
+"en": "church",
+"word": "εκκλησία"
+},
+{
+"en": "museum",
+"word": "μουσείο"
+},
+{
+"en": "library",
+"word": "βιβλιοθήκη"
+},
+{
+"en": "hospital",
+"word": "νοσοκομείο"
+},
+{
+"en": "market",
+"word": "αγορά"
+},
+{
+"en": "shop",
+"word": "κατάστημα"
+},
+{
+"en": "restaurant",
+"word": "εστιατόριο"
+},
+{
+"en": "hotel",
+"word": "ξενοδοχείο"
+},
+{
+"en": "station",
+"word": "σταθμός"
+},
+{
+"en": "airport",
+"word": "αεροδρόμιο"
+},
+{
+"en": "port",
+"word": "λιμάνι"
+},
+{
+"en": "factory",
+"word": "εργοστάσιο"
+},
+{
+"en": "office",
+"word": "γραφείο"
+},
+{
+"en": "bank",
+"word": "τράπεζα"
+},
+{
+"en": "police",
+"word": "αστυνομία"
+},
+{
+"en": "court",
+"word": "δικαστήριο"
+},
+{
+"en": "prison",
+"word": "φυλακή"
+},
+{
+"en": "army",
+"word": "στρατός"
+},
+{
+"en": "university",
+"word": "πανεπιστήμιο"
+},
+{
+"en": "class",
+"word": "τάξη"
+},
+{
+"en": "lesson",
+"word": "μάθημα"
+},
+{
+"en": "exam",
+"word": "εξέταση"
+},
+{
+"en": "grade",
+"word": "βαθμός"
+},
+{
+"en": "science",
+"word": "επιστήμη"
+},
+{
+"en": "art",
+"word": "τέχνη"
+},
+{
+"en": "history",
+"word": "ιστορία"
+},
+{
+"en": "society",
+"word": "κοινωνία"
+},
+{
+"en": "culture",
+"word": "πολιτισμός"
+},
+{
+"en": "tradition",
+"word": "παράδοση"
+},
+{
+"en": "wedding",
+"word": "γάμος"
+},
+{
+"en": "birth",
+"word": "γέννηση"
+},
+{
+"en": "death",
+"word": "θάνατος"
+},
+{
+"en": "illness",
+"word": "αρρώστια"
+},
+{
+"en": "health",
+"word": "υγεία"
+},
+{
+"en": "weight",
+"word": "βάρος"
+},
+{
+"en": "shape",
+"word": "σχήμα"
+},
+{
+"en": "color",
+"word": "χρώμα"
+},
+{
+"en": "red",
+"word": "κόκκινο"
+},
+{
+"en": "blue",
+"word": "μπλε"
+},
+{
+"en": "green",
+"word": "πράσινο"
+},
+{
+"en": "yellow",
+"word": "κίτρινο"
+},
+{
+"en": "black",
+"word": "μαύρο"
+},
+{
+"en": "white",
+"word": "άσπρο"
+},
+{
+"en": "gray",
+"word": "γκρι"
+},
+{
+"en": "brown",
+"word": "καφέ"
+},
+{
+"en": "pink",
+"word": "ροζ"
+},
+{
+"en": "purple",
+"word": "μοβ"
+},
+{
+"en": "orange",
+"word": "πορτοκαλί"
+},
+{
+"en": "big",
+"word": "μεγάλος"
+},
+{
+"en": "small",
+"word": "μικρός"
+},
+{
+"en": "good",
+"word": "καλός"
+},
+{
+"en": "bad",
+"word": "κακός"
+},
+{
+"en": "beautiful",
+"word": "όμορφος"
+},
+{
+"en": "ugly",
+"word": "άσχημος"
+},
+{
+"en": "new",
+"word": "νέος"
+},
+{
+"en": "old",
+"word": "παλιός"
+},
+{
+"en": "fast",
+"word": "γρήγορος"
+},
+{
+"en": "slow",
+"word": "αργός"
+},
+{
+"en": "strong",
+"word": "δυνατός"
+},
+{
+"en": "weak",
+"word": "αδύναμος"
+},
+{
+"en": "easy",
+"word": "εύκολος"
+},
+{
+"en": "difficult",
+"word": "δύσκολος"
+},
+{
+"en": "poor",
+"word": "φτωχός"
+},
+{
+"en": "rich",
+"word": "πλούσιος"
+},
+{
+"en": "tall",
+"word": "ψηλός"
+},
+{
+"en": "short",
+"word": "κοντός"
+},
+{
+"en": "hot",
+"word": "ζεστός"
+},
+{
+"en": "clean",
+"word": "καθαρός"
+},
+{
+"en": "dirty",
+"word": "βρώμικος"
+},
+{
+"en": "open",
+"word": "ανοιχτός"
+},
+{
+"en": "closed",
+"word": "κλειστός"
+},
+{
+"en": "full",
+"word": "γεμάτος"
+},
+{
+"en": "empty",
+"word": "άδειος"
+},
+{
+"en": "bright",
+"word": "φωτεινός"
+},
+{
+"en": "dark",
+"word": "σκοτεινός"
+},
+{
+"en": "right",
+"word": "σωστός"
+},
+{
+"en": "wrong",
+"word": "λάθος"
+},
+{
+"en": "true",
+"word": "αληθινός"
+},
+{
+"en": "false",
+"word": "ψεύτικος"
+},
+{
+"en": "smart",
+"word": "έξυπνος"
+},
+{
+"en": "happy",
+"word": "χαρούμενος"
+},
+{
+"en": "sad",
+"word": "λυπημένος"
+},
+{
+"en": "angry",
+"word": "θυμωμένος"
+},
+{
+"en": "quiet",
+"word": "ήσυχος"
+},
+{
+"en": "brave",
+"word": "γενναίος"
+},
+{
+"en": "honest",
+"word": "τίμιος"
+},
+{
+"en": "polite",
+"word": "ευγενικός"
+},
+{
+"en": "serious",
+"word": "σοβαρός"
+},
+{
+"en": "funny",
+"word": "αστείος"
+},
+{
+"en": "simple",
+"word": "απλός"
+},
+{
+"en": "free",
+"word": "ελεύθερος"
+},
+{
+"en": "healthy",
+"word": "υγιής"
+},
+{
+"en": "sick",
+"word": "άρρωστος"
+},
+{
+"en": "sweet",
+"word": "γλυκός"
+},
+{
+"en": "sour",
+"word": "ξινός"
+},
+{
+"en": "fresh",
+"word": "φρέσκος"
+},
+{
+"en": "heavy",
+"word": "βαρύς"
+},
+{
+"en": "light",
+"word": "ελαφρύς"
+},
+{
+"en": "wide",
+"word": "φαρδύς"
+},
+{
+"en": "narrow",
+"word": "στενός"
+},
+{
+"en": "long",
+"word": "μακρύς"
+},
+{
+"en": "deep",
+"word": "βαθύς"
+},
+{
+"en": "round",
+"word": "στρογγυλός"
+},
+{
+"en": "dangerous",
+"word": "επικίνδυνος"
+},
+{
+"en": "safe",
+"word": "ασφαλής"
+},
+{
+"en": "calm",
+"word": "ήρεμος"
+},
+{
+"en": "same",
+"word": "ίδιος"
+},
+{
+"en": "different",
+"word": "διαφορετικός"
+},
+{
+"en": "rare",
+"word": "σπάνιος"
+},
+{
+"en": "common",
+"word": "συνηθισμένος"
+},
+{
+"en": "to be",
+"word": "είμαι"
+},
+{
+"en": "to have",
+"word": "έχω"
+},
+{
+"en": "to do",
+"word": "κάνω"
+},
+{
+"en": "to say",
+"word": "λέω"
+},
+{
+"en": "to go",
+"word": "πάω"
+},
+{
+"en": "to come",
+"word": "έρχομαι"
+},
+{
+"en": "to see",
+"word": "βλέπω"
+},
+{
+"en": "to know",
+"word": "ξέρω"
+},
+{
+"en": "to want",
+"word": "θέλω"
+},
+{
+"en": "can",
+"word": "μπορώ"
+},
+{
+"en": "must",
+"word": "πρέπει"
+},
+{
+"en": "to think",
+"word": "νομίζω"
+},
+{
+"en": "to understand",
+"word": "καταλαβαίνω"
+},
+{
+"en": "to speak",
+"word": "μιλάω"
+},
+{
+"en": "to write",
+"word": "γράφω"
+},
+{
+"en": "to read",
+"word": "διαβάζω"
+},
+{
+"en": "to eat",
+"word": "τρώω"
+},
+{
+"en": "to drink",
+"word": "πίνω"
+},
+{
+"en": "to sleep",
+"word": "κοιμάμαι"
+},
+{
+"en": "to live",
+"word": "ζω"
+},
+{
+"en": "to work",
+"word": "δουλεύω"
+},
+{
+"en": "to play",
+"word": "παίζω"
+},
+{
+"en": "to sing",
+"word": "τραγουδάω"
+},
+{
+"en": "to dance",
+"word": "χορεύω"
+},
+{
+"en": "to laugh",
+"word": "γελάω"
+},
+{
+"en": "to cry",
+"word": "κλαίω"
+},
+{
+"en": "to listen",
+"word": "ακούω"
+},
+{
+"en": "to stay",
+"word": "μένω"
+},
+{
+"en": "to leave",
+"word": "φεύγω"
+},
+{
+"en": "to enter",
+"word": "μπαίνω"
+},
+{
+"en": "to exit",
+"word": "βγαίνω"
+},
+{
+"en": "to open",
+"word": "ανοίγω"
+},
+{
+"en": "to close",
+"word": "κλείνω"
+},
+{
+"en": "to find",
+"word": "βρίσκω"
+},
+{
+"en": "to lose",
+"word": "χάνω"
+},
+{
+"en": "to give",
+"word": "δίνω"
+},
+{
+"en": "to take",
+"word": "παίρνω"
+},
+{
+"en": "to put",
+"word": "βάζω"
+},
+{
+"en": "to bring",
+"word": "φέρνω"
+},
+{
+"en": "to send",
+"word": "στέλνω"
+},
+{
+"en": "to ask",
+"word": "ρωτάω"
+},
+{
+"en": "to answer",
+"word": "απαντάω"
+},
+{
+"en": "to help",
+"word": "βοηθάω"
+},
+{
+"en": "to love",
+"word": "αγαπάω"
+},
+{
+"en": "to hate",
+"word": "μισώ"
+},
+{
+"en": "to fear",
+"word": "φοβάμαι"
+},
+{
+"en": "to hope",
+"word": "ελπίζω"
+},
+{
+"en": "to remember",
+"word": "θυμάμαι"
+},
+{
+"en": "to forget",
+"word": "ξεχνάω"
+},
+{
+"en": "to believe",
+"word": "πιστεύω"
+},
+{
+"en": "to learn",
+"word": "μαθαίνω"
+},
+{
+"en": "to teach",
+"word": "διδάσκω"
+},
+{
+"en": "to pay",
+"word": "πληρώνω"
+},
+{
+"en": "to buy",
+"word": "αγοράζω"
+},
+{
+"en": "to sell",
+"word": "πουλάω"
+},
+{
+"en": "to need",
+"word": "χρειάζομαι"
+},
+{
+"en": "to try",
+"word": "προσπαθώ"
+},
+{
+"en": "to build",
+"word": "χτίζω"
+},
+{
+"en": "to break",
+"word": "σπάω"
+},
+{
+"en": "to change",
+"word": "αλλάζω"
+},
+{
+"en": "to continue",
+"word": "συνεχίζω"
+},
+{
+"en": "to stop",
+"word": "σταματάω"
+},
+{
+"en": "to start",
+"word": "αρχίζω"
+},
+{
+"en": "to finish",
+"word": "τελειώνω"
+},
+{
+"en": "to wait",
+"word": "περιμένω"
+},
+{
+"en": "to arrive",
+"word": "φτάνω"
+},
+{
+"en": "to return",
+"word": "γυρίζω"
+},
+{
+"en": "to travel",
+"word": "ταξιδεύω"
+},
+{
+"en": "to drive",
+"word": "οδηγώ"
+},
+{
+"en": "to fly",
+"word": "πετάω"
+},
+{
+"en": "to swim",
+"word": "κολυμπάω"
+},
+{
+"en": "to run",
+"word": "τρέχω"
+},
+{
+"en": "to walk",
+"word": "περπατάω"
+},
+{
+"en": "to jump",
+"word": "πηδάω"
+},
+{
+"en": "to hide",
+"word": "κρύβω"
+},
+{
+"en": "to show",
+"word": "δείχνω"
+},
+{
+"en": "to look",
+"word": "κοιτάζω"
+},
+{
+"en": "to choose",
+"word": "επιλέγω"
+},
+{
+"en": "to decide",
+"word": "αποφασίζω"
+},
+{
+"en": "to explain",
+"word": "εξηγώ"
+},
+{
+"en": "to describe",
+"word": "περιγράφω"
+},
+{
+"en": "to imagine",
+"word": "φαντάζομαι"
+},
+{
+"en": "to visit",
+"word": "επισκέπτομαι"
+},
+{
+"en": "to meet",
+"word": "συναντώ"
+},
+{
+"en": "to win",
+"word": "κερδίζω"
+},
+{
+"en": "grandmother",
+"word": "γιαγιά"
+},
+{
+"en": "grandfather",
+"word": "παππούς"
+},
+{
+"en": "uncle",
+"word": "θείος"
+},
+{
+"en": "aunt",
+"word": "θεία"
+},
+{
+"en": "cousin",
+"word": "εξάδελφος"
+},
+{
+"en": "doctor",
+"word": "γιατρός"
+},
+{
+"en": "nurse",
+"word": "νοσοκόμος"
+},
+{
+"en": "lawyer",
+"word": "δικηγόρος"
+},
+{
+"en": "judge",
+"word": "δικαστής"
+},
+{
+"en": "soldier",
+"word": "στρατιώτης"
+},
+{
+"en": "cook",
+"word": "μάγειρας"
+},
+{
+"en": "driver",
+"word": "οδηγός"
+},
+{
+"en": "farmer",
+"word": "αγρότης"
+},
+{
+"en": "engineer",
+"word": "μηχανικός"
+},
+{
+"en": "artist",
+"word": "καλλιτέχνης"
+},
+{
+"en": "musician",
+"word": "μουσικός"
+},
+{
+"en": "writer",
+"word": "συγγραφέας"
+},
+{
+"en": "actor",
+"word": "ηθοποιός"
+},
+{
+"en": "singer",
+"word": "τραγουδιστής"
+},
+{
+"en": "king",
+"word": "βασιλιάς"
+},
+{
+"en": "queen",
+"word": "βασίλισσα"
+},
+{
+"en": "bag",
+"word": "τσάντα"
+},
+{
+"en": "umbrella",
+"word": "ομπρέλα"
+},
+{
+"en": "glasses",
+"word": "γυαλιά"
+},
+{
+"en": "watch",
+"word": "ρολόι"
+},
+{
+"en": "ring",
+"word": "δαχτυλίδι"
+},
+{
+"en": "shirt",
+"word": "πουκάμισο"
+},
+{
+"en": "pants",
+"word": "παντελόνι"
+},
+{
+"en": "skirt",
+"word": "φούστα"
+},
+{
+"en": "dress",
+"word": "φόρεμα"
+},
+{
+"en": "coat",
+"word": "παλτό"
+},
+{
+"en": "sock",
+"word": "κάλτσα"
+},
+{
+"en": "shoe",
+"word": "παπούτσι"
+},
+{
+"en": "hat",
+"word": "καπέλο"
+},
+{
+"en": "kitchen",
+"word": "κουζίνα"
+},
+{
+"en": "living room",
+"word": "σαλόνι"
+},
+{
+"en": "bedroom",
+"word": "υπνοδωμάτιο"
+}
+]
