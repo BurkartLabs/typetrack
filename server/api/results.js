@@ -24,7 +24,9 @@ async function create(app, req, res) {
   // A weekly challenge run is checked against the week's seeded words and kept off the standard boards
   // (its words are known in advance, so it is not a standard test).
   const challenge = body.challenge == null ? null : checkChallenge(app, body.challenge, v);
-  const ranked = !challenge && app.isRanked(v.lang, v.words) ? 1 : 0;
+  // Only standard tests rank: drills, ghosts, quotes and other sources choose or know their words.
+  const standard = body.source == null || body.source === "words";
+  const ranked = !challenge && standard && app.isRanked(v.lang, v.words) ? 1 : 0;
   const ts = Date.now();
   const info = app.db
     .prepare(

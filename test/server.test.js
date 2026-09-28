@@ -248,6 +248,17 @@ test("results of words outside the standard lists are stored but unranked", asyn
   assert.ok(!lb.json.some((row) => row.name === "cheap"));
 });
 
+test("non-standard sources (drills, ghosts) are stored but unranked", async () => {
+  const cookie = await signup("driller");
+  for (const source of ["train:blind", "ghost", "quotes"]) {
+    const res = await call("POST", "/api/results", { ...playResult({ target: 30, msPerChar: 150 }), source }, cookie);
+    assert.equal(res.status, 201, res.text);
+    assert.equal(res.json.ranked, false, source);
+  }
+  const ok = await call("POST", "/api/results", { ...playResult({ target: 30, msPerChar: 150 }), source: "words" }, cookie);
+  assert.equal(ok.json.ranked, true);
+});
+
 test("ghost fetch returns the words and log of a result", async () => {
   const cookie = await signup("ghosty");
   const r = playResult();
