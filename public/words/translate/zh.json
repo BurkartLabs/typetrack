@@ -1,0 +1,1602 @@
+[
+{
+"en": "i",
+"word": "wo"
+},
+{
+"en": "you",
+"word": "ni"
+},
+{
+"en": "he",
+"word": "ta"
+},
+{
+"en": "we",
+"word": "women"
+},
+{
+"en": "they",
+"word": "tamen"
+},
+{
+"en": "this",
+"word": "zhege"
+},
+{
+"en": "that",
+"word": "nage"
+},
+{
+"en": "what",
+"word": "shenme"
+},
+{
+"en": "who",
+"word": "shei"
+},
+{
+"en": "where",
+"word": "nali"
+},
+{
+"en": "when",
+"word": "shenmeshihou"
+},
+{
+"en": "why",
+"word": "weishenme"
+},
+{
+"en": "how",
+"word": "zenme"
+},
+{
+"en": "yes",
+"word": "shi"
+},
+{
+"en": "no",
+"word": "bu"
+},
+{
+"en": "all",
+"word": "dou"
+},
+{
+"en": "one",
+"word": "yi"
+},
+{
+"en": "two",
+"word": "er"
+},
+{
+"en": "three",
+"word": "san"
+},
+{
+"en": "four",
+"word": "si"
+},
+{
+"en": "five",
+"word": "wu"
+},
+{
+"en": "six",
+"word": "liu"
+},
+{
+"en": "seven",
+"word": "qi"
+},
+{
+"en": "eight",
+"word": "ba"
+},
+{
+"en": "nine",
+"word": "jiu"
+},
+{
+"en": "hundred",
+"word": "bai"
+},
+{
+"en": "thousand",
+"word": "qian"
+},
+{
+"en": "first",
+"word": "diyi"
+},
+{
+"en": "man",
+"word": "nanren"
+},
+{
+"en": "woman",
+"word": "nvren"
+},
+{
+"en": "child",
+"word": "haizi"
+},
+{
+"en": "father",
+"word": "baba"
+},
+{
+"en": "mother",
+"word": "mama"
+},
+{
+"en": "son",
+"word": "erzi"
+},
+{
+"en": "daughter",
+"word": "nver"
+},
+{
+"en": "brother",
+"word": "gege"
+},
+{
+"en": "sister",
+"word": "jiejie"
+},
+{
+"en": "friend",
+"word": "pengyou"
+},
+{
+"en": "house",
+"word": "fangzi"
+},
+{
+"en": "street",
+"word": "malu"
+},
+{
+"en": "city",
+"word": "chengshi"
+},
+{
+"en": "country",
+"word": "guojia"
+},
+{
+"en": "world",
+"word": "shijie"
+},
+{
+"en": "life",
+"word": "shenghuo"
+},
+{
+"en": "time",
+"word": "shijian"
+},
+{
+"en": "day",
+"word": "baitian"
+},
+{
+"en": "night",
+"word": "yewan"
+},
+{
+"en": "hour",
+"word": "xiaoshi"
+},
+{
+"en": "water",
+"word": "shui"
+},
+{
+"en": "fire",
+"word": "huo"
+},
+{
+"en": "earth",
+"word": "dadi"
+},
+{
+"en": "sky",
+"word": "tiankong"
+},
+{
+"en": "sun",
+"word": "taiyang"
+},
+{
+"en": "moon",
+"word": "yueliang"
+},
+{
+"en": "star",
+"word": "xingxing"
+},
+{
+"en": "sea",
+"word": "dahai"
+},
+{
+"en": "mountain",
+"word": "shan"
+},
+{
+"en": "tree",
+"word": "shu"
+},
+{
+"en": "flower",
+"word": "hua"
+},
+{
+"en": "animal",
+"word": "dongwu"
+},
+{
+"en": "dog",
+"word": "gou"
+},
+{
+"en": "cat",
+"word": "mao"
+},
+{
+"en": "bird",
+"word": "niao"
+},
+{
+"en": "fish",
+"word": "yu"
+},
+{
+"en": "food",
+"word": "shiwu"
+},
+{
+"en": "bread",
+"word": "mianbao"
+},
+{
+"en": "meat",
+"word": "rou"
+},
+{
+"en": "milk",
+"word": "niunai"
+},
+{
+"en": "egg",
+"word": "jidan"
+},
+{
+"en": "fruit",
+"word": "shuiguo"
+},
+{
+"en": "vegetable",
+"word": "shucai"
+},
+{
+"en": "table",
+"word": "zhuozi"
+},
+{
+"en": "chair",
+"word": "yizi"
+},
+{
+"en": "door",
+"word": "men"
+},
+{
+"en": "window",
+"word": "chuanghu"
+},
+{
+"en": "room",
+"word": "fangjian"
+},
+{
+"en": "bed",
+"word": "chuang"
+},
+{
+"en": "paper",
+"word": "zhi"
+},
+{
+"en": "pen",
+"word": "bi"
+},
+{
+"en": "phone",
+"word": "dianhua"
+},
+{
+"en": "car",
+"word": "qiche"
+},
+{
+"en": "war",
+"word": "zhanzheng"
+},
+{
+"en": "peace",
+"word": "heping"
+},
+{
+"en": "love",
+"word": "aiqing"
+},
+{
+"en": "joy",
+"word": "kaixin"
+},
+{
+"en": "sadness",
+"word": "nanguo"
+},
+{
+"en": "anger",
+"word": "shengqi"
+},
+{
+"en": "fear",
+"word": "haipa"
+},
+{
+"en": "hope",
+"word": "xiwang"
+},
+{
+"en": "dream",
+"word": "mengxiang"
+},
+{
+"en": "idea",
+"word": "xiangfa"
+},
+{
+"en": "problem",
+"word": "wenti"
+},
+{
+"en": "solution",
+"word": "banfa"
+},
+{
+"en": "question",
+"word": "tiwen"
+},
+{
+"en": "answer",
+"word": "daan"
+},
+{
+"en": "work",
+"word": "gongzuo"
+},
+{
+"en": "school",
+"word": "xuexiao"
+},
+{
+"en": "teacher",
+"word": "laoshi"
+},
+{
+"en": "student",
+"word": "xuesheng"
+},
+{
+"en": "language",
+"word": "yuyan"
+},
+{
+"en": "word",
+"word": "danci"
+},
+{
+"en": "music",
+"word": "yinyue"
+},
+{
+"en": "song",
+"word": "gequ"
+},
+{
+"en": "dance",
+"word": "wudao"
+},
+{
+"en": "game",
+"word": "youxi"
+},
+{
+"en": "law",
+"word": "falv"
+},
+{
+"en": "freedom",
+"word": "ziyou"
+},
+{
+"en": "power",
+"word": "liliang"
+},
+{
+"en": "god",
+"word": "shangdi"
+},
+{
+"en": "soul",
+"word": "linghun"
+},
+{
+"en": "body",
+"word": "shenti"
+},
+{
+"en": "head",
+"word": "tou"
+},
+{
+"en": "eye",
+"word": "yanjing"
+},
+{
+"en": "ear",
+"word": "erduo"
+},
+{
+"en": "nose",
+"word": "bizi"
+},
+{
+"en": "mouth",
+"word": "zuiba"
+},
+{
+"en": "hand",
+"word": "shou"
+},
+{
+"en": "foot",
+"word": "jiao"
+},
+{
+"en": "heart",
+"word": "xinzang"
+},
+{
+"en": "blood",
+"word": "xueye"
+},
+{
+"en": "bone",
+"word": "guge"
+},
+{
+"en": "skin",
+"word": "pifu"
+},
+{
+"en": "tooth",
+"word": "yachi"
+},
+{
+"en": "morning",
+"word": "zaoshang"
+},
+{
+"en": "noon",
+"word": "zhongwu"
+},
+{
+"en": "evening",
+"word": "wanshang"
+},
+{
+"en": "week",
+"word": "xingqi"
+},
+{
+"en": "month",
+"word": "yueyue"
+},
+{
+"en": "year",
+"word": "nian"
+},
+{
+"en": "spring",
+"word": "chuntian"
+},
+{
+"en": "summer",
+"word": "xiatian"
+},
+{
+"en": "autumn",
+"word": "qiutian"
+},
+{
+"en": "winter",
+"word": "dongtian"
+},
+{
+"en": "snow",
+"word": "xue"
+},
+{
+"en": "wind",
+"word": "feng"
+},
+{
+"en": "cold",
+"word": "leng"
+},
+{
+"en": "heat",
+"word": "re"
+},
+{
+"en": "cloud",
+"word": "yun"
+},
+{
+"en": "forest",
+"word": "senlin"
+},
+{
+"en": "field",
+"word": "tianye"
+},
+{
+"en": "lake",
+"word": "hu"
+},
+{
+"en": "river",
+"word": "heliu"
+},
+{
+"en": "island",
+"word": "daoyu"
+},
+{
+"en": "coast",
+"word": "haian"
+},
+{
+"en": "sand",
+"word": "shazi"
+},
+{
+"en": "stone",
+"word": "shitou"
+},
+{
+"en": "rock",
+"word": "yanshi"
+},
+{
+"en": "soil",
+"word": "turang"
+},
+{
+"en": "wood",
+"word": "mucai"
+},
+{
+"en": "glass",
+"word": "boli"
+},
+{
+"en": "gold",
+"word": "jinzi"
+},
+{
+"en": "silver",
+"word": "yinzi"
+},
+{
+"en": "iron",
+"word": "tiekuai"
+},
+{
+"en": "bridge",
+"word": "qiao"
+},
+{
+"en": "building",
+"word": "jianzhu"
+},
+{
+"en": "church",
+"word": "jiaotang"
+},
+{
+"en": "museum",
+"word": "bowuguan"
+},
+{
+"en": "library",
+"word": "tushuguan"
+},
+{
+"en": "hospital",
+"word": "yiyuan"
+},
+{
+"en": "market",
+"word": "shichang"
+},
+{
+"en": "shop",
+"word": "shangdian"
+},
+{
+"en": "restaurant",
+"word": "canting"
+},
+{
+"en": "hotel",
+"word": "jiudian"
+},
+{
+"en": "station",
+"word": "chezhan"
+},
+{
+"en": "airport",
+"word": "jichang"
+},
+{
+"en": "port",
+"word": "matou"
+},
+{
+"en": "factory",
+"word": "gongchang"
+},
+{
+"en": "office",
+"word": "bangongshi"
+},
+{
+"en": "bank",
+"word": "yinhang"
+},
+{
+"en": "police",
+"word": "jingcha"
+},
+{
+"en": "court",
+"word": "fayuan"
+},
+{
+"en": "prison",
+"word": "jianyu"
+},
+{
+"en": "army",
+"word": "jundui"
+},
+{
+"en": "university",
+"word": "daxue"
+},
+{
+"en": "class",
+"word": "banji"
+},
+{
+"en": "lesson",
+"word": "kecheng"
+},
+{
+"en": "exam",
+"word": "kaoshi"
+},
+{
+"en": "grade",
+"word": "chengji"
+},
+{
+"en": "science",
+"word": "kexue"
+},
+{
+"en": "art",
+"word": "meishu"
+},
+{
+"en": "history",
+"word": "lishi"
+},
+{
+"en": "society",
+"word": "shehui"
+},
+{
+"en": "culture",
+"word": "wenhua"
+},
+{
+"en": "tradition",
+"word": "chuantong"
+},
+{
+"en": "wedding",
+"word": "hunli"
+},
+{
+"en": "birth",
+"word": "chusheng"
+},
+{
+"en": "death",
+"word": "siwang"
+},
+{
+"en": "illness",
+"word": "jibing"
+},
+{
+"en": "health",
+"word": "jiankang"
+},
+{
+"en": "weight",
+"word": "tizhong"
+},
+{
+"en": "shape",
+"word": "xingzhuang"
+},
+{
+"en": "color",
+"word": "yanse"
+},
+{
+"en": "red",
+"word": "hongse"
+},
+{
+"en": "blue",
+"word": "lanse"
+},
+{
+"en": "green",
+"word": "lvse"
+},
+{
+"en": "yellow",
+"word": "huangse"
+},
+{
+"en": "black",
+"word": "heise"
+},
+{
+"en": "white",
+"word": "baise"
+},
+{
+"en": "gray",
+"word": "huise"
+},
+{
+"en": "brown",
+"word": "zongse"
+},
+{
+"en": "pink",
+"word": "fenhongse"
+},
+{
+"en": "purple",
+"word": "zise"
+},
+{
+"en": "orange",
+"word": "juse"
+},
+{
+"en": "big",
+"word": "da"
+},
+{
+"en": "small",
+"word": "xiao"
+},
+{
+"en": "good",
+"word": "hao"
+},
+{
+"en": "bad",
+"word": "huai"
+},
+{
+"en": "beautiful",
+"word": "piaoliang"
+},
+{
+"en": "ugly",
+"word": "chou"
+},
+{
+"en": "new",
+"word": "xin"
+},
+{
+"en": "fast",
+"word": "kuai"
+},
+{
+"en": "slow",
+"word": "man"
+},
+{
+"en": "strong",
+"word": "qiangzhuang"
+},
+{
+"en": "weak",
+"word": "xuruo"
+},
+{
+"en": "easy",
+"word": "rongyi"
+},
+{
+"en": "difficult",
+"word": "kunnan"
+},
+{
+"en": "poor",
+"word": "qiong"
+},
+{
+"en": "rich",
+"word": "fuyou"
+},
+{
+"en": "tall",
+"word": "gao"
+},
+{
+"en": "short",
+"word": "ai"
+},
+{
+"en": "clean",
+"word": "ganjing"
+},
+{
+"en": "dirty",
+"word": "zang"
+},
+{
+"en": "open",
+"word": "kai"
+},
+{
+"en": "closed",
+"word": "guan"
+},
+{
+"en": "empty",
+"word": "kong"
+},
+{
+"en": "bright",
+"word": "liang"
+},
+{
+"en": "dark",
+"word": "an"
+},
+{
+"en": "right",
+"word": "dui"
+},
+{
+"en": "wrong",
+"word": "cuo"
+},
+{
+"en": "true",
+"word": "zhen"
+},
+{
+"en": "false",
+"word": "jia"
+},
+{
+"en": "smart",
+"word": "congming"
+},
+{
+"en": "quiet",
+"word": "anjing"
+},
+{
+"en": "brave",
+"word": "yonggan"
+},
+{
+"en": "serious",
+"word": "renzhen"
+},
+{
+"en": "funny",
+"word": "haoxiao"
+},
+{
+"en": "simple",
+"word": "jiandan"
+},
+{
+"en": "sick",
+"word": "shengbing"
+},
+{
+"en": "sweet",
+"word": "tian"
+},
+{
+"en": "sour",
+"word": "suan"
+},
+{
+"en": "fresh",
+"word": "xinxian"
+},
+{
+"en": "heavy",
+"word": "zhong"
+},
+{
+"en": "light",
+"word": "qing"
+},
+{
+"en": "wide",
+"word": "kuan"
+},
+{
+"en": "narrow",
+"word": "zhai"
+},
+{
+"en": "long",
+"word": "chang"
+},
+{
+"en": "deep",
+"word": "shen"
+},
+{
+"en": "dangerous",
+"word": "weixian"
+},
+{
+"en": "safe",
+"word": "anquan"
+},
+{
+"en": "calm",
+"word": "pingjing"
+},
+{
+"en": "same",
+"word": "xiangtong"
+},
+{
+"en": "different",
+"word": "butong"
+},
+{
+"en": "rare",
+"word": "xihan"
+},
+{
+"en": "common",
+"word": "putong"
+},
+{
+"en": "to go",
+"word": "qu"
+},
+{
+"en": "to come",
+"word": "lai"
+},
+{
+"en": "to see",
+"word": "kan"
+},
+{
+"en": "to hear",
+"word": "tingjian"
+},
+{
+"en": "to speak",
+"word": "shuo"
+},
+{
+"en": "to write",
+"word": "xie"
+},
+{
+"en": "to read",
+"word": "du"
+},
+{
+"en": "to buy",
+"word": "mai"
+},
+{
+"en": "to sell",
+"word": "maimai"
+},
+{
+"en": "to walk",
+"word": "zoulu"
+},
+{
+"en": "to run",
+"word": "paobu"
+},
+{
+"en": "to sleep",
+"word": "shuijiao"
+},
+{
+"en": "to wake up",
+"word": "qichuang"
+},
+{
+"en": "to play",
+"word": "wanshua"
+},
+{
+"en": "to wait",
+"word": "deng"
+},
+{
+"en": "to use",
+"word": "shiyong"
+},
+{
+"en": "to make",
+"word": "zhizuo"
+},
+{
+"en": "to understand",
+"word": "mingbai"
+},
+{
+"en": "to want",
+"word": "xiangyao"
+},
+{
+"en": "to like",
+"word": "xihuan"
+},
+{
+"en": "to hate",
+"word": "taoyan"
+},
+{
+"en": "to remember",
+"word": "jide"
+},
+{
+"en": "to forget",
+"word": "wangji"
+},
+{
+"en": "to study",
+"word": "xuexi"
+},
+{
+"en": "to answer",
+"word": "huida"
+},
+{
+"en": "to pay",
+"word": "fufeikuan"
+},
+{
+"en": "to need",
+"word": "xuyao"
+},
+{
+"en": "to try",
+"word": "changshi"
+},
+{
+"en": "to succeed",
+"word": "chenggong"
+},
+{
+"en": "to fail",
+"word": "shibai"
+},
+{
+"en": "to build",
+"word": "jianzao"
+},
+{
+"en": "to break",
+"word": "dapo"
+},
+{
+"en": "to change",
+"word": "gaibian"
+},
+{
+"en": "to continue",
+"word": "jixu"
+},
+{
+"en": "to stop",
+"word": "tingzhi"
+},
+{
+"en": "to begin",
+"word": "kaishi"
+},
+{
+"en": "to finish",
+"word": "jieshu"
+},
+{
+"en": "to arrive",
+"word": "daoda"
+},
+{
+"en": "to return",
+"word": "huilai"
+},
+{
+"en": "to travel",
+"word": "lvxing"
+},
+{
+"en": "to drive",
+"word": "kaiche"
+},
+{
+"en": "to fly",
+"word": "feixing"
+},
+{
+"en": "to swim",
+"word": "youyong"
+},
+{
+"en": "to jump",
+"word": "tiaoyue"
+},
+{
+"en": "to hide",
+"word": "duocang"
+},
+{
+"en": "to show",
+"word": "zhanshi"
+},
+{
+"en": "to search",
+"word": "xunzhao"
+},
+{
+"en": "to choose",
+"word": "xuanze"
+},
+{
+"en": "to explain",
+"word": "jieshi"
+},
+{
+"en": "to imagine",
+"word": "xiangxiang"
+},
+{
+"en": "to visit",
+"word": "fangwen"
+},
+{
+"en": "to meet",
+"word": "jianmian"
+},
+{
+"en": "to invite",
+"word": "yaoqing"
+},
+{
+"en": "to win",
+"word": "huode"
+},
+{
+"en": "to fight",
+"word": "zhandou"
+},
+{
+"en": "to protect",
+"word": "baohu"
+},
+{
+"en": "to organize",
+"word": "zuzhi"
+},
+{
+"en": "to plan",
+"word": "jihua"
+},
+{
+"en": "to create",
+"word": "chuangli"
+},
+{
+"en": "to destroy",
+"word": "huimie"
+},
+{
+"en": "to fix",
+"word": "xiuli"
+},
+{
+"en": "to clean",
+"word": "qingjie"
+},
+{
+"en": "to cook",
+"word": "zhufan"
+},
+{
+"en": "to open",
+"word": "dakai"
+},
+{
+"en": "to close",
+"word": "guanbi"
+},
+{
+"en": "to help",
+"word": "bangzhu"
+},
+{
+"en": "to thank",
+"word": "ganxie"
+},
+{
+"en": "to allow",
+"word": "yunxu"
+},
+{
+"en": "to forbid",
+"word": "jinzhi"
+},
+{
+"en": "to leave",
+"word": "likai"
+},
+{
+"en": "to stay",
+"word": "dailiu"
+},
+{
+"en": "to listen",
+"word": "qingting"
+},
+{
+"en": "to shout",
+"word": "dahan"
+},
+{
+"en": "to laugh",
+"word": "xiaoxiao"
+},
+{
+"en": "to cry",
+"word": "kuqi"
+},
+{
+"en": "to sing",
+"word": "changge"
+},
+{
+"en": "to dance",
+"word": "tiaowu"
+},
+{
+"en": "to feel",
+"word": "ganjue"
+},
+{
+"en": "grandmother",
+"word": "nainai"
+},
+{
+"en": "grandfather",
+"word": "yeye"
+},
+{
+"en": "uncle",
+"word": "shushu"
+},
+{
+"en": "aunt",
+"word": "ayi"
+},
+{
+"en": "doctor",
+"word": "yisheng"
+},
+{
+"en": "nurse",
+"word": "huli"
+},
+{
+"en": "lawyer",
+"word": "lvshi"
+},
+{
+"en": "soldier",
+"word": "shibing"
+},
+{
+"en": "cook",
+"word": "chushi"
+},
+{
+"en": "driver",
+"word": "siji"
+},
+{
+"en": "farmer",
+"word": "nongmin"
+},
+{
+"en": "engineer",
+"word": "gongchengshi"
+},
+{
+"en": "artist",
+"word": "yishujia"
+},
+{
+"en": "musician",
+"word": "yinyuejia"
+},
+{
+"en": "writer",
+"word": "zuojia"
+},
+{
+"en": "actor",
+"word": "yanyuan"
+},
+{
+"en": "singer",
+"word": "geshou"
+},
+{
+"en": "king",
+"word": "guowang"
+},
+{
+"en": "queen",
+"word": "wanghou"
+},
+{
+"en": "bag",
+"word": "beizi"
+},
+{
+"en": "umbrella",
+"word": "sanzi"
+},
+{
+"en": "watch",
+"word": "shoubiao"
+},
+{
+"en": "ring",
+"word": "jiezhi"
+},
+{
+"en": "shirt",
+"word": "chenshan"
+},
+{
+"en": "pants",
+"word": "kuzi"
+},
+{
+"en": "skirt",
+"word": "qunzi"
+},
+{
+"en": "dress",
+"word": "lianyiqun"
+},
+{
+"en": "coat",
+"word": "waitao"
+},
+{
+"en": "shoe",
+"word": "xiezi"
+},
+{
+"en": "hat",
+"word": "maozi"
+},
+{
+"en": "kitchen",
+"word": "chufang"
+},
+{
+"en": "garden",
+"word": "huayuan"
+},
+{
+"en": "mirror",
+"word": "jingzi"
+},
+{
+"en": "lamp",
+"word": "taideng"
+},
+{
+"en": "carpet",
+"word": "ditan"
+},
+{
+"en": "pillow",
+"word": "zhentou"
+},
+{
+"en": "blanket",
+"word": "tanzi"
+},
+{
+"en": "towel",
+"word": "maojin"
+},
+{
+"en": "soap",
+"word": "feizao"
+},
+{
+"en": "pan",
+"word": "chazi"
+},
+{
+"en": "pot",
+"word": "guo"
+},
+{
+"en": "plate",
+"word": "panzi"
+},
+{
+"en": "spoon",
+"word": "tangchi"
+},
+{
+"en": "knife",
+"word": "daozi"
+},
+{
+"en": "newspaper",
+"word": "baozhi"
+},
+{
+"en": "magazine",
+"word": "zazhi"
+},
+{
+"en": "photo",
+"word": "zhaopian"
+},
+{
+"en": "movie",
+"word": "dianying"
+},
+{
+"en": "theater",
+"word": "juyuan"
+},
+{
+"en": "prize",
+"word": "jiangpin"
+},
+{
+"en": "wolf",
+"word": "lang"
+},
+{
+"en": "bear",
+"word": "xiong"
+},
+{
+"en": "deer",
+"word": "lu"
+},
+{
+"en": "rabbit",
+"word": "tuzi"
+},
+{
+"en": "horse",
+"word": "ma"
+},
+{
+"en": "cow",
+"word": "niu"
+},
+{
+"en": "sheep",
+"word": "yang"
+},
+{
+"en": "goat",
+"word": "shanyang"
+},
+{
+"en": "pig",
+"word": "zhu"
+},
+{
+"en": "chicken",
+"word": "jirou"
+},
+{
+"en": "ocean",
+"word": "haiyang"
+},
+{
+"en": "desert",
+"word": "shamo"
+},
+{
+"en": "cave",
+"word": "dongxue"
+},
+{
+"en": "flood",
+"word": "hongshui"
+},
+{
+"en": "storm",
+"word": "baofengyu"
+},
+{
+"en": "fog",
+"word": "wuqi"
+},
+{
+"en": "wave",
+"word": "hailang"
+},
+{
+"en": "energy",
+"word": "nengliang"
+}
+]
