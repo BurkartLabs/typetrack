@@ -1,6 +1,6 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const E = require("./engine.js");
+const E = require("../public/js/engine.js");
 
 const POOL = ["alpha", "beta", "gamma", "delta", "omega"];
 
