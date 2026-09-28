@@ -30,23 +30,56 @@
     return out;
   }
 
-  // mode: "time" (duration seconds, endless words) | "words" (fixed wordCount)
+  // Repeat an ordered list until it has n entries (drills, quotes, replays).
+  function cycle(list, n, from) {
+    const out = [];
+    for (let i = 0; i < n; i++) out.push(list[(i + (from || 0)) % list.length]);
+    return out;
+  }
+
+  // Base letter of an accented character ("é" -> "e", "ñ" -> "n", "ç" -> "c").
+  // Only single-character NFD decompositions count: "ß", "ø", "æ" have none.
+  function baseChar(c) {
+    const d = c.normalize("NFD");
+    return d.length > 1 && /^[\u0300-\u036f]+$/.test(d.slice(1)) ? d[0] : c;
+  }
+
+  // opts:
+  //   mode: "time" (duration seconds, endless words) | "words" (fixed wordCount) | "text" (a fixed text)
+  //   words: the pool to draw from; with ordered:true (or mode "text"), the exact list, used in order
+  //   text: for mode "text", a string split on whitespace
+  //   ordered: use opts.words in order (drills, quotes, replays) instead of shuffling
+  //   accents: "strict" (default) | "lenient" (a typed base letter matches its accented target: e for é)
+  //   noBackspace: backspace is ignored
+  //   lang: recorded on the result (default "en")
   function createTest(opts) {
     const rand = opts.rand || mulberry32(opts.seed == null ? Date.now() : opts.seed);
-    const mode = opts.mode === "words" ? "words" : "time";
+    const mode = opts.mode === "words" || opts.mode === "text" ? opts.mode : "time";
+    let list = opts.words;
+    if (mode === "text") {
+      list = opts.text != null ? String(opts.text).split(/\s+/).filter(Boolean) : (opts.words || []).slice();
+      if (!list.length) throw new Error("text mode needs a non-empty text");
+    }
+    const ordered = mode === "text" || opts.ordered === true;
     const duration = mode === "time" ? Number(opts.duration) || 30 : 0;
-    const wordCount = mode === "words" ? Number(opts.wordCount) || 50 : 0;
+    const wordCount =
+      mode === "text" ? list.length : mode === "words" ? Number(opts.wordCount) || (ordered ? list.length : 50) : 0;
     // Time mode starts with a generous buffer and tops itself up as you go.
-    const initial = mode === "words" ? wordCount : 100;
+    const initial = mode === "time" ? 100 : wordCount;
     return {
       mode,
       duration,
       wordCount,
-      pool: opts.words,
+      pool: list,
+      ordered,
       rand,
-      words: pickWords(opts.words, initial, rand),
+      lang: opts.lang || "en",
+      accents: opts.accents === "lenient" ? "lenient" : "strict",
+      noBackspace: !!opts.noBackspace,
+      words: ordered ? cycle(list, initial) : pickWords(list, initial, rand),
       typed: [""], // typed[i] is what has been typed for words[i]
       index: 0, // current word
+      maxIndex: 0, // furthest word reached
       startedAt: null,
       finishedAt: null,
       // keystroke tally, monkeytype-style
@@ -55,6 +88,7 @@
       extra: 0,
       missed: 0,
       events: [], // {t, ok} per character keystroke, t = ms since start
+      log: [], // [t, key] per effective keystroke: key is a character, " " or "\b"
       keyHits: {}, // expected char -> times it was attempted
       keyMiss: {}, // expected char -> times it was mistyped
       swaps: {}, // "expected>typed" -> count
@@ -67,7 +101,8 @@
 
   function ensureBuffer(s) {
     if (s.mode === "time" && s.words.length - s.index < 40) {
-      s.words.push(...pickWords(s.pool, 60, s.rand));
+      if (s.ordered) s.words.push(...cycle(s.pool, 60, s.words.length));
+      else s.words.push(...pickWords(s.pool, 60, s.rand));
     }
   }
 
@@ -81,6 +116,9 @@
     const word = s.words[s.index];
     const typed = s.typed[s.index];
     const pos = typed.length;
+    const key = ch;
+    // Lenient accents: store the accented target so every later comparison just works.
+    if (s.accents === "lenient" && pos < word.length && ch !== word[pos] && baseChar(word[pos]) === ch) ch = word[pos];
     const ok = pos < word.length && word[pos] === ch;
     if (pos < word.length) {
       const exp = word[pos].toLowerCase();
@@ -89,7 +127,7 @@
       else {
         s.incorrect++;
         s.keyMiss[exp] = (s.keyMiss[exp] || 0) + 1;
-        const k = exp + ">" + ch;
+        const k = exp + ">" + key;
         s.swaps[k] = (s.swaps[k] || 0) + 1;
       }
     } else {
@@ -98,15 +136,23 @@
     }
     s.typed[s.index] = typed + ch;
     s.events.push({ t: now - s.startedAt, ok });
-    // Words mode ends on the final character of the final word if it is all correct.
-    if (s.mode === "words" && s.index === s.words.length - 1 && s.typed[s.index] === word) {
+    logKey(s, now, key);
+    // Words and text mode end on the final character of the final word if it is all correct.
+    if (s.mode !== "time" && s.index === s.words.length - 1 && s.typed[s.index] === word) {
       finish(s, now);
     }
     return s;
   }
 
-  function backspace(s) {
-    if (s.finishedAt !== null) return s;
+  function logKey(s, now, key) {
+    const last = s.log.length ? s.log[s.log.length - 1][0] : 0;
+    const t = now == null ? last : Math.max(last, Math.round(now - s.startedAt));
+    s.log.push([t, key]);
+  }
+
+  // now is optional (older callers); without it the backspace is logged at the previous keystroke's time.
+  function backspace(s, now) {
+    if (s.finishedAt !== null || s.noBackspace) return s;
     const typed = s.typed[s.index];
     if (typed.length > 0) {
       s.typed[s.index] = typed.slice(0, -1);
@@ -114,7 +160,8 @@
       // Allow backing into a previous word only if it was wrong (monkeytype behaviour).
       s.typed.pop();
       s.index--;
-    }
+    } else return s;
+    if (s.startedAt !== null) logKey(s, now, "\b");
     return s;
   }
 
@@ -127,11 +174,13 @@
     if (typed === word) s.correct++; // the space itself counts as a correct char
     else s.missed += Math.max(0, word.length - typed.length);
     s.events.push({ t: now - s.startedAt, ok: typed === word });
-    if (s.mode === "words" && s.index === s.words.length - 1) {
+    logKey(s, now, " ");
+    if (s.mode !== "time" && s.index === s.words.length - 1) {
       finish(s, now);
       return s;
     }
     s.index++;
+    if (s.index > s.maxIndex) s.maxIndex = s.index;
     s.typed.push("");
     ensureBuffer(s);
     return s;
@@ -175,7 +224,7 @@
         let n = 0;
         while (n < t.length && n < w.length && t[n] === w[n]) n++;
         correctChars += n;
-        if (s.mode === "words" && t === w) correctChars += 1;
+        if (s.mode !== "time" && t === w) correctChars += 1;
       }
     }
     const rawChars = s.typed.reduce((a, t) => a + t.length, 0) + Math.max(0, s.typed.length - 1);
@@ -197,6 +246,12 @@
       },
       // cumulative wpm sampled once per second, for the results chart
       perSecond: perSecond(s, ms),
+      // everything needed to replay the run (Engine.replay / verify / stateAt)
+      lang: s.lang,
+      accents: s.accents,
+      noBackspace: s.noBackspace,
+      words: s.words.slice(0, s.maxIndex + 1),
+      log: s.log.map((e) => e.slice()),
     };
   }
 
@@ -265,6 +320,373 @@
     return Math.round(x * 10) / 10;
   }
 
+  // ── Replay ────────────────────────────────────────────────────────────────
+
+  // createTest options that reproduce a run. opts is a result (or anything with mode, target|duration|wordCount,
+  // words|text, accents, noBackspace, lang). The words are always used in order.
+  function replayOpts(opts) {
+    const mode = opts.mode === "words" || opts.mode === "text" ? opts.mode : "time";
+    const o = {
+      mode,
+      ordered: true,
+      words: opts.words,
+      text: opts.words ? undefined : opts.text,
+      accents: opts.accents,
+      noBackspace: opts.noBackspace,
+      lang: opts.lang,
+      seed: 0,
+    };
+    if (mode === "time") o.duration = opts.target || opts.duration;
+    if (mode === "words") o.wordCount = opts.target || opts.wordCount || (opts.words || []).length;
+    return o;
+  }
+
+  function feed(s, t, k) {
+    if (k === "\b") backspace(s, t);
+    else if (k === " ") space(s, t);
+    else input(s, k, t);
+  }
+
+  // replay(opts, log) or replay(words, log, opts) → a test state rebuilt by feeding the log.
+  // A time test is ticked to its end; words and text tests finish on their own.
+  function replay(a, b, c) {
+    const opts = Array.isArray(a) ? Object.assign({}, c || {}, { words: a }) : a || {};
+    const log = b || opts.log || [];
+    const s = createTest(replayOpts(opts));
+    for (const e of log) feed(s, e[0], e[1]);
+    if (s.mode === "time" && s.startedAt !== null) tick(s, s.startedAt + s.duration * 1000);
+    return s;
+  }
+
+  // Snapshots after every keystroke, cached per log array so stateAt is a binary search per frame.
+  const stateCache = typeof WeakMap === "function" ? new WeakMap() : null;
+  function snapshots(words, log, opts) {
+    const hit = stateCache && stateCache.get(log);
+    if (hit && hit.words === words) return hit;
+    const s = createTest(
+      Object.assign({}, opts || {}, { mode: "words", ordered: true, words, wordCount: words.length, seed: 0 })
+    );
+    const n = log.length;
+    const snap = { words, t: new Float64Array(n), index: new Int32Array(n), typed: new Array(n) };
+    for (let i = 0; i < n; i++) {
+      feed(s, log[i][0], log[i][1]);
+      snap.t[i] = log[i][0];
+      snap.index[i] = s.index;
+      snap.typed[i] = s.typed[s.index];
+    }
+    if (stateCache) stateCache.set(log, snap);
+    return snap;
+  }
+
+  // Where a recorded run was at time t (ms since its first keystroke): { index, typed } where typed is what had
+  // been typed of words[index]. Used to draw a ghost caret; cheap enough to call every animation frame.
+  // opts (optional): { accents, noBackspace } of the recorded run.
+  function stateAt(words, log, t, opts) {
+    const snap = snapshots(words, log, opts);
+    let lo = 0, hi = snap.t.length - 1, at = -1;
+    while (lo <= hi) {
+      const mid = (lo + hi) >> 1;
+      if (snap.t[mid] <= t) { at = mid; lo = mid + 1; } else hi = mid - 1;
+    }
+    return at < 0 ? { index: 0, typed: "" } : { index: snap.index[at], typed: snap.typed[at] };
+  }
+
+  // Anti-cheat: recompute wpm/acc/raw from result.words + result.log + mode/target. ok when the run is complete,
+  // the log is well formed and every claimed value is within ±1 of the recomputed one.
+  function verify(r) {
+    const fail = { ok: false, wpm: 0, acc: 0, raw: 0 };
+    if (!r || !Array.isArray(r.log) || !r.log.length || !Array.isArray(r.words) || !r.words.length) return fail;
+    if (!r.words.every((w) => typeof w === "string" && w.length > 0)) return fail;
+    let prev = 0;
+    for (const e of r.log) {
+      if (!Array.isArray(e) || typeof e[0] !== "number" || !isFinite(e[0]) || e[0] < prev) return fail;
+      if (typeof e[1] !== "string" || Array.from(e[1]).length !== 1) return fail;
+      prev = e[0];
+    }
+    if (r.log[0][0] !== 0) return fail;
+    let s;
+    try {
+      s = replay(r, r.log);
+    } catch (err) {
+      return fail;
+    }
+    // A time run may take a keystroke just after the clock ends (before the next tick), never seconds after.
+    if (s.mode === "time" && prev > s.duration * 1000 + 1000) return fail;
+    const x = results(s);
+    const near = (a, b) => typeof b === "number" && Math.abs(a - b) <= 1;
+    const ok =
+      s.finishedAt !== null &&
+      x.mode === r.mode &&
+      x.target === Number(r.target) &&
+      near(x.wpm, r.wpm) &&
+      near(x.acc, r.acc) &&
+      near(x.raw, r.raw);
+    return { ok, wpm: x.wpm, acc: x.acc, raw: x.raw };
+  }
+
+  // ── Timing analytics (pure, on results that carry words + log) ─────────────
+  // Built for 130-200 wpm typists at ~100% accuracy: errors are rare, so these look at time, not mistakes.
+  // "wpm" from an interval is 12000 / ms per keystroke (one keystroke = 1/5 of a word).
+
+  // One entry per log keystroke: { t, k, index (word), pos (in word, before the key), word, ok }.
+  // ok: a character typed correctly, or a space ending a correct word. Backspaces are never ok.
+  const traceCache = typeof WeakMap === "function" ? new WeakMap() : null;
+  function trace(r) {
+    if (!r || !Array.isArray(r.log) || !Array.isArray(r.words) || !r.words.length) return [];
+    const hit = traceCache && traceCache.get(r.log);
+    if (hit) return hit;
+    const s = createTest(replayOpts(r));
+    const out = [];
+    for (const [t, k] of r.log) {
+      const index = s.index;
+      const word = s.words[index];
+      const before = s.typed[index];
+      const pos = before.length;
+      let ok = false;
+      if (k === " ") ok = before === word;
+      if (k !== "\b" && k !== " ") ok = pos < word.length;
+      feed(s, t, k);
+      if (k !== "\b" && k !== " ") ok = ok && s.typed[index].length > pos && s.typed[index][pos] === word[pos];
+      out.push({ t, k, index, pos, word, ok });
+    }
+    if (traceCache) traceCache.set(r.log, out);
+    return out;
+  }
+
+  function asList(rs) {
+    return Array.isArray(rs) ? rs : rs ? [rs] : [];
+  }
+
+  function median(xs) {
+    if (!xs.length) return 0;
+    const a = xs.slice().sort((x, y) => x - y);
+    const m = a.length >> 1;
+    return a.length % 2 ? a[m] : (a[m - 1] + a[m]) / 2;
+  }
+
+  function quantile(xs, q) {
+    if (!xs.length) return 0;
+    const a = xs.slice().sort((x, y) => x - y);
+    return a[Math.min(a.length - 1, Math.floor(q * a.length))];
+  }
+
+  // Words typed cleanly in one go (every key right, no backspace, complete): { word, ms, keys, index }.
+  // ms runs from the word's first key to its last, over keys = length - 1 intervals.
+  function cleanWords(r) {
+    const tr = trace(r);
+    const out = [];
+    let seg = [];
+    let dirty = false;
+    const close = () => {
+      if (!dirty && seg.length >= 2 && seg.length === seg[0].word.length && seg[0].pos === 0) {
+        out.push({ word: seg[0].word, ms: seg[seg.length - 1].t - seg[0].t, keys: seg.length - 1, index: seg[0].index });
+      }
+      seg = [];
+      dirty = false;
+    };
+    for (const e of tr) {
+      if (e.k === " ") close();
+      else if (e.k === "\b") dirty = true;
+      else {
+        if (!e.ok) dirty = true;
+        seg.push(e);
+      }
+    }
+    close();
+    return out;
+  }
+
+  // Slowest letter pairs: consecutive correct keystrokes inside one word, lower-cased.
+  // → [{ pair, n, avgMs, medianMs }] slowest (median, then mean) first, pairs seen fewer than minSamples times dropped.
+  function pairTimes(rs, minSamples) {
+    const min = minSamples == null ? 3 : minSamples;
+    const gaps = {};
+    for (const r of asList(rs)) {
+      const tr = trace(r);
+      for (let i = 1; i < tr.length; i++) {
+        const a = tr[i - 1], b = tr[i];
+        if (!a.ok || !b.ok || a.k === " " || b.k === " " || a.index !== b.index || b.pos !== a.pos + 1) continue;
+        const pair = (a.word[a.pos] + b.word[b.pos]).toLowerCase();
+        (gaps[pair] = gaps[pair] || []).push(b.t - a.t);
+      }
+    }
+    return Object.keys(gaps)
+      .filter((p) => gaps[p].length >= min)
+      .map((p) => {
+        const g = gaps[p];
+        return { pair: p, n: g.length, avgMs: round1(g.reduce((x, y) => x + y, 0) / g.length), medianMs: round1(median(g)) };
+      })
+      .sort((a, b) => b.medianMs - a.medianMs || b.avgMs - a.avgMs);
+  }
+
+  // Slowest words among those typed cleanly: → [{ word, n, wpm, medianMs }] slowest first.
+  // wpm = 12000 × intervals / ms, pooled over every clean sample of the word (first key to last key).
+  function wordTimes(rs, minSamples) {
+    const min = minSamples == null ? 2 : minSamples;
+    const acc = {};
+    for (const r of asList(rs)) {
+      for (const w of cleanWords(r)) {
+        if (w.ms <= 0) continue;
+        const a = (acc[w.word] = acc[w.word] || { ms: 0, keys: 0, all: [] });
+        a.ms += w.ms;
+        a.keys += w.keys;
+        a.all.push(w.ms);
+      }
+    }
+    return Object.keys(acc)
+      .filter((w) => acc[w].all.length >= min)
+      .map((w) => ({ word: w, n: acc[w].all.length, wpm: round1((12000 * acc[w].keys) / acc[w].ms), medianMs: median(acc[w].all) }))
+      .sort((a, b) => a.wpm - b.wpm);
+  }
+
+  // Gaps between consecutive keystrokes, leaving out any gap that touches a backspace (corrections are not rhythm).
+  function intervals(r) {
+    const tr = trace(r);
+    const out = [];
+    for (let i = 1; i < tr.length; i++) {
+      if (tr[i].k === "\b" || tr[i - 1].k === "\b") continue;
+      out.push({ i, gap: tr[i].t - tr[i - 1].t, e: tr[i] });
+    }
+    return out;
+  }
+
+  // Inter-key interval histogram: bins[i] counts gaps in [i×bucket, (i+1)×bucket) up to max; over counts the rest.
+  // → { bucket, max, bins, over, count, median, p90, mean }  (ms)
+  function rhythm(r, bucket, max) {
+    const b = bucket || 10;
+    const m = max || 500;
+    const gaps = intervals(r).map((x) => x.gap);
+    const bins = new Array(Math.ceil(m / b)).fill(0);
+    let over = 0;
+    for (const g of gaps) {
+      if (g >= m) over++;
+      else bins[Math.floor(g / b)]++;
+    }
+    const mean = gaps.length ? gaps.reduce((x, y) => x + y, 0) / gaps.length : 0;
+    return { bucket: b, max: m, bins, over, count: gaps.length, median: median(gaps), p90: quantile(gaps, 0.9), mean: round1(mean) };
+  }
+
+  // Pauses longer than factor × the median gap. → { median, threshold, items: [{ i (log index), t, gap, index,
+  // word, pos }] } where index/word/pos locate the keystroke that ended the pause (mark it on the text).
+  function hesitations(r, factor) {
+    const f = factor || 2.5;
+    const iv = intervals(r);
+    const med = median(iv.map((x) => x.gap));
+    const threshold = med * f;
+    const items = iv
+      .filter((x) => med > 0 && x.gap > threshold)
+      .map((x) => ({ i: x.i, t: x.e.t, gap: x.gap, index: x.e.index, word: x.e.word, pos: x.e.pos }));
+    return { median: med, threshold: round1(threshold), items };
+  }
+
+  function elapsedOf(r, tr) {
+    const last = tr.length ? tr[tr.length - 1].t : 0;
+    return Math.max(1, r.mode === "time" && r.target ? r.target * 1000 : last || (r.duration || 0) * 1000);
+  }
+
+  // Burst vs sustained. → { word: {word, wpm}|null (fastest clean word of 3+ letters), window (best 5 s wpm on
+  // correct keystrokes), overall (result wpm), ratio (window / overall) }
+  function burst(r, windowMs) {
+    const win = windowMs || 5000;
+    let best = null;
+    for (const w of cleanWords(r)) {
+      if (w.word.length < 3 || w.ms <= 0) continue;
+      const wpm = round1((12000 * w.keys) / w.ms);
+      if (!best || wpm > best.wpm) best = { word: w.word, wpm };
+    }
+    const tr = trace(r);
+    const ts = tr.filter((e) => e.ok).map((e) => e.t);
+    const span = Math.min(win, elapsedOf(r, tr));
+    let most = 0;
+    for (let i = 0, j = 0; i < ts.length; i++) {
+      while (ts[i] - ts[j] > span) j++;
+      if (i - j + 1 > most) most = i - j + 1;
+    }
+    const window = round1(most / 5 / (span / 60000));
+    const overall = r.wpm || 0;
+    return { word: best, window, overall, ratio: overall ? Math.round((window / overall) * 100) / 100 : 0 };
+  }
+
+  // Per-second raw wpm over the full seconds of the run (every character and space keystroke, backspaces excluded).
+  function rawPerSecond(r) {
+    const tr = trace(r);
+    const secs = Math.max(1, Math.floor(elapsedOf(r, tr) / 1000));
+    const n = new Array(secs).fill(0);
+    for (const e of tr) {
+      if (e.k === "\b") continue;
+      const sec = Math.floor(e.t / 1000);
+      if (sec < secs) n[sec]++;
+    }
+    return n.map((c) => c * 12);
+  }
+
+  // Consistency 0-100, monkeytype-like: score = clamp(100 - 100 × cv, 0, 100) where cv = population standard
+  // deviation / mean of the per-second raw wpm (rawPerSecond). Steady typing → 100; a run that alternates
+  // bursts and pauses as large as its mean → 0.
+  function consistency(r) {
+    const xs = rawPerSecond(r);
+    const mean = xs.reduce((a, b) => a + b, 0) / xs.length;
+    if (!mean) return 0;
+    const sd = Math.sqrt(xs.reduce((a, x) => a + (x - mean) * (x - mean), 0) / xs.length);
+    return round1(Math.max(0, Math.min(100, 100 - (sd / mean) * 100)));
+  }
+
+  // Stamina: typing rate in the first, middle and last third of the run (by time), and the % drop first → last
+  // (negative = sped up). A third's rate is 12000 × intervals / ms between its first and last correct keystroke,
+  // so a steady typist reads 0% whatever the key spacing (counting keys per third would jitter by one key).
+  // → { first, middle, last, drop }
+  function staminaDrop(r) {
+    const tr = trace(r);
+    const E3 = elapsedOf(r, tr) / 3;
+    const parts = [[], [], []];
+    for (const e of tr) if (e.ok) parts[Math.min(2, Math.floor(e.t / E3))].push(e.t);
+    const [first, middle, last] = parts.map((ts) =>
+      ts.length > 1 && ts[ts.length - 1] > ts[0] ? round1((12000 * (ts.length - 1)) / (ts[ts.length - 1] - ts[0])) : 0
+    );
+    return { first, middle, last, drop: first ? round1(((first - last) / first) * 100) : 0 };
+  }
+
+  // Words from pool weighted by how often they contain the needles (bigrams or keys); no immediate repeats.
+  // Falls back to plain random words when nothing in the pool matches.
+  function drillWords(pool, needles, count, rand) {
+    const r = rand || Math.random;
+    const n = count || 50;
+    const ns = (needles || []).map((x) => String(typeof x === "string" ? x : x.pair || x.key || "").toLowerCase()).filter(Boolean);
+    const scored = [];
+    let total = 0;
+    for (const w of pool) {
+      const lw = w.toLowerCase();
+      let score = 0;
+      for (const x of ns) for (let i = lw.indexOf(x); i >= 0; i = lw.indexOf(x, i + 1)) score++;
+      if (score > 0) {
+        scored.push([w, score]);
+        total += score;
+      }
+    }
+    if (!scored.length) return pickWords(pool, n, r);
+    const out = [];
+    let last = null;
+    let guard = 0;
+    while (out.length < n) {
+      let x = r() * total;
+      let k = 0;
+      while (k < scored.length - 1 && x >= scored[k][1]) x -= scored[k++][1];
+      const w = scored[k][0];
+      if (w === last && scored.length > 1 && guard++ < n * 4) continue;
+      out.push(w);
+      last = w;
+    }
+    return out;
+  }
+
+  // pairs: ["th", ...] or pairTimes() rows; keys: ["é", "q", ...] or [{key}].
+  function pairDrillWords(pool, pairs, count, rand) {
+    return drillWords(pool, pairs, count, rand);
+  }
+  function keyDrillWords(pool, keys, count, rand) {
+    return drillWords(pool, keys, count, rand);
+  }
+
   // ── Stats over stored results ─────────────────────────────────────────────
   // A stored result is results() plus { ts: epoch ms }.
 
@@ -321,5 +743,20 @@
     movingAverage,
     summarize,
     errorProfile,
+    baseChar,
+    replay,
+    stateAt,
+    verify,
+    trace,
+    pairTimes,
+    wordTimes,
+    rhythm,
+    hesitations,
+    burst,
+    consistency,
+    rawPerSecond,
+    staminaDrop,
+    pairDrillWords,
+    keyDrillWords,
   };
 });
