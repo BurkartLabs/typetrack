@@ -366,6 +366,8 @@ async function mount(root, ctx) {
       errorBlock("typed instead", p.swaps.slice(0, 6).map((x) => swapChip(x.k, x.n))) +
       errorBlock("wrong words", r.errors.words.slice(0, 12).map((w) =>
         `<span class="chip word-chip"><s>${esc(w.typed)}</s> ${esc(w.word)}</span>`));
+    // only missed characters (the unfinished word when time ran out): say so instead of an empty panel
+    if (errCount && !el.errPanel.innerHTML.trim()) el.errPanel.innerHTML = `<p class="clean">no mistyped keys &#8212; ${r.chars.missed} missed at the end</p>`;
     el.result.classList.toggle("is-clean", errCount === 0);
     showTiming(r);
     drawResultChart(r);
