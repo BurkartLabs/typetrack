@@ -90,3 +90,34 @@ test("typing racer: progress counts correct words plus the correct prefix; place
   assert.equal(racerPlace(30, [29, 31, 40]), 2);
   assert.equal(racerPlace(30, [30, 31, 40]), 1);
 });
+
+// ── laser defense ───────────────────────────────────────────────────────
+test("laser defense: waves grow, drones get faster to a floor, elites are faster and arrive later", async () => {
+  const { ldWave, ldQueue, ldDemandWpm } = await game("laser-defense");
+  const { rng } = await lib();
+  for (let n = 1; n < 30; n++) {
+    const a = ldWave(n), b = ldWave(n + 1);
+    assert.ok(b.count > a.count && b.elites >= a.elites && b.travel <= a.travel && b.gap <= a.gap);
+    assert.ok(a.eliteTravel < a.travel && a.elites <= a.count / 2);
+  }
+  assert.equal(ldWave(1).elites, 0);
+  assert.equal(ldWave(40).travel, 3.8);
+  assert.equal(ldWave(40).gap, 0.4);
+  const q = ldQueue(6, rng(3));
+  assert.equal(q.length, ldWave(6).count);
+  assert.equal(q.filter(Boolean).length, ldWave(6).elites);
+  assert.ok(q.slice(0, Math.floor(q.length / 3)).every((e) => !e), "no elites in the first third");
+  // the demand curve (a model, not players): wave 1 is a warm-up, wave 10 asks for more than 150 wpm
+  assert.ok(ldDemandWpm(1) < 80, "wave 1 " + ldDemandWpm(1).toFixed(0));
+  assert.ok(ldDemandWpm(10) > 150, "wave 10 " + ldDemandWpm(10).toFixed(0));
+});
+
+test("laser defense: wave bonus doubles for a clean wave; lock-on picks the drone nearest the base", async () => {
+  const { ldWaveBonus, ldTarget } = await game("laser-defense");
+  assert.equal(ldWaveBonus(3, 1), 15);
+  assert.equal(ldWaveBonus(3, 0), 30);
+  const list = [{ text: "stone", y: 40 }, { text: "state", y: 120 }, { text: "steam", y: 300, dead: 0.1 }, { text: "apple", y: 200 }];
+  assert.equal(ldTarget(list, "st", true), 1);
+  assert.equal(ldTarget(list, "sto", true), 0);
+  assert.equal(ldTarget(list, "q", true), -1);
+});
