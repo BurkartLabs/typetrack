@@ -1,0 +1,37 @@
+{
+  "languages": [
+    {
+      "code": "en",
+      "name": "english",
+      "dir": "ltr",
+      "lists": [
+        "common-10k",
+        "common-1k",
+        "common-200",
+        "rare"
+      ],
+      "quotes": true,
+      "translate": false
+    }
+  ],
+  "themes": [
+    "finance",
+    "legal",
+    "medicine",
+    "programming",
+    "science"
+  ],
+  "code": [
+    "cs",
+    "js",
+    "py",
+    "rs",
+    "sh",
+    "sql"
+  ],
+  "books": [
+    "alice",
+    "pride-and-prejudice",
+    "sherlock-scandal"
+  ]
+}

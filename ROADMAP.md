@@ -7,7 +7,7 @@ Everything works offline in the browser unless it is under **Online**.
 
 ## Words
 
-- Much larger word lists, built from public frequency data (not monkeytype's lists)
+- Much larger word lists, built from public frequency data
 - **Standard tests use common words only**; rare and long words live in hard modes, drills and games
 - Top 200 / 1k / 10k tiers per language
 - Quotes from public-domain literature
