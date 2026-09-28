@@ -57,14 +57,16 @@
             <div class="label">acc</div>
             <div class="value" id="r-acc">0%</div>
           </div>
-          <div class="chart-box"><canvas id="r-chart" height="180"></canvas></div>
+          <div class="chart-box"><div class="chart-head"><span class="chart-title"></span><span class="legend"><i class="sw line main"></i>wpm <i class="sw bar"></i>errors</span></div><canvas id="r-chart" height="180"></canvas></div>
         </div>
         <div class="result-details">
           <div><span class="label">test type</span><span id="r-type"></span></div>
           <div><span class="label">raw</span><span id="r-raw"></span></div>
           <div><span class="label">characters</span><span id="r-chars" title="correct / incorrect / extra / missed"></span></div>
+          <div><span class="label">errors</span><span id="r-errors" class="err"></span></div>
           <div><span class="label">time</span><span id="r-time"></span></div>
         </div>
+        <div class="error-panel" id="r-errpanel"></div>
         <div class="result-actions">
           <button id="next-btn" class="icon-btn" title="next test (tab)">&#8635; next test</button>
         </div>
@@ -98,8 +100,10 @@
         <p class="empty" id="s-empty" hidden>no results yet &#8212; take a test</p>
       </div>
 
+      <section class="error-panel stats-errors" id="s-errpanel"></section>
+
       <table class="recent" id="recent">
-        <thead><tr><th>date</th><th>mode</th><th class="num">wpm</th><th class="num">raw</th><th class="num">acc</th></tr></thead>
+        <thead><tr><th>date</th><th>mode</th><th class="num">wpm</th><th class="num">raw</th><th class="num">acc</th><th class="num">errors</th></tr></thead>
         <tbody></tbody>
       </table>
 

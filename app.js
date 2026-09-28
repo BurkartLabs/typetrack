@@ -34,7 +34,7 @@
     config: $("config"), timeOpts: $("time-opts"), wordsOpts: $("words-opts"),
     typing: $("typing"), counter: $("counter"), words: $("words"), caret: $("caret"),
     result: $("result"), rWpm: $("r-wpm"), rAcc: $("r-acc"), rChart: $("r-chart"),
-    rType: $("r-type"), rRaw: $("r-raw"), rChars: $("r-chars"), rTime: $("r-time"), nextBtn: $("next-btn"),
+    rType: $("r-type"), rRaw: $("r-raw"), rChars: $("r-chars"), rTime: $("r-time"), rErrors: $("r-errors"), rErrPanel: $("r-errpanel"), sErrPanel: $("s-errpanel"), nextBtn: $("next-btn"),
     tiles: $("tiles"), sChart: $("s-chart"), sTip: $("s-tip"), sEmpty: $("s-empty"),
     recent: $("recent").querySelector("tbody"), statsModes: $("stats-modes"),
     exportBtn: $("export-btn"), importFile: $("import-file"), clearBtn: $("clear-btn"),
@@ -195,9 +195,18 @@
     el.rRaw.textContent = Math.round(r.raw);
     el.rChars.textContent = `${r.chars.correct}/${r.chars.incorrect}/${r.chars.extra}/${r.chars.missed}`;
     el.rTime.textContent = r.duration + "s";
+    const errCount = r.chars.incorrect + r.chars.extra + r.chars.missed;
+    el.rErrors.textContent = errCount;
+    const p = E.errorProfile([r]);
+    el.rErrPanel.innerHTML = errCount === 0 ? `<p class="clean">no errors — clean run</p>` :
+      errorBlock("missed keys", p.keys.slice(0, 8).map((k) => keyChip(k.key, `${k.miss}/${k.hits}`, k.rate))) +
+      errorBlock("typed instead", p.swaps.slice(0, 6).map((x) => swapChip(x.k, x.n))) +
+      errorBlock("wrong words", r.errors.words.slice(0, 12).map((w) =>
+        `<span class="chip word-chip"><s>${esc(w.typed)}</s> ${esc(w.word)}</span>`));
     drawLineChart(el.rChart, {
       xs: r.perSecond.map((_, i) => i + 1),
-      series: [{ values: r.perSecond, color: css("--main"), dots: false }],
+      bars: r.errors.perSecond,
+      series: [{ values: r.perSecond, color: css("--caret"), dots: false }],
       xLabel: (x) => x + "s",
       yMin: 0,
     });
@@ -243,6 +252,7 @@
       tile("avg wpm (last 10)", s.avgRecent + trend),
       tile("avg wpm (all)", s.avgAll),
       tile("avg accuracy", s.acc + "%"),
+      tile("avg errors / test", E.errorProfile(rs).avgErrors),
       tile("time typed", fmtDuration(s.seconds)),
     ].join("");
 
@@ -265,9 +275,34 @@
       },
     });
 
+    const p = E.errorProfile(rs);
+    el.sErrPanel.innerHTML = !p.tracked ? "" :
+      `<div class="chart-title">error breakdown · ${p.tracked} test${p.tracked === 1 ? "" : "s"} tracked</div>` +
+      errorBlock("weakest keys (miss rate)", p.keys.slice(0, 12).map((k) => keyChip(k.key, k.rate + "%", k.rate))) +
+      errorBlock("common swaps", p.swaps.slice(0, 8).map((x) => swapChip(x.k, x.n))) +
+      errorBlock("most missed words", p.words.slice(0, 12).map((w) => `<span class="chip word-chip">${esc(w.k)} <small>×${w.n}</small></span>`));
+
     el.recent.innerHTML = rs.slice(-15).reverse().map((r) =>
       `<tr><td>${new Date(r.ts).toLocaleString()}</td><td>${E.modeKey(r)}</td>` +
-      `<td class="num wpm">${r.wpm}</td><td class="num">${r.raw}</td><td class="num">${r.acc}%</td></tr>`).join("");
+      `<td class="num wpm">${r.wpm}</td><td class="num">${r.raw}</td><td class="num">${r.acc}%</td>` +
+      `<td class="num err">${r.chars ? r.chars.incorrect + r.chars.extra + r.chars.missed : "–"}</td></tr>`).join("");
+  }
+
+  function errorBlock(title, chips) {
+    if (!chips.length) return "";
+    return `<div class="err-block"><span class="label">${title}</span><div class="chips">${chips.join("")}</div></div>`;
+  }
+  // heat: miss rate 0-100 tints the chip border from dim to full red
+  function keyChip(key, note, rate) {
+    const a = Math.min(1, 0.25 + rate / 60).toFixed(2);
+    return `<span class="chip key-chip" style="--heat:${a}"><b>${key === " " ? "␣" : esc(key)}</b><small>${note}</small></span>`;
+  }
+  function swapChip(k, n) {
+    const [exp, got] = k.split(">");
+    return `<span class="chip">${esc(exp)} → <span class="err">${esc(got)}</span> <small>×${n}</small></span>`;
+  }
+  function esc(t) {
+    return String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
   }
 
   function tile(label, value) {
@@ -365,6 +400,18 @@
       for (let i = 0; i < n; i += every) {
         ctx.fillText(opts.xLabel(opts.xs[i]), x(i), cssH - pad.b / 2);
       }
+    }
+    // error bars on their own scale, bottom 35% of the plot, max labelled on the right
+    if (opts.bars && opts.bars.some((v) => v > 0)) {
+      const bMax = Math.max(...opts.bars);
+      const bw = Math.max(3, Math.min(14, (W / Math.max(1, n)) * 0.5));
+      ctx.fillStyle = css("--error"); ctx.globalAlpha = 0.7;
+      opts.bars.forEach((v, i) => {
+        if (!v) return;
+        const h = (v / bMax) * H * 0.35;
+        ctx.fillRect(x(i) - bw / 2, pad.t + H - h, bw, h);
+      });
+      ctx.globalAlpha = 1;
     }
     // series
     for (const s of opts.series) {

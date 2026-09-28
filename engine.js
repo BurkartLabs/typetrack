@@ -55,6 +55,9 @@
       extra: 0,
       missed: 0,
       events: [], // {t, ok} per character keystroke, t = ms since start
+      keyHits: {}, // expected char -> times it was attempted
+      keyMiss: {}, // expected char -> times it was mistyped
+      swaps: {}, // "expected>typed" -> count
     };
   }
 
@@ -80,8 +83,15 @@
     const pos = typed.length;
     const ok = pos < word.length && word[pos] === ch;
     if (pos < word.length) {
+      const exp = word[pos].toLowerCase();
+      s.keyHits[exp] = (s.keyHits[exp] || 0) + 1;
       if (ok) s.correct++;
-      else s.incorrect++;
+      else {
+        s.incorrect++;
+        s.keyMiss[exp] = (s.keyMiss[exp] || 0) + 1;
+        const k = exp + ">" + ch;
+        s.swaps[k] = (s.swaps[k] || 0) + 1;
+      }
     } else {
       if (pos - word.length >= 10) return s; // cap runaway extras
       s.extra++;
@@ -178,6 +188,13 @@
       raw: round1(rawChars / 5 / minutes),
       acc: keystrokes ? round1((s.correct / keystrokes) * 100) : 0,
       chars: { correct: s.correct, incorrect: s.incorrect, extra: s.extra, missed: s.missed },
+      errors: {
+        perSecond: errorsPerSecond(s, ms),
+        keyHits: Object.assign({}, s.keyHits),
+        keyMiss: Object.assign({}, s.keyMiss),
+        swaps: Object.assign({}, s.swaps),
+        words: wrongWords(s),
+      },
       // cumulative wpm sampled once per second, for the results chart
       perSecond: perSecond(s, ms),
     };
@@ -196,6 +213,52 @@
       out.push(round1(good / 5 / (sec / 60)));
     }
     return out;
+  }
+
+  // errors (bad keystrokes, including a space ending a wrong word) in each second
+  function errorsPerSecond(s, ms) {
+    const secs = Math.max(1, Math.ceil(ms / 1000));
+    const out = new Array(secs).fill(0);
+    for (const e of s.events) if (!e.ok) out[Math.min(secs - 1, Math.max(0, Math.ceil(e.t / 1000) - 1))]++;
+    return out;
+  }
+
+  // committed words that did not match: [{word, typed}]
+  function wrongWords(s) {
+    const out = [];
+    for (let i = 0; i < s.typed.length; i++) {
+      const committed = i < s.index || s.finishedAt !== null;
+      if (committed && s.typed[i] && s.typed[i] !== s.words[i]) out.push({ word: s.words[i], typed: s.typed[i] });
+    }
+    return out;
+  }
+
+  // Merge error data across stored results. Results saved before error
+  // tracking existed contribute nothing. Returns keys sorted worst first.
+  function errorProfile(rs) {
+    const hits = {}, miss = {}, swaps = {}, words = {};
+    let errs = 0, tests = 0;
+    for (const r of rs) {
+      if (r.chars) errs += (r.chars.incorrect || 0) + (r.chars.extra || 0) + (r.chars.missed || 0);
+      if (!r.errors) continue;
+      tests++;
+      for (const [k, v] of Object.entries(r.errors.keyHits || {})) hits[k] = (hits[k] || 0) + v;
+      for (const [k, v] of Object.entries(r.errors.keyMiss || {})) miss[k] = (miss[k] || 0) + v;
+      for (const [k, v] of Object.entries(r.errors.swaps || {})) swaps[k] = (swaps[k] || 0) + v;
+      for (const w of r.errors.words || []) words[w.word] = (words[w.word] || 0) + 1;
+    }
+    const keys = Object.keys(hits)
+      .map((k) => ({ key: k, hits: hits[k], miss: miss[k] || 0, rate: round1(((miss[k] || 0) / hits[k]) * 100) }))
+      .filter((k) => k.miss > 0)
+      .sort((a, b) => b.rate - a.rate || b.miss - a.miss);
+    const top = (o) => Object.entries(o).sort((a, b) => b[1] - a[1]).map(([k, n]) => ({ k, n }));
+    return {
+      avgErrors: rs.length ? round1(errs / rs.length) : 0,
+      tracked: tests,
+      keys,
+      swaps: top(swaps),
+      words: top(words),
+    };
   }
 
   function round1(x) {
@@ -257,5 +320,6 @@
     filterResults,
     movingAverage,
     summarize,
+    errorProfile,
   };
 });

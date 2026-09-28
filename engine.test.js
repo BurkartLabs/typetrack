@@ -131,3 +131,20 @@ test("same seed gives the same words", () => {
   assert.deepEqual(a.words, b.words);
   for (let i = 1; i < a.words.length; i++) assert.notEqual(a.words[i], a.words[i - 1]);
 });
+
+test("errors: per-key misses, swaps, wrong words and errors per second are recorded", () => {
+  const s = E.createTest({ mode: "words", wordCount: 2, words: ["ab"], seed: 1 });
+  E.input(s, "a", 0); E.input(s, "x", 500); E.space(s, 900); // "ax" for "ab": 1 miss at 0.5s, bad space at 0.9s
+  E.input(s, "a", 1500); E.input(s, "b", 1600); E.space(s, 1700);
+  const r = E.results(s);
+  assert.deepEqual(r.errors.keyMiss, { b: 1 });
+  assert.deepEqual(r.errors.keyHits, { a: 2, b: 2 });
+  assert.deepEqual(r.errors.swaps, { "b>x": 1 });
+  assert.deepEqual(r.errors.words, [{ word: "ab", typed: "ax" }]);
+  assert.deepEqual(r.errors.perSecond, [2, 0]);
+  const p = E.errorProfile([Object.assign({ ts: 1 }, r), { wpm: 50, chars: { incorrect: 3, extra: 0, missed: 0 } }]);
+  assert.equal(p.tracked, 1);
+  assert.deepEqual(p.keys, [{ key: "b", hits: 2, miss: 1, rate: 50 }]);
+  assert.deepEqual(p.words, [{ k: "ab", n: 1 }]);
+  assert.equal(p.avgErrors, 2);
+});
