@@ -126,3 +126,37 @@ test("tower-climb: floors get harder and faster; text is seeded", async () => {
   assert.ok(t.floorText(t.floorSpec(6, 150), pools, E.mulberry32(1)).includes("[1,"));
   assert.equal(t.floorText(t.floorSpec(1, 150), pools, E.mulberry32(1)).split(" ").length, 15);
 });
+
+test("code-golf: symbols double, Enter and Tab, breakdown", async () => {
+  const g = await game("code-golf");
+  assert.equal(g.symbolPoints("{"), 2);
+  assert.equal(g.symbolPoints("`"), 2);
+  assert.equal(g.symbolPoints("a"), 1);
+  assert.equal(g.symbolPoints(" "), 1);
+  assert.equal(g.golfPoints("f(x);"), 1 + 2 + 1 + 2 + 2);
+  assert.equal(g.normalizeSnippet("\r\nif x:\r\n\treturn 1  \r\n\n"), "if x:\n  return 1");
+  const text = "if (a) {\n  b();\n}";
+  const s = g.createGolf(text);
+  let t = 0;
+  const feed = (k) => g.golfKey(s, k, (t += 100));
+  for (const ch of "if (a) {") feed(ch);
+  assert.equal(feed("x"), false); // wrong key: no advance, counted
+  assert.equal(s.errors, 1);
+  assert.equal(s.err, true);
+  assert.equal(feed("Enter"), true);
+  assert.equal(feed("Tab"), true); // two spaces at once
+  assert.equal(s.pos, 11);
+  for (const ch of "b();") feed(ch);
+  feed("Enter");
+  assert.equal(s.finishedAt, null);
+  feed("}");
+  assert.ok(s.finishedAt !== null);
+  assert.equal(g.golfAccuracy(s), Math.round((text.length / (text.length + 1)) * 1000) / 10);
+  assert.equal(g.pointsPerMinute(100, 30000), 200);
+  const bd = g.symbolBreakdown([{ ch: "a", ms: 100 }, { ch: "b", ms: 120 }, { ch: "c", ms: 80 }, { ch: "{", ms: 300 }, { ch: "{", ms: 200 }, { ch: ";", ms: 150 }]);
+  assert.equal(bd.baseline, 100);
+  assert.deepEqual(bd.symbols, [{ ch: "{", n: 2, avg: 250, ratio: 2.5 }, { ch: ";", n: 1, avg: 150, ratio: 1.5 }]);
+  const round = g.buildRound(["a = 1", "b = 2", "c = 3"], E.mulberry32(3), 13);
+  assert.equal(round.split("\n").length, 3);
+  assert.equal(new Set(round.split("\n")).size, 3);
+});

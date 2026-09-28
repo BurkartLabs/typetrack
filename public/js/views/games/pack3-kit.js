@@ -210,11 +210,15 @@ export async function quotes(lang) {
   return ok.length ? ok : BUILTIN_QUOTES.slice();
 }
 
-// Code snippets as strings; built-ins when words/code/<lang>.json is missing.
-export async function codeSnippets(lang) {
+// Code snippets as strings; built-ins when words/code/<lang>.json is missing. → {list, builtin}
+export async function codeSnippetsInfo(lang) {
   const list = await wordsApi.code(lang).catch(() => []);
   const ok = (Array.isArray(list) ? list : []).map((s) => (typeof s === "string" ? s : s && s.text)).filter((t) => typeof t === "string" && t.trim());
-  return ok.length ? ok : (BUILTIN_CODE[lang] || BUILTIN_CODE.js).slice();
+  return ok.length ? { list: ok, builtin: false } : { list: (BUILTIN_CODE[lang] || BUILTIN_CODE.js).slice(), builtin: true };
+}
+
+export async function codeSnippets(lang) {
+  return (await codeSnippetsInfo(lang)).list;
 }
 
 // ── DOM helpers shared by the games ───────────────────────────────────────
