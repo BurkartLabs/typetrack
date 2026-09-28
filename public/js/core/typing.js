@@ -38,7 +38,7 @@ export function createTyping(el, options = {}) {
   const E = window.Engine;
   let o = Object.assign({ mode: "time", duration: 30, wordCount: 50 }, options);
   let test = null, fixed = null, log = [], finished = false, started = false;
-  let timer = null, raf = 0, shift = 0;
+  let timer = null, shift = 0;
 
   el.classList.add("typing");
   el.innerHTML =
@@ -105,21 +105,14 @@ export function createTyping(el, options = {}) {
 
   function stopTimers() {
     clearInterval(timer); timer = null;
-    cancelAnimationFrame(raf); raf = 0;
   }
 
   function onTick() {
     if (!test || !E.isRunning(test)) return;
     E.tick(test, Date.now());
     updateCounter();
+    placeSecondaryCarets(); // pace + ghost move on the tick (rAF stalls in background tabs)
     if (test.finishedAt !== null) finish();
-  }
-
-  function frame() {
-    raf = 0;
-    if (!test || finished) return;
-    placeSecondaryCarets();
-    if (started) raf = requestAnimationFrame(frame);
   }
 
   function finish() {
@@ -189,7 +182,6 @@ export function createTyping(el, options = {}) {
     if (!started && test.startedAt !== null) {
       started = true;
       if (o.onStart) o.onStart();
-      if ((o.paceWpm || o.ghost) && !raf) raf = requestAnimationFrame(frame);
     }
     document.body.classList.add("typing-active");
     if (test.words.length !== wordsEl.childElementCount) appendWords();

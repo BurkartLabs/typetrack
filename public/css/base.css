@@ -159,8 +159,8 @@ main { flex: 1; max-width: 1100px; width: 100%; margin: 0 auto; }
 
 /* secondary carets and typing options (core/typing.js) */
 .caret[hidden] { display: none; }
-.caret.pace-caret { background: var(--sub); box-shadow: none; opacity: .55; animation: none; transition: none; }
-.caret.ghost-caret { background: var(--text); box-shadow: none; opacity: .35; animation: none; transition: left .05s linear, top .05s linear; }
+.caret.pace-caret { background: var(--sub); box-shadow: none; opacity: .55; animation: none; transition: left .1s linear, top .1s linear; }
+.caret.ghost-caret { background: var(--text); box-shadow: none; opacity: .35; animation: none; transition: left .1s linear, top .1s linear; }
 .typing[data-caret="line"] .caret { width: 2px; height: calc(var(--line) * .6); }
 .typing[data-caret="block"] .caret { height: calc(var(--line) * .6); opacity: .35; }
 .typing[data-caret="block"] .caret.main-caret { animation: none; }
