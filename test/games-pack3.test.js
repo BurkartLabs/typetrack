@@ -160,3 +160,35 @@ test("code-golf: symbols double, Enter and Tab, breakdown", async () => {
   assert.equal(round.split("\n").length, 3);
   assert.equal(new Set(round.split("\n")).size, 3);
 });
+
+test("daily-gauntlet: same plan per date, score, streak, calendar", async () => {
+  const d = await game("daily-gauntlet");
+  const pools = {
+    common: ["alpha", "beta", "gamma", "delta", "echo", "fox", "golf", "hotel"],
+    rare: ["zephyr", "syzygy", "quixotic"],
+    quotes: [{ text: "one two three", source: "a" }, { text: "four  five\nsix", source: "b" }],
+    code: ["if (x) {\n  y();\n}", "let z = [1, 2];"],
+  };
+  const a = d.gauntletPlan("2026-09-28", pools), b = d.gauntletPlan("2026-09-28", pools), c = d.gauntletPlan("2026-09-29", pools);
+  assert.deepEqual(a, b);
+  assert.notDeepEqual(a, c);
+  assert.deepEqual(a.map((x) => x.id), ["sprint", "common", "quote", "rare", "code"]);
+  assert.equal(a[0].text.split(" ").length, 8);
+  assert.equal(a[1].mode, "time");
+  assert.equal(a[1].duration, 30);
+  assert.equal(a[1].words.length, 200);
+  assert.ok(!/\s{2,}|\n/.test(a[2].text) && !/\n/.test(a[4].text));
+  assert.equal(a[3].text.split(" ").length, 12);
+  assert.ok(a[3].text.split(" ").every((w) => pools.rare.includes(w)));
+  assert.equal(d.challengeScore({ wpm: 150, acc: 98 }), 147);
+  assert.equal(d.gauntletTotal([{ score: 147 }, { score: 100 }]), 247);
+  assert.deepEqual(d.gauntletStreak(["2026-09-26", "2026-09-27", "2026-09-28"], "2026-09-28"), { current: 3, best: 3 });
+  assert.deepEqual(d.gauntletStreak(["2026-09-26", "2026-09-27"], "2026-09-28"), { current: 2, best: 2 }); // today not yet played
+  assert.equal(d.gauntletStreak(["2026-09-25"], "2026-09-28").current, 0);
+  const strip = d.calendarStrip("2026-09-28", { "2026-09-28": { total: 700 }, "2026-09-20": { total: 650 } });
+  assert.equal(strip.length, 14);
+  assert.equal(strip[0].date, "2026-09-15");
+  assert.deepEqual(strip[13], { date: "2026-09-28", played: true, total: 700, today: true });
+  assert.equal(strip.filter((x) => x.played).length, 2);
+  assert.equal(d.msToNextDay(Date.UTC(2026, 8, 28, 23, 0)), 3600000);
+});
