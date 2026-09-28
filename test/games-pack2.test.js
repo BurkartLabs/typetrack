@@ -121,3 +121,50 @@ test("laser defense: wave bonus doubles for a clean wave; lock-on picks the dron
   assert.equal(ldTarget(list, "sto", true), 0);
   assert.equal(ldTarget(list, "q", true), -1);
 });
+
+// ── boss fight ──────────────────────────────────────────────────────────
+test("boss fight: damage scales with live wpm, clamped; 150 wpm fells it in about a minute", async () => {
+  const { bossDamage, bossLiveWpm, BOSS_HP } = await game("boss-fight");
+  assert.equal(bossDamage("hello", 100), 6);
+  assert.equal(bossDamage("hello", 200), 12);
+  assert.equal(bossDamage("hello", 10), 2.4); // floor 0.4x
+  assert.equal(bossDamage("hello", 900), 15); // ceiling 2.5x
+  // 60 correct keys in the last 4 s = 12 words in 4 s = 180 wpm; older keys do not count
+  const times = [0.1, 0.2].concat(Array.from({ length: 60 }, (_, i) => 6.01 + i * (3.9 / 60)));
+  assert.equal(Math.round(bossLiveWpm(times, 10)), 180);
+  assert.equal(Math.round(bossLiveWpm([0.5], 0.5)), 12); // span is at least a second
+  // a model: steady wpm w on 5-letter words deals w*w/1200 hp per second
+  const secs = (w) => BOSS_HP / (((w * 5) / 60 / 6) * bossDamage("xxxxx", w));
+  assert.ok(secs(150) > 45 && secs(150) < 65, "150 wpm: " + secs(150).toFixed(0) + "s");
+  assert.ok(secs(200) < secs(150) && secs(150) < secs(100));
+});
+
+test("boss fight: idle heal after 1.5 s, heal never climbs back over a phase line, phases at 66/33", async () => {
+  const { bossHealRate, bossHeal, bossPhase, BOSS_HP } = await game("boss-fight");
+  assert.equal(bossHealRate(1.4), 0);
+  assert.ok(bossHealRate(1.6) > 0);
+  assert.equal(bossPhase(1), 0); assert.equal(bossPhase(0.67), 0); assert.equal(bossPhase(0.66), 1);
+  assert.equal(bossPhase(0.34), 1); assert.equal(bossPhase(0.33), 2); assert.equal(bossPhase(0), 2);
+  assert.equal(bossHeal(900, 50, 0), 950);
+  assert.equal(bossHeal(990, 50, 0), BOSS_HP);
+  assert.equal(bossHeal(650, 50, 1), 660);
+  assert.equal(bossHeal(300, 10, 2), 310);
+  assert.equal(bossHeal(329, 10, 2), 330);
+});
+
+test("boss fight: phase text is common, then long, then punctuated with the letters kept", async () => {
+  const { bossWord, bossPunctuate } = await game("boss-fight");
+  const { rng } = await lib();
+  const common = ["the", "and", "people", "between", "government", "for"];
+  const rare = ["quixotic", "syzygy", "chrysanthemums"];
+  const r = rng(7);
+  for (let i = 0; i < 50; i++) {
+    assert.ok(common.includes(bossWord(0, common, rare, r)));
+    const w1 = bossWord(1, common, rare, r);
+    assert.ok(w1.length >= 6 && w1 !== "chrysanthemums", w1);
+    const w2 = bossWord(2, common, rare, r);
+    assert.ok(/[^a-z]/.test(w2), w2);
+    assert.ok(common.some((c) => w2.toLowerCase().includes(c)), w2);
+  }
+  assert.ok(bossPunctuate("word", () => 0).length > 4);
+});
