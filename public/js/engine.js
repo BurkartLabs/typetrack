@@ -424,6 +424,269 @@
     return { ok, wpm: x.wpm, acc: x.acc, raw: x.raw };
   }
 
+  // ── Timing analytics (pure, on results that carry words + log) ─────────────
+  // Built for 130-200 wpm typists at ~100% accuracy: errors are rare, so these look at time, not mistakes.
+  // "wpm" from an interval is 12000 / ms per keystroke (one keystroke = 1/5 of a word).
+
+  // One entry per log keystroke: { t, k, index (word), pos (in word, before the key), word, ok }.
+  // ok: a character typed correctly, or a space ending a correct word. Backspaces are never ok.
+  const traceCache = typeof WeakMap === "function" ? new WeakMap() : null;
+  function trace(r) {
+    if (!r || !Array.isArray(r.log) || !Array.isArray(r.words) || !r.words.length) return [];
+    const hit = traceCache && traceCache.get(r.log);
+    if (hit) return hit;
+    const s = createTest(replayOpts(r));
+    const out = [];
+    for (const [t, k] of r.log) {
+      const index = s.index;
+      const word = s.words[index];
+      const before = s.typed[index];
+      const pos = before.length;
+      let ok = false;
+      if (k === " ") ok = before === word;
+      if (k !== "\b" && k !== " ") ok = pos < word.length;
+      feed(s, t, k);
+      if (k !== "\b" && k !== " ") ok = ok && s.typed[index].length > pos && s.typed[index][pos] === word[pos];
+      out.push({ t, k, index, pos, word, ok });
+    }
+    if (traceCache) traceCache.set(r.log, out);
+    return out;
+  }
+
+  function asList(rs) {
+    return Array.isArray(rs) ? rs : rs ? [rs] : [];
+  }
+
+  function median(xs) {
+    if (!xs.length) return 0;
+    const a = xs.slice().sort((x, y) => x - y);
+    const m = a.length >> 1;
+    return a.length % 2 ? a[m] : (a[m - 1] + a[m]) / 2;
+  }
+
+  function quantile(xs, q) {
+    if (!xs.length) return 0;
+    const a = xs.slice().sort((x, y) => x - y);
+    return a[Math.min(a.length - 1, Math.floor(q * a.length))];
+  }
+
+  // Words typed cleanly in one go (every key right, no backspace, complete): { word, ms, keys, index }.
+  // ms runs from the word's first key to its last, over keys = length - 1 intervals.
+  function cleanWords(r) {
+    const tr = trace(r);
+    const out = [];
+    let seg = [];
+    let dirty = false;
+    const close = () => {
+      if (!dirty && seg.length >= 2 && seg.length === seg[0].word.length && seg[0].pos === 0) {
+        out.push({ word: seg[0].word, ms: seg[seg.length - 1].t - seg[0].t, keys: seg.length - 1, index: seg[0].index });
+      }
+      seg = [];
+      dirty = false;
+    };
+    for (const e of tr) {
+      if (e.k === " ") close();
+      else if (e.k === "\b") dirty = true;
+      else {
+        if (!e.ok) dirty = true;
+        seg.push(e);
+      }
+    }
+    close();
+    return out;
+  }
+
+  // Slowest letter pairs: consecutive correct keystrokes inside one word, lower-cased.
+  // → [{ pair, n, avgMs, medianMs }] slowest (median, then mean) first, pairs seen fewer than minSamples times dropped.
+  function pairTimes(rs, minSamples) {
+    const min = minSamples == null ? 3 : minSamples;
+    const gaps = {};
+    for (const r of asList(rs)) {
+      const tr = trace(r);
+      for (let i = 1; i < tr.length; i++) {
+        const a = tr[i - 1], b = tr[i];
+        if (!a.ok || !b.ok || a.k === " " || b.k === " " || a.index !== b.index || b.pos !== a.pos + 1) continue;
+        const pair = (a.word[a.pos] + b.word[b.pos]).toLowerCase();
+        (gaps[pair] = gaps[pair] || []).push(b.t - a.t);
+      }
+    }
+    return Object.keys(gaps)
+      .filter((p) => gaps[p].length >= min)
+      .map((p) => {
+        const g = gaps[p];
+        return { pair: p, n: g.length, avgMs: round1(g.reduce((x, y) => x + y, 0) / g.length), medianMs: round1(median(g)) };
+      })
+      .sort((a, b) => b.medianMs - a.medianMs || b.avgMs - a.avgMs);
+  }
+
+  // Slowest words among those typed cleanly: → [{ word, n, wpm, medianMs }] slowest first.
+  // wpm = 12000 × intervals / ms, pooled over every clean sample of the word (first key to last key).
+  function wordTimes(rs, minSamples) {
+    const min = minSamples == null ? 2 : minSamples;
+    const acc = {};
+    for (const r of asList(rs)) {
+      for (const w of cleanWords(r)) {
+        if (w.ms <= 0) continue;
+        const a = (acc[w.word] = acc[w.word] || { ms: 0, keys: 0, all: [] });
+        a.ms += w.ms;
+        a.keys += w.keys;
+        a.all.push(w.ms);
+      }
+    }
+    return Object.keys(acc)
+      .filter((w) => acc[w].all.length >= min)
+      .map((w) => ({ word: w, n: acc[w].all.length, wpm: round1((12000 * acc[w].keys) / acc[w].ms), medianMs: median(acc[w].all) }))
+      .sort((a, b) => a.wpm - b.wpm);
+  }
+
+  // Gaps between consecutive keystrokes, leaving out any gap that touches a backspace (corrections are not rhythm).
+  function intervals(r) {
+    const tr = trace(r);
+    const out = [];
+    for (let i = 1; i < tr.length; i++) {
+      if (tr[i].k === "\b" || tr[i - 1].k === "\b") continue;
+      out.push({ i, gap: tr[i].t - tr[i - 1].t, e: tr[i] });
+    }
+    return out;
+  }
+
+  // Inter-key interval histogram: bins[i] counts gaps in [i×bucket, (i+1)×bucket) up to max; over counts the rest.
+  // → { bucket, max, bins, over, count, median, p90, mean }  (ms)
+  function rhythm(r, bucket, max) {
+    const b = bucket || 10;
+    const m = max || 500;
+    const gaps = intervals(r).map((x) => x.gap);
+    const bins = new Array(Math.ceil(m / b)).fill(0);
+    let over = 0;
+    for (const g of gaps) {
+      if (g >= m) over++;
+      else bins[Math.floor(g / b)]++;
+    }
+    const mean = gaps.length ? gaps.reduce((x, y) => x + y, 0) / gaps.length : 0;
+    return { bucket: b, max: m, bins, over, count: gaps.length, median: median(gaps), p90: quantile(gaps, 0.9), mean: round1(mean) };
+  }
+
+  // Pauses longer than factor × the median gap. → { median, threshold, items: [{ i (log index), t, gap, index,
+  // word, pos }] } where index/word/pos locate the keystroke that ended the pause (mark it on the text).
+  function hesitations(r, factor) {
+    const f = factor || 2.5;
+    const iv = intervals(r);
+    const med = median(iv.map((x) => x.gap));
+    const threshold = med * f;
+    const items = iv
+      .filter((x) => med > 0 && x.gap > threshold)
+      .map((x) => ({ i: x.i, t: x.e.t, gap: x.gap, index: x.e.index, word: x.e.word, pos: x.e.pos }));
+    return { median: med, threshold: round1(threshold), items };
+  }
+
+  function elapsedOf(r, tr) {
+    const last = tr.length ? tr[tr.length - 1].t : 0;
+    return Math.max(1, r.mode === "time" && r.target ? r.target * 1000 : last || (r.duration || 0) * 1000);
+  }
+
+  // Burst vs sustained. → { word: {word, wpm}|null (fastest clean word of 3+ letters), window (best 5 s wpm on
+  // correct keystrokes), overall (result wpm), ratio (window / overall) }
+  function burst(r, windowMs) {
+    const win = windowMs || 5000;
+    let best = null;
+    for (const w of cleanWords(r)) {
+      if (w.word.length < 3 || w.ms <= 0) continue;
+      const wpm = round1((12000 * w.keys) / w.ms);
+      if (!best || wpm > best.wpm) best = { word: w.word, wpm };
+    }
+    const tr = trace(r);
+    const ts = tr.filter((e) => e.ok).map((e) => e.t);
+    const span = Math.min(win, elapsedOf(r, tr));
+    let most = 0;
+    for (let i = 0, j = 0; i < ts.length; i++) {
+      while (ts[i] - ts[j] > span) j++;
+      if (i - j + 1 > most) most = i - j + 1;
+    }
+    const window = round1(most / 5 / (span / 60000));
+    const overall = r.wpm || 0;
+    return { word: best, window, overall, ratio: overall ? Math.round((window / overall) * 100) / 100 : 0 };
+  }
+
+  // Per-second raw wpm over the full seconds of the run (every character and space keystroke, backspaces excluded).
+  function rawPerSecond(r) {
+    const tr = trace(r);
+    const secs = Math.max(1, Math.floor(elapsedOf(r, tr) / 1000));
+    const n = new Array(secs).fill(0);
+    for (const e of tr) {
+      if (e.k === "\b") continue;
+      const sec = Math.floor(e.t / 1000);
+      if (sec < secs) n[sec]++;
+    }
+    return n.map((c) => c * 12);
+  }
+
+  // Consistency 0-100, monkeytype-like: score = clamp(100 - 100 × cv, 0, 100) where cv = population standard
+  // deviation / mean of the per-second raw wpm (rawPerSecond). Steady typing → 100; a run that alternates
+  // bursts and pauses as large as its mean → 0.
+  function consistency(r) {
+    const xs = rawPerSecond(r);
+    const mean = xs.reduce((a, b) => a + b, 0) / xs.length;
+    if (!mean) return 0;
+    const sd = Math.sqrt(xs.reduce((a, x) => a + (x - mean) * (x - mean), 0) / xs.length);
+    return round1(Math.max(0, Math.min(100, 100 - (sd / mean) * 100)));
+  }
+
+  // Stamina: typing rate in the first, middle and last third of the run (by time), and the % drop first → last
+  // (negative = sped up). A third's rate is 12000 × intervals / ms between its first and last correct keystroke,
+  // so a steady typist reads 0% whatever the key spacing (counting keys per third would jitter by one key).
+  // → { first, middle, last, drop }
+  function staminaDrop(r) {
+    const tr = trace(r);
+    const E3 = elapsedOf(r, tr) / 3;
+    const parts = [[], [], []];
+    for (const e of tr) if (e.ok) parts[Math.min(2, Math.floor(e.t / E3))].push(e.t);
+    const [first, middle, last] = parts.map((ts) =>
+      ts.length > 1 && ts[ts.length - 1] > ts[0] ? round1((12000 * (ts.length - 1)) / (ts[ts.length - 1] - ts[0])) : 0
+    );
+    return { first, middle, last, drop: first ? round1(((first - last) / first) * 100) : 0 };
+  }
+
+  // Words from pool weighted by how often they contain the needles (bigrams or keys); no immediate repeats.
+  // Falls back to plain random words when nothing in the pool matches.
+  function drillWords(pool, needles, count, rand) {
+    const r = rand || Math.random;
+    const n = count || 50;
+    const ns = (needles || []).map((x) => String(typeof x === "string" ? x : x.pair || x.key || "").toLowerCase()).filter(Boolean);
+    const scored = [];
+    let total = 0;
+    for (const w of pool) {
+      const lw = w.toLowerCase();
+      let score = 0;
+      for (const x of ns) for (let i = lw.indexOf(x); i >= 0; i = lw.indexOf(x, i + 1)) score++;
+      if (score > 0) {
+        scored.push([w, score]);
+        total += score;
+      }
+    }
+    if (!scored.length) return pickWords(pool, n, r);
+    const out = [];
+    let last = null;
+    let guard = 0;
+    while (out.length < n) {
+      let x = r() * total;
+      let k = 0;
+      while (k < scored.length - 1 && x >= scored[k][1]) x -= scored[k++][1];
+      const w = scored[k][0];
+      if (w === last && scored.length > 1 && guard++ < n * 4) continue;
+      out.push(w);
+      last = w;
+    }
+    return out;
+  }
+
+  // pairs: ["th", ...] or pairTimes() rows; keys: ["é", "q", ...] or [{key}].
+  function pairDrillWords(pool, pairs, count, rand) {
+    return drillWords(pool, pairs, count, rand);
+  }
+  function keyDrillWords(pool, keys, count, rand) {
+    return drillWords(pool, keys, count, rand);
+  }
+
   // ── Stats over stored results ─────────────────────────────────────────────
   // A stored result is results() plus { ts: epoch ms }.
 
@@ -484,5 +747,16 @@
     replay,
     stateAt,
     verify,
+    trace,
+    pairTimes,
+    wordTimes,
+    rhythm,
+    hesitations,
+    burst,
+    consistency,
+    rawPerSecond,
+    staminaDrop,
+    pairDrillWords,
+    keyDrillWords,
   };
 });

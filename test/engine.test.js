@@ -348,3 +348,125 @@ test("verify accepts an honest result and catches tampering", () => {
   play(w, steady(w.words.slice(0, 2), 50));
   assert.equal(E.verify(E.results(w)).ok, false);
 });
+
+// ── v2: timing analytics ─────────────────────────────────────────────────
+
+function runOf(opts, script) {
+  const s = E.createTest(Object.assign({ ordered: true }, opts));
+  play(s, script);
+  if (s.mode === "time") E.tick(s, s.duration * 1000);
+  return E.results(s);
+}
+
+// "the" ×4: t→h 100 ms, h→e 150 ms, the last one with a corrected typo (t x ⌫ h e).
+const THE = runOf({ mode: "words", words: ["the", "the", "the", "the"] }, [
+  [0, "t"], [100, "h"], [250, "e"], [300, " "],
+  [400, "t"], [500, "h"], [650, "e"], [700, " "],
+  [800, "t"], [900, "h"], [1050, "e"], [1100, " "],
+  [1200, "t"], [1250, "x"], [1300, "\b"], [1400, "h"], [1500, "e"],
+]);
+const AB = runOf({ mode: "words", words: ["ab", "cd"] }, [[0, "a"], [200, "b"], [300, " "], [400, "c"], [450, "d"]]);
+
+// Time run on "abcd ": 200 ms per key for the first 5 s, then 100 ms per key to the 10 s limit.
+function slowThenFast() {
+  const keys = "abcd ";
+  const script = [];
+  let i = 0;
+  for (let t = 0; t <= 5000; t += 200) script.push([t, keys[i++ % 5]]);
+  for (let t = 5100; t <= 10000; t += 100) script.push([t, keys[i++ % 5]]);
+  return runOf({ mode: "time", duration: 10, words: ["abcd"] }, script);
+}
+const STEADY = runOf({ mode: "time", duration: 5, words: ["abcd"] },
+  Array.from({ length: 50 }, (_, i) => [i * 100, "abcd "[i % 5]]));
+
+test("trace marks each keystroke with its word, position and correctness", () => {
+  const tr = E.trace(THE);
+  assert.equal(tr.length, THE.log.length);
+  assert.deepEqual(tr[13], { t: 1250, k: "x", index: 3, pos: 1, word: "the", ok: false });
+  assert.deepEqual(tr[3], { t: 300, k: " ", index: 0, pos: 3, word: "the", ok: true });
+  assert.equal(tr[14].ok, false); // backspace
+});
+
+test("pairTimes: correct in-word bigrams, slowest first, min samples", () => {
+  assert.deepEqual(E.pairTimes(THE), [
+    { pair: "he", n: 4, avgMs: 137.5, medianMs: 150 },
+    { pair: "th", n: 3, avgMs: 100, medianMs: 100 }, // t→x→⌫→h is not a th sample
+  ]);
+  assert.deepEqual(E.pairTimes([THE], 4).map((p) => p.pair), ["he"]);
+  assert.deepEqual(E.pairTimes([THE, AB], 1).map((p) => p.pair), ["ab", "he", "th", "cd"]);
+  // lower-cased
+  const caps = runOf({ mode: "words", words: ["Th"] }, [[0, "T"], [80, "h"]]);
+  assert.deepEqual(E.pairTimes(caps, 1), [{ pair: "th", n: 1, avgMs: 80, medianMs: 80 }]);
+});
+
+test("wordTimes: clean words only, pooled wpm, slowest first", () => {
+  // three clean "the": 2 intervals in 250 ms each → 12000 × 6 / 750 = 96 wpm; the corrected one is left out
+  assert.deepEqual(E.wordTimes(THE), [{ word: "the", n: 3, wpm: 96, medianMs: 250 }]);
+  assert.deepEqual(E.wordTimes(THE, 4), []);
+  assert.deepEqual(E.wordTimes([THE, AB], 1).map((w) => [w.word, w.wpm]), [["ab", 60], ["the", 96], ["cd", 240]]);
+});
+
+test("rhythm: histogram, median and p90 of inter-key gaps (backspace gaps left out)", () => {
+  const r = E.rhythm(THE, 50, 200);
+  assert.deepEqual(r.bins, [0, 4, 7, 3]);
+  assert.equal(r.over, 0);
+  assert.equal(r.count, 14);
+  assert.equal(r.median, 100);
+  assert.equal(r.p90, 150);
+  const d = E.rhythm(STEADY);
+  assert.equal(d.bins.length, 50);
+  assert.equal(d.bins[10], 49);
+});
+
+test("hesitations: gaps over factor × median, located on the text", () => {
+  const r = runOf({ mode: "words", words: ["aaaa", "bbbb"] },
+    [[0, "a"], [100, "a"], [200, "a"], [300, "a"], [400, " "], [500, "b"], [900, "b"], [1000, "b"], [1100, "b"]]);
+  const h = E.hesitations(r);
+  assert.equal(h.median, 100);
+  assert.equal(h.threshold, 250);
+  assert.deepEqual(h.items, [{ i: 6, t: 900, gap: 400, index: 1, word: "bbbb", pos: 1 }]);
+  assert.equal(E.hesitations(r, 5).items.length, 0);
+});
+
+test("burst: best clean word and best 5 s window vs overall", () => {
+  const b = E.burst(slowThenFast());
+  assert.equal(b.window, 122.4); // 51 correct keys in the closed window [5 s, 10 s]
+  assert.ok(b.window > b.overall);
+  assert.ok(b.ratio > 1);
+  assert.deepEqual(b.word, { word: "abcd", wpm: 120 }); // 3 intervals in 300 ms
+  const t = E.burst(THE); // run shorter than 5 s: the window is the run
+  assert.equal(t.window, 120); // 15 correct keys in 1.5 s
+  assert.equal(t.overall, THE.wpm);
+  assert.deepEqual(t.word, { word: "the", wpm: 96 });
+});
+
+test("consistency: 100 when steady, 100 - 100 × cv otherwise", () => {
+  assert.equal(E.consistency(STEADY), 100);
+  assert.deepEqual(E.rawPerSecond(STEADY), [120, 120, 120, 120, 120]);
+  // per second: 60 ×5, 120 ×5 → mean 90, sd 30 → cv 1/3 → 66.7
+  assert.deepEqual(E.rawPerSecond(slowThenFast()), [60, 60, 60, 60, 60, 120, 120, 120, 120, 120]);
+  assert.equal(E.consistency(slowThenFast()), 66.7);
+});
+
+test("staminaDrop: first vs last third", () => {
+  assert.deepEqual(E.staminaDrop(STEADY), { first: 120, middle: 120, last: 120, drop: 0 });
+  // 200 ms keys, then a mixed third, then 100 ms keys
+  assert.deepEqual(E.staminaDrop(slowThenFast()), { first: 60, middle: 90, last: 120, drop: -100 });
+  const tired = runOf({ mode: "words", words: ["abcd", "abcd", "abcd"] },
+    [...steady(["abcd"], 100), [400, " "], ...steady(["abcd"], 100, 500), [900, " "], ...steady(["abcd"], 200, 1000)]);
+  assert.equal(E.staminaDrop(tired).drop, 50);
+});
+
+test("pairDrillWords and keyDrillWords favour words rich in the targets", () => {
+  const pool = ["the", "then", "other", "cat", "dog", "café", "niño"];
+  const rand = E.mulberry32(3);
+  const w = E.pairDrillWords(pool, [{ pair: "th", n: 3, avgMs: 1, medianMs: 1 }], 30, rand);
+  assert.equal(w.length, 30);
+  assert.ok(w.every((x) => x.includes("th")));
+  for (let i = 1; i < w.length; i++) assert.notEqual(w[i], w[i - 1]);
+  const k = E.keyDrillWords(pool, ["é", "ñ"], 10, rand);
+  assert.ok(k.every((x) => x === "café" || x === "niño"));
+  const none = E.pairDrillWords(pool, ["zz"], 5, rand);
+  assert.equal(none.length, 5);
+  assert.ok(none.every((x) => pool.includes(x)));
+});
