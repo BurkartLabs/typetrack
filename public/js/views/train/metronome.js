@@ -109,6 +109,7 @@ async function mount(root, ctx) {
     const lb = el.live.querySelector("[data-act=listen]");
     if (lb) lb.innerHTML = "&#9654; listen";
     el.result.hidden = true;
+    el.live.classList.remove("finished");
     el.typing.hidden = false;
     typing.restart({ words: common, duration: cfg.duration });
     renderBeat();
@@ -125,6 +126,7 @@ async function mount(root, ctx) {
       const ev = renderLive(r.log);
       save(store, r, "metronome", lang, { metronome: { wpm: cfg.wpm, beatMs: Math.round(beat() * 10) / 10, mad: ev.mad, evenness: ev.score } });
       el.typing.hidden = true;
+      el.live.classList.add("finished");
       el.result.hidden = false;
       el.result.innerHTML = tiles([["evenness", ev.score], ["off beat", `&plusmn;${Math.round(ev.mad)}`, "ms"],
         ["wpm", Math.round(r.wpm), `target ${cfg.wpm}`], ["acc", Math.round(r.acc) + "%"]]) + actions();

@@ -54,6 +54,7 @@ async function mount(root, ctx) {
   }
   function newRound() {
     el.result.hidden = true;
+    el.typing.hidden = false;
     typing.restart(opts());
     render();
   }
@@ -62,6 +63,7 @@ async function mount(root, ctx) {
     if (typing) { typing.destroy(); typing = null; }
     el.stage.innerHTML = "";
     el.result.hidden = true;
+    el.typing.hidden = false;
     if (!lang) { note(el, "vocabulary needs a second language, and no word data for one is available yet."); return; }
     const raw = await ctx.words.translations(lang);
     if (!root.isConnected) return;
@@ -81,6 +83,7 @@ async function mount(root, ctx) {
         const missed = t.words.filter((w, i) => (t.typed[i] || "") !== w);
         save(store, r, "vocab", lang);
         el.stage.innerHTML = "";
+        el.typing.hidden = true;
         el.result.hidden = false;
         el.result.innerHTML = tiles([["wpm", Math.round(r.wpm)], ["acc", Math.round(r.acc) + "%"], ["words", `${t.words.length - missed.length}/${t.words.length}`]]) +
           (missed.length ? `<div class="err-block"><span class="label">to look at again</span><div class="chips">${

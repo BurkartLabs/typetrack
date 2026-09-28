@@ -145,3 +145,6 @@ kbd.mod { color: var(--sub); font-size: .7rem; text-transform: uppercase; letter
 .race-ok { color: var(--text); }
 .race-bad { color: var(--error); text-decoration: line-through; }
 .race-typing .counter { text-align: center; }
+.train-live.finished .metro-nums, .train-live.finished .metro-listen { display: none; }
+.train-live.finished .metro { margin: 0 auto 22px; }
+.train-hidden-words .counter { text-align: center; }

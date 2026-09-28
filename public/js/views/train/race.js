@@ -47,6 +47,7 @@ async function mount(root, ctx) {
   function newRound() {
     last = null;
     el.result.hidden = true;
+    el.typing.hidden = false;
     typing.restart(opts());
     render();
   }
@@ -55,6 +56,7 @@ async function mount(root, ctx) {
     if (typing) { typing.destroy(); typing = null; }
     el.stage.innerHTML = "";
     el.result.hidden = true;
+    el.typing.hidden = false;
     if (!lang) { note(el, "the race needs a second language, and no word data for one is available yet."); return; }
     const raw = await ctx.words.translations(lang);
     if (!root.isConnected) return;
@@ -79,6 +81,7 @@ async function mount(root, ctx) {
         const missed = [];
         for (let i = 0; i < t.index; i++) if (t.typed[i] !== t.words[i]) missed.push(t.words[i]);
         el.stage.innerHTML = "";
+        el.typing.hidden = true;
         el.result.hidden = false;
         el.result.innerHTML = tiles([["correct", score, pb ? "new best" : ""], ["tried", t.index], ["wpm", Math.round(r.wpm)], ["acc", Math.round(r.acc) + "%"]]) +
           (missed.length ? `<div class="err-block"><span class="label">missed</span><div class="chips">${

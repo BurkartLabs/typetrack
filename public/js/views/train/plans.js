@@ -32,6 +32,11 @@ export function bindTicks(container, ctx, rerender) {
 
 let off = null;
 
+function range(ns) {
+  const lo = Math.min(...ns), hi = Math.max(...ns);
+  return lo === hi ? String(lo) : `${lo}-${hi}`;
+}
+
 function mount(root, ctx) {
   const { store, bus } = ctx;
   root.innerHTML = `<section class="view view-train"><div class="train-head">
@@ -65,7 +70,7 @@ function mount(root, ctx) {
       <div class="train-card plan-card${t && t.plan.id === p.id ? " current" : ""}">
         <div class="card-name">${esc(p.name)}</div>
         <div class="card-desc">${esc(p.desc)}</div>
-        <div class="card-meta">${p.days} days &middot; ${Math.min(...p.cycle.map((d) => d.length))}-${Math.max(...p.cycle.map((d) => d.length))} drills a day</div>
+        <div class="card-meta">${p.days} days &middot; ${range(p.cycle.map((d) => d.length))} drills a day</div>
         ${t && t.plan.id === p.id ? `<span class="card-tag">current</span>` : `<button data-start="${p.id}">${t ? "switch to this" : "start"} &rarr;</button>`}
       </div>`).join("")}</div>`;
     body.innerHTML = html;
