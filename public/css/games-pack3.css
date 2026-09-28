@@ -60,9 +60,10 @@
 
 /* ghost league overlay carets */
 .p3-league-layer { position: absolute; inset: 0; pointer-events: none; }
-.p3-lcaret { position: absolute; width: .6em; height: 3px; background: var(--text); opacity: .28; transition: left .1s linear, top .1s linear; }
-.p3-lcaret span { position: absolute; left: 0; bottom: 5px; font-size: .5rem; line-height: 1; color: var(--sub); white-space: nowrap; letter-spacing: .04em; opacity: 1; }
-.p3-lcaret.pb { opacity: .55; }
+.p3-lcaret { position: absolute; width: .6em; height: 3px; background: color-mix(in srgb, var(--text) 30%, transparent); transition: left .1s linear, top .1s linear; }
+.p3-lcaret span { position: absolute; left: 0; top: 5px; font-size: .55rem; line-height: 1; color: var(--sub); white-space: nowrap; letter-spacing: .02em; }
+.p3-lcaret.pb { background: color-mix(in srgb, var(--text) 60%, transparent); }
+.p3-lcaret.pb span { color: var(--text); }
 .p3-league-legend { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 18px; font-size: .75rem; color: var(--sub); }
 .p3-league-legend b { color: var(--text); font-weight: 500; }
 .p3-league-table td.me { color: var(--caret); font-weight: 700; }
