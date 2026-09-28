@@ -177,6 +177,7 @@ function makeGame() {
     chars += d.text.length + 1;
     typed = ""; target = null;
     const pal = shell.pal, tp = turret();
+    aim = Math.atan2(d.y - tp.y, d.x - tp.x); // snap: a word can lock and finish within one frame
     beams.push({ x0: tp.x + Math.cos(aim) * 22, y0: tp.y + Math.sin(aim) * 22, x1: d.x, y1: d.y, t: 0, elite: d.elite });
     shell.particles.burst(d.x, d.y, { n: d.elite ? 30 : 18, color: pal.caret, speed: d.elite ? 260 : 200, size: 3.2, life: 0.55 });
     shell.particles.burst(d.x, d.y, { n: 8, color: pal.text, speed: 130, size: 2, life: 0.35 });
