@@ -83,5 +83,107 @@ export function book(id) {
   return fetchJson(`books/${id}.json`, null, (d) => d && Array.isArray(d.paragraphs));
 }
 
-export const words = { list, manifest, quotes, theme, code, translations, book, FALLBACK };
+
+// ── pure text builders (no fetch; covered by test/testmodes.test.js) ───────────────────────────────
+// rand: () => [0,1). Every builder returns a fresh ordered word list for Engine (ordered: true).
+
+// n random words from pool, no immediate repeats.
+export function pick(pool, n, rand = Math.random) {
+  const out = [];
+  if (!pool || !pool.length) return out;
+  let last = null, guard = 0;
+  while (out.length < n) {
+    const w = pool[Math.floor(rand() * pool.length)];
+    if (w === last && pool.length > 1 && guard++ < n * 4) continue;
+    out.push(w);
+    last = w;
+  }
+  return out;
+}
+
+const cap = (w) => (w ? w[0].toLocaleUpperCase() + w.slice(1) : w);
+
+// Punctuation: sentences of 4-12 words, capitalised starts, commas, periods (sometimes ? or !), the odd quoted
+// word, colon or semicolon. Input words are left untouched; returns a new list.
+export function punctuate(words, rand = Math.random) {
+  const out = [];
+  let left = 0;
+  for (let i = 0; i < words.length; i++) {
+    let w = words[i];
+    if (left === 0) { left = 4 + Math.floor(rand() * 9); w = cap(w); }
+    left--;
+    const last = i === words.length - 1;
+    if (left === 0 || last) {
+      const r = rand();
+      w += r < 0.1 ? "?" : r < 0.16 ? "!" : ".";
+      left = 0;
+    } else {
+      const r = rand();
+      if (r < 0.04) w = '"' + w + '"';
+      else if (r < 0.06) w = "(" + w + ")";
+      if (rand() < 0.12) w += ",";
+      else if (rand() < 0.02) w += rand() < 0.5 ? ";" : ":";
+    }
+    out.push(w);
+  }
+  return out;
+}
+
+// Numbers: about 15% of the words become numbers (1-4 digits, a year, or a decimal).
+export function numberize(words, rand = Math.random, rate = 0.15) {
+  return words.map((w) => {
+    if (rand() >= rate) return w;
+    const r = rand();
+    if (r < 0.2) return String(1900 + Math.floor(rand() * 130));
+    if (r < 0.3) return (rand() * 100).toFixed(1 + Math.floor(rand() * 2));
+    const digits = 1 + Math.floor(rand() * 4);
+    return String(Math.floor(rand() * Math.pow(10, digits)));
+  });
+}
+
+// Capitals: about 35% of the words capitalised, 3% all caps.
+export function capitalize(words, rand = Math.random, rate = 0.35) {
+  return words.map((w) => {
+    const r = rand();
+    if (r < 0.03 && w.length > 1) return w.toLocaleUpperCase();
+    return r < rate ? cap(w) : w;
+  });
+}
+
+// Mixed-language run: n words alternating a, b, a, b ... (each side random, no immediate repeats).
+export function interleave(a, b, n, rand = Math.random) {
+  if (!b || !b.length) return pick(a, n, rand);
+  if (!a || !a.length) return pick(b, n, rand);
+  const half = Math.ceil(n / 2);
+  const xs = pick(a, half, rand), ys = pick(b, half, rand);
+  const out = [];
+  for (let i = 0; out.length < n; i++) { out.push(xs[i]); if (out.length < n) out.push(ys[i]); }
+  return out;
+}
+
+// Code: split a snippet into typeable tokens plus layout. → { words, breaks, indents } where breaks[i] is true
+// when a newline follows words[i] (Enter types it) and indents[i] is the indentation (in spaces, tabs = 2)
+// before words[i] when it starts a line. Indentation is not typed: the caret skips it, like an editor.
+export function splitCode(text) {
+  const words = [], breaks = [], indents = [];
+  const lines = String(text || "").replace(/\r\n?/g, "\n").split("\n");
+  for (const line of lines) {
+    const expanded = line.replace(/\t/g, "  ");
+    const tokens = expanded.trim().split(/\s+/).filter(Boolean);
+    if (!tokens.length) continue; // blank lines collapse
+    if (words.length) breaks[words.length - 1] = true;
+    const indent = expanded.length - expanded.trimStart().length;
+    tokens.forEach((t, k) => { words.push(t); breaks.push(false); indents.push(k === 0 ? indent : 0); });
+  }
+  return { words, breaks, indents };
+}
+
+// Which list tier to use: the wanted one when the language has it, else the nearest common list.
+export function tierFor(langEntry, wanted) {
+  const lists = (langEntry && langEntry.lists) || [];
+  if (lists.includes(wanted)) return wanted;
+  return ["common-1k", "common-200", "common-10k"].find((l) => lists.includes(l)) || "common-200";
+}
+
+export const words = { list, manifest, quotes, theme, code, translations, book, FALLBACK, pick, punctuate, numberize, capitalize, interleave, splitCode, tierFor };
 export default words;
