@@ -69,3 +69,24 @@ test("falling words: a 150 wpm model survives about 1-2 minutes, faster lasts lo
   assert.ok(s150 >= 60 && s150 <= 130, "150 wpm model survived " + s150.toFixed(0) + "s");
   assert.ok(s100 < s150 && s150 < s200, `${s100.toFixed(0)} < ${s150.toFixed(0)} < ${s200.toFixed(0)}`);
 });
+
+// ── typing racer ────────────────────────────────────────────────────────
+test("typing racer: PB comes from word-list tests only; opponents are PB+10, PB, PB-10", async () => {
+  const { racerPB, racerOpponents } = await game("typing-racer");
+  assert.equal(racerPB([]), null);
+  assert.equal(racerPB([{ mode: "time", wpm: 142.3 }, { mode: "words", wpm: 150 }, { mode: "text", wpm: 190 }, { mode: "time", wpm: 170, source: "quotes" }]), 150);
+  assert.deepEqual(racerOpponents(null).map((o) => o.wpm), [110, 100, 90]);
+  assert.deepEqual(racerOpponents(151.6).map((o) => o.wpm), [162, 152, 142]);
+});
+
+test("typing racer: progress counts correct words plus the correct prefix; places and times", async () => {
+  const { racerDone, racerTotal, racerTime, racerPlace } = await game("typing-racer");
+  const words = ["the", "cat", "sat"];
+  assert.equal(racerTotal(words), 11);
+  assert.equal(racerDone(words, ["the", "cat", "s"], 2), 9);
+  assert.equal(racerDone(words, ["the", "cbt", "sa"], 2), 6); // a wrong word earns nothing
+  assert.equal(racerDone(words, ["thx"], 0), 2);
+  assert.equal(racerTime(500, 100), 60);
+  assert.equal(racerPlace(30, [29, 31, 40]), 2);
+  assert.equal(racerPlace(30, [30, 31, 40]), 1);
+});

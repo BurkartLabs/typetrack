@@ -319,9 +319,12 @@ export function createShell(root, game, opts) {
       <div class="p2-title">${esc(game.name)}</div>
       <div class="p2-rules">${esc(game.rules)}</div>
       <div class="p2-best"><span class="p2-label">best</span><span class="p2-val">${best == null ? "&#8212;" : esc(fmt(best))}</span></div>
-      <div class="p2-press"><kbd>space</kbd> to start</div>
+      <div class="p2-actions"><div class="p2-press"><kbd>space</kbd> to start</div>
+        <button class="p2-btn" data-act="start">start</button></div>
       <div class="p2-keys">esc pauses &middot; esc twice restarts</div>
     </div>`);
+    const b = overlay.querySelector('[data-act="start"]');
+    if (b) b.addEventListener("click", () => { if (shell.state === "ready") start(); });
   }
 
   function start() {
@@ -451,6 +454,7 @@ export function createShell(root, game, opts) {
 
   shell.destroy = () => {
     loop.stop();
+    try { if (game.destroy) game.destroy(); } catch (err) { console.error("[games] destroy failed", err); }
     removeKeys();
     document.removeEventListener("visibilitychange", onVisibility);
     offSettings.forEach((f) => f());
