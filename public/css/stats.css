@@ -8,3 +8,46 @@
 }
 .stats-errors { margin: 0 0 32px; padding: 16px; background: var(--sub-alt); border: 1px solid var(--edge); }
 .data-actions { display: flex; gap: 12px; justify-content: center; font-size: .85rem; padding-bottom: 24px; }
+
+/* ── where your time goes ─────────────────────────────────────────── */
+.time-goes { margin: 0 0 32px; }
+.section-title {
+  color: var(--sub); font-size: .8rem; text-transform: uppercase; letter-spacing: .12em;
+  font-weight: 400; margin: 0 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--edge);
+}
+.time-goes > div { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px; }
+.tg-block { background: var(--sub-alt); border: 1px solid var(--edge); padding: 14px 16px; }
+.tg-block canvas { display: block; width: 100%; }
+.empty-inline { color: var(--sub); font-size: .85rem; }
+.drill-btn {
+  display: inline-block; margin-top: 10px; color: var(--sub); text-decoration: none; font-size: .8rem;
+  text-transform: uppercase; letter-spacing: .1em; border: 1px solid var(--edge); padding: 4px 10px;
+  border-radius: 2px; transition: color .12s, border-color .12s;
+}
+.drill-btn:hover { color: var(--main); border-color: var(--main); }
+
+/* burst vs sustained comparison bars */
+.cmp-row { display: flex; align-items: center; gap: 10px; margin: 8px 0; font-size: .85rem; }
+.cmp-label { width: 110px; color: var(--sub); flex-shrink: 0; }
+.cmp-track { flex: 1; height: 10px; background: var(--bg); border: 1px solid var(--edge); }
+.cmp-fill { height: 100%; background: var(--main); }
+.cmp-value { width: 70px; text-align: right; color: var(--caret); font-variant-numeric: tabular-nums; }
+
+/* stamina */
+.stamina-row {
+  display: flex; justify-content: space-between; gap: 12px; padding: 6px 0; font-size: .85rem;
+  border-top: 1px solid var(--edge); font-variant-numeric: tabular-nums;
+}
+.stamina-row:first-child { border-top: 0; }
+.stamina-date { color: var(--sub); }
+
+/* near-perfect accuracy collapse */
+.near-perfect { color: var(--sub); font-size: .85rem; display: flex; align-items: center; gap: 10px; }
+.link-btn {
+  color: var(--main); text-transform: uppercase; letter-spacing: .08em; font-size: .75rem; padding: 2px 6px;
+}
+.link-btn:hover { color: var(--caret); }
+
+/* recent table rows link to a replay */
+.recent tbody tr.clickable { cursor: pointer; }
+.recent tbody tr.clickable:hover td { background: var(--sub-alt); }
