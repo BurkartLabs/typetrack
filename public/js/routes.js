@@ -3,7 +3,7 @@
 // Contributors: replace your placeholder entry, or append; keep each entry on its own lines.
 export default [
   { path: "test", title: "test", nav: "main", load: () => import("./views/test.js") },
-  { path: "train", title: "train", nav: "main", load: () => import("./views/placeholder.js") },
+  { path: "train", title: "train", nav: "main", load: () => import("./views/train.js") },
   { path: "games", title: "games", nav: "main", load: () => import("./views/games.js") },
   { path: "stats", title: "stats", nav: "main", load: () => import("./views/stats.js") },
   { path: "leaderboard", title: "leaderboard", nav: "main", load: () => import("./views/leaderboard.js") },
@@ -11,7 +11,8 @@ export default [
   { path: "profile", title: "profile", nav: "main", load: () => import("./views/profile.js") },
   { path: "profile/:name", title: "profile", nav: false, load: () => import("./views/profile.js") },
   { path: "replay/:id", title: "replay", nav: false, load: () => import("./views/replay.js") },
-  { path: "settings", title: "settings", nav: "right", load: () => import("./views/placeholder.js") },
+  { path: "settings", title: "settings", nav: "right", load: () => import("./views/settings.js") },
+  { path: "tools", title: "tools", nav: false, load: () => import("./views/tools.js") },
   { path: "login", title: "sign in", nav: false, load: () => import("./views/login.js") },
   { path: "register", title: "register", nav: false, load: () => import("./views/register.js") },
 ];

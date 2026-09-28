@@ -1,10 +1,16 @@
 // The single keydown listener. A view (or the typing surface) makes itself the active handler with
 // keys.set(handler); the returned remover only clears it if it is still the active one.
+import layout from "./layout.js";
+import settings from "./settings.js";
+
 let active = null;
 
 function onKeydown(e) {
   if (!active) return;
-  try { active(e); } catch (err) { console.error("[keys] handler failed", err); }
+  // Layout emulation: when a non-qwerty layout is chosen, handlers see a wrapper event whose `key`
+  // matches that layout for the physical key (e.code) pressed; everything else is unchanged.
+  const ev = layout.remap(e, settings.get("layout"));
+  try { active(ev); } catch (err) { console.error("[keys] handler failed", err); }
 }
 
 if (typeof document !== "undefined") document.addEventListener("keydown", onKeydown);

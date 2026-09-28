@@ -11,6 +11,8 @@ import words from "./core/words.js";
 import { esc } from "./core/ui.js";
 import "./core/sync.js";
 import "./core/gamify.js";
+import theme from "./core/theme.js";
+import "./core/sound.js"; // side effect only: listens for bus 'key' events, plays click/error sounds
 
 const navMain = document.getElementById("nav-main");
 const navRight = document.getElementById("nav-right");
@@ -45,17 +47,13 @@ function renderAuth(user) {
   }
 }
 
-// width and a theme object ({ "--main": "#..." } or { main: "#..." }) from settings
+// Typing width + theme (colours and font) from settings. theme.apply() writes CSS vars on :root;
+// canvas charts read them via css.js#cssVar, so they follow with no extra wiring.
 function applySettings() {
   const root = document.documentElement;
   const width = Number(settings.get("width"));
   if (width) root.style.setProperty("--typing-width", width + "px");
-  const theme = settings.get("theme");
-  if (theme && typeof theme === "object") {
-    for (const [k, v] of Object.entries(theme)) {
-      if (typeof v === "string") root.style.setProperty(k.startsWith("--") ? k : "--" + k, v);
-    }
-  }
+  theme.apply(settings.get("theme"));
 }
 
 // Signed-in users' results also go to the server (it re-derives wpm from the log).
