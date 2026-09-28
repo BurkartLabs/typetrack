@@ -1,0 +1,15 @@
+/* test view: results screen */
+.result { max-width: 1000px; margin: 0 auto; }
+.result[hidden], .view-test [hidden] { display: none; }
+.result-grid { display: grid; grid-template-columns: 180px 1fr; gap: 24px; align-items: end; }
+.big .label { color: var(--sub); font-size: 1rem; text-transform: uppercase; letter-spacing: .12em; line-height: 1; }
+.big .value { color: var(--caret); font-weight: 700; font-size: 4rem; line-height: 1.1; margin-bottom: 12px; font-variant-numeric: tabular-nums; }
+.result-details { display: flex; flex-wrap: wrap; gap: 20px 48px; margin-top: 28px; }
+.result-details > div { display: flex; flex-direction: column; }
+.result-details .label { color: var(--sub); font-size: .8rem; }
+.result-details span:last-child { color: var(--main); font-size: 1.4rem; font-variant-numeric: tabular-nums; }
+.result-actions { display: flex; justify-content: center; margin-top: 40px; }
+.clean { color: var(--sub); margin: 0; }
+@media (max-width: 640px) {
+  .result-grid { grid-template-columns: 1fr; }
+}

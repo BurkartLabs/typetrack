@@ -1,0 +1,10 @@
+/* stats view */
+.stats-filter { margin-bottom: 32px; }
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 16px;
+  margin-bottom: 40px;
+}
+.stats-errors { margin: 0 0 32px; padding: 16px; background: var(--sub-alt); border: 1px solid var(--edge); }
+.data-actions { display: flex; gap: 12px; justify-content: center; font-size: .85rem; padding-bottom: 24px; }
