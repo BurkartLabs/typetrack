@@ -1,0 +1,1602 @@
+[
+{
+"en": "the",
+"word": "ה"
+},
+{
+"en": "and",
+"word": "ו"
+},
+{
+"en": "in",
+"word": "ב"
+},
+{
+"en": "of",
+"word": "של"
+},
+{
+"en": "to",
+"word": "אל"
+},
+{
+"en": "on",
+"word": "על"
+},
+{
+"en": "i",
+"word": "אני"
+},
+{
+"en": "you",
+"word": "אתה"
+},
+{
+"en": "he",
+"word": "הוא"
+},
+{
+"en": "she",
+"word": "היא"
+},
+{
+"en": "we",
+"word": "אנחנו"
+},
+{
+"en": "they",
+"word": "הם"
+},
+{
+"en": "this",
+"word": "זה"
+},
+{
+"en": "that",
+"word": "ההוא"
+},
+{
+"en": "what",
+"word": "מה"
+},
+{
+"en": "who",
+"word": "מי"
+},
+{
+"en": "where",
+"word": "איפה"
+},
+{
+"en": "when",
+"word": "מתי"
+},
+{
+"en": "why",
+"word": "למה"
+},
+{
+"en": "how",
+"word": "איך"
+},
+{
+"en": "yes",
+"word": "כן"
+},
+{
+"en": "no",
+"word": "לא"
+},
+{
+"en": "all",
+"word": "כל"
+},
+{
+"en": "one",
+"word": "אחת"
+},
+{
+"en": "two",
+"word": "שתיים"
+},
+{
+"en": "three",
+"word": "שלוש"
+},
+{
+"en": "four",
+"word": "ארבע"
+},
+{
+"en": "five",
+"word": "חמש"
+},
+{
+"en": "six",
+"word": "שש"
+},
+{
+"en": "seven",
+"word": "שבע"
+},
+{
+"en": "eight",
+"word": "שמונה"
+},
+{
+"en": "nine",
+"word": "תשע"
+},
+{
+"en": "ten",
+"word": "עשר"
+},
+{
+"en": "hundred",
+"word": "מאה"
+},
+{
+"en": "thousand",
+"word": "אלף"
+},
+{
+"en": "first",
+"word": "ראשון"
+},
+{
+"en": "last",
+"word": "אחרון"
+},
+{
+"en": "man",
+"word": "איש"
+},
+{
+"en": "woman",
+"word": "אישה"
+},
+{
+"en": "child",
+"word": "ילד"
+},
+{
+"en": "father",
+"word": "אבא"
+},
+{
+"en": "mother",
+"word": "אמא"
+},
+{
+"en": "son",
+"word": "בן"
+},
+{
+"en": "daughter",
+"word": "בת"
+},
+{
+"en": "brother",
+"word": "אח"
+},
+{
+"en": "sister",
+"word": "אחות"
+},
+{
+"en": "friend",
+"word": "חבר"
+},
+{
+"en": "house",
+"word": "בית"
+},
+{
+"en": "street",
+"word": "רחוב"
+},
+{
+"en": "city",
+"word": "עיר"
+},
+{
+"en": "country",
+"word": "מדינה"
+},
+{
+"en": "world",
+"word": "עולם"
+},
+{
+"en": "life",
+"word": "חיים"
+},
+{
+"en": "time",
+"word": "זמן"
+},
+{
+"en": "day",
+"word": "יום"
+},
+{
+"en": "night",
+"word": "לילה"
+},
+{
+"en": "hour",
+"word": "שעה"
+},
+{
+"en": "water",
+"word": "מים"
+},
+{
+"en": "fire",
+"word": "אש"
+},
+{
+"en": "earth",
+"word": "אדמה"
+},
+{
+"en": "sky",
+"word": "שמיים"
+},
+{
+"en": "sun",
+"word": "שמש"
+},
+{
+"en": "moon",
+"word": "ירח"
+},
+{
+"en": "star",
+"word": "כוכב"
+},
+{
+"en": "sea",
+"word": "ים"
+},
+{
+"en": "mountain",
+"word": "הר"
+},
+{
+"en": "tree",
+"word": "עץ"
+},
+{
+"en": "flower",
+"word": "פרח"
+},
+{
+"en": "animal",
+"word": "חיה"
+},
+{
+"en": "dog",
+"word": "כלב"
+},
+{
+"en": "cat",
+"word": "חתול"
+},
+{
+"en": "bird",
+"word": "ציפור"
+},
+{
+"en": "fish",
+"word": "דג"
+},
+{
+"en": "food",
+"word": "אוכל"
+},
+{
+"en": "bread",
+"word": "לחם"
+},
+{
+"en": "meat",
+"word": "בשר"
+},
+{
+"en": "milk",
+"word": "חלב"
+},
+{
+"en": "egg",
+"word": "ביצה"
+},
+{
+"en": "fruit",
+"word": "פרי"
+},
+{
+"en": "vegetable",
+"word": "ירק"
+},
+{
+"en": "table",
+"word": "שולחן"
+},
+{
+"en": "chair",
+"word": "כיסא"
+},
+{
+"en": "door",
+"word": "דלת"
+},
+{
+"en": "window",
+"word": "חלון"
+},
+{
+"en": "room",
+"word": "חדר"
+},
+{
+"en": "bed",
+"word": "מיטה"
+},
+{
+"en": "book",
+"word": "ספר"
+},
+{
+"en": "paper",
+"word": "נייר"
+},
+{
+"en": "pen",
+"word": "עט"
+},
+{
+"en": "phone",
+"word": "טלפון"
+},
+{
+"en": "car",
+"word": "מכונית"
+},
+{
+"en": "war",
+"word": "מלחמה"
+},
+{
+"en": "peace",
+"word": "שלום"
+},
+{
+"en": "love",
+"word": "אהבה"
+},
+{
+"en": "joy",
+"word": "שמחה"
+},
+{
+"en": "sadness",
+"word": "עצב"
+},
+{
+"en": "anger",
+"word": "כעס"
+},
+{
+"en": "fear",
+"word": "פחד"
+},
+{
+"en": "hope",
+"word": "תקווה"
+},
+{
+"en": "dream",
+"word": "חלום"
+},
+{
+"en": "idea",
+"word": "רעיון"
+},
+{
+"en": "problem",
+"word": "בעיה"
+},
+{
+"en": "solution",
+"word": "פתרון"
+},
+{
+"en": "question",
+"word": "שאלה"
+},
+{
+"en": "answer",
+"word": "תשובה"
+},
+{
+"en": "work",
+"word": "עבודה"
+},
+{
+"en": "school",
+"word": "בית ספר"
+},
+{
+"en": "teacher",
+"word": "מורה"
+},
+{
+"en": "student",
+"word": "תלמיד"
+},
+{
+"en": "language",
+"word": "שפה"
+},
+{
+"en": "word",
+"word": "מילה"
+},
+{
+"en": "music",
+"word": "מוזיקה"
+},
+{
+"en": "song",
+"word": "שיר"
+},
+{
+"en": "dance",
+"word": "ריקוד"
+},
+{
+"en": "game",
+"word": "משחק"
+},
+{
+"en": "money",
+"word": "כסף"
+},
+{
+"en": "law",
+"word": "חוק"
+},
+{
+"en": "freedom",
+"word": "חופש"
+},
+{
+"en": "power",
+"word": "כוח"
+},
+{
+"en": "god",
+"word": "אלוהים"
+},
+{
+"en": "soul",
+"word": "נשמה"
+},
+{
+"en": "body",
+"word": "גוף"
+},
+{
+"en": "head",
+"word": "ראש"
+},
+{
+"en": "eye",
+"word": "עין"
+},
+{
+"en": "ear",
+"word": "אוזן"
+},
+{
+"en": "nose",
+"word": "אף"
+},
+{
+"en": "mouth",
+"word": "פה"
+},
+{
+"en": "hand",
+"word": "יד"
+},
+{
+"en": "foot",
+"word": "רגל"
+},
+{
+"en": "heart",
+"word": "לב"
+},
+{
+"en": "blood",
+"word": "דם"
+},
+{
+"en": "bone",
+"word": "עצם"
+},
+{
+"en": "skin",
+"word": "עור"
+},
+{
+"en": "tooth",
+"word": "שן"
+},
+{
+"en": "morning",
+"word": "בוקר"
+},
+{
+"en": "noon",
+"word": "צהריים"
+},
+{
+"en": "evening",
+"word": "ערב"
+},
+{
+"en": "week",
+"word": "שבוע"
+},
+{
+"en": "month",
+"word": "חודש"
+},
+{
+"en": "year",
+"word": "שנה"
+},
+{
+"en": "spring",
+"word": "אביב"
+},
+{
+"en": "summer",
+"word": "קיץ"
+},
+{
+"en": "autumn",
+"word": "סתיו"
+},
+{
+"en": "winter",
+"word": "חורף"
+},
+{
+"en": "rain",
+"word": "גשם"
+},
+{
+"en": "snow",
+"word": "שלג"
+},
+{
+"en": "wind",
+"word": "רוח"
+},
+{
+"en": "cold",
+"word": "קור"
+},
+{
+"en": "heat",
+"word": "חום"
+},
+{
+"en": "cloud",
+"word": "ענן"
+},
+{
+"en": "forest",
+"word": "יער"
+},
+{
+"en": "field",
+"word": "שדה"
+},
+{
+"en": "lake",
+"word": "אגם"
+},
+{
+"en": "river",
+"word": "נהר"
+},
+{
+"en": "island",
+"word": "אי"
+},
+{
+"en": "coast",
+"word": "חוף"
+},
+{
+"en": "sand",
+"word": "חול"
+},
+{
+"en": "stone",
+"word": "אבן"
+},
+{
+"en": "rock",
+"word": "סלע"
+},
+{
+"en": "glass",
+"word": "זכוכית"
+},
+{
+"en": "gold",
+"word": "זהב"
+},
+{
+"en": "iron",
+"word": "ברזל"
+},
+{
+"en": "bridge",
+"word": "גשר"
+},
+{
+"en": "building",
+"word": "בניין"
+},
+{
+"en": "church",
+"word": "כנסייה"
+},
+{
+"en": "museum",
+"word": "מוזיאון"
+},
+{
+"en": "library",
+"word": "ספרייה"
+},
+{
+"en": "hospital",
+"word": "בית חולים"
+},
+{
+"en": "market",
+"word": "שוק"
+},
+{
+"en": "shop",
+"word": "חנות"
+},
+{
+"en": "restaurant",
+"word": "מסעדה"
+},
+{
+"en": "hotel",
+"word": "מלון"
+},
+{
+"en": "station",
+"word": "תחנה"
+},
+{
+"en": "airport",
+"word": "שדה תעופה"
+},
+{
+"en": "port",
+"word": "נמל"
+},
+{
+"en": "factory",
+"word": "מפעל"
+},
+{
+"en": "office",
+"word": "משרד"
+},
+{
+"en": "bank",
+"word": "בנק"
+},
+{
+"en": "police",
+"word": "משטרה"
+},
+{
+"en": "court",
+"word": "בית משפט"
+},
+{
+"en": "prison",
+"word": "כלא"
+},
+{
+"en": "army",
+"word": "צבא"
+},
+{
+"en": "university",
+"word": "אוניברסיטה"
+},
+{
+"en": "class",
+"word": "כיתה"
+},
+{
+"en": "lesson",
+"word": "שיעור"
+},
+{
+"en": "exam",
+"word": "מבחן"
+},
+{
+"en": "grade",
+"word": "ציון"
+},
+{
+"en": "science",
+"word": "מדע"
+},
+{
+"en": "art",
+"word": "אמנות"
+},
+{
+"en": "history",
+"word": "היסטוריה"
+},
+{
+"en": "society",
+"word": "חברה"
+},
+{
+"en": "culture",
+"word": "תרבות"
+},
+{
+"en": "tradition",
+"word": "מסורת"
+},
+{
+"en": "wedding",
+"word": "חתונה"
+},
+{
+"en": "birth",
+"word": "לידה"
+},
+{
+"en": "death",
+"word": "מוות"
+},
+{
+"en": "illness",
+"word": "מחלה"
+},
+{
+"en": "health",
+"word": "בריאות"
+},
+{
+"en": "weight",
+"word": "משקל"
+},
+{
+"en": "shape",
+"word": "צורה"
+},
+{
+"en": "color",
+"word": "צבע"
+},
+{
+"en": "red",
+"word": "אדום"
+},
+{
+"en": "blue",
+"word": "כחול"
+},
+{
+"en": "green",
+"word": "ירוק"
+},
+{
+"en": "yellow",
+"word": "צהוב"
+},
+{
+"en": "black",
+"word": "שחור"
+},
+{
+"en": "white",
+"word": "לבן"
+},
+{
+"en": "gray",
+"word": "אפור"
+},
+{
+"en": "pink",
+"word": "ורוד"
+},
+{
+"en": "purple",
+"word": "סגול"
+},
+{
+"en": "orange",
+"word": "כתום"
+},
+{
+"en": "big",
+"word": "גדול"
+},
+{
+"en": "small",
+"word": "קטן"
+},
+{
+"en": "good",
+"word": "טוב"
+},
+{
+"en": "bad",
+"word": "רע"
+},
+{
+"en": "beautiful",
+"word": "יפה"
+},
+{
+"en": "ugly",
+"word": "מכוער"
+},
+{
+"en": "new",
+"word": "חדש"
+},
+{
+"en": "old",
+"word": "ישן"
+},
+{
+"en": "fast",
+"word": "מהיר"
+},
+{
+"en": "slow",
+"word": "איטי"
+},
+{
+"en": "strong",
+"word": "חזק"
+},
+{
+"en": "weak",
+"word": "חלש"
+},
+{
+"en": "easy",
+"word": "קל"
+},
+{
+"en": "difficult",
+"word": "קשה"
+},
+{
+"en": "poor",
+"word": "עני"
+},
+{
+"en": "rich",
+"word": "עשיר"
+},
+{
+"en": "tall",
+"word": "גבוה"
+},
+{
+"en": "short",
+"word": "נמוך"
+},
+{
+"en": "hot",
+"word": "חם"
+},
+{
+"en": "clean",
+"word": "נקי"
+},
+{
+"en": "dirty",
+"word": "מלוכלך"
+},
+{
+"en": "open",
+"word": "פתוח"
+},
+{
+"en": "closed",
+"word": "סגור"
+},
+{
+"en": "full",
+"word": "מלא"
+},
+{
+"en": "empty",
+"word": "ריק"
+},
+{
+"en": "bright",
+"word": "בהיר"
+},
+{
+"en": "dark",
+"word": "כהה"
+},
+{
+"en": "right",
+"word": "נכון"
+},
+{
+"en": "wrong",
+"word": "טעות"
+},
+{
+"en": "true",
+"word": "אמיתי"
+},
+{
+"en": "false",
+"word": "מזויף"
+},
+{
+"en": "smart",
+"word": "חכם"
+},
+{
+"en": "happy",
+"word": "שמח"
+},
+{
+"en": "sad",
+"word": "עצוב"
+},
+{
+"en": "angry",
+"word": "כועס"
+},
+{
+"en": "quiet",
+"word": "שקט"
+},
+{
+"en": "brave",
+"word": "אמיץ"
+},
+{
+"en": "serious",
+"word": "רציני"
+},
+{
+"en": "funny",
+"word": "מצחיק"
+},
+{
+"en": "simple",
+"word": "פשוט"
+},
+{
+"en": "free",
+"word": "חופשי"
+},
+{
+"en": "healthy",
+"word": "בריא"
+},
+{
+"en": "sick",
+"word": "חולה"
+},
+{
+"en": "sweet",
+"word": "מתוק"
+},
+{
+"en": "sour",
+"word": "חמוץ"
+},
+{
+"en": "fresh",
+"word": "טרי"
+},
+{
+"en": "heavy",
+"word": "כבד"
+},
+{
+"en": "wide",
+"word": "רחב"
+},
+{
+"en": "narrow",
+"word": "צר"
+},
+{
+"en": "long",
+"word": "ארוך"
+},
+{
+"en": "deep",
+"word": "עמוק"
+},
+{
+"en": "round",
+"word": "עגול"
+},
+{
+"en": "dangerous",
+"word": "מסוכן"
+},
+{
+"en": "safe",
+"word": "בטוח"
+},
+{
+"en": "calm",
+"word": "רגוע"
+},
+{
+"en": "same",
+"word": "זהה"
+},
+{
+"en": "different",
+"word": "שונה"
+},
+{
+"en": "rare",
+"word": "נדיר"
+},
+{
+"en": "common",
+"word": "נפוץ"
+},
+{
+"en": "to be",
+"word": "היה"
+},
+{
+"en": "to become",
+"word": "הפך"
+},
+{
+"en": "to go",
+"word": "הלך"
+},
+{
+"en": "to come",
+"word": "בא"
+},
+{
+"en": "to exit",
+"word": "יצא"
+},
+{
+"en": "to enter",
+"word": "נכנס"
+},
+{
+"en": "to stand",
+"word": "עמד"
+},
+{
+"en": "to sit",
+"word": "ישב"
+},
+{
+"en": "to wake",
+"word": "התעורר"
+},
+{
+"en": "to eat",
+"word": "אכל"
+},
+{
+"en": "to drink",
+"word": "שתה"
+},
+{
+"en": "to say",
+"word": "אמר"
+},
+{
+"en": "to speak",
+"word": "דיבר"
+},
+{
+"en": "to hear",
+"word": "שמע"
+},
+{
+"en": "to see",
+"word": "ראה"
+},
+{
+"en": "to watch",
+"word": "צפה"
+},
+{
+"en": "to know",
+"word": "ידע"
+},
+{
+"en": "to understand",
+"word": "הבין"
+},
+{
+"en": "to think",
+"word": "חשב"
+},
+{
+"en": "to want",
+"word": "רצה"
+},
+{
+"en": "to love",
+"word": "אהב"
+},
+{
+"en": "to hate",
+"word": "שנא"
+},
+{
+"en": "to hope",
+"word": "קיווה"
+},
+{
+"en": "to remember",
+"word": "זכר"
+},
+{
+"en": "to forget",
+"word": "שכח"
+},
+{
+"en": "to write",
+"word": "כתב"
+},
+{
+"en": "to read",
+"word": "קרא"
+},
+{
+"en": "to study",
+"word": "למד"
+},
+{
+"en": "to teach",
+"word": "לימד"
+},
+{
+"en": "to pay",
+"word": "שילם"
+},
+{
+"en": "to buy",
+"word": "קנה"
+},
+{
+"en": "to sell",
+"word": "מכר"
+},
+{
+"en": "to need",
+"word": "צריך"
+},
+{
+"en": "to try",
+"word": "ניסה"
+},
+{
+"en": "to succeed",
+"word": "הצליח"
+},
+{
+"en": "to fail",
+"word": "נכשל"
+},
+{
+"en": "to build",
+"word": "בנה"
+},
+{
+"en": "to make",
+"word": "יצר"
+},
+{
+"en": "to break",
+"word": "שבר"
+},
+{
+"en": "to gather",
+"word": "אסף"
+},
+{
+"en": "to change",
+"word": "שינה"
+},
+{
+"en": "to continue",
+"word": "המשיך"
+},
+{
+"en": "to stop",
+"word": "עצר"
+},
+{
+"en": "to begin",
+"word": "התחיל"
+},
+{
+"en": "to finish",
+"word": "סיים"
+},
+{
+"en": "to wait",
+"word": "חיכה"
+},
+{
+"en": "to arrive",
+"word": "הגיע"
+},
+{
+"en": "to return",
+"word": "חזר"
+},
+{
+"en": "to travel",
+"word": "נסע"
+},
+{
+"en": "to drive",
+"word": "נהג"
+},
+{
+"en": "to fly",
+"word": "טס"
+},
+{
+"en": "to swim",
+"word": "שחה"
+},
+{
+"en": "to run",
+"word": "רץ"
+},
+{
+"en": "to jump",
+"word": "קפץ"
+},
+{
+"en": "to hide",
+"word": "הסתתר"
+},
+{
+"en": "to show",
+"word": "הראה"
+},
+{
+"en": "to search",
+"word": "חיפש"
+},
+{
+"en": "to choose",
+"word": "בחר"
+},
+{
+"en": "to decide",
+"word": "החליט"
+},
+{
+"en": "to explain",
+"word": "הסביר"
+},
+{
+"en": "to describe",
+"word": "תיאר"
+},
+{
+"en": "to imagine",
+"word": "דמיין"
+},
+{
+"en": "to visit",
+"word": "ביקר"
+},
+{
+"en": "to meet",
+"word": "פגש"
+},
+{
+"en": "to invite",
+"word": "הזמין"
+},
+{
+"en": "to win",
+"word": "ניצח"
+},
+{
+"en": "to lose",
+"word": "הפסיד"
+},
+{
+"en": "to fight",
+"word": "נלחם"
+},
+{
+"en": "to defend",
+"word": "הגן"
+},
+{
+"en": "to attack",
+"word": "תקף"
+},
+{
+"en": "to judge",
+"word": "שפט"
+},
+{
+"en": "to vote",
+"word": "הצביע"
+},
+{
+"en": "to organize",
+"word": "ארגן"
+},
+{
+"en": "to plan",
+"word": "תכנן"
+},
+{
+"en": "to create",
+"word": "ברא"
+},
+{
+"en": "to destroy",
+"word": "הרס"
+},
+{
+"en": "to fix",
+"word": "תיקן"
+},
+{
+"en": "to clean",
+"word": "ניקה"
+},
+{
+"en": "to cook",
+"word": "בישל"
+},
+{
+"en": "to cut",
+"word": "חתך"
+},
+{
+"en": "to draw",
+"word": "צייר"
+},
+{
+"en": "to pull",
+"word": "משך"
+},
+{
+"en": "to push",
+"word": "דחף"
+},
+{
+"en": "to fill",
+"word": "מילא"
+},
+{
+"en": "to open",
+"word": "פתח"
+},
+{
+"en": "to close",
+"word": "סגר"
+},
+{
+"en": "to carry",
+"word": "נשא"
+},
+{
+"en": "to lift",
+"word": "הרים"
+},
+{
+"en": "to put",
+"word": "שם"
+},
+{
+"en": "to take",
+"word": "לקח"
+},
+{
+"en": "to give",
+"word": "נתן"
+},
+{
+"en": "to send",
+"word": "שלח"
+},
+{
+"en": "to receive",
+"word": "קיבל"
+},
+{
+"en": "to ask",
+"word": "ביקש"
+},
+{
+"en": "to answer",
+"word": "ענה"
+},
+{
+"en": "to help",
+"word": "עזר"
+},
+{
+"en": "to thank",
+"word": "הודה"
+},
+{
+"en": "to forgive",
+"word": "סלח"
+},
+{
+"en": "to allow",
+"word": "הרשה"
+},
+{
+"en": "to forbid",
+"word": "אסר"
+},
+{
+"en": "to leave",
+"word": "עזב"
+},
+{
+"en": "to stay",
+"word": "נשאר"
+},
+{
+"en": "to listen",
+"word": "הקשיב"
+},
+{
+"en": "to shout",
+"word": "צעק"
+},
+{
+"en": "to laugh",
+"word": "צחק"
+},
+{
+"en": "to cry",
+"word": "בכה"
+},
+{
+"en": "to sing",
+"word": "שר"
+},
+{
+"en": "to dance",
+"word": "רקד"
+},
+{
+"en": "to play",
+"word": "שיחק"
+},
+{
+"en": "to work",
+"word": "עבד"
+},
+{
+"en": "to feel",
+"word": "הרגיש"
+},
+{
+"en": "to care",
+"word": "טיפל"
+},
+{
+"en": "to notice",
+"word": "הבחין"
+},
+{
+"en": "to examine",
+"word": "בדק"
+},
+{
+"en": "to solve",
+"word": "פתר"
+},
+{
+"en": "to overcome",
+"word": "התגבר"
+},
+{
+"en": "to obey",
+"word": "ציית"
+},
+{
+"en": "to respect",
+"word": "כיבד"
+},
+{
+"en": "to raise",
+"word": "גידל"
+},
+{
+"en": "to be born",
+"word": "נולד"
+},
+{
+"en": "to die",
+"word": "מת"
+},
+{
+"en": "to live",
+"word": "חי"
+},
+{
+"en": "grandmother",
+"word": "סבתא"
+},
+{
+"en": "grandfather",
+"word": "סבא"
+},
+{
+"en": "uncle",
+"word": "דוד"
+},
+{
+"en": "aunt",
+"word": "דודה"
+},
+{
+"en": "doctor",
+"word": "רופא"
+},
+{
+"en": "lawyer",
+"word": "עורך דין"
+},
+{
+"en": "judge",
+"word": "שופט"
+},
+{
+"en": "soldier",
+"word": "חייל"
+}
+]
