@@ -2,4 +2,5 @@
 // Shared code for these games: pack1-kit.js (shell, keys, stream), pack1-logic.js (pure maths, tested).
 export default [
   { id: "sprint", name: "sprint", desc: "One short phrase, as fast as you can. Instant retry, chase your best.", tags: ["speed", "short"], load: () => import("./sprint.js") },
+  { id: "treadmill", name: "treadmill", desc: "A pace wall from 80 wpm, +5 every 10 seconds. Stay ahead of it.", tags: ["speed", "stamina"], load: () => import("./treadmill.js") },
 ];
