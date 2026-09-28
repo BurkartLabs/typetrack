@@ -128,15 +128,32 @@ export function treadmillStep(pace, dtMs, speedWpm, player, lead = TREADMILL.lea
 }
 
 // ── word bomb ───────────────────────────────────────────────────────────
-export const BOMB = Object.freeze({ grace: 150, alpha: 0.25, ramp: 0.004, maxRamp: 0.25, boomDecay: 0.95, fallback: 100 });
+// The fuse is set from your TYPICAL speed (median of recent standard tests), not your best: a best is a
+// peak, and matching it on every single word from the first one is not a game. The target starts well
+// under your typical speed and climbs to it over ~50 words, then edges past it. Each word also gets a
+// reaction allowance to read it before the first key. A boom steps the ramp back.
+export const BOMB = Object.freeze({
+  react: 500, start: 0.65, rampWords: 50, over: 0.002, max: 1.1, boomStepBack: 6, alpha: 0.25, fallback: 80, recent: 20,
+});
 
-// The target rises slowly with every word cleared, on top of your running average.
-export function bombTarget(avg, cleared, cfg = BOMB) {
-  return avg * (1 + Math.min(cfg.maxRamp, cleared * cfg.ramp));
+// Median wpm of the last `recent` standard tests (words source, time/words mode) in this language, or null.
+export function typicalWpm(results, lang, cfg = BOMB) {
+  const list = (results || []).filter((r) => r && Number.isFinite(r.wpm) && r.wpm > 0 && r.wpm <= 300 &&
+    (r.mode === "time" || r.mode === "words") && (!r.source || r.source === "words") &&
+    (!lang || !r.lang || r.lang === lang)).slice(-cfg.recent).map((r) => r.wpm).sort((x, y) => x - y);
+  if (!list.length) return null;
+  const m = list.length >> 1;
+  return list.length % 2 ? list[m] : (list[m - 1] + list[m]) / 2;
 }
-// Fuse for a word: its characters plus the space you'd type after it, at target wpm, plus a small grace.
+// Target wpm after `progress` words: start × base rising linearly to base, then slowly past it, capped.
+export function bombTarget(base, progress, cfg = BOMB) {
+  const p = Math.max(0, progress);
+  const f = p <= cfg.rampWords ? cfg.start + (1 - cfg.start) * (p / cfg.rampWords) : 1 + (p - cfg.rampWords) * cfg.over;
+  return base * Math.min(cfg.max, f);
+}
+// Fuse for a word: its characters plus the space after it at target wpm, plus time to read it.
 export function bombFuse(word, targetWpm, cfg = BOMB) {
-  return (word.length + 1) * charMs(targetWpm) + cfg.grace;
+  return (word.length + 1) * charMs(targetWpm) + cfg.react;
 }
 export function ema(avg, x, alpha = BOMB.alpha) {
   return avg + alpha * (x - avg);

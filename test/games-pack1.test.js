@@ -95,13 +95,20 @@ test("treadmill: the belt drags the pace to within `lead` chars and otherwise mo
   assert.ok(L.treadmillStep(95, 1000, 120, 100, 30) >= 100); // caught
 });
 
-test("word bomb: fuse is (len+1) chars at target + grace; target ramps and caps", async () => {
+test("word bomb: fuse from typical (median) speed, gentle start, ramps to typical, capped", async () => {
   const L = await load();
-  near(L.bombFuse("hello", 120), 6 * 100 + L.BOMB.grace);
-  near(L.bombTarget(150, 0), 150);
-  near(L.bombTarget(150, 10), 150 * 1.04);
-  near(L.bombTarget(150, 10000), 150 * 1.25);
-  near(L.ema(100, 200, 0.25), 125);
+  near(L.bombFuse("hello", 120), 6 * 100 + L.BOMB.react);
+  near(L.bombTarget(150, 0), 150 * 0.65);
+  near(L.bombTarget(150, 25), 150 * 0.825);
+  near(L.bombTarget(150, 50), 150);
+  near(L.bombTarget(150, 100000), 150 * 1.1);
+  // median of recent standard tests; drills, games and absurd numbers ignored
+  const rs = [100, 140, 120].map((wpm) => ({ wpm, mode: "time", source: "words", lang: "en" }))
+    .concat([{ wpm: 1023, mode: "words" }, { wpm: 200, mode: "time", source: "train:blind" }, { wpm: 190, mode: "text", source: "quotes" }]);
+  near(L.typicalWpm(rs, "en"), 120);
+  assert.equal(L.typicalWpm([], "en"), null);
+  // a 5-letter word on the first fuse for a 120 wpm typist: 6 chars at 78 wpm + 500 ms ≈ 1.42 s
+  near(L.bombFuse("hello", L.bombTarget(120, 0)), 6 * 12000 / 78 + 500);
 });
 
 test("word ladder: window shrinks exactly 3% per rung; need is the wpm it demands", async () => {

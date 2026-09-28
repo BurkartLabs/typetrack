@@ -1,8 +1,8 @@
-// Word bomb: one word at a time, each on a fuse sized to your running average speed (seeded from your best
-// typing-test wpm). Beat the fuse or lose a life; the target creeps up with every word. Three lives.
+// Word bomb: one word at a time, each on a fuse sized from your typical speed (median of recent standard
+// tests). The fuse starts easy and tightens word by word; a boom eases it back. Three lives.
 import store from "../../core/store.js";
 import { defineGame, BigWord, fmt, pulse } from "./pack1-kit.js";
-import { BOMB, bombTarget, bombFuse, ema, wpmFrom, accuracy, bestWpm, pickWord } from "./pack1-logic.js";
+import { BOMB, bombTarget, bombFuse, ema, wpmFrom, accuracy, typicalWpm, pickWord } from "./pack1-logic.js";
 
 const LIVES = 3;
 const BOOM_PAUSE = 450;
@@ -11,12 +11,12 @@ export default defineGame({
   id: "word-bomb",
   name: "word bomb",
   unit: "words",
-  rules: "Each word burns a fuse set to your running average speed, and the target rises as you clear. Miss a fuse and lose a life. Three lives.",
+  rules: "Each word burns a fuse. It starts easy and tightens to your typical speed as you clear words. Miss a fuse and lose a life. Three lives.",
   hud: [["score", "cleared"], ["target", "target"], ["avg", "avg"], ["lives", "lives"]],
 
   startExtra(g) {
-    const b = bestWpm(store.results(), g.lang);
-    return `<p class="p1-rules" style="color:var(--sub);font-size:.8rem">first fuse: ${b ? "your best, " + Math.round(b) + " wpm" : BOMB.fallback + " wpm (no test results yet)"}</p>`;
+    const b = typicalWpm(store.results(), g.lang);
+    return `<p class="p1-rules" style="color:var(--sub);font-size:.8rem">fuse starts at ${Math.round(BOMB.start * 100)}% of ${b ? "your typical " + Math.round(b) + " wpm" : BOMB.fallback + " wpm (no test results yet)"} and climbs to it</p>`;
   },
 
   build(g) {
@@ -35,8 +35,8 @@ export default defineGame({
   },
 
   reset(g) {
-    g.base = bestWpm(store.results(), g.lang) || BOMB.fallback;
-    g.avg = g.base; g.cleared = 0; g.lives = LIVES; g.ok = 0; g.miss = 0; g.chars = 0; g.pauseUntil = 0; g.pending = false; g.freeFirst = true;
+    g.base = typicalWpm(store.results(), g.lang) || BOMB.fallback;
+    g.avg = g.base; g.progress = 0; g.cleared = 0; g.lives = LIVES; g.ok = 0; g.miss = 0; g.chars = 0; g.pauseUntil = 0; g.pending = false; g.freeFirst = true;
     g.word = pickWord(g.pool, g.rng, null);
     g.next = pickWord(g.pool, g.rng, g.word);
     arm(g, 0);
@@ -57,6 +57,7 @@ export default defineGame({
       g.freeFirst = false;
       g.avg = ema(g.avg, wpmFrom(chars, ms));
       g.cleared++;
+      g.progress++;
       g.chars += g.word.length + 1;
       g.hud("score", g.cleared);
       g.hud("avg", fmt(g.avg, 0));
@@ -83,7 +84,7 @@ function hearts(n) {
 
 // set up the fuse for the current word; startAt 0 = wait for the first key
 function arm(g, startAt) {
-  g.target = bombTarget(g.avg, g.cleared);
+  g.target = bombTarget(g.base, g.progress);
   g.fuse = bombFuse(g.word, g.target);
   g.fuseStart = startAt;
   g.big.set(g.word, g.next);
@@ -106,7 +107,7 @@ function boom(g, t) {
   g.big.boom();
   g.shake();
   pulse(g.hudEls.lives, "p1-broke");
-  g.avg *= BOMB.boomDecay; // a miss lets the target breathe a little
+  g.progress = Math.max(0, g.progress - BOMB.boomStepBack); // a boom steps the ramp back
   if (g.lives <= 0) {
     const ms = t - g.t0;
     const wpm = Math.round(wpmFrom(g.chars, ms));
