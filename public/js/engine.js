@@ -30,23 +30,56 @@
     return out;
   }
 
-  // mode: "time" (duration seconds, endless words) | "words" (fixed wordCount)
+  // Repeat an ordered list until it has n entries (drills, quotes, replays).
+  function cycle(list, n, from) {
+    const out = [];
+    for (let i = 0; i < n; i++) out.push(list[(i + (from || 0)) % list.length]);
+    return out;
+  }
+
+  // Base letter of an accented character ("é" -> "e", "ñ" -> "n", "ç" -> "c").
+  // Only single-character NFD decompositions count: "ß", "ø", "æ" have none.
+  function baseChar(c) {
+    const d = c.normalize("NFD");
+    return d.length > 1 && /^[\u0300-\u036f]+$/.test(d.slice(1)) ? d[0] : c;
+  }
+
+  // opts:
+  //   mode: "time" (duration seconds, endless words) | "words" (fixed wordCount) | "text" (a fixed text)
+  //   words: the pool to draw from; with ordered:true (or mode "text"), the exact list, used in order
+  //   text: for mode "text", a string split on whitespace
+  //   ordered: use opts.words in order (drills, quotes, replays) instead of shuffling
+  //   accents: "strict" (default) | "lenient" (a typed base letter matches its accented target: e for é)
+  //   noBackspace: backspace is ignored
+  //   lang: recorded on the result (default "en")
   function createTest(opts) {
     const rand = opts.rand || mulberry32(opts.seed == null ? Date.now() : opts.seed);
-    const mode = opts.mode === "words" ? "words" : "time";
+    const mode = opts.mode === "words" || opts.mode === "text" ? opts.mode : "time";
+    let list = opts.words;
+    if (mode === "text") {
+      list = opts.text != null ? String(opts.text).split(/\s+/).filter(Boolean) : (opts.words || []).slice();
+      if (!list.length) throw new Error("text mode needs a non-empty text");
+    }
+    const ordered = mode === "text" || opts.ordered === true;
     const duration = mode === "time" ? Number(opts.duration) || 30 : 0;
-    const wordCount = mode === "words" ? Number(opts.wordCount) || 50 : 0;
+    const wordCount =
+      mode === "text" ? list.length : mode === "words" ? Number(opts.wordCount) || (ordered ? list.length : 50) : 0;
     // Time mode starts with a generous buffer and tops itself up as you go.
-    const initial = mode === "words" ? wordCount : 100;
+    const initial = mode === "time" ? 100 : wordCount;
     return {
       mode,
       duration,
       wordCount,
-      pool: opts.words,
+      pool: list,
+      ordered,
       rand,
-      words: pickWords(opts.words, initial, rand),
+      lang: opts.lang || "en",
+      accents: opts.accents === "lenient" ? "lenient" : "strict",
+      noBackspace: !!opts.noBackspace,
+      words: ordered ? cycle(list, initial) : pickWords(list, initial, rand),
       typed: [""], // typed[i] is what has been typed for words[i]
       index: 0, // current word
+      maxIndex: 0, // furthest word reached
       startedAt: null,
       finishedAt: null,
       // keystroke tally, monkeytype-style
@@ -55,6 +88,7 @@
       extra: 0,
       missed: 0,
       events: [], // {t, ok} per character keystroke, t = ms since start
+      log: [], // [t, key] per effective keystroke: key is a character, " " or "\b"
       keyHits: {}, // expected char -> times it was attempted
       keyMiss: {}, // expected char -> times it was mistyped
       swaps: {}, // "expected>typed" -> count
@@ -67,7 +101,8 @@
 
   function ensureBuffer(s) {
     if (s.mode === "time" && s.words.length - s.index < 40) {
-      s.words.push(...pickWords(s.pool, 60, s.rand));
+      if (s.ordered) s.words.push(...cycle(s.pool, 60, s.words.length));
+      else s.words.push(...pickWords(s.pool, 60, s.rand));
     }
   }
 
@@ -81,6 +116,9 @@
     const word = s.words[s.index];
     const typed = s.typed[s.index];
     const pos = typed.length;
+    const key = ch;
+    // Lenient accents: store the accented target so every later comparison just works.
+    if (s.accents === "lenient" && pos < word.length && ch !== word[pos] && baseChar(word[pos]) === ch) ch = word[pos];
     const ok = pos < word.length && word[pos] === ch;
     if (pos < word.length) {
       const exp = word[pos].toLowerCase();
@@ -89,7 +127,7 @@
       else {
         s.incorrect++;
         s.keyMiss[exp] = (s.keyMiss[exp] || 0) + 1;
-        const k = exp + ">" + ch;
+        const k = exp + ">" + key;
         s.swaps[k] = (s.swaps[k] || 0) + 1;
       }
     } else {
@@ -98,15 +136,23 @@
     }
     s.typed[s.index] = typed + ch;
     s.events.push({ t: now - s.startedAt, ok });
-    // Words mode ends on the final character of the final word if it is all correct.
-    if (s.mode === "words" && s.index === s.words.length - 1 && s.typed[s.index] === word) {
+    logKey(s, now, key);
+    // Words and text mode end on the final character of the final word if it is all correct.
+    if (s.mode !== "time" && s.index === s.words.length - 1 && s.typed[s.index] === word) {
       finish(s, now);
     }
     return s;
   }
 
-  function backspace(s) {
-    if (s.finishedAt !== null) return s;
+  function logKey(s, now, key) {
+    const last = s.log.length ? s.log[s.log.length - 1][0] : 0;
+    const t = now == null ? last : Math.max(last, Math.round(now - s.startedAt));
+    s.log.push([t, key]);
+  }
+
+  // now is optional (older callers); without it the backspace is logged at the previous keystroke's time.
+  function backspace(s, now) {
+    if (s.finishedAt !== null || s.noBackspace) return s;
     const typed = s.typed[s.index];
     if (typed.length > 0) {
       s.typed[s.index] = typed.slice(0, -1);
@@ -114,7 +160,8 @@
       // Allow backing into a previous word only if it was wrong (monkeytype behaviour).
       s.typed.pop();
       s.index--;
-    }
+    } else return s;
+    if (s.startedAt !== null) logKey(s, now, "\b");
     return s;
   }
 
@@ -127,11 +174,13 @@
     if (typed === word) s.correct++; // the space itself counts as a correct char
     else s.missed += Math.max(0, word.length - typed.length);
     s.events.push({ t: now - s.startedAt, ok: typed === word });
-    if (s.mode === "words" && s.index === s.words.length - 1) {
+    logKey(s, now, " ");
+    if (s.mode !== "time" && s.index === s.words.length - 1) {
       finish(s, now);
       return s;
     }
     s.index++;
+    if (s.index > s.maxIndex) s.maxIndex = s.index;
     s.typed.push("");
     ensureBuffer(s);
     return s;
@@ -175,7 +224,7 @@
         let n = 0;
         while (n < t.length && n < w.length && t[n] === w[n]) n++;
         correctChars += n;
-        if (s.mode === "words" && t === w) correctChars += 1;
+        if (s.mode !== "time" && t === w) correctChars += 1;
       }
     }
     const rawChars = s.typed.reduce((a, t) => a + t.length, 0) + Math.max(0, s.typed.length - 1);
@@ -197,6 +246,12 @@
       },
       // cumulative wpm sampled once per second, for the results chart
       perSecond: perSecond(s, ms),
+      // everything needed to replay the run (Engine.replay / verify / stateAt)
+      lang: s.lang,
+      accents: s.accents,
+      noBackspace: s.noBackspace,
+      words: s.words.slice(0, s.maxIndex + 1),
+      log: s.log.map((e) => e.slice()),
     };
   }
 

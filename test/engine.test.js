@@ -148,3 +148,111 @@ test("errors: per-key misses, swaps, wrong words and errors per second are recor
   assert.deepEqual(p.words, [{ k: "ab", n: 1 }]);
   assert.equal(p.avgErrors, 2);
 });
+
+// ── v2: keystroke log, options, text mode ─────────────────────────────────
+
+// Feed a script of [t, key] into a test ("\b" = backspace, " " = space).
+function play(s, script) {
+  for (const [t, k] of script) {
+    if (k === "\b") E.backspace(s, t);
+    else if (k === " ") E.space(s, t);
+    else E.input(s, k, t);
+  }
+  return s;
+}
+
+// Type words at a steady ms per keystroke; returns the script.
+function steady(words, ms, start = 0) {
+  const out = [];
+  let t = start;
+  words.forEach((w, i) => {
+    for (const ch of w) { out.push([t, ch]); t += ms; }
+    if (i < words.length - 1) { out.push([t, " "]); t += ms; }
+  });
+  return out;
+}
+
+test("every effective keystroke is logged with ms since start", () => {
+  const s = E.createTest({ mode: "words", ordered: true, words: ["ab", "cd"] });
+  E.space(s, 500); // leading space before start: ignored, not logged
+  E.backspace(s, 600); // nothing to delete: not logged
+  play(s, [[1000, "a"], [1100, "x"], [1200, "\b"], [1300, "b"], [1400, " "], [1500, "c"], [1600, "d"]]);
+  assert.deepEqual(s.log, [[0, "a"], [100, "x"], [200, "\b"], [300, "b"], [400, " "], [500, "c"], [600, "d"]]);
+  const r = E.results(s);
+  assert.deepEqual(r.log, s.log);
+  assert.deepEqual(r.words, ["ab", "cd"]);
+  assert.equal(r.lang, "en");
+  assert.equal(r.accents, "strict");
+  // backspace without a time (older callers) is logged at the previous keystroke's time
+  const s2 = E.createTest({ mode: "words", ordered: true, words: ["ab"] });
+  E.input(s2, "x", 50);
+  E.backspace(s2);
+  assert.deepEqual(s2.log, [[0, "x"], [0, "\b"]]);
+});
+
+test("results.words is trimmed to the words reached and lang is recorded", () => {
+  const s = E.createTest({ mode: "time", duration: 5, words: POOL, seed: 9, lang: "es" });
+  const [a, b] = s.words;
+  play(s, steady([a, b], 50));
+  E.space(s, 2000);
+  E.tick(s, 5000);
+  const r = E.results(s);
+  assert.equal(r.lang, "es");
+  assert.deepEqual(r.words, s.words.slice(0, 3));
+});
+
+test("ordered word lists are used in order, not shuffled", () => {
+  const list = ["one", "two", "three", "four"];
+  const s = E.createTest({ mode: "words", ordered: true, words: list });
+  assert.deepEqual(s.words, list);
+  assert.equal(s.wordCount, 4);
+  const s2 = E.createTest({ mode: "words", ordered: true, words: list, wordCount: 6 });
+  assert.deepEqual(s2.words, ["one", "two", "three", "four", "one", "two"]);
+  const t = E.createTest({ mode: "time", ordered: true, words: list, duration: 30 });
+  assert.deepEqual(t.words.slice(0, 5), ["one", "two", "three", "four", "one"]);
+  for (let i = 0; i < 70; i++) { play(t, steady([t.words[t.index]], 1, i * 50)); E.space(t, i * 50 + 20); }
+  assert.ok(t.words.length > 100);
+  assert.equal(t.words[100], list[100 % 4]);
+});
+
+test("text mode splits the text on whitespace and ends on the last word", () => {
+  const s = E.createTest({ mode: "text", text: "  the quick\nbrown fox " });
+  assert.deepEqual(s.words, ["the", "quick", "brown", "fox"]);
+  play(s, steady(["the", "quick", "brown", "fox"], 60));
+  assert.notEqual(s.finishedAt, null);
+  const r = E.results(s);
+  assert.equal(r.mode, "text");
+  assert.equal(r.target, 4);
+  assert.equal(r.acc, 100);
+  assert.throws(() => E.createTest({ mode: "text", text: "   " }));
+});
+
+test("noBackspace ignores backspace", () => {
+  const s = E.createTest({ mode: "words", ordered: true, words: ["ab", "cd"], noBackspace: true });
+  play(s, [[0, "a"], [10, "x"], [20, "\b"]]);
+  assert.equal(s.typed[0], "ax");
+  assert.deepEqual(s.log, [[0, "a"], [10, "x"]]);
+  E.space(s, 30);
+  E.backspace(s, 40);
+  assert.equal(s.index, 1);
+  assert.equal(E.results(s).noBackspace, true);
+});
+
+test("accents: lenient accepts the base letter, strict does not", () => {
+  const words = ["café", "niño", "façade"];
+  const typedPlain = steady(["cafe", "nino", "facade"], 50);
+  const lenient = play(E.createTest({ mode: "words", ordered: true, words, accents: "lenient" }), typedPlain);
+  assert.notEqual(lenient.finishedAt, null);
+  assert.deepEqual(lenient.typed, words); // the accented target is stored
+  assert.equal(E.results(lenient).acc, 100);
+  assert.equal(lenient.log[3][1], "e"); // the log keeps the key actually pressed
+  const strict = play(E.createTest({ mode: "words", ordered: true, words }), typedPlain);
+  assert.equal(strict.finishedAt, null); // "facade" never matches "façade"
+  assert.equal(strict.incorrect, 3);
+  assert.deepEqual(strict.swaps, { "é>e": 1, "ñ>n": 1, "ç>c": 1 });
+  // the exact accented key is fine in both modes; ß and ø have no base letter
+  const exact = play(E.createTest({ mode: "words", ordered: true, words: ["é"], accents: "lenient" }), [[0, "é"]]);
+  assert.equal(E.results(exact).acc, 100);
+  const noBase = play(E.createTest({ mode: "words", ordered: true, words: ["ßø"], accents: "lenient" }), [[0, "s"], [5, "o"]]);
+  assert.equal(noBase.incorrect, 2);
+});
