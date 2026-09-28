@@ -1,15 +1,15 @@
 // The reusable typing surface (Test, Train, text-based games). Renders words + caret; every rule lives
-// in window.Engine. Newer engine features (keystroke log, stateAt, noBackspace, accents) are
-// feature-detected so this works before and after the engine is extended.
+// in window.Engine (which keeps the keystroke log, accents and noBackspace). Engine.stateAt is
+// feature-detected for the ghost caret.
 //
 // createTyping(el, {
-//   words?: string[]        pool for time/words mode (random picks)
+//   words?: string[]        pool for time/words mode (random picks; in order with ordered: true)
 //   text?: string           mode 'text': type this exact text, in order (quotes, code, books)
 //   mode: 'time'|'words'|'text', duration, wordCount,
 //   noBackspace, lookAhead (show only the next N words), blind (no correctness shown until the end),
 //   mirror (each word rendered reversed), accents ('lenient'|'strict'), paceWpm (faint pace caret),
 //   ghost: {words, log} (a second caret replaying a run; the test uses the ghost's words),
-//   lang, seed, keys (false = don't take the keyboard, call handleKey yourself),
+//   ordered, lang, seed, keys (false = don't take the keyboard, call handleKey yourself),
 //   onStart(), onProgress(state), onFinish(result), onRestart()
 // }) -> { restart(opts?), destroy(), handleKey(e), test }
 import keys from "./keys.js";
@@ -37,7 +37,7 @@ export function paceAt(words, wpm, ms) {
 export function createTyping(el, options = {}) {
   const E = window.Engine;
   let o = Object.assign({ mode: "time", duration: 30, wordCount: 50 }, options);
-  let test = null, fixed = null, log = [], finished = false, started = false;
+  let test = null, log = [], finished = false, started = false;
   let timer = null, shift = 0;
 
   el.classList.add("typing");
@@ -60,21 +60,19 @@ export function createTyping(el, options = {}) {
   function build() {
     stopTimers();
     finished = false; started = false; log = []; shift = 0;
-    const engMode = o.mode === "time" ? "time" : "words";
-    if (o.mode === "text") fixed = splitText(o.text != null ? o.text : (o.words || []).join(" "));
-    else if (o.ghost && Array.isArray(o.ghost.words) && o.ghost.words.length) fixed = o.ghost.words.slice();
-    else fixed = null;
-    let pool = o.words && o.words.length ? o.words : fixed && fixed.length ? fixed : FALLBACK;
-    if (o.mode === "text" && (!fixed || !fixed.length)) fixed = pool.slice(0, 1);
-    const wordCount = fixed && engMode === "words" ? fixed.length : Number(o.wordCount) || 50;
+    const mode = o.mode === "text" || o.mode === "words" ? o.mode : "time";
+    const ghostWords = o.ghost && Array.isArray(o.ghost.words) && o.ghost.words.length ? o.ghost.words : null;
+    let words = ghostWords || (o.words && o.words.length ? o.words : null);
+    let text = mode === "text" && !ghostWords ? o.text : undefined;
+    if (mode === "text" && !splitText(text).length && !words) text = FALLBACK[0]; // engine throws on empty text
+    if (!words) words = FALLBACK;
+    const ordered = mode === "text" || !!ghostWords || !!o.ordered;
     test = E.createTest({
-      mode: engMode, duration: o.duration, wordCount, words: pool, seed: o.seed,
-      noBackspace: !!o.noBackspace, accents: o.accents || settings.get("accents"), lang: o.lang,
+      mode, duration: o.duration, words, text, ordered, seed: o.seed,
+      wordCount: ghostWords && mode === "words" ? ghostWords.length : o.wordCount,
+      noBackspace: !!o.noBackspace, accents: o.accents || settings.get("accents"),
+      lang: o.lang || settings.get("lang"),
     });
-    if (fixed) {
-      test.words = fixed.slice();
-      if (engMode === "words") test.wordCount = fixed.length;
-    }
     el.classList.toggle("blind", !!o.blind);
     el.classList.toggle("mirror", !!o.mirror);
     const caretStyle = CARET_TOP[settings.get("caret")] ? settings.get("caret") : "underline";
@@ -121,10 +119,9 @@ export function createTyping(el, options = {}) {
     stopTimers();
     const r = E.results(test);
     r.ts = Date.now();
-    r.words = test.words.slice(0, test.index + 1);
-    r.lang = o.lang || settings.get("lang");
+    if (!Array.isArray(r.words)) r.words = test.words.slice(0, test.index + 1);
+    if (!r.lang) r.lang = o.lang || settings.get("lang");
     if (!Array.isArray(r.log)) r.log = log;
-    if (o.mode === "text") { r.mode = "text"; r.target = fixed.length; }
     const flags = ["noBackspace", "blind", "mirror", "lookAhead", "paceWpm"].filter((k) => o[k]);
     if (flags.length) r.flags = Object.fromEntries(flags.map((k) => [k, o[k]]));
     document.body.classList.remove("typing-active");
@@ -155,7 +152,7 @@ export function createTyping(el, options = {}) {
       e.preventDefault();
       if (o.noBackspace) return;
       const before = test.index;
-      E.backspace(test);
+      E.backspace(test, now);
       record("\b", now);
       if (test.index !== before) applyLookAhead();
       renderWord(test.index); renderWord(test.index + 1);
@@ -301,7 +298,7 @@ export function createTyping(el, options = {}) {
     else paceEl.hidden = true;
     if (o.ghost && started && typeof E.stateAt === "function" && Array.isArray(o.ghost.log)) {
       let st = null;
-      try { st = E.stateAt(o.ghost.words, o.ghost.log, ms); } catch { st = null; }
+      try { st = E.stateAt(o.ghost.words, o.ghost.log, ms, { accents: o.ghost.accents, noBackspace: o.ghost.noBackspace }); } catch { st = null; }
       if (st) {
         const t = st.typed;
         const typedLen = typeof t === "string" ? t.length : Array.isArray(t) ? (t[st.index] || "").length : 0;
