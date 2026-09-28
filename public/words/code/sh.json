@@ -1,0 +1,182 @@
+[
+ {
+  "text": "#!/bin/bash\necho \"Hello, world!\""
+ },
+ {
+  "text": "for f in *.txt; do\n  echo \"$f\"\ndone"
+ },
+ {
+  "text": "if [ -f config.yaml ]; then\n  echo \"found config\"\nfi"
+ },
+ {
+  "text": "mkdir -p build/output"
+ },
+ {
+  "text": "cp source.txt destination.txt"
+ },
+ {
+  "text": "grep -r 'TODO' src/"
+ },
+ {
+  "text": "find . -name '*.log' -mtime +7 -delete"
+ },
+ {
+  "text": "export PATH=\"$PATH:/usr/local/bin\""
+ },
+ {
+  "text": "count=$(ls -1 | wc -l)\necho \"$count files\""
+ },
+ {
+  "text": "while read -r line; do\n  echo \"$line\"\ndone < input.txt"
+ },
+ {
+  "text": "tar -czf archive.tar.gz ./data"
+ },
+ {
+  "text": "chmod +x deploy.sh"
+ },
+ {
+  "text": "curl -sL https://example.com/api | jq '.status'"
+ },
+ {
+  "text": "case \"$1\" in\n  start) echo \"starting\" ;;\n  stop) echo \"stopping\" ;;\nesac"
+ },
+ {
+  "text": "function greet() {\n  echo \"Hello, $1!\"\n}"
+ },
+ {
+  "text": "rsync -av ./src/ user@host:/remote/path/"
+ },
+ {
+  "text": "ps aux | grep node"
+ },
+ {
+  "text": "kill -9 $(pgrep -f old_process)"
+ },
+ {
+  "text": "sed -i 's/foo/bar/g' config.txt"
+ },
+ {
+  "text": "awk '{print $1}' access.log | sort | uniq -c"
+ },
+ {
+  "text": "test -d /var/log || mkdir /var/log"
+ },
+ {
+  "text": "git status && git add . && git commit -m 'update'"
+ },
+ {
+  "text": "docker ps --filter status=running"
+ },
+ {
+  "text": "ssh user@server 'uptime'"
+ },
+ {
+  "text": "echo \"$USER logged in at $(date)\" >> audit.log"
+ },
+ {
+  "text": "trap 'echo cleanup' EXIT"
+ },
+ {
+  "text": "read -p 'Continue? (y/n) ' answer"
+ },
+ {
+  "text": "if [[ $answer == 'y' ]]; then\n  echo \"proceeding\"\nfi"
+ },
+ {
+  "text": "touch \"file_$(date +%Y%m%d).log\""
+ },
+ {
+  "text": "du -sh ./* | sort -h"
+ },
+ {
+  "text": "diff old.txt new.txt > changes.diff"
+ },
+ {
+  "text": "wget -q https://example.com/file.zip -O file.zip"
+ },
+ {
+  "text": "unzip -o file.zip -d extracted/"
+ },
+ {
+  "text": "nohup ./server.sh > server.log 2>&1 &"
+ },
+ {
+  "text": "declare -a fruits=('apple' 'banana' 'cherry')"
+ },
+ {
+  "text": "for fruit in \"${fruits[@]}\"; do\n  echo \"$fruit\"\ndone"
+ },
+ {
+  "text": "env | grep NODE_ENV"
+ },
+ {
+  "text": "alias ll='ls -la'"
+ },
+ {
+  "text": "set -euo pipefail"
+ },
+ {
+  "text": "source .env"
+ },
+ {
+  "text": "systemctl restart nginx"
+ },
+ {
+  "text": "crontab -l | grep backup"
+ },
+ {
+  "text": "df -h | grep /dev/sda1"
+ },
+ {
+  "text": "ln -s /opt/app/current /opt/app/latest"
+ },
+ {
+  "text": "basename \"$path\""
+ },
+ {
+  "text": "dirname \"$path\""
+ },
+ {
+  "text": "printf '%s\\n' \"${array[@]}\""
+ },
+ {
+  "text": "xargs -n1 curl -O < urls.txt"
+ },
+ {
+  "text": "history | tail -20"
+ },
+ {
+  "text": "scp report.pdf user@remote:/tmp/"
+ },
+ {
+  "text": "openssl rand -hex 16"
+ },
+ {
+  "text": "hostname -I | awk '{print $1}'"
+ },
+ {
+  "text": "timeout 30 ./slow_script.sh"
+ },
+ {
+  "text": "watch -n 2 'docker ps'"
+ },
+ {
+  "text": "md5sum file.txt | awk '{print $1}'"
+ },
+ {
+  "text": "if command -v docker &> /dev/null; then\n  echo \"docker installed\"\nfi"
+ },
+ {
+  "text": "free -h | grep Mem"
+ },
+ {
+  "text": "head -n 20 access.log"
+ },
+ {
+  "text": "tail -f /var/log/syslog"
+ },
+ {
+  "text": "uname -a"
+ }
+]
