@@ -10,6 +10,7 @@ import auth from "./core/auth.js";
 import words from "./core/words.js";
 import { esc } from "./core/ui.js";
 import "./core/sync.js";
+import "./core/gamify.js";
 
 const navMain = document.getElementById("nav-main");
 const navRight = document.getElementById("nav-right");

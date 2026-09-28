@@ -1,0 +1,69 @@
+/* gamification: header level indicator, xp pill, notification cards, PB banner (core/gamify.js) */
+.gz-level {
+  position: relative;
+  display: flex; align-items: center; gap: 8px;
+  color: var(--sub); text-decoration: none;
+  font-size: .75rem; text-transform: uppercase; letter-spacing: .12em;
+}
+.gz-level:hover { color: var(--text); }
+.gz-lv b { color: var(--text); font-weight: 500; font-variant-numeric: tabular-nums; }
+.gz-bar { display: block; width: 56px; height: 3px; background: var(--edge); border-radius: 2px; overflow: hidden; }
+.gz-bar i { display: block; height: 100%; width: 0; background: var(--main); transition: width .6s ease-out; }
+
+.gz-pill {
+  position: absolute; right: 0; top: 100%; margin-top: 6px;
+  color: var(--caret); font-size: .75rem; letter-spacing: .08em; white-space: nowrap;
+  opacity: 0; transform: translateY(-4px);
+  transition: opacity .25s, transform .25s; pointer-events: none;
+  animation: gz-rise 2.2s ease-out forwards;
+}
+@keyframes gz-rise {
+  0% { opacity: 0; transform: translateY(4px); }
+  15% { opacity: 1; transform: translateY(0); }
+  75% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-6px); }
+}
+
+.gz-stack {
+  position: fixed; right: 20px; bottom: 24px; z-index: 60;
+  display: flex; flex-direction: column; gap: 8px; align-items: flex-end;
+  pointer-events: none;
+}
+.gz-card {
+  display: flex; align-items: center; gap: 12px;
+  min-width: 240px; max-width: 340px;
+  background: var(--sub-alt); border: 1px solid var(--edge); border-left: 3px solid var(--main); border-radius: 2px;
+  padding: 10px 14px; color: var(--text); font-size: .85rem;
+  box-shadow: 0 4px 18px rgba(0,0,0,.35);
+  opacity: 0; transform: translateX(16px); transition: opacity .25s, transform .25s;
+}
+.gz-card.show { opacity: 1; transform: none; }
+.gz-icon { font-size: 1.5rem; line-height: 1; width: 1.6em; text-align: center; flex: none; }
+.gz-title { text-transform: uppercase; letter-spacing: .1em; font-size: .75rem; }
+.gz-sub { color: var(--sub); font-size: .8rem; margin-top: 2px; }
+.gz-card.gz-lvlup .gz-icon { color: var(--caret); }
+.gz-card.gz-badge .gz-title { color: var(--caret); }
+
+.gz-pb {
+  position: fixed; left: 50%; top: 88px; z-index: 60;
+  transform: translate(-50%, -8px); opacity: 0;
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  padding: 10px 28px;
+  background: var(--sub-alt); border: 1px solid var(--main); border-radius: 2px;
+  box-shadow: 0 0 24px color-mix(in srgb, var(--caret) 45%, transparent), inset 0 0 12px color-mix(in srgb, var(--main) 25%, transparent);
+  pointer-events: none; transition: opacity .3s, transform .3s;
+}
+.gz-pb.show { opacity: 1; transform: translate(-50%, 0); }
+.gz-pb-kicker { color: var(--caret); text-transform: uppercase; letter-spacing: .22em; font-size: .75rem; font-weight: 700; }
+.gz-pb-value { color: var(--text); font-size: .9rem; font-variant-numeric: tabular-nums; }
+.gz-glow { text-shadow: 0 0 18px var(--caret), 0 0 42px color-mix(in srgb, var(--caret) 60%, transparent); transition: text-shadow .4s; }
+
+@media (max-width: 760px) {
+  .gz-bar { width: 36px; }
+  .gz-stack { left: 16px; right: 16px; align-items: stretch; }
+  .gz-card { max-width: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gz-card, .gz-pb, .gz-pill, .gz-bar i { transition: none; animation: none; }
+  .gz-pill { opacity: 1; }
+}
