@@ -10,11 +10,15 @@
 //   mirror (each word rendered reversed), accents ('lenient'|'strict'), paceWpm (faint pace caret),
 //   ghost: {words, log} (a second caret replaying a run; the test uses the ghost's words),
 //   ordered, lang, seed, keys (false = don't take the keyboard, call handleKey yourself),
+//   code (mode 'text': keep the text's line breaks and indentation; Enter types the newline, Tab does
+//   not restart), dir ('ltr'|'rtl'), liveWpm (false hides the live wpm readout; settings.hideLiveWpm too),
 //   onStart(), onProgress(state), onFinish(result), onRestart()
 // }) -> { restart(opts?), destroy(), handleKey(e), test }
+// Every keystroke emits bus 'key' {ok, key} (key sounds).
 import keys from "./keys.js";
 import settings from "./settings.js";
-import { FALLBACK } from "./words.js";
+import { emit } from "./bus.js";
+import { FALLBACK, splitCode } from "./words.js";
 
 const CARET_TOP = { underline: 0.82, line: 0.2, block: 0.2 };
 
@@ -38,15 +42,17 @@ export function createTyping(el, options = {}) {
   const E = window.Engine;
   let o = Object.assign({ mode: "time", duration: 30, wordCount: 50 }, options);
   let test = null, log = [], finished = false, started = false;
-  let timer = null, shift = 0;
+  let timer = null, shift = 0, layout = null, wordEls = [], lastLive = 0;
 
   el.classList.add("typing");
   el.innerHTML =
-    '<div class="counter"></div>' +
+    '<div class="counter"><span class="count"></span><span class="live-wpm"></span></div>' +
     '<div class="words-window"><div class="words"></div>' +
     '<div class="caret pace-caret" hidden></div><div class="caret ghost-caret" hidden></div>' +
     '<div class="caret main-caret"></div></div>';
   const counterEl = el.querySelector(".counter");
+  const countEl = el.querySelector(".count");
+  const liveEl = el.querySelector(".live-wpm");
   const wordsEl = el.querySelector(".words");
   const caretEl = el.querySelector(".main-caret");
   const paceEl = el.querySelector(".pace-caret");
@@ -64,6 +70,11 @@ export function createTyping(el, options = {}) {
     const ghostWords = o.ghost && Array.isArray(o.ghost.words) && o.ghost.words.length ? o.ghost.words : null;
     let words = ghostWords || (o.words && o.words.length ? o.words : null);
     let text = mode === "text" && !ghostWords ? o.text : undefined;
+    layout = null;
+    if (mode === "text" && o.code && text != null) {
+      const c = splitCode(text);
+      if (c.words.length) { layout = c; words = c.words; text = undefined; }
+    }
     if (mode === "text" && !splitText(text).length && !words) text = FALLBACK[0]; // engine throws on empty text
     if (!words) words = FALLBACK;
     const ordered = mode === "text" || !!ghostWords || !!o.ordered;
@@ -78,7 +89,14 @@ export function createTyping(el, options = {}) {
     const caretStyle = CARET_TOP[settings.get("caret")] ? settings.get("caret") : "underline";
     el.dataset.caret = caretStyle;
     el.style.maxWidth = (o.width || settings.get("width") || 1000) + "px";
-    counterEl.hidden = !!(o.hideCounter || settings.get("hideTimer"));
+    el.dir = o.dir === "rtl" ? "rtl" : "ltr";
+    el.classList.toggle("rtl", o.dir === "rtl");
+    el.classList.toggle("code", !!layout);
+    countEl.hidden = !!(o.hideCounter || settings.get("hideTimer"));
+    liveEl.hidden = o.liveWpm === false || !!settings.get("hideLiveWpm");
+    counterEl.hidden = countEl.hidden && liveEl.hidden;
+    liveEl.textContent = ""; lastLive = 0;
+    liveEl.style.marginInlineStart = "1em";
     document.body.classList.remove("typing-active");
     renderWords();
     updateCounter();
@@ -97,7 +115,7 @@ export function createTyping(el, options = {}) {
     window.removeEventListener("resize", onResize);
     document.body.classList.remove("typing-active");
     el.replaceChildren();
-    el.classList.remove("blind", "mirror");
+    el.classList.remove("blind", "mirror", "rtl", "code");
     test = null;
   }
 
@@ -109,6 +127,7 @@ export function createTyping(el, options = {}) {
     if (!test || !E.isRunning(test)) return;
     E.tick(test, Date.now());
     updateCounter();
+    updateLive();
     placeSecondaryCarets(); // pace + ghost move on the tick (rAF stalls in background tabs)
     if (test.finishedAt !== null) finish();
   }
@@ -138,6 +157,7 @@ export function createTyping(el, options = {}) {
 
   function handleKey(e) {
     if (!test || keys.inField(e)) return;
+    if (e.key === "Tab" && layout) { e.preventDefault(); return; } // code: indentation is automatic, never restart
     if (e.key === "Tab" || (e.key === "Escape" && !e.repeat)) {
       e.preventDefault();
       restart();
@@ -151,26 +171,36 @@ export function createTyping(el, options = {}) {
     if (e.key === "Backspace") {
       e.preventDefault();
       if (o.noBackspace) return;
-      const before = test.index;
+      const before = test.index, len = (test.typed[test.index] || "").length;
       E.backspace(test, now);
+      if (test.index === before && (test.typed[test.index] || "").length === len) return; // nothing to delete
       record("\b", now);
+      emit("key", { ok: true, key: "\b" });
       if (test.index !== before) applyLookAhead();
       renderWord(test.index); renderWord(test.index + 1);
       placeCarets();
       return;
     }
-    if (e.key === " ") {
+    const eol = layout && layout.breaks[test.index];
+    if (e.key === " " || (e.key === "Enter" && eol)) {
       e.preventDefault();
-      const before = test.index;
+      if (eol && e.key === " ") return; // code: the end of a line takes Enter
+      const before = test.index, typed = test.typed[test.index] || "";
+      if (!typed.length) return;
+      const ok = typed === test.words[test.index];
       E.space(test, now);
       if (test.startedAt !== null) record(" ", now);
+      emit("key", { ok, key: e.key === "Enter" ? "\n" : " " });
       afterInput(before);
       return;
     }
     if (e.key.length === 1) {
       e.preventDefault();
+      const n = test.events.length;
       E.input(test, e.key, now);
+      if (test.events.length === n) return; // capped extras: nothing happened
       record(e.key, now);
+      emit("key", { ok: !!test.events[n].ok, key: e.key });
       afterInput(test.index);
     }
   }
@@ -181,7 +211,7 @@ export function createTyping(el, options = {}) {
       if (o.onStart) o.onStart();
     }
     document.body.classList.add("typing-active");
-    if (test.words.length !== wordsEl.childElementCount) appendWords();
+    if (test.words.length !== wordEls.length) appendWords();
     renderWord(prevIndex);
     if (prevIndex !== test.index) { renderWord(test.index); applyLookAhead(); }
     updateCounter();
@@ -193,26 +223,50 @@ export function createTyping(el, options = {}) {
   function updateCounter() {
     if (!test) return;
     if (test.mode === "time") {
-      counterEl.textContent = test.startedAt === null ? test.duration
+      countEl.textContent = test.startedAt === null ? test.duration
         : Math.max(0, Math.ceil(test.duration - E.elapsedMs(test, Date.now()) / 1000));
     } else {
-      counterEl.textContent = Math.min(test.index, test.words.length) + "/" + test.words.length;
+      countEl.textContent = Math.min(test.index, test.words.length) + "/" + test.words.length;
     }
+  }
+
+  // correct keystrokes (spaces included) / 5 per minute, refreshed twice a second
+  function updateLive() {
+    if (liveEl.hidden || test.startedAt === null) return;
+    const now = Date.now();
+    if (now - lastLive < 500) return;
+    lastLive = now;
+    const ms = E.elapsedMs(test, now);
+    if (ms < 1000) return;
+    liveEl.textContent = Math.round(test.correct / 5 / (ms / 60000));
   }
 
   // ── rendering ─────────────────────────────────────────────────────────
   function renderWords() {
     const frag = document.createDocumentFragment();
-    test.words.forEach((_, i) => frag.appendChild(buildWord(i)));
+    wordEls = [];
+    test.words.forEach((_, i) => addWord(frag, i));
     wordsEl.replaceChildren(frag);
     wordsEl.style.transform = "translateY(0)";
     applyLookAhead();
   }
 
   function appendWords() {
-    if (test.words.length < wordsEl.childElementCount) return renderWords();
-    for (let i = wordsEl.childElementCount; i < test.words.length; i++) wordsEl.appendChild(buildWord(i));
+    if (test.words.length < wordEls.length) return renderWords();
+    for (let i = wordEls.length; i < test.words.length; i++) addWord(wordsEl, i);
     applyLookAhead();
+  }
+
+  // word element plus, in code, the line break after it (a full-width flex item, not in wordEls)
+  function addWord(parent, i) {
+    const w = buildWord(i);
+    wordEls[i] = w;
+    parent.appendChild(w);
+    if (layout && layout.breaks[i]) {
+      const nl = document.createElement("div");
+      nl.className = "nl";
+      parent.appendChild(nl);
+    }
   }
 
   function buildWord(i) {
@@ -221,6 +275,10 @@ export function createTyping(el, options = {}) {
     const blind = o.blind && !finished;
     const w = document.createElement("div");
     w.className = "word";
+    if (layout) {
+      if (layout.indents[i]) w.style.marginInlineStart = layout.indents[i] + "ch";
+      if (layout.breaks[i]) w.classList.add("eol");
+    }
     if (!blind && i < test.index && typed !== word) w.classList.add("error");
     for (let k = 0; k < word.length; k++) {
       const s = document.createElement("span");
@@ -240,31 +298,35 @@ export function createTyping(el, options = {}) {
 
   function renderWord(i) {
     if (i < 0 || i >= test.words.length) return;
-    const old = wordsEl.children[i];
+    const old = wordEls[i];
     if (old) {
       const fresh = buildWord(i);
       if (old.classList.contains("ahead")) fresh.classList.add("ahead");
       wordsEl.replaceChild(fresh, old);
+      wordEls[i] = fresh;
     }
   }
 
   function applyLookAhead() {
     const n = Number(o.lookAhead) || 0;
-    const kids = wordsEl.children;
+    const kids = wordEls;
     for (let i = 0; i < kids.length; i++) kids[i].classList.toggle("ahead", n > 0 && i > test.index + n);
   }
 
   // {left, top, h} of the caret for word `index` with `typedLen` characters typed
   function pos(index, typedLen) {
-    const w = wordsEl.children[index];
+    const w = wordEls[index];
     if (!w || !w.children.length) return null;
     const letters = w.children, h = w.offsetHeight;
+    const rtl = o.dir === "rtl";
+    // right-to-left: the caret sits at the right edge of the next letter (after the last: its left edge)
+    const cw = rtl ? caretEl.offsetWidth : 0;
     if (typedLen < letters.length) {
       const l = letters[typedLen];
-      return { left: l.offsetLeft, top: l.offsetTop, h };
+      return { left: rtl ? l.offsetLeft + l.offsetWidth - cw : l.offsetLeft, top: l.offsetTop, h };
     }
     const l = letters[letters.length - 1];
-    const left = o.mirror ? l.offsetLeft - l.offsetWidth : l.offsetLeft + l.offsetWidth;
+    const left = rtl ? l.offsetLeft - cw : o.mirror ? l.offsetLeft - l.offsetWidth : l.offsetLeft + l.offsetWidth;
     return { left, top: l.offsetTop, h };
   }
 
