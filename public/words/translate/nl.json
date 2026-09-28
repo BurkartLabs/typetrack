@@ -1,0 +1,1614 @@
+[
+ {
+  "en": "one",
+  "word": "een"
+ },
+ {
+  "en": "two",
+  "word": "twee"
+ },
+ {
+  "en": "three",
+  "word": "drie"
+ },
+ {
+  "en": "four",
+  "word": "vier"
+ },
+ {
+  "en": "five",
+  "word": "vijf"
+ },
+ {
+  "en": "six",
+  "word": "zes"
+ },
+ {
+  "en": "seven",
+  "word": "zeven"
+ },
+ {
+  "en": "eight",
+  "word": "acht"
+ },
+ {
+  "en": "nine",
+  "word": "negen"
+ },
+ {
+  "en": "ten",
+  "word": "tien"
+ },
+ {
+  "en": "eleven",
+  "word": "elf"
+ },
+ {
+  "en": "twelve",
+  "word": "twaalf"
+ },
+ {
+  "en": "thirteen",
+  "word": "dertien"
+ },
+ {
+  "en": "fourteen",
+  "word": "veertien"
+ },
+ {
+  "en": "fifteen",
+  "word": "vijftien"
+ },
+ {
+  "en": "sixteen",
+  "word": "zestien"
+ },
+ {
+  "en": "seventeen",
+  "word": "zeventien"
+ },
+ {
+  "en": "eighteen",
+  "word": "achttien"
+ },
+ {
+  "en": "nineteen",
+  "word": "negentien"
+ },
+ {
+  "en": "twenty",
+  "word": "twintig"
+ },
+ {
+  "en": "thirty",
+  "word": "dertig"
+ },
+ {
+  "en": "forty",
+  "word": "veertig"
+ },
+ {
+  "en": "fifty",
+  "word": "vijftig"
+ },
+ {
+  "en": "sixty",
+  "word": "zestig"
+ },
+ {
+  "en": "seventy",
+  "word": "zeventig"
+ },
+ {
+  "en": "eighty",
+  "word": "tachtig"
+ },
+ {
+  "en": "ninety",
+  "word": "negentig"
+ },
+ {
+  "en": "hundred",
+  "word": "honderd"
+ },
+ {
+  "en": "thousand",
+  "word": "duizend"
+ },
+ {
+  "en": "red",
+  "word": "rood"
+ },
+ {
+  "en": "orange",
+  "word": "oranje"
+ },
+ {
+  "en": "yellow",
+  "word": "geel"
+ },
+ {
+  "en": "green",
+  "word": "groen"
+ },
+ {
+  "en": "blue",
+  "word": "blauw"
+ },
+ {
+  "en": "purple",
+  "word": "paars"
+ },
+ {
+  "en": "pink",
+  "word": "roze"
+ },
+ {
+  "en": "brown",
+  "word": "bruin"
+ },
+ {
+  "en": "black",
+  "word": "zwart"
+ },
+ {
+  "en": "white",
+  "word": "wit"
+ },
+ {
+  "en": "gray",
+  "word": "grijs"
+ },
+ {
+  "en": "gold",
+  "word": "gouden"
+ },
+ {
+  "en": "monday",
+  "word": "maandag"
+ },
+ {
+  "en": "tuesday",
+  "word": "dinsdag"
+ },
+ {
+  "en": "wednesday",
+  "word": "woensdag"
+ },
+ {
+  "en": "thursday",
+  "word": "donderdag"
+ },
+ {
+  "en": "friday",
+  "word": "vrijdag"
+ },
+ {
+  "en": "saturday",
+  "word": "zaterdag"
+ },
+ {
+  "en": "sunday",
+  "word": "zondag"
+ },
+ {
+  "en": "january",
+  "word": "januari"
+ },
+ {
+  "en": "february",
+  "word": "februari"
+ },
+ {
+  "en": "march",
+  "word": "maart"
+ },
+ {
+  "en": "april",
+  "word": "april"
+ },
+ {
+  "en": "may",
+  "word": "mei"
+ },
+ {
+  "en": "june",
+  "word": "juni"
+ },
+ {
+  "en": "july",
+  "word": "juli"
+ },
+ {
+  "en": "august",
+  "word": "augustus"
+ },
+ {
+  "en": "september",
+  "word": "september"
+ },
+ {
+  "en": "october",
+  "word": "oktober"
+ },
+ {
+  "en": "november",
+  "word": "november"
+ },
+ {
+  "en": "december",
+  "word": "december"
+ },
+ {
+  "en": "mother",
+  "word": "moeder"
+ },
+ {
+  "en": "father",
+  "word": "vader"
+ },
+ {
+  "en": "sister",
+  "word": "zus"
+ },
+ {
+  "en": "brother",
+  "word": "broer"
+ },
+ {
+  "en": "son",
+  "word": "zoon"
+ },
+ {
+  "en": "daughter",
+  "word": "dochter"
+ },
+ {
+  "en": "grandmother",
+  "word": "oma"
+ },
+ {
+  "en": "grandfather",
+  "word": "opa"
+ },
+ {
+  "en": "aunt",
+  "word": "tante"
+ },
+ {
+  "en": "uncle",
+  "word": "oom"
+ },
+ {
+  "en": "cousin",
+  "word": "neef"
+ },
+ {
+  "en": "husband",
+  "word": "man"
+ },
+ {
+  "en": "wife",
+  "word": "vrouw"
+ },
+ {
+  "en": "baby",
+  "word": "baby"
+ },
+ {
+  "en": "child",
+  "word": "kind"
+ },
+ {
+  "en": "friend",
+  "word": "vriend"
+ },
+ {
+  "en": "family",
+  "word": "familie"
+ },
+ {
+  "en": "parent",
+  "word": "ouder"
+ },
+ {
+  "en": "man",
+  "word": "man"
+ },
+ {
+  "en": "woman",
+  "word": "vrouw"
+ },
+ {
+  "en": "head",
+  "word": "hoofd"
+ },
+ {
+  "en": "hair",
+  "word": "haar"
+ },
+ {
+  "en": "eye",
+  "word": "oog"
+ },
+ {
+  "en": "ear",
+  "word": "oor"
+ },
+ {
+  "en": "nose",
+  "word": "neus"
+ },
+ {
+  "en": "mouth",
+  "word": "mond"
+ },
+ {
+  "en": "tooth",
+  "word": "tand"
+ },
+ {
+  "en": "tongue",
+  "word": "tong"
+ },
+ {
+  "en": "neck",
+  "word": "nek"
+ },
+ {
+  "en": "shoulder",
+  "word": "schouder"
+ },
+ {
+  "en": "arm",
+  "word": "arm"
+ },
+ {
+  "en": "hand",
+  "word": "hand"
+ },
+ {
+  "en": "finger",
+  "word": "vinger"
+ },
+ {
+  "en": "chest",
+  "word": "borst"
+ },
+ {
+  "en": "back",
+  "word": "rug"
+ },
+ {
+  "en": "stomach",
+  "word": "buik"
+ },
+ {
+  "en": "leg",
+  "word": "been"
+ },
+ {
+  "en": "knee",
+  "word": "knie"
+ },
+ {
+  "en": "foot",
+  "word": "voet"
+ },
+ {
+  "en": "heart",
+  "word": "hart"
+ },
+ {
+  "en": "brain",
+  "word": "hersenen"
+ },
+ {
+  "en": "skin",
+  "word": "huid"
+ },
+ {
+  "en": "blood",
+  "word": "bloed"
+ },
+ {
+  "en": "dog",
+  "word": "hond"
+ },
+ {
+  "en": "cat",
+  "word": "kat"
+ },
+ {
+  "en": "bird",
+  "word": "vogel"
+ },
+ {
+  "en": "fish",
+  "word": "vis"
+ },
+ {
+  "en": "horse",
+  "word": "paard"
+ },
+ {
+  "en": "cow",
+  "word": "koe"
+ },
+ {
+  "en": "pig",
+  "word": "varken"
+ },
+ {
+  "en": "sheep",
+  "word": "schaap"
+ },
+ {
+  "en": "goat",
+  "word": "geit"
+ },
+ {
+  "en": "chicken",
+  "word": "kip"
+ },
+ {
+  "en": "duck",
+  "word": "eend"
+ },
+ {
+  "en": "mouse",
+  "word": "muis"
+ },
+ {
+  "en": "rabbit",
+  "word": "konijn"
+ },
+ {
+  "en": "lion",
+  "word": "leeuw"
+ },
+ {
+  "en": "tiger",
+  "word": "tijger"
+ },
+ {
+  "en": "bear",
+  "word": "beer"
+ },
+ {
+  "en": "wolf",
+  "word": "wolf"
+ },
+ {
+  "en": "fox",
+  "word": "vos"
+ },
+ {
+  "en": "deer",
+  "word": "hert"
+ },
+ {
+  "en": "monkey",
+  "word": "aap"
+ },
+ {
+  "en": "elephant",
+  "word": "olifant"
+ },
+ {
+  "en": "snake",
+  "word": "slang"
+ },
+ {
+  "en": "frog",
+  "word": "kikker"
+ },
+ {
+  "en": "bee",
+  "word": "bij"
+ },
+ {
+  "en": "butterfly",
+  "word": "vlinder"
+ },
+ {
+  "en": "sun",
+  "word": "zon"
+ },
+ {
+  "en": "moon",
+  "word": "maan"
+ },
+ {
+  "en": "star",
+  "word": "ster"
+ },
+ {
+  "en": "sky",
+  "word": "lucht"
+ },
+ {
+  "en": "cloud",
+  "word": "wolk"
+ },
+ {
+  "en": "rain",
+  "word": "regen"
+ },
+ {
+  "en": "snow",
+  "word": "sneeuw"
+ },
+ {
+  "en": "wind",
+  "word": "wind"
+ },
+ {
+  "en": "storm",
+  "word": "storm"
+ },
+ {
+  "en": "fire",
+  "word": "vuur"
+ },
+ {
+  "en": "water",
+  "word": "water"
+ },
+ {
+  "en": "earth",
+  "word": "aarde"
+ },
+ {
+  "en": "mountain",
+  "word": "berg"
+ },
+ {
+  "en": "river",
+  "word": "rivier"
+ },
+ {
+  "en": "lake",
+  "word": "meer"
+ },
+ {
+  "en": "sea",
+  "word": "zee"
+ },
+ {
+  "en": "ocean",
+  "word": "oceaan"
+ },
+ {
+  "en": "forest",
+  "word": "bos"
+ },
+ {
+  "en": "tree",
+  "word": "boom"
+ },
+ {
+  "en": "flower",
+  "word": "bloem"
+ },
+ {
+  "en": "grass",
+  "word": "gras"
+ },
+ {
+  "en": "leaf",
+  "word": "blad"
+ },
+ {
+  "en": "stone",
+  "word": "steen"
+ },
+ {
+  "en": "sand",
+  "word": "zand"
+ },
+ {
+  "en": "island",
+  "word": "eiland"
+ },
+ {
+  "en": "beach",
+  "word": "strand"
+ },
+ {
+  "en": "valley",
+  "word": "vallei"
+ },
+ {
+  "en": "desert",
+  "word": "woestijn"
+ },
+ {
+  "en": "bread",
+  "word": "brood"
+ },
+ {
+  "en": "butter",
+  "word": "boter"
+ },
+ {
+  "en": "cheese",
+  "word": "kaas"
+ },
+ {
+  "en": "milk",
+  "word": "melk"
+ },
+ {
+  "en": "egg",
+  "word": "ei"
+ },
+ {
+  "en": "meat",
+  "word": "vlees"
+ },
+ {
+  "en": "rice",
+  "word": "rijst"
+ },
+ {
+  "en": "salt",
+  "word": "zout"
+ },
+ {
+  "en": "sugar",
+  "word": "suiker"
+ },
+ {
+  "en": "pepper",
+  "word": "peper"
+ },
+ {
+  "en": "apple",
+  "word": "appel"
+ },
+ {
+  "en": "banana",
+  "word": "banaan"
+ },
+ {
+  "en": "grape",
+  "word": "druif"
+ },
+ {
+  "en": "lemon",
+  "word": "citroen"
+ },
+ {
+  "en": "potato",
+  "word": "aardappel"
+ },
+ {
+  "en": "tomato",
+  "word": "tomaat"
+ },
+ {
+  "en": "onion",
+  "word": "ui"
+ },
+ {
+  "en": "carrot",
+  "word": "wortel"
+ },
+ {
+  "en": "soup",
+  "word": "soep"
+ },
+ {
+  "en": "cake",
+  "word": "taart"
+ },
+ {
+  "en": "coffee",
+  "word": "koffie"
+ },
+ {
+  "en": "tea",
+  "word": "thee"
+ },
+ {
+  "en": "wine",
+  "word": "wijn"
+ },
+ {
+  "en": "beer",
+  "word": "bier"
+ },
+ {
+  "en": "juice",
+  "word": "sap"
+ },
+ {
+  "en": "honey",
+  "word": "honing"
+ },
+ {
+  "en": "chocolate",
+  "word": "chocolade"
+ },
+ {
+  "en": "fruit",
+  "word": "fruit"
+ },
+ {
+  "en": "vegetable",
+  "word": "groente"
+ },
+ {
+  "en": "house",
+  "word": "huis"
+ },
+ {
+  "en": "door",
+  "word": "deur"
+ },
+ {
+  "en": "window",
+  "word": "raam"
+ },
+ {
+  "en": "wall",
+  "word": "muur"
+ },
+ {
+  "en": "roof",
+  "word": "dak"
+ },
+ {
+  "en": "floor",
+  "word": "vloer"
+ },
+ {
+  "en": "table",
+  "word": "tafel"
+ },
+ {
+  "en": "chair",
+  "word": "stoel"
+ },
+ {
+  "en": "bed",
+  "word": "bed"
+ },
+ {
+  "en": "kitchen",
+  "word": "keuken"
+ },
+ {
+  "en": "bathroom",
+  "word": "badkamer"
+ },
+ {
+  "en": "garden",
+  "word": "tuin"
+ },
+ {
+  "en": "key",
+  "word": "sleutel"
+ },
+ {
+  "en": "mirror",
+  "word": "spiegel"
+ },
+ {
+  "en": "lamp",
+  "word": "lamp"
+ },
+ {
+  "en": "clock",
+  "word": "klok"
+ },
+ {
+  "en": "book",
+  "word": "boek"
+ },
+ {
+  "en": "pen",
+  "word": "pen"
+ },
+ {
+  "en": "paper",
+  "word": "papier"
+ },
+ {
+  "en": "letter",
+  "word": "brief"
+ },
+ {
+  "en": "phone",
+  "word": "telefoon"
+ },
+ {
+  "en": "computer",
+  "word": "computer"
+ },
+ {
+  "en": "television",
+  "word": "televisie"
+ },
+ {
+  "en": "car",
+  "word": "auto"
+ },
+ {
+  "en": "bicycle",
+  "word": "fiets"
+ },
+ {
+  "en": "train",
+  "word": "trein"
+ },
+ {
+  "en": "plane",
+  "word": "vliegtuig"
+ },
+ {
+  "en": "boat",
+  "word": "boot"
+ },
+ {
+  "en": "road",
+  "word": "weg"
+ },
+ {
+  "en": "city",
+  "word": "stad"
+ },
+ {
+  "en": "bridge",
+  "word": "brug"
+ },
+ {
+  "en": "school",
+  "word": "school"
+ },
+ {
+  "en": "hospital",
+  "word": "ziekenhuis"
+ },
+ {
+  "en": "market",
+  "word": "markt"
+ },
+ {
+  "en": "shop",
+  "word": "winkel"
+ },
+ {
+  "en": "shirt",
+  "word": "shirt"
+ },
+ {
+  "en": "dress",
+  "word": "jurk"
+ },
+ {
+  "en": "pants",
+  "word": "broek"
+ },
+ {
+  "en": "shoes",
+  "word": "schoenen"
+ },
+ {
+  "en": "hat",
+  "word": "hoed"
+ },
+ {
+  "en": "coat",
+  "word": "jas"
+ },
+ {
+  "en": "jacket",
+  "word": "jasje"
+ },
+ {
+  "en": "glove",
+  "word": "handschoen"
+ },
+ {
+  "en": "sock",
+  "word": "sok"
+ },
+ {
+  "en": "belt",
+  "word": "riem"
+ },
+ {
+  "en": "big",
+  "word": "groot"
+ },
+ {
+  "en": "small",
+  "word": "klein"
+ },
+ {
+  "en": "tall",
+  "word": "lang"
+ },
+ {
+  "en": "short",
+  "word": "kort"
+ },
+ {
+  "en": "long",
+  "word": "lang"
+ },
+ {
+  "en": "wide",
+  "word": "breed"
+ },
+ {
+  "en": "heavy",
+  "word": "zwaar"
+ },
+ {
+  "en": "light",
+  "word": "licht"
+ },
+ {
+  "en": "fast",
+  "word": "snel"
+ },
+ {
+  "en": "slow",
+  "word": "langzaam"
+ },
+ {
+  "en": "hot",
+  "word": "heet"
+ },
+ {
+  "en": "cold",
+  "word": "koud"
+ },
+ {
+  "en": "warm",
+  "word": "warm"
+ },
+ {
+  "en": "new",
+  "word": "nieuw"
+ },
+ {
+  "en": "old",
+  "word": "oud"
+ },
+ {
+  "en": "young",
+  "word": "jong"
+ },
+ {
+  "en": "good",
+  "word": "goed"
+ },
+ {
+  "en": "bad",
+  "word": "slecht"
+ },
+ {
+  "en": "beautiful",
+  "word": "mooi"
+ },
+ {
+  "en": "ugly",
+  "word": "lelijk"
+ },
+ {
+  "en": "happy",
+  "word": "blij"
+ },
+ {
+  "en": "sad",
+  "word": "verdrietig"
+ },
+ {
+  "en": "angry",
+  "word": "boos"
+ },
+ {
+  "en": "afraid",
+  "word": "bang"
+ },
+ {
+  "en": "tired",
+  "word": "moe"
+ },
+ {
+  "en": "hungry",
+  "word": "hongerig"
+ },
+ {
+  "en": "thirsty",
+  "word": "dorstig"
+ },
+ {
+  "en": "rich",
+  "word": "rijk"
+ },
+ {
+  "en": "poor",
+  "word": "arm"
+ },
+ {
+  "en": "strong",
+  "word": "sterk"
+ },
+ {
+  "en": "weak",
+  "word": "zwak"
+ },
+ {
+  "en": "clean",
+  "word": "schoon"
+ },
+ {
+  "en": "dirty",
+  "word": "vies"
+ },
+ {
+  "en": "easy",
+  "word": "makkelijk"
+ },
+ {
+  "en": "difficult",
+  "word": "moeilijk"
+ },
+ {
+  "en": "dangerous",
+  "word": "gevaarlijk"
+ },
+ {
+  "en": "safe",
+  "word": "veilig"
+ },
+ {
+  "en": "quiet",
+  "word": "stil"
+ },
+ {
+  "en": "loud",
+  "word": "luid"
+ },
+ {
+  "en": "empty",
+  "word": "leeg"
+ },
+ {
+  "en": "full",
+  "word": "vol"
+ },
+ {
+  "en": "dark",
+  "word": "donker"
+ },
+ {
+  "en": "bright",
+  "word": "helder"
+ },
+ {
+  "en": "be",
+  "word": "zijn"
+ },
+ {
+  "en": "have",
+  "word": "hebben"
+ },
+ {
+  "en": "do",
+  "word": "doen"
+ },
+ {
+  "en": "go",
+  "word": "gaan"
+ },
+ {
+  "en": "come",
+  "word": "komen"
+ },
+ {
+  "en": "see",
+  "word": "zien"
+ },
+ {
+  "en": "look",
+  "word": "kijken"
+ },
+ {
+  "en": "hear",
+  "word": "horen"
+ },
+ {
+  "en": "listen",
+  "word": "luisteren"
+ },
+ {
+  "en": "speak",
+  "word": "spreken"
+ },
+ {
+  "en": "say",
+  "word": "zeggen"
+ },
+ {
+  "en": "tell",
+  "word": "vertellen"
+ },
+ {
+  "en": "ask",
+  "word": "vragen"
+ },
+ {
+  "en": "reply",
+  "word": "antwoorden"
+ },
+ {
+  "en": "know",
+  "word": "weten"
+ },
+ {
+  "en": "think",
+  "word": "denken"
+ },
+ {
+  "en": "understand",
+  "word": "begrijpen"
+ },
+ {
+  "en": "learn",
+  "word": "leren"
+ },
+ {
+  "en": "teach",
+  "word": "onderwijzen"
+ },
+ {
+  "en": "read",
+  "word": "lezen"
+ },
+ {
+  "en": "write",
+  "word": "schrijven"
+ },
+ {
+  "en": "eat",
+  "word": "eten"
+ },
+ {
+  "en": "drink",
+  "word": "drinken"
+ },
+ {
+  "en": "sleep",
+  "word": "slapen"
+ },
+ {
+  "en": "walk",
+  "word": "lopen"
+ },
+ {
+  "en": "run",
+  "word": "rennen"
+ },
+ {
+  "en": "jump",
+  "word": "springen"
+ },
+ {
+  "en": "sit",
+  "word": "zitten"
+ },
+ {
+  "en": "stand",
+  "word": "staan"
+ },
+ {
+  "en": "fall",
+  "word": "vallen"
+ },
+ {
+  "en": "fly",
+  "word": "vliegen"
+ },
+ {
+  "en": "swim",
+  "word": "zwemmen"
+ },
+ {
+  "en": "drive",
+  "word": "rijden"
+ },
+ {
+  "en": "buy",
+  "word": "kopen"
+ },
+ {
+  "en": "sell",
+  "word": "verkopen"
+ },
+ {
+  "en": "pay",
+  "word": "betalen"
+ },
+ {
+  "en": "give",
+  "word": "geven"
+ },
+ {
+  "en": "take",
+  "word": "nemen"
+ },
+ {
+  "en": "open",
+  "word": "openen"
+ },
+ {
+  "en": "close",
+  "word": "sluiten"
+ },
+ {
+  "en": "start",
+  "word": "beginnen"
+ },
+ {
+  "en": "finish",
+  "word": "eindigen"
+ },
+ {
+  "en": "stop",
+  "word": "stoppen"
+ },
+ {
+  "en": "wait",
+  "word": "wachten"
+ },
+ {
+  "en": "help",
+  "word": "helpen"
+ },
+ {
+  "en": "love",
+  "word": "liefhebben"
+ },
+ {
+  "en": "want",
+  "word": "willen"
+ },
+ {
+  "en": "need",
+  "word": "behoeven"
+ },
+ {
+  "en": "like",
+  "word": "waarderen"
+ },
+ {
+  "en": "live",
+  "word": "leven"
+ },
+ {
+  "en": "die",
+  "word": "sterven"
+ },
+ {
+  "en": "work",
+  "word": "werken"
+ },
+ {
+  "en": "play",
+  "word": "spelen"
+ },
+ {
+  "en": "win",
+  "word": "winnen"
+ },
+ {
+  "en": "lose",
+  "word": "verliezen"
+ },
+ {
+  "en": "find",
+  "word": "vinden"
+ },
+ {
+  "en": "forget",
+  "word": "vergeten"
+ },
+ {
+  "en": "remember",
+  "word": "onthouden"
+ },
+ {
+  "en": "laugh",
+  "word": "lachen"
+ },
+ {
+  "en": "cry",
+  "word": "huilen"
+ },
+ {
+  "en": "sing",
+  "word": "zingen"
+ },
+ {
+  "en": "dance",
+  "word": "dansen"
+ },
+ {
+  "en": "cook",
+  "word": "koken"
+ },
+ {
+  "en": "wash",
+  "word": "wassen"
+ },
+ {
+  "en": "break",
+  "word": "breken"
+ },
+ {
+  "en": "build",
+  "word": "bouwen"
+ },
+ {
+  "en": "cut",
+  "word": "snijden"
+ },
+ {
+  "en": "push",
+  "word": "duwen"
+ },
+ {
+  "en": "pull",
+  "word": "trekken"
+ },
+ {
+  "en": "throw",
+  "word": "gooien"
+ },
+ {
+  "en": "catch",
+  "word": "vangen"
+ },
+ {
+  "en": "hold",
+  "word": "vasthouden"
+ },
+ {
+  "en": "touch",
+  "word": "aanraken"
+ },
+ {
+  "en": "smell",
+  "word": "ruiken"
+ },
+ {
+  "en": "taste",
+  "word": "proeven"
+ },
+ {
+  "en": "time",
+  "word": "tijd"
+ },
+ {
+  "en": "day",
+  "word": "dag"
+ },
+ {
+  "en": "night",
+  "word": "nacht"
+ },
+ {
+  "en": "morning",
+  "word": "ochtend"
+ },
+ {
+  "en": "evening",
+  "word": "avond"
+ },
+ {
+  "en": "week",
+  "word": "week"
+ },
+ {
+  "en": "month",
+  "word": "maand"
+ },
+ {
+  "en": "year",
+  "word": "jaar"
+ },
+ {
+  "en": "hour",
+  "word": "uur"
+ },
+ {
+  "en": "minute",
+  "word": "minuut"
+ },
+ {
+  "en": "today",
+  "word": "vandaag"
+ },
+ {
+  "en": "tomorrow",
+  "word": "morgen"
+ },
+ {
+  "en": "yesterday",
+  "word": "gisteren"
+ },
+ {
+  "en": "now",
+  "word": "nu"
+ },
+ {
+  "en": "soon",
+  "word": "binnenkort"
+ },
+ {
+  "en": "spring",
+  "word": "lente"
+ },
+ {
+  "en": "summer",
+  "word": "zomer"
+ },
+ {
+  "en": "autumn",
+  "word": "herfst"
+ },
+ {
+  "en": "winter",
+  "word": "winter"
+ },
+ {
+  "en": "north",
+  "word": "noord"
+ },
+ {
+  "en": "south",
+  "word": "zuid"
+ },
+ {
+  "en": "east",
+  "word": "oost"
+ },
+ {
+  "en": "west",
+  "word": "west"
+ },
+ {
+  "en": "left",
+  "word": "links"
+ },
+ {
+  "en": "right",
+  "word": "rechts"
+ },
+ {
+  "en": "up",
+  "word": "boven"
+ },
+ {
+  "en": "down",
+  "word": "beneden"
+ },
+ {
+  "en": "inside",
+  "word": "binnen"
+ },
+ {
+  "en": "outside",
+  "word": "buiten"
+ },
+ {
+  "en": "near",
+  "word": "dichtbij"
+ },
+ {
+  "en": "far",
+  "word": "ver"
+ },
+ {
+  "en": "name",
+  "word": "naam"
+ },
+ {
+  "en": "word",
+  "word": "woord"
+ },
+ {
+  "en": "language",
+  "word": "taal"
+ },
+ {
+  "en": "question",
+  "word": "vraag"
+ },
+ {
+  "en": "answer",
+  "word": "antwoord"
+ },
+ {
+  "en": "problem",
+  "word": "probleem"
+ },
+ {
+  "en": "idea",
+  "word": "idee"
+ },
+ {
+  "en": "dream",
+  "word": "droom"
+ },
+ {
+  "en": "story",
+  "word": "verhaal"
+ },
+ {
+  "en": "music",
+  "word": "muziek"
+ },
+ {
+  "en": "picture",
+  "word": "foto"
+ },
+ {
+  "en": "number",
+  "word": "getal"
+ },
+ {
+  "en": "country",
+  "word": "land"
+ },
+ {
+  "en": "world",
+  "word": "wereld"
+ },
+ {
+  "en": "war",
+  "word": "oorlog"
+ },
+ {
+  "en": "peace",
+  "word": "vrede"
+ },
+ {
+  "en": "king",
+  "word": "koning"
+ },
+ {
+  "en": "queen",
+  "word": "koningin"
+ },
+ {
+  "en": "teacher",
+  "word": "leraar"
+ },
+ {
+  "en": "student",
+  "word": "student"
+ },
+ {
+  "en": "doctor",
+  "word": "dokter"
+ },
+ {
+  "en": "police",
+  "word": "politie"
+ },
+ {
+  "en": "money",
+  "word": "geld"
+ },
+ {
+  "en": "job",
+  "word": "baan"
+ }
+]
