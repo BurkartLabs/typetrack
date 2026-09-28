@@ -3,7 +3,7 @@
 // Contributors: replace your placeholder entry, or append; keep each entry on its own lines.
 export default [
   { path: "test", title: "test", nav: "main", load: () => import("./views/test.js") },
-  { path: "train", title: "train", nav: "main", load: () => import("./views/placeholder.js") },
+  { path: "train", title: "train", nav: "main", load: () => import("./views/train.js") },
   { path: "games", title: "games", nav: "main", load: () => import("./views/games.js") },
   { path: "stats", title: "stats", nav: "main", load: () => import("./views/stats.js") },
   { path: "leaderboard", title: "leaderboard", nav: "main", load: () => import("./views/placeholder.js") },
