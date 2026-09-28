@@ -137,7 +137,9 @@ async function mount(root, ctx) {
     [a, b] = await Promise.all([loadRun(ctx, id), vsId ? loadRun(ctx, vsId) : null]);
   } catch (err) {
     if (!root.isConnected) return;
-    if (err && err.status === 404) return notice(root, "run not found", "that run isn't in this browser's history (or on the server).");
+    if (ctx.auth.online == null) await ctx.auth.refresh();
+    const serverRun = [id, vsId].some((x) => /^s\d+$/.test(String(x || "")));
+    if (err && err.status === 404 && (!serverRun || ctx.auth.online)) return notice(root, "run not found", "that run isn't in this browser's history (or on the server).");
     return notice(root, "replay offline", "shared runs come from the server, which isn't reachable right now. local runs still replay.");
   }
   if (!root.isConnected) return;
@@ -167,7 +169,9 @@ async function mount(root, ctx) {
     if (gap) {
       const d = gapAt(pa.tl, pb.tl, t);
       gap.className = "rp-gap " + (d > 0 ? "a" : d < 0 ? "b" : "");
-      gap.textContent = d === 0 ? "level" : `${d > 0 ? "A" : "B"} ahead by ${Math.abs(d)} char${Math.abs(d) === 1 ? "" : "s"} (≈ ${(Math.abs(d) / 5).toFixed(1)} words)`;
+      const done = [[pa, "A"], [pb, "B"]].filter(([p]) => t > p.tl.end).map(([, k]) => k);
+      gap.textContent = (d === 0 ? "level" : `${d > 0 ? "A" : "B"} ahead by ${Math.abs(d)} char${Math.abs(d) === 1 ? "" : "s"} (≈ ${(Math.abs(d) / 5).toFixed(1)} words)`) +
+        (done.length ? ` · ${done.join(" and ")} finished, carried on at average pace` : "");
       chart.draw(t);
     }
   }
@@ -202,7 +206,7 @@ async function mount(root, ctx) {
       compareMenu(ctx, a, vsId),
       pb ? h("a", { class: "back-link", href: `#/replay/${a.id}` }, "single") : null),
     h("div", { class: "rp-panes" }, panes.map((p) => p.el)),
-    gap ? h("div", { class: "rp-gap-box" }, gap, chart.el) : null,
+    gap ? h("div", { class: "rp-gap-box" }, gap, chart.el, h("div", { class: "rp-gap-legend" }, h("span", {}, "A ahead ▲"), h("span", {}, "▼ B ahead"))) : null,
     h("div", { class: "rp-controls" },
       playBtn,
       h("div", { class: "rp-speeds config" }, speedBtns),

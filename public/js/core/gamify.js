@@ -169,10 +169,17 @@ export function wpmAt(tl, t) {
   return tl.frames[j].cc / 5 / (t / 60000);
 }
 
+// Correct characters at t; past the end of a finished run it carries on at the run's average pace, so a run
+// that finished first is not overtaken by one that simply had more text to type.
+export function charsAt(tl, t) {
+  const j = frameAt(tl, t);
+  const cc = j < 0 ? 0 : tl.frames[j].cc;
+  return tl.end > 0 && t > tl.end ? Math.round((cc * t) / tl.end) : cc;
+}
+
 // Who was ahead at t between two timelines, in correct characters: > 0 means a leads.
 export function gapAt(a, b, t) {
-  const ca = frameAt(a, t), cb = frameAt(b, t);
-  return (ca < 0 ? 0 : a.frames[ca].cc) - (cb < 0 ? 0 : b.frames[cb].cc);
+  return charsAt(a, t) - charsAt(b, t);
 }
 
 // ── Browser runtime ─────────────────────────────────────────────────────────
@@ -291,7 +298,7 @@ function pbBanner(label, value, unit) {
   const b = document.createElement("div");
   b.className = "gz-pb";
   b.innerHTML = `<span class="gz-pb-kicker">new personal best</span><span class="gz-pb-value"></span>`;
-  b.querySelector(".gz-pb-value").textContent = `${value} ${unit} · ${label}`;
+  b.querySelector(".gz-pb-value").textContent = `${value}${unit ? " " + unit : ""} · ${label}`;
   document.body.appendChild(b);
   // crimson glow on the result screen's big number, when there is one
   const big = document.querySelector("#app .result:not([hidden]) .big .value");
@@ -391,4 +398,4 @@ export function init() {
 
 if (hasDom) init();
 
-export default { init, totalXp, pbKey, pbLabel, isTypingPb, isGamePb, personalBests, gameBests, calendar, timeline, frameAt, typedAt, wpmAt, gapAt };
+export default { init, totalXp, pbKey, pbLabel, isTypingPb, isGamePb, personalBests, gameBests, calendar, timeline, frameAt, typedAt, wpmAt, charsAt, gapAt };

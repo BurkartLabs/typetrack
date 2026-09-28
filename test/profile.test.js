@@ -97,3 +97,9 @@ test("gapAt: positive when the first run has more correct characters", () => {
   assert.equal(gapAt(a, b, 60), -1);
   assert.equal(gapAt(a, b, 100), 3);
 });
+
+test("gapAt: a finished run keeps its average pace instead of standing still", () => {
+  const fast = { end: 100, frames: [{ t: 50, cc: 5 }, { t: 100, cc: 10 }] }; // done at 100 ms
+  const slow = { end: 200, frames: [{ t: 100, cc: 8 }, { t: 200, cc: 16 }] }; // more text, slower
+  assert.equal(gapAt(fast, slow, 200), 4, "fast would be at 20 by t=200");
+});

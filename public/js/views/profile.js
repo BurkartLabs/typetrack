@@ -210,7 +210,9 @@ async function mount(root, ctx) {
     if (!root.isConnected) return;
     renderRemote(root, p, names);
   } catch (err) {
-    if (err && err.status === 404) notice(root, "no such player", `there is no player called “${name}”.`);
+    if (ctx.auth.online == null) await ctx.auth.refresh(); // a static server 404s /api too; only a live API means "no such player"
+    if (!root.isConnected) return;
+    if (err && err.status === 404 && ctx.auth.online) notice(root, "no such player", `there is no player called “${name}”.`);
     else notice(root, "profiles are offline", `${name}'s profile lives on the server, which isn't reachable right now. your own profile works offline.`);
   }
 }
