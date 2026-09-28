@@ -157,7 +157,7 @@ export function createTyping(el, options = {}) {
 
   function handleKey(e) {
     if (!test || keys.inField(e)) return;
-    if (e.key === "Tab" && layout) { e.preventDefault(); return; } // code: indentation is automatic, never restart
+    if (e.key === "Tab" && layout && !finished) { e.preventDefault(); return; } // code: indentation is automatic, never restart
     if (e.key === "Tab" || (e.key === "Escape" && !e.repeat)) {
       e.preventDefault();
       restart();
