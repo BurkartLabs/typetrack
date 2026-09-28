@@ -245,7 +245,10 @@ async function mount(root, ctx) {
       meta.book = { id: config.book, para, total: b.paragraphs.length, title: b.title || config.book };
       note = `${para ? "continue" : "start"}: <b>${esc(meta.book.title)}</b>${b.author ? " &middot; " + esc(b.author) : ""} &middot; paragraph ${para + 1} of ${b.paragraphs.length}` +
         (para ? ` &nbsp;<button class="link-btn" data-act="bookRestart">start over</button>` : "");
+      meta.lang = opts.lang = b.lang || "en"; // the public-domain books are english unless they say otherwise
     }
+    // a text's direction comes from its own script, not the picked language (an english book under hebrew)
+    if (opts.mode === "text") opts.dir = /[\u0590-\u08ff\ufb1d-\ufdff\ufe70-\ufeff]/.test(opts.text) ? "rtl" : "ltr";
     // pace caret: PB (same mode + target + language) + 5%, or a custom wpm
     el.paceNote.textContent = "";
     if (config.pace === "custom") opts.paceWpm = Number(config.paceWpm) || 0;
@@ -316,11 +319,12 @@ async function mount(root, ctx) {
 
   // ── results ─────────────────────────────────────────────────────────
   function sourceLabel(r, m) {
-    const L = langLabel(langEntry(r.lang || "en"));
+    const iso = (t) => String.fromCharCode(0x2068) + t + String.fromCharCode(0x2069); // isolate RTL names from the latin label
+    const L = iso(langLabel(langEntry(r.lang || "en")));
     const s = r.source || "words";
     const tier = LIST_NAMES[r.list] || "";
     if (s === "words") return `${L} ${tier}`;
-    if (s.startsWith("mixed:")) return `${L} + ${langLabel(langEntry(s.slice(6)))} ${tier}`;
+    if (s.startsWith("mixed:")) return `${L} + ${iso(langLabel(langEntry(s.slice(6))))} ${tier}`;
     if (s.startsWith("theme:")) return `theme ${s.slice(6)}`;
     if (s === "code") return `code ${r.codeLang}`;
     if (s === "book") return `book ¶${m.book.para + 1}`;
@@ -378,7 +382,7 @@ async function mount(root, ctx) {
       stat("median gap", Math.round(hes.median || 0), "ms") +
       stat("hesitations", hes.items.length, hes.threshold ? `&gt; ${Math.round(hes.threshold)} ms` : "");
     el.pairs.innerHTML = pairs.length
-      ? pairs.map((x) => `<span class="chip"><b>${esc(x.pair)}</b> <small>${Math.round(x.medianMs)} ms</small></span>`).join("")
+      ? pairs.map((x) => `<span class="chip"><b dir="auto">${esc(x.pair)}</b> <small>${Math.round(x.medianMs)} ms</small></span>`).join("")
       : `<span class="muted">not enough pairs</span>`;
     // your run: the words reached, a hesitation marked on the word it ended in
     const byWord = new Map();
