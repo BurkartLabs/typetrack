@@ -1,0 +1,182 @@
+[
+ {
+  "text": "fn add(a: i32, b: i32) -> i32 {\n    a + b\n}"
+ },
+ {
+  "text": "let numbers = vec![1, 2, 3, 4, 5];"
+ },
+ {
+  "text": "fn is_even(n: i32) -> bool {\n    n % 2 == 0\n}"
+ },
+ {
+  "text": "for i in 0..10 {\n    println!(\"{}\", i);\n}"
+ },
+ {
+  "text": "struct Point {\n    x: i32,\n    y: i32,\n}"
+ },
+ {
+  "text": "let user = (\"Alice\", 30);\nprintln!(\"{}\", user.0);"
+ },
+ {
+  "text": "match status {\n    \"active\" => \"green\",\n    _ => \"gray\",\n}"
+ },
+ {
+  "text": "let result: Result<i32, String> = Ok(42);"
+ },
+ {
+  "text": "fn factorial(n: u64) -> u64 {\n    if n <= 1 { 1 } else { n * factorial(n - 1) }\n}"
+ },
+ {
+  "text": "let doubled: Vec<i32> = numbers.iter().map(|n| n * 2).collect();"
+ },
+ {
+  "text": "let mut count = 0;\nwhile count < 5 {\n    count += 1;\n}"
+ },
+ {
+  "text": "impl Point {\n    fn new(x: i32, y: i32) -> Self { Point { x, y } }\n}"
+ },
+ {
+  "text": "let maybe_value: Option<i32> = None;"
+ },
+ {
+  "text": "let sorted: Vec<i32> = { let mut v = numbers.clone(); v.sort(); v };"
+ },
+ {
+  "text": "fn greet(name: &str) -> String {\n    format!(\"Hello, {}!\", name)\n}"
+ },
+ {
+  "text": "let evens: Vec<&i32> = numbers.iter().filter(|n| *n % 2 == 0).collect();"
+ },
+ {
+  "text": "trait Shape {\n    fn area(&self) -> f64;\n}"
+ },
+ {
+  "text": "let total: i32 = items.iter().map(|i| i.price).sum();"
+ },
+ {
+  "text": "let (first, rest) = numbers.split_first().unwrap();"
+ },
+ {
+  "text": "enum Status {\n    Active,\n    Inactive,\n}"
+ },
+ {
+  "text": "let s = String::from(\"hello\");\nlet reversed: String = s.chars().rev().collect();"
+ },
+ {
+  "text": "fn divide(a: f64, b: f64) -> Result<f64, String> {\n    if b == 0.0 { Err(\"div by zero\".into()) } else { Ok(a / b) }\n}"
+ },
+ {
+  "text": "let mut map: HashMap<String, i32> = HashMap::new();\nmap.insert(\"count\".to_string(), 0);"
+ },
+ {
+  "text": "let cloned = data.clone();"
+ },
+ {
+  "text": "if let Some(value) = maybe_value {\n    println!(\"{}\", value);\n}"
+ },
+ {
+  "text": "let squares: Vec<i32> = (1..=10).map(|n| n * n).collect();"
+ },
+ {
+  "text": "let path = std::path::Path::new(\"data.txt\");"
+ },
+ {
+  "text": "fn main() {\n    println!(\"Hello, world!\");\n}"
+ },
+ {
+  "text": "let json = serde_json::to_string(&data).unwrap();"
+ },
+ {
+  "text": "let mut stack: Vec<i32> = Vec::new();\nstack.push(1);"
+ },
+ {
+  "text": "let file = std::fs::File::open(\"config.toml\")?;"
+ },
+ {
+  "text": "let names: Vec<String> = people.iter().map(|p| p.name.clone()).collect();"
+ },
+ {
+  "text": "let average = numbers.iter().sum::<i32>() as f64 / numbers.len() as f64;"
+ },
+ {
+  "text": "#[derive(Debug, Clone)]\nstruct Config {\n    timeout: u32,\n}"
+ },
+ {
+  "text": "let handle = std::thread::spawn(move || {\n    do_work();\n});"
+ },
+ {
+  "text": "let re = regex::Regex::new(r\"\\d+\").unwrap();"
+ },
+ {
+  "text": "async fn fetch_data(url: &str) -> Result<String, reqwest::Error> {\n    reqwest::get(url).await?.text().await\n}"
+ },
+ {
+  "text": "let unique: std::collections::HashSet<_> = numbers.iter().collect();"
+ },
+ {
+  "text": "impl std::fmt::Display for Point {\n    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {\n        write!(f, \"({}, {})\", self.x, self.y)\n    } }"
+ },
+ {
+  "text": "let args: Vec<String> = std::env::args().collect();"
+ },
+ {
+  "text": "fn is_prime(n: u32) -> bool {\n    n > 1 && (2..n).all(|i| n % i != 0)\n}"
+ },
+ {
+  "text": "let guard = mutex.lock().unwrap();"
+ },
+ {
+  "text": "let chunks: Vec<_> = data.chunks(3).collect();"
+ },
+ {
+  "text": "let boxed: Box<dyn Shape> = Box::new(Circle { radius: 2.0 });"
+ },
+ {
+  "text": "let mut buffer = String::new();\nstd::io::stdin().read_line(&mut buffer)?;"
+ },
+ {
+  "text": "let queue: std::collections::VecDeque<i32> = std::collections::VecDeque::new();"
+ },
+ {
+  "text": "let value = config.get(\"timeout\").unwrap_or(&30);"
+ },
+ {
+  "text": "let is_palindrome = |s: &str| s.chars().eq(s.chars().rev());"
+ },
+ {
+  "text": "#[test]\nfn test_add() {\n    assert_eq!(add(2, 2), 4);\n}"
+ },
+ {
+  "text": "let bytes = data.as_bytes();"
+ },
+ {
+  "text": "let sum = arr.iter().fold(0, |acc, x| acc + x);"
+ },
+ {
+  "text": "pub fn new() -> Self {\n    Self::default()\n}"
+ },
+ {
+  "text": "let mut rng = rand::thread_rng();\nlet n: u32 = rng.gen_range(1..100);"
+ },
+ {
+  "text": "let parts: Vec<&str> = line.split(',').collect();"
+ },
+ {
+  "text": "let mut visited = std::collections::HashSet::new();\nvisited.insert(node);"
+ },
+ {
+  "text": "let total: u64 = (1..=100).sum();"
+ },
+ {
+  "text": "let sliced = &arr[1..3];"
+ },
+ {
+  "text": "let default_config = Config::default();"
+ },
+ {
+  "text": "let is_ascii = s.chars().all(|c| c.is_ascii());"
+ },
+ {
+  "text": "let words: Vec<&str> = sentence.split_whitespace().collect();"
+ }
+]

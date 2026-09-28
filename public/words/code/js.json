@@ -1,0 +1,182 @@
+[
+ {
+  "text": "const sum = (a, b) => a + b;"
+ },
+ {
+  "text": "function isEven(n) {\n  return n % 2 === 0;\n}"
+ },
+ {
+  "text": "const numbers = [1, 2, 3, 4, 5];\nconst doubled = numbers.map(n => n * 2);"
+ },
+ {
+  "text": "for (let i = 0; i < 10; i++) {\n  console.log(i);\n}"
+ },
+ {
+  "text": "class Point {\n  constructor(x, y) { this.x = x; this.y = y; }\n}"
+ },
+ {
+  "text": "const user = { name: 'Alice', age: 30 };\nconsole.log(user.name);"
+ },
+ {
+  "text": "try {\n  JSON.parse(input);\n} catch (err) {\n  console.error('invalid json'); }"
+ },
+ {
+  "text": "const fetchData = async (url) => {\n  const res = await fetch(url);\n  return res.json();\n};"
+ },
+ {
+  "text": "let count = 0;\nwhile (count < 5) {\n  count++;\n}"
+ },
+ {
+  "text": "const isPalindrome = (s) => s === s.split('').reverse().join('');"
+ },
+ {
+  "text": "const arr = [5, 3, 8, 1];\narr.sort((a, b) => a - b);"
+ },
+ {
+  "text": "export default function App() {\n  return null;\n}"
+ },
+ {
+  "text": "const { name, age } = user;"
+ },
+ {
+  "text": "const greet = (name = 'World') => `Hello, ${name}!`;"
+ },
+ {
+  "text": "if (score >= 90) {\n  grade = 'A';\n} else {\n  grade = 'B'; }"
+ },
+ {
+  "text": "const evens = numbers.filter(n => n % 2 === 0);"
+ },
+ {
+  "text": "const total = items.reduce((acc, item) => acc + item.price, 0);"
+ },
+ {
+  "text": "document.getElementById('btn').addEventListener('click', handleClick);"
+ },
+ {
+  "text": "const debounce = (fn, delay) => {\n  let timer;\n  return (...args) => { clearTimeout(timer); timer = setTimeout(() => fn(...args), delay); };\n};"
+ },
+ {
+  "text": "module.exports = { add, subtract };"
+ },
+ {
+  "text": "import React from 'react';\nimport { useState } from 'react';"
+ },
+ {
+  "text": "const [count, setCount] = useState(0);"
+ },
+ {
+  "text": "const promise = new Promise((resolve, reject) => {\n  resolve(42);\n});"
+ },
+ {
+  "text": "array.forEach((item, index) => {\n  console.log(index, item);\n});"
+ },
+ {
+  "text": "const clone = JSON.parse(JSON.stringify(obj));"
+ },
+ {
+  "text": "function factorial(n) {\n  return n <= 1 ? 1 : n * factorial(n - 1);\n}"
+ },
+ {
+  "text": "const isEmpty = (arr) => arr.length === 0;"
+ },
+ {
+  "text": "localStorage.setItem('token', authToken);"
+ },
+ {
+  "text": "const merged = { ...defaults, ...options };"
+ },
+ {
+  "text": "switch (status) {\n  case 'active': return 'green';\n  default: return 'gray';\n}"
+ },
+ {
+  "text": "const wait = (ms) => new Promise(r => setTimeout(r, ms));"
+ },
+ {
+  "text": "const keys = Object.keys(config);"
+ },
+ {
+  "text": "const capitalize = (s) => s.charAt(0).toUpperCase() + s.slice(1);"
+ },
+ {
+  "text": "export const PI = 3.14159;"
+ },
+ {
+  "text": "const isValidEmail = (email) => /\\S+@\\S+\\.\\S+/.test(email);"
+ },
+ {
+  "text": "const max = Math.max(...numbers);"
+ },
+ {
+  "text": "array.splice(index, 1);"
+ },
+ {
+  "text": "const el = document.querySelector('.item');"
+ },
+ {
+  "text": "const chunks = [];\nfor (let i = 0; i < arr.length; i += 3) {\n  chunks.push(arr.slice(i, i + 3));\n}"
+ },
+ {
+  "text": "const uniqueValues = [...new Set(numbers)];"
+ },
+ {
+  "text": "function* range(start, end) {\n  for (let i = start; i < end; i++) yield i;\n}"
+ },
+ {
+  "text": "const result = condition ? valueA : valueB;"
+ },
+ {
+  "text": "export function formatDate(date) {\n  return date.toISOString().slice(0, 10);\n}"
+ },
+ {
+  "text": "const timeoutId = setTimeout(() => {\n  console.log('done');\n}, 1000);"
+ },
+ {
+  "text": "const sorted = [...items].sort((a, b) => a.name.localeCompare(b.name));"
+ },
+ {
+  "text": "window.addEventListener('resize', handleResize);"
+ },
+ {
+  "text": "const isLoggedIn = Boolean(sessionStorage.getItem('user'));"
+ },
+ {
+  "text": "const average = (nums) => nums.reduce((a, b) => a + b, 0) / nums.length;"
+ },
+ {
+  "text": "const button = <button onClick={handleClick}>Click me</button>;"
+ },
+ {
+  "text": "const config = Object.freeze({ retries: 3, timeout: 500 });"
+ },
+ {
+  "text": "const nested = data?.user?.profile?.name ?? 'unknown';"
+ },
+ {
+  "text": "const copy = arr.slice();"
+ },
+ {
+  "text": "const paths = require('path');\nconst fullPath = paths.join(__dirname, 'file.txt');"
+ },
+ {
+  "text": "class Animal {\n  speak() { console.log('...'); }\n}"
+ },
+ {
+  "text": "const flatArray = nestedArray.flat(Infinity);"
+ },
+ {
+  "text": "const isSameDay = (a, b) => a.toDateString() === b.toDateString();"
+ },
+ {
+  "text": "function throttle(fn, limit) {\n  let inThrottle;\n  return (...args) => fn(...args);\n}"
+ },
+ {
+  "text": "const params = new URLSearchParams(window.location.search);"
+ },
+ {
+  "text": "export async function loadUser(id) {\n  const res = await fetch(`/api/users/${id}`);\n  return res.json();\n}"
+ },
+ {
+  "text": "const isArray = Array.isArray(value);"
+ }
+]
