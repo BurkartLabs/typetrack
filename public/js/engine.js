@@ -320,6 +320,110 @@
     return Math.round(x * 10) / 10;
   }
 
+  // ── Replay ────────────────────────────────────────────────────────────────
+
+  // createTest options that reproduce a run. opts is a result (or anything with mode, target|duration|wordCount,
+  // words|text, accents, noBackspace, lang). The words are always used in order.
+  function replayOpts(opts) {
+    const mode = opts.mode === "words" || opts.mode === "text" ? opts.mode : "time";
+    const o = {
+      mode,
+      ordered: true,
+      words: opts.words,
+      text: opts.words ? undefined : opts.text,
+      accents: opts.accents,
+      noBackspace: opts.noBackspace,
+      lang: opts.lang,
+      seed: 0,
+    };
+    if (mode === "time") o.duration = opts.target || opts.duration;
+    if (mode === "words") o.wordCount = opts.target || opts.wordCount || (opts.words || []).length;
+    return o;
+  }
+
+  function feed(s, t, k) {
+    if (k === "\b") backspace(s, t);
+    else if (k === " ") space(s, t);
+    else input(s, k, t);
+  }
+
+  // replay(opts, log) or replay(words, log, opts) → a test state rebuilt by feeding the log.
+  // A time test is ticked to its end; words and text tests finish on their own.
+  function replay(a, b, c) {
+    const opts = Array.isArray(a) ? Object.assign({}, c || {}, { words: a }) : a || {};
+    const log = b || opts.log || [];
+    const s = createTest(replayOpts(opts));
+    for (const e of log) feed(s, e[0], e[1]);
+    if (s.mode === "time" && s.startedAt !== null) tick(s, s.startedAt + s.duration * 1000);
+    return s;
+  }
+
+  // Snapshots after every keystroke, cached per log array so stateAt is a binary search per frame.
+  const stateCache = typeof WeakMap === "function" ? new WeakMap() : null;
+  function snapshots(words, log, opts) {
+    const hit = stateCache && stateCache.get(log);
+    if (hit && hit.words === words) return hit;
+    const s = createTest(
+      Object.assign({}, opts || {}, { mode: "words", ordered: true, words, wordCount: words.length, seed: 0 })
+    );
+    const n = log.length;
+    const snap = { words, t: new Float64Array(n), index: new Int32Array(n), typed: new Array(n) };
+    for (let i = 0; i < n; i++) {
+      feed(s, log[i][0], log[i][1]);
+      snap.t[i] = log[i][0];
+      snap.index[i] = s.index;
+      snap.typed[i] = s.typed[s.index];
+    }
+    if (stateCache) stateCache.set(log, snap);
+    return snap;
+  }
+
+  // Where a recorded run was at time t (ms since its first keystroke): { index, typed } where typed is what had
+  // been typed of words[index]. Used to draw a ghost caret; cheap enough to call every animation frame.
+  // opts (optional): { accents, noBackspace } of the recorded run.
+  function stateAt(words, log, t, opts) {
+    const snap = snapshots(words, log, opts);
+    let lo = 0, hi = snap.t.length - 1, at = -1;
+    while (lo <= hi) {
+      const mid = (lo + hi) >> 1;
+      if (snap.t[mid] <= t) { at = mid; lo = mid + 1; } else hi = mid - 1;
+    }
+    return at < 0 ? { index: 0, typed: "" } : { index: snap.index[at], typed: snap.typed[at] };
+  }
+
+  // Anti-cheat: recompute wpm/acc/raw from result.words + result.log + mode/target. ok when the run is complete,
+  // the log is well formed and every claimed value is within ±1 of the recomputed one.
+  function verify(r) {
+    const fail = { ok: false, wpm: 0, acc: 0, raw: 0 };
+    if (!r || !Array.isArray(r.log) || !r.log.length || !Array.isArray(r.words) || !r.words.length) return fail;
+    if (!r.words.every((w) => typeof w === "string" && w.length > 0)) return fail;
+    let prev = 0;
+    for (const e of r.log) {
+      if (!Array.isArray(e) || typeof e[0] !== "number" || !isFinite(e[0]) || e[0] < prev) return fail;
+      if (typeof e[1] !== "string" || Array.from(e[1]).length !== 1) return fail;
+      prev = e[0];
+    }
+    if (r.log[0][0] !== 0) return fail;
+    let s;
+    try {
+      s = replay(r, r.log);
+    } catch (err) {
+      return fail;
+    }
+    // A time run may take a keystroke just after the clock ends (before the next tick), never seconds after.
+    if (s.mode === "time" && prev > s.duration * 1000 + 1000) return fail;
+    const x = results(s);
+    const near = (a, b) => typeof b === "number" && Math.abs(a - b) <= 1;
+    const ok =
+      s.finishedAt !== null &&
+      x.mode === r.mode &&
+      x.target === Number(r.target) &&
+      near(x.wpm, r.wpm) &&
+      near(x.acc, r.acc) &&
+      near(x.raw, r.raw);
+    return { ok, wpm: x.wpm, acc: x.acc, raw: x.raw };
+  }
+
   // ── Stats over stored results ─────────────────────────────────────────────
   // A stored result is results() plus { ts: epoch ms }.
 
@@ -376,5 +480,9 @@
     movingAverage,
     summarize,
     errorProfile,
+    baseChar,
+    replay,
+    stateAt,
+    verify,
   };
 });

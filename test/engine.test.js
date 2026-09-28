@@ -256,3 +256,95 @@ test("accents: lenient accepts the base letter, strict does not", () => {
   const noBase = play(E.createTest({ mode: "words", ordered: true, words: ["ßø"], accents: "lenient" }), [[0, "s"], [5, "o"]]);
   assert.equal(noBase.incorrect, 2);
 });
+
+// ── v2: replay, stateAt, verify ───────────────────────────────────────────
+
+// A realistic run with errors, corrections, backing into a wrong word and a time limit.
+function messyTimeRun() {
+  const s = E.createTest({ mode: "time", duration: 3, words: POOL, seed: 5, lang: "fr" });
+  let t = 0;
+  const key = (k) => { E.input(s, k, t); t += 37.3; };
+  for (let i = 0; i < 12; i++) {
+    const w = s.words[s.index];
+    if (i === 2) { key("z"); E.backspace(s, t); t += 40; }
+    if (i === 4) { key(w[0]); E.space(s, t); t += 40; E.backspace(s, t); t += 40; for (const ch of w.slice(1)) key(ch); E.space(s, t); t += 40; continue; }
+    for (const ch of w) key(ch);
+    if (i === 6) key("q"); // extra
+    E.space(s, t); t += 45;
+  }
+  E.tick(s, 3000);
+  return E.results(s);
+}
+
+test("replay(result) rebuilds the same result from the log (time mode, messy run)", () => {
+  const r = messyTimeRun();
+  assert.ok(r.chars.incorrect + r.chars.extra > 0);
+  const again = E.results(E.replay(r, r.log));
+  for (const k of ["wpm", "raw", "acc", "chars", "perSecond", "errors", "mode", "target", "lang", "words", "log"]) {
+    assert.deepEqual(again[k], r[k], k);
+  }
+  // replay(words, log, opts) form from the architecture doc
+  const again2 = E.results(E.replay(r.words, r.log, { mode: r.mode, target: r.target }));
+  assert.equal(again2.wpm, r.wpm);
+});
+
+test("replay roundtrip: words mode, text mode and lenient accents", () => {
+  const w = E.createTest({ mode: "words", wordCount: 4, words: POOL, seed: 11 });
+  play(w, steady(w.words, 55));
+  const rw = E.results(w);
+  assert.deepEqual(E.results(E.replay(rw)), rw);
+  const tx = E.createTest({ mode: "text", text: "déjà vu garçon", accents: "lenient" });
+  play(tx, steady(["deja", "vu", "garcon"], 70));
+  const rt = E.results(tx);
+  assert.equal(rt.acc, 100);
+  assert.deepEqual(E.results(E.replay(rt)), rt);
+});
+
+test("stateAt gives the ghost's word and typed prefix at any time", () => {
+  const words = ["ab", "cd"];
+  const log = [[0, "a"], [100, "x"], [200, "\b"], [300, "b"], [400, " "], [500, "c"], [600, "d"]];
+  assert.deepEqual(E.stateAt(words, log, -5), { index: 0, typed: "" });
+  assert.deepEqual(E.stateAt(words, log, 0), { index: 0, typed: "a" });
+  assert.deepEqual(E.stateAt(words, log, 150), { index: 0, typed: "ax" });
+  assert.deepEqual(E.stateAt(words, log, 250), { index: 0, typed: "a" });
+  assert.deepEqual(E.stateAt(words, log, 450), { index: 1, typed: "" });
+  assert.deepEqual(E.stateAt(words, log, 99999), { index: 1, typed: "cd" });
+  // fast enough per frame: 10k lookups on a long log
+  const r = messyTimeRun();
+  const t0 = Date.now();
+  for (let i = 0; i < 10000; i++) E.stateAt(r.words, r.log, i % 3000);
+  assert.ok(Date.now() - t0 < 500);
+});
+
+test("verify accepts an honest result and catches tampering", () => {
+  const r = messyTimeRun();
+  assert.deepEqual(E.verify(r), { ok: true, wpm: r.wpm, acc: r.acc, raw: r.raw });
+  const clone = () => JSON.parse(JSON.stringify(r));
+  const inflated = clone(); inflated.wpm += 5;
+  assert.equal(E.verify(inflated).ok, false);
+  assert.equal(E.verify(inflated).wpm, r.wpm);
+  const acc = clone(); acc.acc = 100;
+  assert.equal(E.verify(acc).ok, false);
+  // in a time run the log decides what was typed within the limit; in a words run it decides the time taken
+  const w5 = E.createTest({ mode: "words", wordCount: 5, words: POOL, seed: 4 });
+  play(w5, steady(w5.words, 60));
+  const rw = E.results(w5);
+  assert.equal(E.verify(rw).ok, true);
+  const squeezed = JSON.parse(JSON.stringify(rw));
+  squeezed.log = squeezed.log.map(([t, k]) => [t / 2, k]); // same keys, claimed at the old speed
+  assert.equal(E.verify(squeezed).ok, false);
+  assert.ok(E.verify(squeezed).wpm > rw.wpm * 1.9);
+  const late = clone(); late.log.push([9000, "a"]);
+  assert.equal(E.verify(late).ok, false);
+  const swapped = clone(); swapped.words[0] = "zzzzz"; // words changed under the log
+  assert.equal(E.verify(swapped).ok, false);
+  const target = clone(); target.target = 15;
+  assert.equal(E.verify(target).ok, false);
+  const bad = clone(); bad.log[3] = [bad.log[3][0], "ab"];
+  assert.equal(E.verify(bad).ok, false);
+  assert.equal(E.verify({ wpm: 100 }).ok, false);
+  // an unfinished words run does not verify
+  const w = E.createTest({ mode: "words", wordCount: 3, words: POOL, seed: 2 });
+  play(w, steady(w.words.slice(0, 2), 50));
+  assert.equal(E.verify(E.results(w)).ok, false);
+});
