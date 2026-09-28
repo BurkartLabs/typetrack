@@ -75,7 +75,7 @@
 .p3-floor.done { background: var(--main); border-color: var(--main); color: var(--text); }
 .p3-floor.current { border-color: var(--caret); color: var(--text); box-shadow: 0 0 8px rgba(212,40,58,.35); }
 .p3-floor.failed { border-color: var(--error); color: var(--error); }
-.p3-floor.ahead { opacity: .35; }
+.p3-floor.ahead { opacity: .6; }
 .p3-floor-info { display: flex; gap: 28px; flex-wrap: wrap; margin-bottom: 18px; }
 .p3-floor-info > div { display: flex; flex-direction: column; }
 .p3-floor-info span:last-child { color: var(--text); font-size: 1.2rem; font-variant-numeric: tabular-nums; }

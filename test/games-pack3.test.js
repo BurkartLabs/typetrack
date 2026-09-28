@@ -101,3 +101,28 @@ test("ghost-league: ghosts, modes and standings", async () => {
   const st = g.standings(120, [{ label: "a", wpm: 130 }, { label: "b", wpm: 110 }]);
   assert.deepEqual(st.map((x) => x.name), ["a", "you", "b"]);
 });
+
+test("tower-climb: floors get harder and faster; text is seeded", async () => {
+  const t = await game("tower-climb");
+  const f1 = t.floorSpec(1, 150);
+  assert.deepEqual(f1, { floor: 1, kind: "common", count: 15, pct: 0.6, req: 90 });
+  assert.equal(t.floorSpec(2, 150).kind, "long");
+  assert.equal(t.floorSpec(3, 150).kind, "rare");
+  assert.equal(t.floorSpec(6, 150).kind, "code");
+  assert.equal(t.floorSpec(7, 150).kind, "rare punctuation");
+  for (let n = 1; n < 30; n++) assert.ok(t.floorSpec(n + 1, 150).req >= t.floorSpec(n, 150).req);
+  assert.equal(t.floorSpec(1, 0).req, 48); // no history: assumed 80 wpm
+  assert.equal(t.floorPassed(90, 90), true);
+  assert.equal(t.floorPassed(89.9, 90), false);
+  const pools = { common: ["alpha", "beta", "gamma", "delta", "echo", "fox"], rare: ["zephyr", "syzygy"], code: ["const a = [1, 2];"] };
+  const a = t.floorText(t.floorSpec(4, 150), pools, E.mulberry32(5));
+  const b = t.floorText(t.floorSpec(4, 150), pools, E.mulberry32(5));
+  assert.equal(a, b);
+  assert.match(a, /^[A-Z"(]/);
+  assert.match(a, /\.$/);
+  const nums = t.floorText(t.floorSpec(5, 150), pools, E.mulberry32(1)).split(" ");
+  assert.equal(nums.length, t.floorSpec(5, 150).count);
+  assert.match(nums[1], /\d/);
+  assert.ok(t.floorText(t.floorSpec(6, 150), pools, E.mulberry32(1)).includes("[1,"));
+  assert.equal(t.floorText(t.floorSpec(1, 150), pools, E.mulberry32(1)).split(" ").length, 15);
+});
