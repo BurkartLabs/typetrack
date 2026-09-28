@@ -11,23 +11,46 @@ A bare-bones typing test in the spirit of Monkeytype, with one addition: every r
 
 ## Run it
 
-Open `index.html` in a browser. That's it.
-
-If you prefer a local server (for example so the font loads on a machine that blocks `file://` fonts):
+Node 22.5 or newer, no `npm install` needed (no dependencies).
 
 ```sh
-npx serve .          # or: python3 -m http.server 8000
+npm start            # then open http://localhost:5177
 ```
+
+| Env var | Default | What it does |
+|---|---|---|
+| `PORT` | `5177` | HTTP port |
+| `DATA_DIR` | `./data` | Where the SQLite database (`typetrack.db`) lives; created on start |
+| `TRUST_PROXY` | unset | `1` = take the client IP from `X-Forwarded-For` (rate limiting) when behind a reverse proxy |
+
+The site works without the server too (results stay in `localStorage`); accounts, leaderboards and shared ghosts need it.
+
+## Server API
+
+JSON over same-origin, session in an HttpOnly `tt_session` cookie (30 days). Errors are `{error}` with a 4xx status.
+
+| Route | |
+|---|---|
+| `POST /api/register {name, email, password}` | 201; 400 invalid, 409 email or name taken. Active immediately |
+| `POST /api/login {email, password}` | sets the cookie, `{user:{id,name}}`; 401 "invalid email or password" |
+| `POST /api/logout`, `GET /api/me` | `{user}` or 401 |
+| `POST /api/results` (signed in) | a result with `log`, `words`, `lang`, `mode`, `target`, `wpm`, `acc` -> `{id, rank, ranked}`. wpm/acc are re-derived from the log by the engine (+-1); mismatches, wpm > 350, time tests under 5 s and missing logs are 422 |
+| `GET /api/leaderboard?mode=time&target=30&lang=en&period=all\|week\|day` | top 50, best per user: `[{rank, name, wpm, acc, raw, ts, resultId}]` |
+| `GET /api/ghosts/:resultId` | `{name, wpm, acc, mode, target, lang, words, log}` |
+| `POST /api/games/:game/score {score, meta}` (signed in); `GET /api/games/:game/leaderboard?period=&order=desc\|asc` | best per user |
+| `GET /api/profile/:name` | `{name, joined, xp, level, progress, pbs, badges, tests, seconds, recent, games}` |
+
+Only results whose words all come from the language's `words/<lang>/common-*.json` lists are **ranked** (shown on
+leaderboards); others are stored and count on the profile. Login and register are rate limited per IP (10/min).
 
 ## Test it
 
 The rules of the test (wpm, accuracy, when a test ends, the stats maths) live in `engine.js` with no DOM access, and are covered by `engine.test.js`:
 
 ```sh
-node --test
+npm test                              # everything
+node --test test/server.test.js       # just the server
 ```
-
-Requires Node 18 or newer.
 
 ## How wpm is calculated
 
