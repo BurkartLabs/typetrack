@@ -168,3 +168,61 @@ test("boss fight: phase text is common, then long, then punctuated with the lett
   }
   assert.ok(bossPunctuate("word", () => 0).length > 4);
 });
+
+// ── stacking ────────────────────────────────────────────────────────────
+test("stacking: blocks land on the highest column under them; full rows clear and the rest drops", async () => {
+  const { stGrid, stLanding, stPlace, stFullRows, stClear, stHeights } = await game("stacking");
+  const g = stGrid(4, 6);
+  assert.equal(stPlace(g, 0, 3, { text: "cat" }), 0);
+  assert.equal(stLanding(g, 2, 3), 1); // overlaps column 2
+  assert.equal(stLanding(g, 3, 3), 0);
+  assert.equal(stPlace(g, 2, 2, { text: "on" }), 1); // leaves a hole under column 3
+  assert.deepEqual(stHeights(g), [1, 1, 2, 2, 0, 0]);
+  assert.deepEqual(stFullRows(g), []);
+  assert.equal(stPlace(g, 3, 3, { text: "dog" }), 2); // rests on column 3 at height 2
+  assert.equal(stPlace(g, 4, 2, { text: "up" }), 3);
+  const h = stGrid(3, 4);
+  stPlace(h, 0, 2, { text: "ab" }); stPlace(h, 2, 2, { text: "cd" }); stPlace(h, 0, 1, { text: "x" });
+  assert.deepEqual(stFullRows(h), [0]);
+  assert.equal(stClear(h), 1);
+  assert.equal(h.length, 3);
+  assert.ok(h[0][0] && h[0][0].text === "x" && !h[0][1]);
+  assert.equal(stClear(h), 0);
+  // the top: a block that would land at the height of the well does not fit
+  const t = stGrid(2, 3);
+  stPlace(t, 0, 3); stPlace(t, 0, 1);
+  assert.equal(stPlace(t, 0, 2), -1);
+});
+
+test("stacking: a paced word finds the snug slot, a slow one lands 1-3 columns off it", async () => {
+  const { stGrid, stPlace, stBestCol, stAwkwardCol, stReach } = await game("stacking");
+  const { rng } = await lib();
+  const g = stGrid(6, 10);
+  stPlace(g, 0, 4); stPlace(g, 7, 3);
+  assert.equal(stBestCol(g, 3), 4); // completes the bottom row
+  const e = stGrid(6, 10);
+  assert.equal(stBestCol(e, 4), 0); // against a wall
+  stPlace(e, 0, 4);
+  assert.equal(stBestCol(e, 4), 4); // beside the block, not on it
+  const r = rng(5);
+  for (let i = 0; i < 200; i++) {
+    const best = Math.floor(r() * 7), c = stAwkwardCol(best, 4, 10, r);
+    assert.ok(c !== best && c >= 0 && c <= 6 && Math.abs(c - best) <= 3, `${best} -> ${c}`);
+  }
+  assert.equal(stAwkwardCol(0, 10, 10, r), 0); // no room to be awkward
+  for (let i = 0; i < 50; i++) assert.equal(Math.abs(stAwkwardCol(4, 3, 10, r, 1) - 4), 1); // a little slow: one column
+  assert.equal(stReach(1.15), 1); assert.equal(stReach(1.4), 2); assert.equal(stReach(2.5), 3);
+});
+
+test("stacking: pace is a running average; slower than 110% of it is slow; score is rows x 100 + words", async () => {
+  const { stAvg, stIsSlow, stScore } = await game("stacking");
+  let avg = null;
+  [100, 200, 300].forEach((x, n) => { avg = stAvg(avg, x, n); });
+  assert.equal(avg, 200);
+  for (let n = 3; n < 200; n++) avg = stAvg(avg, 80, n);
+  assert.ok(Math.abs(avg - 80) < 1, "the average follows your current form");
+  assert.ok(!stIsSlow(500, null)); // the first word is never slow
+  assert.ok(!stIsSlow(109, 100));
+  assert.ok(stIsSlow(111, 100));
+  assert.equal(stScore(7, 42), 742);
+});
