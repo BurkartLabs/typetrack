@@ -1,0 +1,46 @@
+/* pack-2 canvas games: stage, overlay screens (start / pause / end), racer passage */
+.p2 { position: relative; width: 100%; }
+.p2-stage { position: relative; width: 100%; border: 1px solid var(--edge); border-radius: 2px; background: var(--bg); overflow: hidden; box-shadow: 0 0 0 1px rgba(0,0,0,.2), 0 18px 40px -24px rgba(179,32,46,.35); }
+.p2-canvas { display: block; }
+.p2-overlay {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  background: color-mix(in srgb, var(--bg) 72%, transparent);
+  backdrop-filter: blur(2px);
+  animation: p2-fade .18s ease-out;
+}
+.p2-overlay[hidden] { display: none; }
+@keyframes p2-fade { from { opacity: 0; } to { opacity: 1; } }
+.p2-card {
+  min-width: min(420px, 86%); max-width: 520px; padding: 26px 30px 22px;
+  background: var(--sub-alt); border: 1px solid var(--edge); border-left: 3px solid var(--main); border-radius: 2px;
+  display: flex; flex-direction: column; gap: 14px; color: var(--sub);
+  box-shadow: 0 0 24px -6px rgba(179,32,46,.35);
+}
+.p2-card.p2-small { min-width: min(300px, 86%); }
+.p2-title { color: var(--text); font-weight: 700; text-transform: uppercase; letter-spacing: .14em; font-size: 1.1rem; }
+.p2-rules { font-size: .88rem; line-height: 1.5; }
+.p2-label { display: block; color: var(--sub); font-size: .7rem; text-transform: uppercase; letter-spacing: .12em; }
+.p2-val { color: var(--text); font-size: 1.1rem; font-variant-numeric: tabular-nums; }
+.p2-best .p2-val { color: var(--caret); }
+.p2-press { color: var(--text); font-size: .85rem; text-transform: uppercase; letter-spacing: .1em; animation: p2-pulse 1.6s ease-in-out infinite; }
+@keyframes p2-pulse { 0%, 100% { opacity: 1; } 50% { opacity: .45; } }
+.p2-keys { font-size: .72rem; text-transform: uppercase; letter-spacing: .1em; opacity: .7; }
+kbd { font: inherit; font-size: .8em; color: var(--text); border: 1px solid var(--edge); border-bottom-width: 2px; padding: 0 6px; border-radius: 2px; background: var(--bg); }
+.p2-score { display: flex; flex-direction: column; gap: 2px; }
+.p2-big { color: var(--caret); font-size: 3rem; line-height: 1.05; font-weight: 700; font-variant-numeric: tabular-nums; text-shadow: 0 0 18px rgba(212,40,58,.45); }
+.p2-pb { align-self: flex-start; margin-top: 4px; font-size: .7rem; text-transform: uppercase; letter-spacing: .14em; color: var(--bg); background: var(--main); padding: 1px 8px; }
+.p2-stats { display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 10px 16px; border-top: 1px solid var(--edge); padding-top: 12px; }
+.p2-actions { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.p2-btn { color: var(--text); border: 1px solid var(--edge); border-radius: 2px; padding: 6px 14px; text-transform: uppercase; letter-spacing: .1em; font-size: .8rem; }
+.p2-btn:hover { border-color: var(--main); color: var(--caret); }
+.p2-link { color: var(--main); text-decoration: none; text-transform: uppercase; letter-spacing: .1em; font-size: .78rem; }
+.p2-link:hover { color: var(--caret); }
+
+/* racer: passage under the track */
+.p2-passage { margin-top: 22px; }
+.p2-passage .words-window { font-size: 1.35rem; }
+.p2-passage.p2-locked { opacity: .45; filter: blur(1px); transition: opacity .2s, filter .2s; }
+@media (max-width: 600px) {
+  .p2-card { padding: 18px 18px 16px; }
+  .p2-big { font-size: 2.2rem; }
+}
