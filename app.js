@@ -249,10 +249,10 @@
     el.tiles.innerHTML = [
       tile("tests", s.count),
       tile("best wpm", s.best),
-      tile("avg wpm (last 10)", s.avgRecent + trend),
-      tile("avg wpm (all)", s.avgAll),
-      tile("avg accuracy", s.acc + "%"),
-      tile("avg errors / test", E.errorProfile(rs).avgErrors),
+      tile("wpm · last 10", s.avgRecent + trend),
+      tile("wpm · overall", s.avgAll),
+      tile("accuracy", s.acc + "%"),
+      tile("errors / test", E.errorProfile(rs).avgErrors),
       tile("time typed", fmtDuration(s.seconds)),
     ].join("");
 
@@ -311,7 +311,7 @@
   function fmtDuration(sec) {
     if (sec < 60) return sec + "s";
     const m = Math.floor(sec / 60), h = Math.floor(m / 60);
-    return h ? `${h}h ${m % 60}m` : `${m}m ${sec % 60}s`;
+    return h ? `${h}h${m % 60}m` : `${m}m${sec % 60}s`;
   }
   function shortDate(ts) {
     const d = new Date(ts);

@@ -192,11 +192,12 @@ main { flex: 1; max-width: 1100px; width: 100%; margin: 0 auto; }
 .stats-filter { margin-bottom: 32px; }
 .tiles {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
   gap: 16px;
   margin-bottom: 40px;
 }
 .tile { border-left: 3px solid var(--main); background: var(--sub-alt); padding: 10px 14px; }
+.tile .label, .tile .value { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .tile .label { color: var(--sub); font-size: .8rem; }
 .tile .value { color: var(--caret); font-size: 2rem; line-height: 1.2; font-variant-numeric: tabular-nums; }
 .tile .value small { font-size: .9rem; color: var(--sub); margin-left: 4px; }
