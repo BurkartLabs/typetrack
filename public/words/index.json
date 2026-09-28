@@ -12,6 +12,114 @@
       ],
       "quotes": true,
       "translate": false
+    },
+    {
+      "code": "de",
+      "name": "deutsch",
+      "dir": "ltr",
+      "lists": [
+        "common-1k",
+        "common-200",
+        "rare"
+      ],
+      "quotes": true,
+      "translate": true
+    },
+    {
+      "code": "es",
+      "name": "español",
+      "dir": "ltr",
+      "lists": [
+        "common-1k",
+        "common-200",
+        "rare"
+      ],
+      "quotes": true,
+      "translate": true
+    },
+    {
+      "code": "fr",
+      "name": "français",
+      "dir": "ltr",
+      "lists": [
+        "common-1k",
+        "common-200",
+        "rare"
+      ],
+      "quotes": true,
+      "translate": true
+    },
+    {
+      "code": "it",
+      "name": "italiano",
+      "dir": "ltr",
+      "lists": [
+        "common-1k",
+        "common-200",
+        "rare"
+      ],
+      "quotes": true,
+      "translate": true
+    },
+    {
+      "code": "nl",
+      "name": "nederlands",
+      "dir": "ltr",
+      "lists": [
+        "common-1k",
+        "common-200",
+        "rare"
+      ],
+      "quotes": true,
+      "translate": true
+    },
+    {
+      "code": "pl",
+      "name": "polski",
+      "dir": "ltr",
+      "lists": [
+        "common-1k",
+        "common-200",
+        "rare"
+      ],
+      "quotes": true,
+      "translate": true
+    },
+    {
+      "code": "pt",
+      "name": "português",
+      "dir": "ltr",
+      "lists": [
+        "common-1k",
+        "common-200",
+        "rare"
+      ],
+      "quotes": true,
+      "translate": true
+    },
+    {
+      "code": "ru",
+      "name": "русский",
+      "dir": "ltr",
+      "lists": [
+        "common-1k",
+        "common-200",
+        "rare"
+      ],
+      "quotes": true,
+      "translate": true
+    },
+    {
+      "code": "uk",
+      "name": "українська",
+      "dir": "ltr",
+      "lists": [
+        "common-1k",
+        "common-200",
+        "rare"
+      ],
+      "quotes": true,
+      "translate": true
     }
   ],
   "themes": [
