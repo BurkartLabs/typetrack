@@ -62,6 +62,8 @@ bus.on("result:saved", (r) => {
   api.post("/api/results", r).catch(() => { /* offline: the local copy is kept */ });
 });
 bus.on("auth:changed", renderAuth);
+// Signing in or out changes whose progress every page shows (store.js), so the page on screen is drawn again.
+bus.on("auth:changed", () => router.start());
 bus.on("settings:changed", applySettings);
 
 const router = createRouter({

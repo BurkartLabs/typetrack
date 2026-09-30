@@ -14,12 +14,7 @@ const pct = (a, b) => Math.max(0, Math.min(100, b ? (a / b) * 100 : 0)).toFixed(
 
 function allGameScores(store) {
   const out = {};
-  try {
-    for (let i = 0; i < localStorage.length; i++) {
-      const k = localStorage.key(i);
-      if (k && k.startsWith("typetrack.games.")) out[k.slice(16)] = store.gameScores(k.slice(16));
-    }
-  } catch { /* storage blocked */ }
+  for (const id of store.gameIds()) out[id] = store.gameScores(id); // this player's games (store.js scopes them)
   return out;
 }
 

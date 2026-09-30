@@ -188,15 +188,7 @@ const hasDom = typeof document !== "undefined" && typeof window !== "undefined";
 
 function allGameScores() {
   const out = {};
-  try {
-    for (let i = 0; i < localStorage.length; i++) {
-      const k = localStorage.key(i);
-      if (k && k.startsWith("typetrack.games.")) {
-        const id = k.slice("typetrack.games.".length);
-        out[id] = store.gameScores(id);
-      }
-    }
-  } catch { /* storage blocked */ }
+  for (const id of store.gameIds()) out[id] = store.gameScores(id); // this player's games (store.js scopes them)
   return out;
 }
 

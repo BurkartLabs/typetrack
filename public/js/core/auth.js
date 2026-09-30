@@ -2,6 +2,7 @@
 // login/register reject with {status, error} so the forms can show the message.
 import { api } from "./api.js";
 import { emit } from "./bus.js";
+import store from "./store.js";
 
 let current = null;
 let online = null; // null unknown, true the API answered, false it did not
@@ -10,6 +11,8 @@ function setUser(u) {
   const next = u && u.id != null ? { id: u.id, name: u.name } : null;
   const changed = JSON.stringify(next) !== JSON.stringify(current);
   current = next;
+  // whose progress the pages read: the account's, or the guest's once signed out (store.js)
+  store.setScope(current ? current.id : null);
   if (changed) emit("auth:changed", current);
   return current;
 }
