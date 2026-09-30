@@ -1,0 +1,95 @@
+/* test view: results screen */
+.result { max-width: 1000px; margin: 0 auto; }
+.result[hidden], .view-test [hidden] { display: none; }
+.result-grid { display: grid; grid-template-columns: 180px 1fr; gap: 24px; align-items: end; }
+.big .label { color: var(--sub); font-size: 1rem; text-transform: uppercase; letter-spacing: .12em; line-height: 1; }
+.big .value { color: var(--caret); font-weight: 700; font-size: 4rem; line-height: 1.1; margin-bottom: 12px; font-variant-numeric: tabular-nums; }
+.result-details { display: flex; flex-wrap: wrap; gap: 20px 48px; margin-top: 28px; }
+.result-details > div { display: flex; flex-direction: column; }
+.result-details .label { color: var(--sub); font-size: .8rem; }
+.result-details span:last-child { color: var(--main); font-size: 1.4rem; font-variant-numeric: tabular-nums; }
+.result-actions { display: flex; justify-content: center; margin-top: 40px; }
+.clean { color: var(--sub); margin: 0; }
+@media (max-width: 640px) {
+  .result-grid { grid-template-columns: 1fr; }
+}
+
+/* ── config: two compact rows, extra options in a popover ─────────────── */
+.config-stack { display: flex; flex-direction: column; align-items: center; gap: 6px; margin: 0 auto 48px; transition: opacity .2s; }
+.config-stack .config { margin: 0; }
+.config-stack .config-sub { font-size: .75rem; padding: 2px 6px; }
+.typing-active .config-stack { opacity: 0; pointer-events: none; }
+.view-test .config select, .view-test .more-pop select, .view-test .more-pop input {
+  font: inherit; text-transform: inherit; letter-spacing: inherit; color: var(--sub); background: transparent;
+  border: 0; border-radius: 2px; padding: 4px 6px; cursor: pointer; max-width: 16em;
+}
+.view-test .config select:hover { color: var(--text); }
+.view-test .config select option { background: var(--bg); color: var(--text); text-transform: none; }
+.view-test .config [hidden] { display: none; }
+.more-wrap { position: relative; }
+.more-wrap > button b { color: var(--caret); font-weight: 700; }
+.more-wrap > button.on { color: var(--text); }
+.more-pop {
+  position: absolute; right: 0; top: calc(100% + 8px); z-index: 20; min-width: 300px;
+  background: var(--bg); border: 1px solid var(--edge); border-radius: 2px; padding: 10px 12px;
+  display: flex; flex-direction: column; gap: 6px; text-transform: uppercase; letter-spacing: .08em;
+}
+.more-pop[hidden] { display: none; }
+.more-pop .row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.more-pop .row > .label { color: var(--sub); font-size: .7rem; white-space: nowrap; }
+.more-pop .group { display: flex; align-items: center; }
+.more-pop button.active { background: var(--main); color: var(--text); border-radius: 2px; }
+.more-pop input { width: 5em; border: 1px solid var(--edge); color: var(--text); cursor: text; }
+.more-pop .pop-note { margin: 2px 0 0; color: var(--sub); font-size: .7rem; text-transform: none; letter-spacing: 0; }
+.more-pop .pop-note:empty { display: none; }
+
+.run-note { text-align: center; color: var(--sub); font-size: .8rem; margin: -28px 0 18px; min-height: 1.2em; }
+.run-note[hidden] { visibility: hidden; display: block; }
+.run-note b { color: var(--text); font-weight: 400; }
+.link-btn { font-size: .8rem; padding: 0; text-decoration: underline; text-underline-offset: .2em; }
+.typing-active .run-note { opacity: 0; }
+
+.custom-panel { max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
+.custom-panel textarea {
+  width: 100%; background: var(--sub-alt); color: var(--text); border: 1px solid var(--edge); border-radius: 2px;
+  font: inherit; font-size: .95rem; padding: 12px; resize: vertical;
+}
+.custom-panel textarea:focus { outline: 1px solid var(--main); }
+.custom-actions { display: flex; gap: 8px; justify-content: flex-end; text-transform: uppercase; letter-spacing: .08em; font-size: .8rem; }
+
+/* ── typing extras: live wpm, code layout, right-to-left ──────────────── */
+.view-test .live-wpm { color: var(--sub); font-size: 1.1rem; }
+.typing .nl { flex-basis: 100%; height: 0; }
+.typing.code .word.eol::after { content: "\21B5"; color: var(--sub); opacity: .45; margin-inline-start: .2em; }
+.typing.code .words-window { font-size: 1.3rem; }
+.typing.rtl .word { margin: 0 0 0 .55em; }
+.typing.rtl .counter { text-align: right; }
+
+/* ── results: notes, timing block, run strip ──────────────────────────── */
+.result-note { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-top: 20px; color: var(--sub); font-size: .9rem; }
+.result-note[hidden] { display: none; }
+.result-note .quote-src { color: var(--text); font-style: italic; }
+.result-note .stamina .label { font-size: .75rem; text-transform: uppercase; letter-spacing: .12em; margin-right: 6px; }
+.result-note b { font-weight: 400; color: var(--text); }
+.result-note b.err, .result-details .err { color: var(--error); }
+.error-panel { margin-top: 20px; }
+.result.is-clean .error-panel { margin-top: 16px; }
+.result.is-clean .clean { color: var(--text); text-transform: uppercase; letter-spacing: .12em; font-size: .8rem; }
+.result.is-clean .clean::before { content: ""; display: inline-block; width: 8px; height: 8px; background: var(--caret); margin-right: 10px; vertical-align: middle; }
+.timing { margin-top: 24px; border-top: 1px solid var(--edge); padding-top: 18px; display: flex; flex-direction: column; gap: 18px; }
+.timing .label { color: var(--sub); font-size: .75rem; text-transform: uppercase; letter-spacing: .12em; }
+.timing .label small { text-transform: none; letter-spacing: 0; margin-left: 8px; }
+.timing-stats { display: flex; flex-wrap: wrap; gap: 16px 44px; }
+.timing-stats > div { display: flex; flex-direction: column; }
+.timing-stats .v { color: var(--main); font-size: 1.4rem; font-variant-numeric: tabular-nums; }
+.timing-stats small { color: var(--sub); font-size: .75rem; }
+.timing-row { display: grid; grid-template-columns: 1fr 280px; gap: 24px; }
+.rhythm-box canvas { width: 100%; display: block; margin-top: 6px; }
+.pairs-box .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.pairs-box .muted { color: var(--sub); font-size: .85rem; }
+.run-strip { margin-top: 8px; color: var(--sub); line-height: 1.9; max-height: 9.5em; overflow-y: auto; font-size: .95rem; }
+.run-strip .hes { color: var(--text); text-decoration: underline; text-decoration-color: var(--caret); text-decoration-thickness: 2px; text-underline-offset: .25em; }
+@media (max-width: 760px) {
+  .timing-row { grid-template-columns: 1fr; }
+  .more-pop { right: auto; left: 50%; transform: translateX(-50%); }
+}

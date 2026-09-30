@@ -1,0 +1,182 @@
+[
+ {
+  "text": "SELECT * FROM users WHERE active = 1;"
+ },
+ {
+  "text": "SELECT id, name FROM customers ORDER BY name ASC;"
+ },
+ {
+  "text": "INSERT INTO orders (customer_id, total) VALUES (1, 99.50);"
+ },
+ {
+  "text": "UPDATE products SET price = price * 1.1 WHERE category = 'books';"
+ },
+ {
+  "text": "DELETE FROM sessions WHERE expires_at < NOW();"
+ },
+ {
+  "text": "SELECT COUNT(*) FROM orders WHERE status = 'pending';"
+ },
+ {
+  "text": "SELECT u.name, o.total\nFROM users u\nJOIN orders o ON o.user_id = u.id;"
+ },
+ {
+  "text": "CREATE TABLE employees (\n  id INT PRIMARY KEY,\n  name VARCHAR(100)\n);"
+ },
+ {
+  "text": "ALTER TABLE products ADD COLUMN discount DECIMAL(5,2);"
+ },
+ {
+  "text": "SELECT name FROM users WHERE email LIKE '%@example.com';"
+ },
+ {
+  "text": "SELECT category, AVG(price) FROM products GROUP BY category;"
+ },
+ {
+  "text": "SELECT * FROM logs WHERE created_at BETWEEN '2024-01-01' AND '2024-12-31';"
+ },
+ {
+  "text": "CREATE INDEX idx_users_email ON users(email);"
+ },
+ {
+  "text": "SELECT DISTINCT country FROM addresses;"
+ },
+ {
+  "text": "SELECT * FROM products WHERE price > 50 ORDER BY price DESC LIMIT 10;"
+ },
+ {
+  "text": "UPDATE accounts SET balance = balance - 100 WHERE id = 42;"
+ },
+ {
+  "text": "SELECT name, COUNT(*) AS total\nFROM orders\nGROUP BY name\nHAVING COUNT(*) > 5;"
+ },
+ {
+  "text": "DROP TABLE IF EXISTS temp_results;"
+ },
+ {
+  "text": "SELECT * FROM users WHERE id IN (1, 2, 3);"
+ },
+ {
+  "text": "SELECT a.name, b.name FROM friends a, friends b WHERE a.id != b.id;"
+ },
+ {
+  "text": "BEGIN TRANSACTION;\nUPDATE inventory SET quantity = quantity - 1;\nCOMMIT;"
+ },
+ {
+  "text": "SELECT NULLIF(discount, 0) AS applied_discount FROM sales;"
+ },
+ {
+  "text": "SELECT * FROM users WHERE last_login IS NULL;"
+ },
+ {
+  "text": "CREATE VIEW active_users AS\nSELECT * FROM users WHERE active = 1;"
+ },
+ {
+  "text": "SELECT MAX(salary), MIN(salary) FROM employees;"
+ },
+ {
+  "text": "ALTER TABLE orders DROP COLUMN legacy_flag;"
+ },
+ {
+  "text": "SELECT * FROM products p\nLEFT JOIN reviews r ON r.product_id = p.id;"
+ },
+ {
+  "text": "SELECT SUM(total) AS revenue FROM orders WHERE year = 2024;"
+ },
+ {
+  "text": "UPDATE users SET status = 'inactive' WHERE last_login < '2023-01-01';"
+ },
+ {
+  "text": "SELECT * FROM users ORDER BY created_at DESC LIMIT 1;"
+ },
+ {
+  "text": "CREATE TABLE IF NOT EXISTS tags (\n  id SERIAL PRIMARY KEY,\n  label TEXT NOT NULL\n);"
+ },
+ {
+  "text": "SELECT name FROM products WHERE name ILIKE 'shirt%';"
+ },
+ {
+  "text": "SELECT product_id, SUM(quantity) FROM order_items GROUP BY product_id;"
+ },
+ {
+  "text": "INSERT INTO logs (message, level) VALUES ('startup', 'info');"
+ },
+ {
+  "text": "SELECT * FROM users WHERE age BETWEEN 18 AND 65;"
+ },
+ {
+  "text": "ALTER TABLE users RENAME COLUMN username TO handle;"
+ },
+ {
+  "text": "SELECT id FROM sessions WHERE token = ?;"
+ },
+ {
+  "text": "SELECT * FROM events WHERE type = 'click' AND page = 'home';"
+ },
+ {
+  "text": "TRUNCATE TABLE temp_data;"
+ },
+ {
+  "text": "SELECT ROUND(AVG(rating), 2) FROM reviews;"
+ },
+ {
+  "text": "SELECT * FROM users WHERE NOT EXISTS (\n  SELECT 1 FROM bans WHERE bans.user_id = users.id\n);"
+ },
+ {
+  "text": "GRANT SELECT ON employees TO analyst_role;"
+ },
+ {
+  "text": "SELECT name FROM products WHERE stock = 0;"
+ },
+ {
+  "text": "WITH recent AS (\n  SELECT * FROM orders WHERE created_at > NOW() - INTERVAL '7 days'\n)\nSELECT * FROM recent;"
+ },
+ {
+  "text": "SELECT CONCAT(first_name, ' ', last_name) AS full_name FROM users;"
+ },
+ {
+  "text": "SELECT * FROM inventory WHERE quantity < reorder_level;"
+ },
+ {
+  "text": "UPDATE settings SET value = 'dark' WHERE key = 'theme';"
+ },
+ {
+  "text": "SELECT COALESCE(nickname, first_name) AS display_name FROM users;"
+ },
+ {
+  "text": "CREATE UNIQUE INDEX idx_email ON users(email);"
+ },
+ {
+  "text": "SELECT * FROM orders WHERE customer_id = 7 FOR UPDATE;"
+ },
+ {
+  "text": "SELECT department, COUNT(*) FROM employees GROUP BY department ORDER BY 2 DESC;"
+ },
+ {
+  "text": "INSERT INTO audit_log (action, user_id) SELECT 'login', id FROM users WHERE id = 1;"
+ },
+ {
+  "text": "SELECT * FROM products WHERE price BETWEEN 10 AND 20 AND active = TRUE;"
+ },
+ {
+  "text": "ALTER TABLE customers ADD CONSTRAINT uq_email UNIQUE (email);"
+ },
+ {
+  "text": "SELECT to_char(created_at, 'YYYY-MM') AS month, COUNT(*) FROM orders GROUP BY 1;"
+ },
+ {
+  "text": "SELECT * FROM users EXCEPT SELECT * FROM banned_users;"
+ },
+ {
+  "text": "SELECT product_id, price, RANK() OVER (ORDER BY price DESC) FROM products;"
+ },
+ {
+  "text": "DELETE FROM cart_items WHERE cart_id = ? AND product_id = ?;"
+ },
+ {
+  "text": "SELECT * FROM users WHERE created_at > CURRENT_DATE - 30;"
+ },
+ {
+  "text": "UPDATE inventory SET reserved = reserved + 1 WHERE sku = 'ABC123';"
+ }
+]

@@ -1,0 +1,182 @@
+[
+ {
+  "text": "public int Add(int a, int b) => a + b;"
+ },
+ {
+  "text": "public bool IsEven(int n)\n{\n    return n % 2 == 0;\n}"
+ },
+ {
+  "text": "var numbers = new List<int> { 1, 2, 3, 4, 5 };"
+ },
+ {
+  "text": "for (int i = 0; i < 10; i++)\n{\n    Console.WriteLine(i);\n}"
+ },
+ {
+  "text": "public class Point {\n    public int X { get; set; }\n    public int Y { get; set; }\n}"
+ },
+ {
+  "text": "var user = new { Name = \"Alice\", Age = 30 };"
+ },
+ {
+  "text": "try { var value = int.Parse(text); }\ncatch (FormatException) { value = 0; }"
+ },
+ {
+  "text": "public interface IShape\n{\n    double Area();\n}"
+ },
+ {
+  "text": "var evens = numbers.Where(n => n % 2 == 0).ToList();"
+ },
+ {
+  "text": "string greeting = $\"Hello, {name}!\";"
+ },
+ {
+  "text": "public static int Factorial(int n)\n{\n    return n <= 1 ? 1 : n * Factorial(n - 1);\n}"
+ },
+ {
+  "text": "var sorted = items.OrderBy(i => i.Name).ToList();"
+ },
+ {
+  "text": "using var reader = new StreamReader(path);"
+ },
+ {
+  "text": "switch (status) {\n    case \"active\": return \"green\";\n    default: return \"gray\";\n}"
+ },
+ {
+  "text": "public async Task<string> FetchDataAsync(string url) {\n    var response = await client.GetStringAsync(url);\n    return response;\n}"
+ },
+ {
+  "text": "var dict = new Dictionary<string, int>();\ndict[\"count\"] = 0;"
+ },
+ {
+  "text": "public class Animal {\n    public virtual void Speak() { }\n}"
+ },
+ {
+  "text": "int? maybeValue = null;"
+ },
+ {
+  "text": "var total = items.Sum(i => i.Price);"
+ },
+ {
+  "text": "public record Point(int X, int Y);"
+ },
+ {
+  "text": "if (score >= 90)\n{\n    grade = 'A';\n}"
+ },
+ {
+  "text": "var queue = new Queue<int>();\nqueue.Enqueue(1);"
+ },
+ {
+  "text": "public static bool IsPalindrome(string s)\n{\n    return s == new string(s.Reverse().ToArray());\n}"
+ },
+ {
+  "text": "using System.Linq;"
+ },
+ {
+  "text": "var stack = new Stack<int>();\nstack.Push(item);"
+ },
+ {
+  "text": "public void Dispose()\n{\n    _connection?.Close();\n}"
+ },
+ {
+  "text": "var random = new Random();\nint value = random.Next(1, 100);"
+ },
+ {
+  "text": "List<string> names = people.Select(p => p.Name).ToList();"
+ },
+ {
+  "text": "public event EventHandler OnComplete;"
+ },
+ {
+  "text": "readonly string _connectionString;"
+ },
+ {
+  "text": "public T GetService<T>() where T : class\n{\n    return _services.Get<T>();\n}"
+ },
+ {
+  "text": "var task = Task.Run(() => DoWork());"
+ },
+ {
+  "text": "string[] parts = input.Split(',');"
+ },
+ {
+  "text": "public abstract class Shape\n{\n    public abstract double Area();\n}"
+ },
+ {
+  "text": "var json = JsonSerializer.Serialize(model);"
+ },
+ {
+  "text": "var config = builder.Configuration.GetSection(\"AppSettings\");"
+ },
+ {
+  "text": "public override string ToString() => $\"{Name} ({Age})\";"
+ },
+ {
+  "text": "var lookup = items.ToDictionary(i => i.Id);"
+ },
+ {
+  "text": "await using var transaction = await connection.BeginTransactionAsync();"
+ },
+ {
+  "text": "public static void Main(string[] args)\n{\n    Console.WriteLine(\"Hello, world!\");\n}"
+ },
+ {
+  "text": "var result = condition ? valueA : valueB;"
+ },
+ {
+  "text": "throw new ArgumentNullException(nameof(input));"
+ },
+ {
+  "text": "public class Repository<T>\n{\n    private readonly List<T> _items = new();\n}"
+ },
+ {
+  "text": "var min = numbers.Min();\nvar max = numbers.Max();"
+ },
+ {
+  "text": "services.AddSingleton<ILogger, ConsoleLogger>();"
+ },
+ {
+  "text": "public bool Equals(Point other) => X == other.X && Y == other.Y;"
+ },
+ {
+  "text": "using (var scope = serviceProvider.CreateScope())\n{\n    var service = scope.ServiceProvider.GetService<IService>();\n}"
+ },
+ {
+  "text": "var filtered = query.Where(x => x.IsActive).ToList();"
+ },
+ {
+  "text": "public delegate void Notify(string message);"
+ },
+ {
+  "text": "var builder = new StringBuilder();\nbuilder.Append(\"hello\");"
+ },
+ {
+  "text": "static readonly object _lock = new object();\nlock (_lock) { counter++; }"
+ },
+ {
+  "text": "public struct Vector2\n{\n    public float X, Y;\n}"
+ },
+ {
+  "text": "var groups = items.GroupBy(i => i.Category);"
+ },
+ {
+  "text": "public class OrderNotFoundException : Exception\n{\n}"
+ },
+ {
+  "text": "var cts = new CancellationTokenSource();\ncts.CancelAfter(5000);"
+ },
+ {
+  "text": "public int this[int index] => _items[index];"
+ },
+ {
+  "text": "var elapsed = Stopwatch.GetElapsedTime(start);"
+ },
+ {
+  "text": "public static explicit operator int(Money m) => m.Cents;"
+ },
+ {
+  "text": "var span = new ReadOnlySpan<byte>(buffer);"
+ },
+ {
+  "text": "public partial class UserController : ControllerBase { }"
+ }
+]

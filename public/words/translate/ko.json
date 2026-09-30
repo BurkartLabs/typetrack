@@ -1,0 +1,1602 @@
+[
+{
+"en": "i",
+"word": "na"
+},
+{
+"en": "you",
+"word": "neo"
+},
+{
+"en": "he",
+"word": "geu"
+},
+{
+"en": "she",
+"word": "geunyeo"
+},
+{
+"en": "we",
+"word": "uri"
+},
+{
+"en": "they",
+"word": "geudeul"
+},
+{
+"en": "this",
+"word": "igeot"
+},
+{
+"en": "that",
+"word": "geugeot"
+},
+{
+"en": "what",
+"word": "mueot"
+},
+{
+"en": "who",
+"word": "nugu"
+},
+{
+"en": "where",
+"word": "eodi"
+},
+{
+"en": "when",
+"word": "eonje"
+},
+{
+"en": "why",
+"word": "wae"
+},
+{
+"en": "how",
+"word": "eotteoke"
+},
+{
+"en": "yes",
+"word": "ne"
+},
+{
+"en": "no",
+"word": "aniyo"
+},
+{
+"en": "all",
+"word": "modu"
+},
+{
+"en": "one",
+"word": "hana"
+},
+{
+"en": "two",
+"word": "dul"
+},
+{
+"en": "three",
+"word": "set"
+},
+{
+"en": "four",
+"word": "net"
+},
+{
+"en": "five",
+"word": "daseot"
+},
+{
+"en": "six",
+"word": "yeoseot"
+},
+{
+"en": "seven",
+"word": "ilgop"
+},
+{
+"en": "eight",
+"word": "yeodeol"
+},
+{
+"en": "nine",
+"word": "ahop"
+},
+{
+"en": "ten",
+"word": "yeol"
+},
+{
+"en": "hundred",
+"word": "baek"
+},
+{
+"en": "thousand",
+"word": "cheon"
+},
+{
+"en": "first",
+"word": "cheotjjae"
+},
+{
+"en": "man",
+"word": "namja"
+},
+{
+"en": "woman",
+"word": "yeoja"
+},
+{
+"en": "child",
+"word": "adong"
+},
+{
+"en": "father",
+"word": "abeoji"
+},
+{
+"en": "mother",
+"word": "eomeoni"
+},
+{
+"en": "son",
+"word": "adeul"
+},
+{
+"en": "daughter",
+"word": "ttal"
+},
+{
+"en": "brother",
+"word": "hyeong"
+},
+{
+"en": "sister",
+"word": "nuna"
+},
+{
+"en": "friend",
+"word": "chingu"
+},
+{
+"en": "house",
+"word": "jip"
+},
+{
+"en": "street",
+"word": "gil"
+},
+{
+"en": "city",
+"word": "dosi"
+},
+{
+"en": "country",
+"word": "nara"
+},
+{
+"en": "world",
+"word": "segye"
+},
+{
+"en": "life",
+"word": "insaeng"
+},
+{
+"en": "time",
+"word": "sigan"
+},
+{
+"en": "day",
+"word": "nat"
+},
+{
+"en": "night",
+"word": "bam"
+},
+{
+"en": "water",
+"word": "mul"
+},
+{
+"en": "fire",
+"word": "bul"
+},
+{
+"en": "earth",
+"word": "ttang"
+},
+{
+"en": "sky",
+"word": "haneul"
+},
+{
+"en": "sun",
+"word": "taeyang"
+},
+{
+"en": "moon",
+"word": "dal"
+},
+{
+"en": "star",
+"word": "byeol"
+},
+{
+"en": "sea",
+"word": "bada"
+},
+{
+"en": "mountain",
+"word": "san"
+},
+{
+"en": "tree",
+"word": "namu"
+},
+{
+"en": "flower",
+"word": "kkot"
+},
+{
+"en": "animal",
+"word": "dongmul"
+},
+{
+"en": "dog",
+"word": "gae"
+},
+{
+"en": "cat",
+"word": "goyangi"
+},
+{
+"en": "bird",
+"word": "sae"
+},
+{
+"en": "fish",
+"word": "mulgogi"
+},
+{
+"en": "food",
+"word": "eumsik"
+},
+{
+"en": "bread",
+"word": "ppang"
+},
+{
+"en": "meat",
+"word": "gogi"
+},
+{
+"en": "milk",
+"word": "uyu"
+},
+{
+"en": "egg",
+"word": "gyeran"
+},
+{
+"en": "fruit",
+"word": "gwail"
+},
+{
+"en": "vegetable",
+"word": "chaeso"
+},
+{
+"en": "table",
+"word": "sangja"
+},
+{
+"en": "chair",
+"word": "uija"
+},
+{
+"en": "door",
+"word": "mun"
+},
+{
+"en": "window",
+"word": "changmun"
+},
+{
+"en": "room",
+"word": "bang"
+},
+{
+"en": "bed",
+"word": "chimdae"
+},
+{
+"en": "book",
+"word": "chaek"
+},
+{
+"en": "paper",
+"word": "jongi"
+},
+{
+"en": "pen",
+"word": "pen"
+},
+{
+"en": "phone",
+"word": "jeonhwa"
+},
+{
+"en": "car",
+"word": "jadongcha"
+},
+{
+"en": "war",
+"word": "jeonjaeng"
+},
+{
+"en": "peace",
+"word": "pyeonghwa"
+},
+{
+"en": "love",
+"word": "sarang"
+},
+{
+"en": "joy",
+"word": "gippeum"
+},
+{
+"en": "sadness",
+"word": "seulpeum"
+},
+{
+"en": "anger",
+"word": "hwa"
+},
+{
+"en": "fear",
+"word": "duryeoum"
+},
+{
+"en": "hope",
+"word": "huimang"
+},
+{
+"en": "dream",
+"word": "kkum"
+},
+{
+"en": "idea",
+"word": "saenggak"
+},
+{
+"en": "problem",
+"word": "munje"
+},
+{
+"en": "solution",
+"word": "haegyeol"
+},
+{
+"en": "question",
+"word": "jilmun"
+},
+{
+"en": "answer",
+"word": "daedap"
+},
+{
+"en": "work",
+"word": "il"
+},
+{
+"en": "school",
+"word": "hakgyo"
+},
+{
+"en": "teacher",
+"word": "seonsaengnim"
+},
+{
+"en": "student",
+"word": "haksaeng"
+},
+{
+"en": "language",
+"word": "eoneo"
+},
+{
+"en": "word",
+"word": "daneo"
+},
+{
+"en": "music",
+"word": "eumak"
+},
+{
+"en": "song",
+"word": "norae"
+},
+{
+"en": "dance",
+"word": "chum"
+},
+{
+"en": "game",
+"word": "nori"
+},
+{
+"en": "money",
+"word": "don"
+},
+{
+"en": "law",
+"word": "beop"
+},
+{
+"en": "freedom",
+"word": "jayu"
+},
+{
+"en": "power",
+"word": "him"
+},
+{
+"en": "god",
+"word": "sin"
+},
+{
+"en": "soul",
+"word": "yeonghon"
+},
+{
+"en": "body",
+"word": "momtong"
+},
+{
+"en": "head",
+"word": "meori"
+},
+{
+"en": "eye",
+"word": "nun"
+},
+{
+"en": "ear",
+"word": "gwi"
+},
+{
+"en": "nose",
+"word": "ko"
+},
+{
+"en": "mouth",
+"word": "ip"
+},
+{
+"en": "hand",
+"word": "son"
+},
+{
+"en": "foot",
+"word": "bal"
+},
+{
+"en": "heart",
+"word": "maeum"
+},
+{
+"en": "blood",
+"word": "pi"
+},
+{
+"en": "bone",
+"word": "ppyeo"
+},
+{
+"en": "skin",
+"word": "pibu"
+},
+{
+"en": "tooth",
+"word": "i"
+},
+{
+"en": "morning",
+"word": "achim"
+},
+{
+"en": "noon",
+"word": "jeongo"
+},
+{
+"en": "evening",
+"word": "jeonyeok"
+},
+{
+"en": "week",
+"word": "ju"
+},
+{
+"en": "month",
+"word": "wol"
+},
+{
+"en": "year",
+"word": "nyeon"
+},
+{
+"en": "spring",
+"word": "bom"
+},
+{
+"en": "summer",
+"word": "yeoreum"
+},
+{
+"en": "autumn",
+"word": "gaeul"
+},
+{
+"en": "winter",
+"word": "gyeoul"
+},
+{
+"en": "rain",
+"word": "bi"
+},
+{
+"en": "wind",
+"word": "baram"
+},
+{
+"en": "cold",
+"word": "chuwi"
+},
+{
+"en": "heat",
+"word": "deowi"
+},
+{
+"en": "cloud",
+"word": "gureum"
+},
+{
+"en": "forest",
+"word": "sup"
+},
+{
+"en": "field",
+"word": "deul"
+},
+{
+"en": "lake",
+"word": "hoseu"
+},
+{
+"en": "river",
+"word": "gang"
+},
+{
+"en": "island",
+"word": "seom"
+},
+{
+"en": "coast",
+"word": "haean"
+},
+{
+"en": "sand",
+"word": "morae"
+},
+{
+"en": "stone",
+"word": "dol"
+},
+{
+"en": "rock",
+"word": "bawi"
+},
+{
+"en": "soil",
+"word": "heuk"
+},
+{
+"en": "wood",
+"word": "mokjae"
+},
+{
+"en": "glass",
+"word": "yuri"
+},
+{
+"en": "gold",
+"word": "geum"
+},
+{
+"en": "silver",
+"word": "eun"
+},
+{
+"en": "iron",
+"word": "cheol"
+},
+{
+"en": "bridge",
+"word": "dari"
+},
+{
+"en": "building",
+"word": "geonmul"
+},
+{
+"en": "church",
+"word": "gyohoe"
+},
+{
+"en": "museum",
+"word": "bangmulgwan"
+},
+{
+"en": "library",
+"word": "doseogwan"
+},
+{
+"en": "hospital",
+"word": "byeongwon"
+},
+{
+"en": "market",
+"word": "sijang"
+},
+{
+"en": "shop",
+"word": "gagye"
+},
+{
+"en": "restaurant",
+"word": "sikdang"
+},
+{
+"en": "hotel",
+"word": "hotel"
+},
+{
+"en": "station",
+"word": "yeok"
+},
+{
+"en": "airport",
+"word": "gonghang"
+},
+{
+"en": "port",
+"word": "hanggu"
+},
+{
+"en": "factory",
+"word": "gongjang"
+},
+{
+"en": "office",
+"word": "samusil"
+},
+{
+"en": "bank",
+"word": "eunhaeng"
+},
+{
+"en": "police",
+"word": "gyeongchal"
+},
+{
+"en": "court",
+"word": "beopwon"
+},
+{
+"en": "prison",
+"word": "gyodoso"
+},
+{
+"en": "army",
+"word": "gundae"
+},
+{
+"en": "university",
+"word": "daehak"
+},
+{
+"en": "class",
+"word": "ban"
+},
+{
+"en": "lesson",
+"word": "suup"
+},
+{
+"en": "exam",
+"word": "siheom"
+},
+{
+"en": "grade",
+"word": "seongjeok"
+},
+{
+"en": "science",
+"word": "gwahak"
+},
+{
+"en": "art",
+"word": "misul"
+},
+{
+"en": "history",
+"word": "yeoksa"
+},
+{
+"en": "society",
+"word": "sahoe"
+},
+{
+"en": "culture",
+"word": "munhwa"
+},
+{
+"en": "tradition",
+"word": "jeontong"
+},
+{
+"en": "wedding",
+"word": "gyeolhon"
+},
+{
+"en": "birth",
+"word": "chulsan"
+},
+{
+"en": "death",
+"word": "jugeum"
+},
+{
+"en": "illness",
+"word": "byeong"
+},
+{
+"en": "health",
+"word": "geongang"
+},
+{
+"en": "weight",
+"word": "muge"
+},
+{
+"en": "shape",
+"word": "hyeongtae"
+},
+{
+"en": "color",
+"word": "saek"
+},
+{
+"en": "red",
+"word": "ppalgang"
+},
+{
+"en": "blue",
+"word": "parang"
+},
+{
+"en": "green",
+"word": "chorok"
+},
+{
+"en": "yellow",
+"word": "norang"
+},
+{
+"en": "black",
+"word": "geomjeong"
+},
+{
+"en": "white",
+"word": "huin"
+},
+{
+"en": "gray",
+"word": "hoesaek"
+},
+{
+"en": "brown",
+"word": "galsaek"
+},
+{
+"en": "pink",
+"word": "bunhong"
+},
+{
+"en": "purple",
+"word": "bora"
+},
+{
+"en": "orange",
+"word": "juhwang"
+},
+{
+"en": "big",
+"word": "keun"
+},
+{
+"en": "small",
+"word": "jageun"
+},
+{
+"en": "good",
+"word": "joheun"
+},
+{
+"en": "bad",
+"word": "nappeun"
+},
+{
+"en": "beautiful",
+"word": "yeppeun"
+},
+{
+"en": "ugly",
+"word": "motsaenggin"
+},
+{
+"en": "new",
+"word": "saeroun"
+},
+{
+"en": "old",
+"word": "nalgeun"
+},
+{
+"en": "fast",
+"word": "ppareun"
+},
+{
+"en": "slow",
+"word": "neurin"
+},
+{
+"en": "strong",
+"word": "ganghan"
+},
+{
+"en": "weak",
+"word": "yakhan"
+},
+{
+"en": "easy",
+"word": "swiun"
+},
+{
+"en": "difficult",
+"word": "eoryeoun"
+},
+{
+"en": "poor",
+"word": "gananhan"
+},
+{
+"en": "rich",
+"word": "buyuhan"
+},
+{
+"en": "tall",
+"word": "nopeun"
+},
+{
+"en": "short",
+"word": "natjeun"
+},
+{
+"en": "hot",
+"word": "tteugeoun"
+},
+{
+"en": "clean",
+"word": "kkaekkeutan"
+},
+{
+"en": "dirty",
+"word": "deoreoun"
+},
+{
+"en": "open",
+"word": "yeollin"
+},
+{
+"en": "closed",
+"word": "dachin"
+},
+{
+"en": "full",
+"word": "gadeukchan"
+},
+{
+"en": "empty",
+"word": "bin"
+},
+{
+"en": "bright",
+"word": "balgeun"
+},
+{
+"en": "dark",
+"word": "eoduun"
+},
+{
+"en": "right",
+"word": "olbareun"
+},
+{
+"en": "wrong",
+"word": "teullin"
+},
+{
+"en": "true",
+"word": "jinsilhan"
+},
+{
+"en": "false",
+"word": "gajjaui"
+},
+{
+"en": "smart",
+"word": "ttokttokhan"
+},
+{
+"en": "happy",
+"word": "haengbokhan"
+},
+{
+"en": "sad",
+"word": "seulpeun"
+},
+{
+"en": "angry",
+"word": "hwananan"
+},
+{
+"en": "quiet",
+"word": "joyonghan"
+},
+{
+"en": "brave",
+"word": "yonggamhan"
+},
+{
+"en": "honest",
+"word": "jeongjikan"
+},
+{
+"en": "serious",
+"word": "jinjihan"
+},
+{
+"en": "funny",
+"word": "jaemitneun"
+},
+{
+"en": "simple",
+"word": "gandanhan"
+},
+{
+"en": "free",
+"word": "jayuroun"
+},
+{
+"en": "healthy",
+"word": "geonganghan"
+},
+{
+"en": "sick",
+"word": "apeun"
+},
+{
+"en": "sweet",
+"word": "dan"
+},
+{
+"en": "bitter",
+"word": "sseun"
+},
+{
+"en": "salty",
+"word": "jjan"
+},
+{
+"en": "fresh",
+"word": "sinseonhan"
+},
+{
+"en": "heavy",
+"word": "mugeoun"
+},
+{
+"en": "light",
+"word": "gabyeoun"
+},
+{
+"en": "wide",
+"word": "neolbeun"
+},
+{
+"en": "narrow",
+"word": "jobeun"
+},
+{
+"en": "long",
+"word": "gin"
+},
+{
+"en": "deep",
+"word": "gipeun"
+},
+{
+"en": "shallow",
+"word": "yateun"
+},
+{
+"en": "round",
+"word": "dunggeun"
+},
+{
+"en": "dangerous",
+"word": "wiheomhan"
+},
+{
+"en": "safe",
+"word": "anjeonhan"
+},
+{
+"en": "calm",
+"word": "pyeonghwaroun"
+},
+{
+"en": "same",
+"word": "gateun"
+},
+{
+"en": "different",
+"word": "dareun"
+},
+{
+"en": "rare",
+"word": "deumun"
+},
+{
+"en": "common",
+"word": "heunhan"
+},
+{
+"en": "to be",
+"word": "ida"
+},
+{
+"en": "to go",
+"word": "gada"
+},
+{
+"en": "to come",
+"word": "oda"
+},
+{
+"en": "to see",
+"word": "boda"
+},
+{
+"en": "to hear",
+"word": "deutda"
+},
+{
+"en": "to speak",
+"word": "malhada"
+},
+{
+"en": "to write",
+"word": "sseuda"
+},
+{
+"en": "to read",
+"word": "ikda"
+},
+{
+"en": "to buy",
+"word": "sada"
+},
+{
+"en": "to sell",
+"word": "palda"
+},
+{
+"en": "to walk",
+"word": "geotda"
+},
+{
+"en": "to run",
+"word": "dallida"
+},
+{
+"en": "to sleep",
+"word": "jada"
+},
+{
+"en": "to wake up",
+"word": "ireonada"
+},
+{
+"en": "to work",
+"word": "ilhada"
+},
+{
+"en": "to play",
+"word": "nolda"
+},
+{
+"en": "to wait",
+"word": "gidarida"
+},
+{
+"en": "to use",
+"word": "sayonghada"
+},
+{
+"en": "to make",
+"word": "mandeulda"
+},
+{
+"en": "to understand",
+"word": "ihaehada"
+},
+{
+"en": "to want",
+"word": "wonhada"
+},
+{
+"en": "to like",
+"word": "johahada"
+},
+{
+"en": "to love",
+"word": "saranghada"
+},
+{
+"en": "to hate",
+"word": "silheohada"
+},
+{
+"en": "to fear",
+"word": "duryeowohada"
+},
+{
+"en": "to remember",
+"word": "gieokhada"
+},
+{
+"en": "to forget",
+"word": "itda"
+},
+{
+"en": "to learn",
+"word": "baeuda"
+},
+{
+"en": "to teach",
+"word": "gareuchida"
+},
+{
+"en": "to need",
+"word": "pilyohada"
+},
+{
+"en": "to try",
+"word": "noryeokhada"
+},
+{
+"en": "to succeed",
+"word": "seonggonghada"
+},
+{
+"en": "to fail",
+"word": "silpaehada"
+},
+{
+"en": "to build",
+"word": "jitda"
+},
+{
+"en": "to change",
+"word": "bakkuda"
+},
+{
+"en": "to continue",
+"word": "gyesokada"
+},
+{
+"en": "to stop",
+"word": "meomchuda"
+},
+{
+"en": "to begin",
+"word": "sijakada"
+},
+{
+"en": "to finish",
+"word": "kkeutnaeda"
+},
+{
+"en": "to arrive",
+"word": "dochakada"
+},
+{
+"en": "to return",
+"word": "doraoda"
+},
+{
+"en": "to travel",
+"word": "yeohaenghada"
+},
+{
+"en": "to drive",
+"word": "unjeonhada"
+},
+{
+"en": "to swim",
+"word": "suyeonghada"
+},
+{
+"en": "to jump",
+"word": "ttwida"
+},
+{
+"en": "to choose",
+"word": "seontaekada"
+},
+{
+"en": "to decide",
+"word": "gyeoljeonghada"
+},
+{
+"en": "to explain",
+"word": "seolmyeonghada"
+},
+{
+"en": "to visit",
+"word": "bangmunhada"
+},
+{
+"en": "to meet",
+"word": "mannada"
+},
+{
+"en": "to win",
+"word": "igida"
+},
+{
+"en": "to lose",
+"word": "jida"
+},
+{
+"en": "to fight",
+"word": "ssauda"
+},
+{
+"en": "to protect",
+"word": "bohohada"
+},
+{
+"en": "to plan",
+"word": "gyehoekhada"
+},
+{
+"en": "to fix",
+"word": "gochida"
+},
+{
+"en": "to clean",
+"word": "cheongsohada"
+},
+{
+"en": "to cook",
+"word": "yorihada"
+},
+{
+"en": "to open",
+"word": "yeolda"
+},
+{
+"en": "to close",
+"word": "datda"
+},
+{
+"en": "to help",
+"word": "dopda"
+},
+{
+"en": "to thank",
+"word": "gamsahada"
+},
+{
+"en": "to leave",
+"word": "tteonada"
+},
+{
+"en": "to stay",
+"word": "meomulda"
+},
+{
+"en": "to laugh",
+"word": "utda"
+},
+{
+"en": "to cry",
+"word": "ulda"
+},
+{
+"en": "to sing",
+"word": "noraehada"
+},
+{
+"en": "to dance",
+"word": "chumchuda"
+},
+{
+"en": "to feel",
+"word": "neukkida"
+},
+{
+"en": "grandmother",
+"word": "halmoni"
+},
+{
+"en": "grandfather",
+"word": "harabeoji"
+},
+{
+"en": "uncle",
+"word": "samchon"
+},
+{
+"en": "aunt",
+"word": "gomo"
+},
+{
+"en": "doctor",
+"word": "uisa"
+},
+{
+"en": "nurse",
+"word": "ganhosa"
+},
+{
+"en": "lawyer",
+"word": "byeonhosa"
+},
+{
+"en": "judge",
+"word": "pansa"
+},
+{
+"en": "soldier",
+"word": "gunin"
+},
+{
+"en": "cook",
+"word": "yorisa"
+},
+{
+"en": "driver",
+"word": "unjeonsa"
+},
+{
+"en": "farmer",
+"word": "nongbu"
+},
+{
+"en": "engineer",
+"word": "gisulja"
+},
+{
+"en": "artist",
+"word": "yesulga"
+},
+{
+"en": "musician",
+"word": "eumakga"
+},
+{
+"en": "writer",
+"word": "jakga"
+},
+{
+"en": "actor",
+"word": "baeu"
+},
+{
+"en": "singer",
+"word": "gasu"
+},
+{
+"en": "king",
+"word": "wang"
+},
+{
+"en": "queen",
+"word": "wanghu"
+},
+{
+"en": "bag",
+"word": "gabang"
+},
+{
+"en": "umbrella",
+"word": "usan"
+},
+{
+"en": "glasses",
+"word": "angyeong"
+},
+{
+"en": "watch",
+"word": "sigye"
+},
+{
+"en": "ring",
+"word": "banji"
+},
+{
+"en": "shirt",
+"word": "syeocheu"
+},
+{
+"en": "pants",
+"word": "baji"
+},
+{
+"en": "skirt",
+"word": "chima"
+},
+{
+"en": "dress",
+"word": "wonpiseu"
+},
+{
+"en": "coat",
+"word": "koteu"
+},
+{
+"en": "sock",
+"word": "yangmal"
+},
+{
+"en": "shoe",
+"word": "sinbal"
+},
+{
+"en": "hat",
+"word": "moja"
+},
+{
+"en": "kitchen",
+"word": "buok"
+},
+{
+"en": "garden",
+"word": "jeongwon"
+},
+{
+"en": "mirror",
+"word": "geoul"
+},
+{
+"en": "lamp",
+"word": "deungbul"
+},
+{
+"en": "carpet",
+"word": "yangtanja"
+},
+{
+"en": "pillow",
+"word": "begae"
+},
+{
+"en": "blanket",
+"word": "damyo"
+},
+{
+"en": "towel",
+"word": "sugeon"
+},
+{
+"en": "soap",
+"word": "binu"
+},
+{
+"en": "pan",
+"word": "peuraipan"
+},
+{
+"en": "pot",
+"word": "naembi"
+},
+{
+"en": "plate",
+"word": "jeopsi"
+},
+{
+"en": "cup",
+"word": "keop"
+},
+{
+"en": "spoon",
+"word": "sutgarak"
+},
+{
+"en": "fork",
+"word": "pokeu"
+},
+{
+"en": "knife",
+"word": "kal"
+},
+{
+"en": "newspaper",
+"word": "sinmun"
+},
+{
+"en": "magazine",
+"word": "japji"
+},
+{
+"en": "letter",
+"word": "pyeonji"
+},
+{
+"en": "photo",
+"word": "sajin"
+},
+{
+"en": "movie",
+"word": "yeonghwa"
+},
+{
+"en": "theater",
+"word": "geuk"
+},
+{
+"en": "prize",
+"word": "sang"
+},
+{
+"en": "wolf",
+"word": "neukdae"
+},
+{
+"en": "fox",
+"word": "yeou"
+},
+{
+"en": "bear",
+"word": "gom"
+},
+{
+"en": "deer",
+"word": "saseum"
+},
+{
+"en": "rabbit",
+"word": "tokki"
+},
+{
+"en": "horse",
+"word": "mal"
+}
+]

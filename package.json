@@ -4,10 +4,10 @@
   "private": true,
   "description": "Bare-bones typing test with wpm tracking over time. No dependencies, no build step.",
   "scripts": {
-    "test": "node --test",
-    "start": "npx serve ."
+    "test": "node --test \"test/*.test.js\"",
+    "start": "node server/index.js"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=22.5"
   }
 }

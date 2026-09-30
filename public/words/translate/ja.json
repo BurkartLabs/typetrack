@@ -1,0 +1,1602 @@
+[
+{
+"en": "i",
+"word": "watashi"
+},
+{
+"en": "you",
+"word": "anata"
+},
+{
+"en": "he",
+"word": "kare"
+},
+{
+"en": "she",
+"word": "kanojo"
+},
+{
+"en": "we",
+"word": "watashitachi"
+},
+{
+"en": "they",
+"word": "karera"
+},
+{
+"en": "this",
+"word": "kore"
+},
+{
+"en": "that",
+"word": "sore"
+},
+{
+"en": "what",
+"word": "nani"
+},
+{
+"en": "who",
+"word": "dare"
+},
+{
+"en": "where",
+"word": "doko"
+},
+{
+"en": "when",
+"word": "itsu"
+},
+{
+"en": "why",
+"word": "naze"
+},
+{
+"en": "how",
+"word": "dou"
+},
+{
+"en": "yes",
+"word": "hai"
+},
+{
+"en": "no",
+"word": "iie"
+},
+{
+"en": "all",
+"word": "zenbu"
+},
+{
+"en": "one",
+"word": "ichi"
+},
+{
+"en": "two",
+"word": "ni"
+},
+{
+"en": "three",
+"word": "san"
+},
+{
+"en": "four",
+"word": "yon"
+},
+{
+"en": "five",
+"word": "go"
+},
+{
+"en": "six",
+"word": "roku"
+},
+{
+"en": "seven",
+"word": "nana"
+},
+{
+"en": "eight",
+"word": "hachi"
+},
+{
+"en": "nine",
+"word": "kyuu"
+},
+{
+"en": "ten",
+"word": "juu"
+},
+{
+"en": "hundred",
+"word": "hyaku"
+},
+{
+"en": "thousand",
+"word": "sen"
+},
+{
+"en": "first",
+"word": "ichiban"
+},
+{
+"en": "man",
+"word": "otoko"
+},
+{
+"en": "woman",
+"word": "onna"
+},
+{
+"en": "child",
+"word": "kodomo"
+},
+{
+"en": "father",
+"word": "chichi"
+},
+{
+"en": "mother",
+"word": "haha"
+},
+{
+"en": "son",
+"word": "musuko"
+},
+{
+"en": "daughter",
+"word": "musume"
+},
+{
+"en": "brother",
+"word": "kyoudai"
+},
+{
+"en": "sister",
+"word": "shimai"
+},
+{
+"en": "friend",
+"word": "tomodachi"
+},
+{
+"en": "house",
+"word": "ie"
+},
+{
+"en": "street",
+"word": "michi"
+},
+{
+"en": "city",
+"word": "machi"
+},
+{
+"en": "country",
+"word": "kuni"
+},
+{
+"en": "world",
+"word": "sekai"
+},
+{
+"en": "life",
+"word": "jinsei"
+},
+{
+"en": "time",
+"word": "jikan"
+},
+{
+"en": "day",
+"word": "hi"
+},
+{
+"en": "night",
+"word": "yoru"
+},
+{
+"en": "water",
+"word": "mizu"
+},
+{
+"en": "fire",
+"word": "honoo"
+},
+{
+"en": "earth",
+"word": "chikyuu"
+},
+{
+"en": "sky",
+"word": "sora"
+},
+{
+"en": "sun",
+"word": "taiyou"
+},
+{
+"en": "moon",
+"word": "tsuki"
+},
+{
+"en": "star",
+"word": "hoshi"
+},
+{
+"en": "sea",
+"word": "umi"
+},
+{
+"en": "mountain",
+"word": "yama"
+},
+{
+"en": "tree",
+"word": "ki"
+},
+{
+"en": "flower",
+"word": "hana"
+},
+{
+"en": "animal",
+"word": "doubutsu"
+},
+{
+"en": "dog",
+"word": "inu"
+},
+{
+"en": "cat",
+"word": "neko"
+},
+{
+"en": "bird",
+"word": "tori"
+},
+{
+"en": "fish",
+"word": "sakana"
+},
+{
+"en": "food",
+"word": "tabemono"
+},
+{
+"en": "bread",
+"word": "pan"
+},
+{
+"en": "meat",
+"word": "niku"
+},
+{
+"en": "milk",
+"word": "gyuunyuu"
+},
+{
+"en": "egg",
+"word": "tamago"
+},
+{
+"en": "fruit",
+"word": "kudamono"
+},
+{
+"en": "vegetable",
+"word": "yasai"
+},
+{
+"en": "table",
+"word": "tsukue"
+},
+{
+"en": "chair",
+"word": "isu"
+},
+{
+"en": "door",
+"word": "doa"
+},
+{
+"en": "window",
+"word": "mado"
+},
+{
+"en": "room",
+"word": "heya"
+},
+{
+"en": "bed",
+"word": "beddo"
+},
+{
+"en": "book",
+"word": "hon"
+},
+{
+"en": "paper",
+"word": "kami"
+},
+{
+"en": "pen",
+"word": "pen"
+},
+{
+"en": "phone",
+"word": "denwa"
+},
+{
+"en": "car",
+"word": "kuruma"
+},
+{
+"en": "war",
+"word": "sensou"
+},
+{
+"en": "peace",
+"word": "heiwa"
+},
+{
+"en": "love",
+"word": "ai"
+},
+{
+"en": "joy",
+"word": "yorokobi"
+},
+{
+"en": "sadness",
+"word": "kanashimi"
+},
+{
+"en": "anger",
+"word": "ikari"
+},
+{
+"en": "fear",
+"word": "kyoufu"
+},
+{
+"en": "hope",
+"word": "kibou"
+},
+{
+"en": "dream",
+"word": "yume"
+},
+{
+"en": "idea",
+"word": "kangae"
+},
+{
+"en": "problem",
+"word": "mondai"
+},
+{
+"en": "solution",
+"word": "kaiketsu"
+},
+{
+"en": "question",
+"word": "shitsumon"
+},
+{
+"en": "answer",
+"word": "kotae"
+},
+{
+"en": "work",
+"word": "shigoto"
+},
+{
+"en": "school",
+"word": "gakkou"
+},
+{
+"en": "teacher",
+"word": "sensei"
+},
+{
+"en": "student",
+"word": "gakusei"
+},
+{
+"en": "language",
+"word": "gengo"
+},
+{
+"en": "word",
+"word": "kotoba"
+},
+{
+"en": "music",
+"word": "ongaku"
+},
+{
+"en": "song",
+"word": "uta"
+},
+{
+"en": "dance",
+"word": "odori"
+},
+{
+"en": "game",
+"word": "asobi"
+},
+{
+"en": "money",
+"word": "okane"
+},
+{
+"en": "law",
+"word": "houritsu"
+},
+{
+"en": "freedom",
+"word": "jiyuu"
+},
+{
+"en": "power",
+"word": "chikara"
+},
+{
+"en": "god",
+"word": "kamisama"
+},
+{
+"en": "soul",
+"word": "tamashii"
+},
+{
+"en": "body",
+"word": "karada"
+},
+{
+"en": "head",
+"word": "atama"
+},
+{
+"en": "eye",
+"word": "me"
+},
+{
+"en": "ear",
+"word": "mimi"
+},
+{
+"en": "mouth",
+"word": "kuchi"
+},
+{
+"en": "hand",
+"word": "te"
+},
+{
+"en": "foot",
+"word": "ashi"
+},
+{
+"en": "heart",
+"word": "kokoro"
+},
+{
+"en": "blood",
+"word": "chi"
+},
+{
+"en": "bone",
+"word": "hone"
+},
+{
+"en": "skin",
+"word": "hifu"
+},
+{
+"en": "tooth",
+"word": "ha"
+},
+{
+"en": "morning",
+"word": "asa"
+},
+{
+"en": "noon",
+"word": "hiru"
+},
+{
+"en": "evening",
+"word": "ban"
+},
+{
+"en": "week",
+"word": "shuukan"
+},
+{
+"en": "year",
+"word": "toshi"
+},
+{
+"en": "spring",
+"word": "haru"
+},
+{
+"en": "summer",
+"word": "natsu"
+},
+{
+"en": "autumn",
+"word": "aki"
+},
+{
+"en": "winter",
+"word": "fuyu"
+},
+{
+"en": "rain",
+"word": "ame"
+},
+{
+"en": "snow",
+"word": "yuki"
+},
+{
+"en": "wind",
+"word": "kaze"
+},
+{
+"en": "cold",
+"word": "samusa"
+},
+{
+"en": "heat",
+"word": "atsusa"
+},
+{
+"en": "cloud",
+"word": "kumo"
+},
+{
+"en": "forest",
+"word": "mori"
+},
+{
+"en": "field",
+"word": "nohara"
+},
+{
+"en": "lake",
+"word": "mizuumi"
+},
+{
+"en": "river",
+"word": "kawa"
+},
+{
+"en": "island",
+"word": "shima"
+},
+{
+"en": "coast",
+"word": "kaigan"
+},
+{
+"en": "sand",
+"word": "suna"
+},
+{
+"en": "stone",
+"word": "ishi"
+},
+{
+"en": "rock",
+"word": "iwa"
+},
+{
+"en": "soil",
+"word": "tsuchi"
+},
+{
+"en": "glass",
+"word": "garasu"
+},
+{
+"en": "gold",
+"word": "kin"
+},
+{
+"en": "silver",
+"word": "gin"
+},
+{
+"en": "iron",
+"word": "tetsu"
+},
+{
+"en": "bridge",
+"word": "hashi"
+},
+{
+"en": "building",
+"word": "tatemono"
+},
+{
+"en": "church",
+"word": "kyoukai"
+},
+{
+"en": "museum",
+"word": "hakubutsukan"
+},
+{
+"en": "library",
+"word": "toshokan"
+},
+{
+"en": "hospital",
+"word": "byouin"
+},
+{
+"en": "market",
+"word": "ichiba"
+},
+{
+"en": "shop",
+"word": "mise"
+},
+{
+"en": "restaurant",
+"word": "resutoran"
+},
+{
+"en": "hotel",
+"word": "hoteru"
+},
+{
+"en": "station",
+"word": "eki"
+},
+{
+"en": "airport",
+"word": "kuukou"
+},
+{
+"en": "port",
+"word": "minato"
+},
+{
+"en": "factory",
+"word": "koujou"
+},
+{
+"en": "office",
+"word": "jimusho"
+},
+{
+"en": "bank",
+"word": "ginkou"
+},
+{
+"en": "police",
+"word": "keisatsu"
+},
+{
+"en": "court",
+"word": "saibansho"
+},
+{
+"en": "prison",
+"word": "keimusho"
+},
+{
+"en": "army",
+"word": "guntai"
+},
+{
+"en": "university",
+"word": "daigaku"
+},
+{
+"en": "class",
+"word": "kurasu"
+},
+{
+"en": "lesson",
+"word": "jugyou"
+},
+{
+"en": "exam",
+"word": "shiken"
+},
+{
+"en": "grade",
+"word": "seiseki"
+},
+{
+"en": "science",
+"word": "kagaku"
+},
+{
+"en": "art",
+"word": "bijutsu"
+},
+{
+"en": "history",
+"word": "rekishi"
+},
+{
+"en": "society",
+"word": "shakai"
+},
+{
+"en": "culture",
+"word": "bunka"
+},
+{
+"en": "tradition",
+"word": "dentou"
+},
+{
+"en": "wedding",
+"word": "kekkon"
+},
+{
+"en": "birth",
+"word": "shussan"
+},
+{
+"en": "death",
+"word": "shi"
+},
+{
+"en": "illness",
+"word": "byouki"
+},
+{
+"en": "health",
+"word": "kenkou"
+},
+{
+"en": "weight",
+"word": "taijuu"
+},
+{
+"en": "shape",
+"word": "katachi"
+},
+{
+"en": "color",
+"word": "iro"
+},
+{
+"en": "red",
+"word": "akai"
+},
+{
+"en": "blue",
+"word": "aoi"
+},
+{
+"en": "green",
+"word": "midori"
+},
+{
+"en": "yellow",
+"word": "kiiro"
+},
+{
+"en": "black",
+"word": "kuro"
+},
+{
+"en": "white",
+"word": "shiro"
+},
+{
+"en": "gray",
+"word": "haiiro"
+},
+{
+"en": "brown",
+"word": "chairo"
+},
+{
+"en": "pink",
+"word": "pinku"
+},
+{
+"en": "purple",
+"word": "murasaki"
+},
+{
+"en": "orange",
+"word": "orenji"
+},
+{
+"en": "big",
+"word": "ookii"
+},
+{
+"en": "small",
+"word": "chiisai"
+},
+{
+"en": "good",
+"word": "yoi"
+},
+{
+"en": "bad",
+"word": "warui"
+},
+{
+"en": "new",
+"word": "atarashii"
+},
+{
+"en": "old",
+"word": "furui"
+},
+{
+"en": "fast",
+"word": "hayai"
+},
+{
+"en": "slow",
+"word": "osoi"
+},
+{
+"en": "strong",
+"word": "tsuyoi"
+},
+{
+"en": "weak",
+"word": "yowai"
+},
+{
+"en": "easy",
+"word": "yasashii"
+},
+{
+"en": "difficult",
+"word": "muzukashii"
+},
+{
+"en": "tall",
+"word": "takai"
+},
+{
+"en": "short",
+"word": "mijikai"
+},
+{
+"en": "hot",
+"word": "atsui"
+},
+{
+"en": "clean",
+"word": "kirei"
+},
+{
+"en": "open",
+"word": "aiteiru"
+},
+{
+"en": "closed",
+"word": "shimatteiru"
+},
+{
+"en": "full",
+"word": "ippai"
+},
+{
+"en": "empty",
+"word": "kara"
+},
+{
+"en": "bright",
+"word": "akarui"
+},
+{
+"en": "dark",
+"word": "kurai"
+},
+{
+"en": "right",
+"word": "tadashii"
+},
+{
+"en": "wrong",
+"word": "machigai"
+},
+{
+"en": "true",
+"word": "hontou"
+},
+{
+"en": "false",
+"word": "uso"
+},
+{
+"en": "smart",
+"word": "kashikoi"
+},
+{
+"en": "happy",
+"word": "ureshii"
+},
+{
+"en": "sad",
+"word": "kanashii"
+},
+{
+"en": "angry",
+"word": "okotta"
+},
+{
+"en": "quiet",
+"word": "shizuka"
+},
+{
+"en": "brave",
+"word": "yuukan"
+},
+{
+"en": "serious",
+"word": "majime"
+},
+{
+"en": "funny",
+"word": "omoshiroi"
+},
+{
+"en": "simple",
+"word": "kantan"
+},
+{
+"en": "free",
+"word": "jiyuu na"
+},
+{
+"en": "healthy",
+"word": "genki"
+},
+{
+"en": "sick",
+"word": "byouki no"
+},
+{
+"en": "sweet",
+"word": "amai"
+},
+{
+"en": "sour",
+"word": "suppai"
+},
+{
+"en": "fresh",
+"word": "shinsen na"
+},
+{
+"en": "heavy",
+"word": "omoi"
+},
+{
+"en": "light",
+"word": "karui"
+},
+{
+"en": "wide",
+"word": "hiroi"
+},
+{
+"en": "narrow",
+"word": "semai"
+},
+{
+"en": "long",
+"word": "nagai"
+},
+{
+"en": "deep",
+"word": "fukai"
+},
+{
+"en": "round",
+"word": "marui"
+},
+{
+"en": "dangerous",
+"word": "abunai"
+},
+{
+"en": "safe",
+"word": "anzen"
+},
+{
+"en": "calm",
+"word": "shizuka na"
+},
+{
+"en": "same",
+"word": "onaji"
+},
+{
+"en": "different",
+"word": "chigau"
+},
+{
+"en": "rare",
+"word": "mezurashii"
+},
+{
+"en": "common",
+"word": "futsuu"
+},
+{
+"en": "to be",
+"word": "aru"
+},
+{
+"en": "to go",
+"word": "iku"
+},
+{
+"en": "to come",
+"word": "kuru"
+},
+{
+"en": "to see",
+"word": "miru"
+},
+{
+"en": "to hear",
+"word": "kiku"
+},
+{
+"en": "to speak",
+"word": "hanasu"
+},
+{
+"en": "to write",
+"word": "kaku"
+},
+{
+"en": "to read",
+"word": "yomu"
+},
+{
+"en": "to buy",
+"word": "kau"
+},
+{
+"en": "to sell",
+"word": "uru"
+},
+{
+"en": "to walk",
+"word": "aruku"
+},
+{
+"en": "to run",
+"word": "hashiru"
+},
+{
+"en": "to sleep",
+"word": "neru"
+},
+{
+"en": "to wake up",
+"word": "okiru"
+},
+{
+"en": "to work",
+"word": "hataraku"
+},
+{
+"en": "to play",
+"word": "asobu"
+},
+{
+"en": "to wait",
+"word": "matsu"
+},
+{
+"en": "to use",
+"word": "tsukau"
+},
+{
+"en": "to make",
+"word": "tsukuru"
+},
+{
+"en": "to understand",
+"word": "wakaru"
+},
+{
+"en": "to think",
+"word": "omou"
+},
+{
+"en": "to know",
+"word": "shiru"
+},
+{
+"en": "to teach",
+"word": "oshieru"
+},
+{
+"en": "to learn",
+"word": "narau"
+},
+{
+"en": "to borrow",
+"word": "kariru"
+},
+{
+"en": "to lend",
+"word": "kasu"
+},
+{
+"en": "to give",
+"word": "ageru"
+},
+{
+"en": "to receive",
+"word": "morau"
+},
+{
+"en": "to say",
+"word": "iu"
+},
+{
+"en": "to eat",
+"word": "taberu"
+},
+{
+"en": "to drink",
+"word": "nomu"
+},
+{
+"en": "to forget",
+"word": "wasureru"
+},
+{
+"en": "to remember",
+"word": "oboeru"
+},
+{
+"en": "to love",
+"word": "aisuru"
+},
+{
+"en": "to hate",
+"word": "kirau"
+},
+{
+"en": "to cry",
+"word": "naku"
+},
+{
+"en": "to laugh",
+"word": "warau"
+},
+{
+"en": "to sing",
+"word": "utau"
+},
+{
+"en": "to fly",
+"word": "tobu"
+},
+{
+"en": "to swim",
+"word": "oyogu"
+},
+{
+"en": "to ride",
+"word": "noru"
+},
+{
+"en": "to enter",
+"word": "hairu"
+},
+{
+"en": "to exit",
+"word": "deru"
+},
+{
+"en": "to open",
+"word": "akeru"
+},
+{
+"en": "to close",
+"word": "shimeru"
+},
+{
+"en": "to send",
+"word": "okuru"
+},
+{
+"en": "to hold",
+"word": "motsu"
+},
+{
+"en": "to carry",
+"word": "hakobu"
+},
+{
+"en": "to put",
+"word": "oku"
+},
+{
+"en": "to take",
+"word": "toru"
+},
+{
+"en": "to begin",
+"word": "hajimeru"
+},
+{
+"en": "to end",
+"word": "owaru"
+},
+{
+"en": "to stop",
+"word": "tomeru"
+},
+{
+"en": "to turn",
+"word": "magaru"
+},
+{
+"en": "to return",
+"word": "kaeru"
+},
+{
+"en": "to die",
+"word": "shinu"
+},
+{
+"en": "to be born",
+"word": "umareru"
+},
+{
+"en": "to marry",
+"word": "kekkonsuru"
+},
+{
+"en": "to fight",
+"word": "tatakau"
+},
+{
+"en": "to protect",
+"word": "mamoru"
+},
+{
+"en": "to decide",
+"word": "kimeru"
+},
+{
+"en": "to choose",
+"word": "erabu"
+},
+{
+"en": "to explain",
+"word": "setsumeisuru"
+},
+{
+"en": "to travel",
+"word": "ryokousuru"
+},
+{
+"en": "to drive",
+"word": "untensuru"
+},
+{
+"en": "to cook",
+"word": "ryourisuru"
+},
+{
+"en": "to clean",
+"word": "soujisuru"
+},
+{
+"en": "to study",
+"word": "benkyousuru"
+},
+{
+"en": "to research",
+"word": "kenkyuusuru"
+},
+{
+"en": "to believe",
+"word": "shinjiru"
+},
+{
+"en": "to doubt",
+"word": "utagau"
+},
+{
+"en": "to forgive",
+"word": "yurusu"
+},
+{
+"en": "to apologize",
+"word": "ayamaru"
+},
+{
+"en": "to praise",
+"word": "homeru"
+},
+{
+"en": "to scold",
+"word": "shikaru"
+},
+{
+"en": "to ask",
+"word": "tanomu"
+},
+{
+"en": "to refuse",
+"word": "kotowaru"
+},
+{
+"en": "to help",
+"word": "tasukeru"
+},
+{
+"en": "grandmother",
+"word": "sobo"
+},
+{
+"en": "grandfather",
+"word": "sofu"
+},
+{
+"en": "uncle",
+"word": "oji"
+},
+{
+"en": "aunt",
+"word": "oba"
+},
+{
+"en": "doctor",
+"word": "isha"
+},
+{
+"en": "nurse",
+"word": "kangoshi"
+},
+{
+"en": "lawyer",
+"word": "bengoshi"
+},
+{
+"en": "soldier",
+"word": "heishi"
+},
+{
+"en": "cook",
+"word": "kokku"
+},
+{
+"en": "driver",
+"word": "untenshu"
+},
+{
+"en": "farmer",
+"word": "nouka"
+},
+{
+"en": "engineer",
+"word": "gishi"
+},
+{
+"en": "artist",
+"word": "geijutsuka"
+},
+{
+"en": "musician",
+"word": "ongakuka"
+},
+{
+"en": "writer",
+"word": "sakka"
+},
+{
+"en": "actor",
+"word": "haiyuu"
+},
+{
+"en": "singer",
+"word": "kashu"
+},
+{
+"en": "king",
+"word": "koutei"
+},
+{
+"en": "queen",
+"word": "jouou"
+},
+{
+"en": "bag",
+"word": "kaban"
+},
+{
+"en": "umbrella",
+"word": "kasa"
+},
+{
+"en": "glasses",
+"word": "megane"
+},
+{
+"en": "watch",
+"word": "tokei"
+},
+{
+"en": "ring",
+"word": "yubiwa"
+},
+{
+"en": "shirt",
+"word": "shatsu"
+},
+{
+"en": "pants",
+"word": "zubon"
+},
+{
+"en": "skirt",
+"word": "sukaato"
+},
+{
+"en": "dress",
+"word": "wanpiisu"
+},
+{
+"en": "coat",
+"word": "kooto"
+},
+{
+"en": "sock",
+"word": "sokkusu"
+},
+{
+"en": "shoe",
+"word": "kutsu"
+},
+{
+"en": "hat",
+"word": "boushi"
+},
+{
+"en": "kitchen",
+"word": "daidokoro"
+},
+{
+"en": "garden",
+"word": "niwa"
+},
+{
+"en": "mirror",
+"word": "kagami"
+},
+{
+"en": "lamp",
+"word": "ranpu"
+},
+{
+"en": "carpet",
+"word": "juutan"
+},
+{
+"en": "pillow",
+"word": "makura"
+},
+{
+"en": "blanket",
+"word": "moufu"
+},
+{
+"en": "towel",
+"word": "taoru"
+},
+{
+"en": "soap",
+"word": "sekken"
+},
+{
+"en": "pan",
+"word": "furaipan"
+},
+{
+"en": "pot",
+"word": "nabe"
+},
+{
+"en": "plate",
+"word": "sara"
+},
+{
+"en": "cup",
+"word": "koppu"
+},
+{
+"en": "spoon",
+"word": "supuun"
+},
+{
+"en": "fork",
+"word": "fooku"
+},
+{
+"en": "knife",
+"word": "naifu"
+},
+{
+"en": "newspaper",
+"word": "shinbun"
+},
+{
+"en": "magazine",
+"word": "zasshi"
+},
+{
+"en": "letter",
+"word": "tegami"
+},
+{
+"en": "photo",
+"word": "shashin"
+},
+{
+"en": "movie",
+"word": "eiga"
+},
+{
+"en": "theater",
+"word": "gekijou"
+},
+{
+"en": "prize",
+"word": "shou"
+},
+{
+"en": "wolf",
+"word": "ookami"
+},
+{
+"en": "fox",
+"word": "kitsune"
+},
+{
+"en": "bear",
+"word": "kuma"
+},
+{
+"en": "deer",
+"word": "shika"
+},
+{
+"en": "rabbit",
+"word": "usagi"
+},
+{
+"en": "horse",
+"word": "uma"
+},
+{
+"en": "cow",
+"word": "ushi"
+},
+{
+"en": "sheep",
+"word": "hitsuji"
+}
+]

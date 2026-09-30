@@ -1,0 +1,1614 @@
+[
+ {
+  "en": "one",
+  "word": "un"
+ },
+ {
+  "en": "two",
+  "word": "deux"
+ },
+ {
+  "en": "three",
+  "word": "trois"
+ },
+ {
+  "en": "four",
+  "word": "quatre"
+ },
+ {
+  "en": "five",
+  "word": "cinq"
+ },
+ {
+  "en": "six",
+  "word": "six"
+ },
+ {
+  "en": "seven",
+  "word": "sept"
+ },
+ {
+  "en": "eight",
+  "word": "huit"
+ },
+ {
+  "en": "nine",
+  "word": "neuf"
+ },
+ {
+  "en": "ten",
+  "word": "dix"
+ },
+ {
+  "en": "eleven",
+  "word": "onze"
+ },
+ {
+  "en": "twelve",
+  "word": "douze"
+ },
+ {
+  "en": "thirteen",
+  "word": "treize"
+ },
+ {
+  "en": "fourteen",
+  "word": "quatorze"
+ },
+ {
+  "en": "fifteen",
+  "word": "quinze"
+ },
+ {
+  "en": "sixteen",
+  "word": "seize"
+ },
+ {
+  "en": "seventeen",
+  "word": "dix-sept"
+ },
+ {
+  "en": "eighteen",
+  "word": "dix-huit"
+ },
+ {
+  "en": "nineteen",
+  "word": "dix-neuf"
+ },
+ {
+  "en": "twenty",
+  "word": "vingt"
+ },
+ {
+  "en": "thirty",
+  "word": "trente"
+ },
+ {
+  "en": "forty",
+  "word": "quarante"
+ },
+ {
+  "en": "fifty",
+  "word": "cinquante"
+ },
+ {
+  "en": "sixty",
+  "word": "soixante"
+ },
+ {
+  "en": "seventy",
+  "word": "soixante-dix"
+ },
+ {
+  "en": "eighty",
+  "word": "quatre-vingts"
+ },
+ {
+  "en": "ninety",
+  "word": "quatre-vingt-dix"
+ },
+ {
+  "en": "hundred",
+  "word": "cent"
+ },
+ {
+  "en": "thousand",
+  "word": "mille"
+ },
+ {
+  "en": "red",
+  "word": "rouge"
+ },
+ {
+  "en": "orange",
+  "word": "orange"
+ },
+ {
+  "en": "yellow",
+  "word": "jaune"
+ },
+ {
+  "en": "green",
+  "word": "vert"
+ },
+ {
+  "en": "blue",
+  "word": "bleu"
+ },
+ {
+  "en": "purple",
+  "word": "violet"
+ },
+ {
+  "en": "pink",
+  "word": "rose"
+ },
+ {
+  "en": "brown",
+  "word": "marron"
+ },
+ {
+  "en": "black",
+  "word": "noir"
+ },
+ {
+  "en": "white",
+  "word": "blanc"
+ },
+ {
+  "en": "gray",
+  "word": "gris"
+ },
+ {
+  "en": "gold",
+  "word": "doré"
+ },
+ {
+  "en": "monday",
+  "word": "lundi"
+ },
+ {
+  "en": "tuesday",
+  "word": "mardi"
+ },
+ {
+  "en": "wednesday",
+  "word": "mercredi"
+ },
+ {
+  "en": "thursday",
+  "word": "jeudi"
+ },
+ {
+  "en": "friday",
+  "word": "vendredi"
+ },
+ {
+  "en": "saturday",
+  "word": "samedi"
+ },
+ {
+  "en": "sunday",
+  "word": "dimanche"
+ },
+ {
+  "en": "january",
+  "word": "janvier"
+ },
+ {
+  "en": "february",
+  "word": "février"
+ },
+ {
+  "en": "march",
+  "word": "mars"
+ },
+ {
+  "en": "april",
+  "word": "avril"
+ },
+ {
+  "en": "may",
+  "word": "mai"
+ },
+ {
+  "en": "june",
+  "word": "juin"
+ },
+ {
+  "en": "july",
+  "word": "juillet"
+ },
+ {
+  "en": "august",
+  "word": "août"
+ },
+ {
+  "en": "september",
+  "word": "septembre"
+ },
+ {
+  "en": "october",
+  "word": "octobre"
+ },
+ {
+  "en": "november",
+  "word": "novembre"
+ },
+ {
+  "en": "december",
+  "word": "décembre"
+ },
+ {
+  "en": "mother",
+  "word": "mère"
+ },
+ {
+  "en": "father",
+  "word": "père"
+ },
+ {
+  "en": "sister",
+  "word": "sœur"
+ },
+ {
+  "en": "brother",
+  "word": "frère"
+ },
+ {
+  "en": "son",
+  "word": "fils"
+ },
+ {
+  "en": "daughter",
+  "word": "fille"
+ },
+ {
+  "en": "grandmother",
+  "word": "grand-mère"
+ },
+ {
+  "en": "grandfather",
+  "word": "grand-père"
+ },
+ {
+  "en": "aunt",
+  "word": "tante"
+ },
+ {
+  "en": "uncle",
+  "word": "oncle"
+ },
+ {
+  "en": "cousin",
+  "word": "cousin"
+ },
+ {
+  "en": "husband",
+  "word": "mari"
+ },
+ {
+  "en": "wife",
+  "word": "femme"
+ },
+ {
+  "en": "baby",
+  "word": "bébé"
+ },
+ {
+  "en": "child",
+  "word": "enfant"
+ },
+ {
+  "en": "friend",
+  "word": "ami"
+ },
+ {
+  "en": "family",
+  "word": "famille"
+ },
+ {
+  "en": "parent",
+  "word": "parent"
+ },
+ {
+  "en": "man",
+  "word": "homme"
+ },
+ {
+  "en": "woman",
+  "word": "femme"
+ },
+ {
+  "en": "head",
+  "word": "tête"
+ },
+ {
+  "en": "hair",
+  "word": "cheveux"
+ },
+ {
+  "en": "eye",
+  "word": "œil"
+ },
+ {
+  "en": "ear",
+  "word": "oreille"
+ },
+ {
+  "en": "nose",
+  "word": "nez"
+ },
+ {
+  "en": "mouth",
+  "word": "bouche"
+ },
+ {
+  "en": "tooth",
+  "word": "dent"
+ },
+ {
+  "en": "tongue",
+  "word": "langue"
+ },
+ {
+  "en": "neck",
+  "word": "cou"
+ },
+ {
+  "en": "shoulder",
+  "word": "épaule"
+ },
+ {
+  "en": "arm",
+  "word": "bras"
+ },
+ {
+  "en": "hand",
+  "word": "main"
+ },
+ {
+  "en": "finger",
+  "word": "doigt"
+ },
+ {
+  "en": "chest",
+  "word": "poitrine"
+ },
+ {
+  "en": "back",
+  "word": "dos"
+ },
+ {
+  "en": "stomach",
+  "word": "estomac"
+ },
+ {
+  "en": "leg",
+  "word": "jambe"
+ },
+ {
+  "en": "knee",
+  "word": "genou"
+ },
+ {
+  "en": "foot",
+  "word": "pied"
+ },
+ {
+  "en": "heart",
+  "word": "cœur"
+ },
+ {
+  "en": "brain",
+  "word": "cerveau"
+ },
+ {
+  "en": "skin",
+  "word": "peau"
+ },
+ {
+  "en": "blood",
+  "word": "sang"
+ },
+ {
+  "en": "dog",
+  "word": "chien"
+ },
+ {
+  "en": "cat",
+  "word": "chat"
+ },
+ {
+  "en": "bird",
+  "word": "oiseau"
+ },
+ {
+  "en": "fish",
+  "word": "poisson"
+ },
+ {
+  "en": "horse",
+  "word": "cheval"
+ },
+ {
+  "en": "cow",
+  "word": "vache"
+ },
+ {
+  "en": "pig",
+  "word": "cochon"
+ },
+ {
+  "en": "sheep",
+  "word": "mouton"
+ },
+ {
+  "en": "goat",
+  "word": "chèvre"
+ },
+ {
+  "en": "chicken",
+  "word": "poulet"
+ },
+ {
+  "en": "duck",
+  "word": "canard"
+ },
+ {
+  "en": "mouse",
+  "word": "souris"
+ },
+ {
+  "en": "rabbit",
+  "word": "lapin"
+ },
+ {
+  "en": "lion",
+  "word": "lion"
+ },
+ {
+  "en": "tiger",
+  "word": "tigre"
+ },
+ {
+  "en": "bear",
+  "word": "ours"
+ },
+ {
+  "en": "wolf",
+  "word": "loup"
+ },
+ {
+  "en": "fox",
+  "word": "renard"
+ },
+ {
+  "en": "deer",
+  "word": "cerf"
+ },
+ {
+  "en": "monkey",
+  "word": "singe"
+ },
+ {
+  "en": "elephant",
+  "word": "éléphant"
+ },
+ {
+  "en": "snake",
+  "word": "serpent"
+ },
+ {
+  "en": "frog",
+  "word": "grenouille"
+ },
+ {
+  "en": "bee",
+  "word": "abeille"
+ },
+ {
+  "en": "butterfly",
+  "word": "papillon"
+ },
+ {
+  "en": "sun",
+  "word": "soleil"
+ },
+ {
+  "en": "moon",
+  "word": "lune"
+ },
+ {
+  "en": "star",
+  "word": "étoile"
+ },
+ {
+  "en": "sky",
+  "word": "ciel"
+ },
+ {
+  "en": "cloud",
+  "word": "nuage"
+ },
+ {
+  "en": "rain",
+  "word": "pluie"
+ },
+ {
+  "en": "snow",
+  "word": "neige"
+ },
+ {
+  "en": "wind",
+  "word": "vent"
+ },
+ {
+  "en": "storm",
+  "word": "tempête"
+ },
+ {
+  "en": "fire",
+  "word": "feu"
+ },
+ {
+  "en": "water",
+  "word": "eau"
+ },
+ {
+  "en": "earth",
+  "word": "terre"
+ },
+ {
+  "en": "mountain",
+  "word": "montagne"
+ },
+ {
+  "en": "river",
+  "word": "rivière"
+ },
+ {
+  "en": "lake",
+  "word": "lac"
+ },
+ {
+  "en": "sea",
+  "word": "mer"
+ },
+ {
+  "en": "ocean",
+  "word": "océan"
+ },
+ {
+  "en": "forest",
+  "word": "forêt"
+ },
+ {
+  "en": "tree",
+  "word": "arbre"
+ },
+ {
+  "en": "flower",
+  "word": "fleur"
+ },
+ {
+  "en": "grass",
+  "word": "herbe"
+ },
+ {
+  "en": "leaf",
+  "word": "feuille"
+ },
+ {
+  "en": "stone",
+  "word": "pierre"
+ },
+ {
+  "en": "sand",
+  "word": "sable"
+ },
+ {
+  "en": "island",
+  "word": "île"
+ },
+ {
+  "en": "beach",
+  "word": "plage"
+ },
+ {
+  "en": "valley",
+  "word": "vallée"
+ },
+ {
+  "en": "desert",
+  "word": "désert"
+ },
+ {
+  "en": "bread",
+  "word": "pain"
+ },
+ {
+  "en": "butter",
+  "word": "beurre"
+ },
+ {
+  "en": "cheese",
+  "word": "fromage"
+ },
+ {
+  "en": "milk",
+  "word": "lait"
+ },
+ {
+  "en": "egg",
+  "word": "œuf"
+ },
+ {
+  "en": "meat",
+  "word": "viande"
+ },
+ {
+  "en": "rice",
+  "word": "riz"
+ },
+ {
+  "en": "salt",
+  "word": "sel"
+ },
+ {
+  "en": "sugar",
+  "word": "sucre"
+ },
+ {
+  "en": "pepper",
+  "word": "poivre"
+ },
+ {
+  "en": "apple",
+  "word": "pomme"
+ },
+ {
+  "en": "banana",
+  "word": "banane"
+ },
+ {
+  "en": "grape",
+  "word": "raisin"
+ },
+ {
+  "en": "lemon",
+  "word": "citron"
+ },
+ {
+  "en": "potato",
+  "word": "patate"
+ },
+ {
+  "en": "tomato",
+  "word": "tomate"
+ },
+ {
+  "en": "onion",
+  "word": "oignon"
+ },
+ {
+  "en": "carrot",
+  "word": "carotte"
+ },
+ {
+  "en": "soup",
+  "word": "soupe"
+ },
+ {
+  "en": "cake",
+  "word": "gâteau"
+ },
+ {
+  "en": "coffee",
+  "word": "café"
+ },
+ {
+  "en": "tea",
+  "word": "thé"
+ },
+ {
+  "en": "wine",
+  "word": "vin"
+ },
+ {
+  "en": "beer",
+  "word": "bière"
+ },
+ {
+  "en": "juice",
+  "word": "jus"
+ },
+ {
+  "en": "honey",
+  "word": "miel"
+ },
+ {
+  "en": "chocolate",
+  "word": "chocolat"
+ },
+ {
+  "en": "fruit",
+  "word": "fruit"
+ },
+ {
+  "en": "vegetable",
+  "word": "légume"
+ },
+ {
+  "en": "house",
+  "word": "maison"
+ },
+ {
+  "en": "door",
+  "word": "porte"
+ },
+ {
+  "en": "window",
+  "word": "fenêtre"
+ },
+ {
+  "en": "wall",
+  "word": "mur"
+ },
+ {
+  "en": "roof",
+  "word": "toit"
+ },
+ {
+  "en": "floor",
+  "word": "sol"
+ },
+ {
+  "en": "table",
+  "word": "table"
+ },
+ {
+  "en": "chair",
+  "word": "chaise"
+ },
+ {
+  "en": "bed",
+  "word": "lit"
+ },
+ {
+  "en": "kitchen",
+  "word": "cuisine"
+ },
+ {
+  "en": "bathroom",
+  "word": "toilettes"
+ },
+ {
+  "en": "garden",
+  "word": "jardin"
+ },
+ {
+  "en": "key",
+  "word": "clé"
+ },
+ {
+  "en": "mirror",
+  "word": "miroir"
+ },
+ {
+  "en": "lamp",
+  "word": "lampe"
+ },
+ {
+  "en": "clock",
+  "word": "horloge"
+ },
+ {
+  "en": "book",
+  "word": "livre"
+ },
+ {
+  "en": "pen",
+  "word": "stylo"
+ },
+ {
+  "en": "paper",
+  "word": "papier"
+ },
+ {
+  "en": "letter",
+  "word": "lettre"
+ },
+ {
+  "en": "phone",
+  "word": "téléphone"
+ },
+ {
+  "en": "computer",
+  "word": "ordinateur"
+ },
+ {
+  "en": "television",
+  "word": "télévision"
+ },
+ {
+  "en": "car",
+  "word": "voiture"
+ },
+ {
+  "en": "bicycle",
+  "word": "vélo"
+ },
+ {
+  "en": "train",
+  "word": "train"
+ },
+ {
+  "en": "plane",
+  "word": "avion"
+ },
+ {
+  "en": "boat",
+  "word": "bateau"
+ },
+ {
+  "en": "road",
+  "word": "route"
+ },
+ {
+  "en": "city",
+  "word": "ville"
+ },
+ {
+  "en": "bridge",
+  "word": "pont"
+ },
+ {
+  "en": "school",
+  "word": "école"
+ },
+ {
+  "en": "hospital",
+  "word": "hôpital"
+ },
+ {
+  "en": "market",
+  "word": "marché"
+ },
+ {
+  "en": "shop",
+  "word": "magasin"
+ },
+ {
+  "en": "shirt",
+  "word": "chemise"
+ },
+ {
+  "en": "dress",
+  "word": "robe"
+ },
+ {
+  "en": "pants",
+  "word": "pantalon"
+ },
+ {
+  "en": "shoes",
+  "word": "chaussures"
+ },
+ {
+  "en": "hat",
+  "word": "chapeau"
+ },
+ {
+  "en": "coat",
+  "word": "manteau"
+ },
+ {
+  "en": "jacket",
+  "word": "veste"
+ },
+ {
+  "en": "glove",
+  "word": "gant"
+ },
+ {
+  "en": "sock",
+  "word": "chaussette"
+ },
+ {
+  "en": "belt",
+  "word": "ceinture"
+ },
+ {
+  "en": "big",
+  "word": "grand"
+ },
+ {
+  "en": "small",
+  "word": "petit"
+ },
+ {
+  "en": "tall",
+  "word": "haut"
+ },
+ {
+  "en": "short",
+  "word": "court"
+ },
+ {
+  "en": "long",
+  "word": "long"
+ },
+ {
+  "en": "wide",
+  "word": "large"
+ },
+ {
+  "en": "heavy",
+  "word": "lourd"
+ },
+ {
+  "en": "light",
+  "word": "léger"
+ },
+ {
+  "en": "fast",
+  "word": "rapide"
+ },
+ {
+  "en": "slow",
+  "word": "lent"
+ },
+ {
+  "en": "hot",
+  "word": "chaud"
+ },
+ {
+  "en": "cold",
+  "word": "froid"
+ },
+ {
+  "en": "warm",
+  "word": "tiède"
+ },
+ {
+  "en": "new",
+  "word": "nouveau"
+ },
+ {
+  "en": "old",
+  "word": "vieux"
+ },
+ {
+  "en": "young",
+  "word": "jeune"
+ },
+ {
+  "en": "good",
+  "word": "bon"
+ },
+ {
+  "en": "bad",
+  "word": "mauvais"
+ },
+ {
+  "en": "beautiful",
+  "word": "beau"
+ },
+ {
+  "en": "ugly",
+  "word": "laid"
+ },
+ {
+  "en": "happy",
+  "word": "heureux"
+ },
+ {
+  "en": "sad",
+  "word": "triste"
+ },
+ {
+  "en": "angry",
+  "word": "fâché"
+ },
+ {
+  "en": "afraid",
+  "word": "effrayé"
+ },
+ {
+  "en": "tired",
+  "word": "fatigué"
+ },
+ {
+  "en": "hungry",
+  "word": "affamé"
+ },
+ {
+  "en": "thirsty",
+  "word": "assoiffé"
+ },
+ {
+  "en": "rich",
+  "word": "riche"
+ },
+ {
+  "en": "poor",
+  "word": "pauvre"
+ },
+ {
+  "en": "strong",
+  "word": "fort"
+ },
+ {
+  "en": "weak",
+  "word": "faible"
+ },
+ {
+  "en": "clean",
+  "word": "propre"
+ },
+ {
+  "en": "dirty",
+  "word": "sale"
+ },
+ {
+  "en": "easy",
+  "word": "facile"
+ },
+ {
+  "en": "difficult",
+  "word": "difficile"
+ },
+ {
+  "en": "dangerous",
+  "word": "dangereux"
+ },
+ {
+  "en": "safe",
+  "word": "sûr"
+ },
+ {
+  "en": "quiet",
+  "word": "calme"
+ },
+ {
+  "en": "loud",
+  "word": "bruyant"
+ },
+ {
+  "en": "empty",
+  "word": "vide"
+ },
+ {
+  "en": "full",
+  "word": "plein"
+ },
+ {
+  "en": "dark",
+  "word": "sombre"
+ },
+ {
+  "en": "bright",
+  "word": "lumineux"
+ },
+ {
+  "en": "be",
+  "word": "être"
+ },
+ {
+  "en": "have",
+  "word": "avoir"
+ },
+ {
+  "en": "do",
+  "word": "faire"
+ },
+ {
+  "en": "go",
+  "word": "aller"
+ },
+ {
+  "en": "come",
+  "word": "venir"
+ },
+ {
+  "en": "see",
+  "word": "voir"
+ },
+ {
+  "en": "look",
+  "word": "regarder"
+ },
+ {
+  "en": "hear",
+  "word": "entendre"
+ },
+ {
+  "en": "listen",
+  "word": "écouter"
+ },
+ {
+  "en": "speak",
+  "word": "parler"
+ },
+ {
+  "en": "say",
+  "word": "dire"
+ },
+ {
+  "en": "tell",
+  "word": "raconter"
+ },
+ {
+  "en": "ask",
+  "word": "demander"
+ },
+ {
+  "en": "reply",
+  "word": "répondre"
+ },
+ {
+  "en": "know",
+  "word": "savoir"
+ },
+ {
+  "en": "think",
+  "word": "penser"
+ },
+ {
+  "en": "understand",
+  "word": "comprendre"
+ },
+ {
+  "en": "learn",
+  "word": "apprendre"
+ },
+ {
+  "en": "teach",
+  "word": "enseigner"
+ },
+ {
+  "en": "read",
+  "word": "lire"
+ },
+ {
+  "en": "write",
+  "word": "écrire"
+ },
+ {
+  "en": "eat",
+  "word": "manger"
+ },
+ {
+  "en": "drink",
+  "word": "boire"
+ },
+ {
+  "en": "sleep",
+  "word": "dormir"
+ },
+ {
+  "en": "walk",
+  "word": "marcher"
+ },
+ {
+  "en": "run",
+  "word": "courir"
+ },
+ {
+  "en": "jump",
+  "word": "sauter"
+ },
+ {
+  "en": "sit",
+  "word": "asseoir"
+ },
+ {
+  "en": "stand",
+  "word": "lever"
+ },
+ {
+  "en": "fall",
+  "word": "tomber"
+ },
+ {
+  "en": "fly",
+  "word": "voler"
+ },
+ {
+  "en": "swim",
+  "word": "nager"
+ },
+ {
+  "en": "drive",
+  "word": "conduire"
+ },
+ {
+  "en": "buy",
+  "word": "acheter"
+ },
+ {
+  "en": "sell",
+  "word": "vendre"
+ },
+ {
+  "en": "pay",
+  "word": "payer"
+ },
+ {
+  "en": "give",
+  "word": "donner"
+ },
+ {
+  "en": "take",
+  "word": "prendre"
+ },
+ {
+  "en": "open",
+  "word": "ouvrir"
+ },
+ {
+  "en": "close",
+  "word": "fermer"
+ },
+ {
+  "en": "start",
+  "word": "commencer"
+ },
+ {
+  "en": "finish",
+  "word": "finir"
+ },
+ {
+  "en": "stop",
+  "word": "arrêter"
+ },
+ {
+  "en": "wait",
+  "word": "attendre"
+ },
+ {
+  "en": "help",
+  "word": "aider"
+ },
+ {
+  "en": "love",
+  "word": "aimer"
+ },
+ {
+  "en": "want",
+  "word": "vouloir"
+ },
+ {
+  "en": "need",
+  "word": "nécessiter"
+ },
+ {
+  "en": "like",
+  "word": "apprécier"
+ },
+ {
+  "en": "live",
+  "word": "vivre"
+ },
+ {
+  "en": "die",
+  "word": "mourir"
+ },
+ {
+  "en": "work",
+  "word": "travailler"
+ },
+ {
+  "en": "play",
+  "word": "jouer"
+ },
+ {
+  "en": "win",
+  "word": "gagner"
+ },
+ {
+  "en": "lose",
+  "word": "perdre"
+ },
+ {
+  "en": "find",
+  "word": "trouver"
+ },
+ {
+  "en": "forget",
+  "word": "oublier"
+ },
+ {
+  "en": "remember",
+  "word": "mémoriser"
+ },
+ {
+  "en": "laugh",
+  "word": "rire"
+ },
+ {
+  "en": "cry",
+  "word": "pleurer"
+ },
+ {
+  "en": "sing",
+  "word": "chanter"
+ },
+ {
+  "en": "dance",
+  "word": "danser"
+ },
+ {
+  "en": "cook",
+  "word": "cuisiner"
+ },
+ {
+  "en": "wash",
+  "word": "laver"
+ },
+ {
+  "en": "break",
+  "word": "casser"
+ },
+ {
+  "en": "build",
+  "word": "construire"
+ },
+ {
+  "en": "cut",
+  "word": "couper"
+ },
+ {
+  "en": "push",
+  "word": "pousser"
+ },
+ {
+  "en": "pull",
+  "word": "tirer"
+ },
+ {
+  "en": "throw",
+  "word": "lancer"
+ },
+ {
+  "en": "catch",
+  "word": "attraper"
+ },
+ {
+  "en": "hold",
+  "word": "tenir"
+ },
+ {
+  "en": "touch",
+  "word": "toucher"
+ },
+ {
+  "en": "smell",
+  "word": "sentir"
+ },
+ {
+  "en": "taste",
+  "word": "goûter"
+ },
+ {
+  "en": "time",
+  "word": "temps"
+ },
+ {
+  "en": "day",
+  "word": "jour"
+ },
+ {
+  "en": "night",
+  "word": "nuit"
+ },
+ {
+  "en": "morning",
+  "word": "matin"
+ },
+ {
+  "en": "evening",
+  "word": "soir"
+ },
+ {
+  "en": "week",
+  "word": "semaine"
+ },
+ {
+  "en": "month",
+  "word": "mois"
+ },
+ {
+  "en": "year",
+  "word": "année"
+ },
+ {
+  "en": "hour",
+  "word": "heure"
+ },
+ {
+  "en": "minute",
+  "word": "minute"
+ },
+ {
+  "en": "today",
+  "word": "aujourd'hui"
+ },
+ {
+  "en": "tomorrow",
+  "word": "demain"
+ },
+ {
+  "en": "yesterday",
+  "word": "hier"
+ },
+ {
+  "en": "now",
+  "word": "maintenant"
+ },
+ {
+  "en": "soon",
+  "word": "bientôt"
+ },
+ {
+  "en": "spring",
+  "word": "printemps"
+ },
+ {
+  "en": "summer",
+  "word": "été"
+ },
+ {
+  "en": "autumn",
+  "word": "automne"
+ },
+ {
+  "en": "winter",
+  "word": "hiver"
+ },
+ {
+  "en": "north",
+  "word": "nord"
+ },
+ {
+  "en": "south",
+  "word": "sud"
+ },
+ {
+  "en": "east",
+  "word": "est"
+ },
+ {
+  "en": "west",
+  "word": "ouest"
+ },
+ {
+  "en": "left",
+  "word": "gauche"
+ },
+ {
+  "en": "right",
+  "word": "droite"
+ },
+ {
+  "en": "up",
+  "word": "dessus"
+ },
+ {
+  "en": "down",
+  "word": "dessous"
+ },
+ {
+  "en": "inside",
+  "word": "dedans"
+ },
+ {
+  "en": "outside",
+  "word": "dehors"
+ },
+ {
+  "en": "near",
+  "word": "près"
+ },
+ {
+  "en": "far",
+  "word": "loin"
+ },
+ {
+  "en": "name",
+  "word": "nom"
+ },
+ {
+  "en": "word",
+  "word": "mot"
+ },
+ {
+  "en": "language",
+  "word": "langue"
+ },
+ {
+  "en": "question",
+  "word": "question"
+ },
+ {
+  "en": "answer",
+  "word": "réponse"
+ },
+ {
+  "en": "problem",
+  "word": "problème"
+ },
+ {
+  "en": "idea",
+  "word": "idée"
+ },
+ {
+  "en": "dream",
+  "word": "rêve"
+ },
+ {
+  "en": "story",
+  "word": "histoire"
+ },
+ {
+  "en": "music",
+  "word": "musique"
+ },
+ {
+  "en": "picture",
+  "word": "image"
+ },
+ {
+  "en": "number",
+  "word": "nombre"
+ },
+ {
+  "en": "country",
+  "word": "pays"
+ },
+ {
+  "en": "world",
+  "word": "monde"
+ },
+ {
+  "en": "war",
+  "word": "guerre"
+ },
+ {
+  "en": "peace",
+  "word": "paix"
+ },
+ {
+  "en": "king",
+  "word": "roi"
+ },
+ {
+  "en": "queen",
+  "word": "reine"
+ },
+ {
+  "en": "teacher",
+  "word": "professeur"
+ },
+ {
+  "en": "student",
+  "word": "étudiant"
+ },
+ {
+  "en": "doctor",
+  "word": "médecin"
+ },
+ {
+  "en": "police",
+  "word": "police"
+ },
+ {
+  "en": "money",
+  "word": "argent"
+ },
+ {
+  "en": "job",
+  "word": "travail"
+ }
+]

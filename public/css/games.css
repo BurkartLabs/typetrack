@@ -1,0 +1,25 @@
+/* games hub and game host */
+.games-head { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+.games-title { font-size: 1.4rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--text); }
+.games-sub { color: var(--sub); font-size: .8rem; text-transform: uppercase; letter-spacing: .1em; }
+.games-filter { margin: 0 0 28px; }
+.game-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+.game-card {
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 16px 18px 14px;
+  background: var(--sub-alt);
+  border: 1px solid var(--edge);
+  border-left: 3px solid var(--main);
+  border-radius: 2px;
+  color: var(--sub);
+  text-decoration: none;
+  transition: border-color .12s, transform .12s;
+}
+.game-card[hidden] { display: none; }
+.game-card:hover { border-color: var(--main); transform: translateY(-2px); }
+.game-card:hover .game-name { color: var(--caret); }
+.game-name { color: var(--text); font-weight: 700; text-transform: uppercase; letter-spacing: .1em; font-size: .95rem; transition: color .12s; }
+.game-desc { font-size: .85rem; line-height: 1.45; flex: 1; }
+.game-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.game-tags .chip { font-size: .7rem; padding: 1px 7px; text-transform: uppercase; letter-spacing: .08em; color: var(--sub); }
+.game-host .back-link { display: inline-block; margin-bottom: 20px; }

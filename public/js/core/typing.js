@@ -1,0 +1,382 @@
+// The reusable typing surface (Test, Train, text-based games). Renders words + caret; every rule lives
+// in window.Engine (which keeps the keystroke log, accents and noBackspace). Engine.stateAt is
+// feature-detected for the ghost caret.
+//
+// createTyping(el, {
+//   words?: string[]        pool for time/words mode (random picks; in order with ordered: true)
+//   text?: string           mode 'text': type this exact text, in order (quotes, code, books)
+//   mode: 'time'|'words'|'text', duration, wordCount,
+//   noBackspace, lookAhead (show only the next N words), blind (no correctness shown until the end),
+//   mirror (each word rendered reversed), accents ('lenient'|'strict'), paceWpm (faint pace caret),
+//   ghost: {words, log} (a second caret replaying a run; the test uses the ghost's words),
+//   ordered, lang, seed, keys (false = don't take the keyboard, call handleKey yourself),
+//   code (mode 'text': keep the text's line breaks and indentation; Enter types the newline, Tab does
+//   not restart), dir ('ltr'|'rtl'), liveWpm (false hides the live wpm readout; settings.hideLiveWpm too),
+//   onStart(), onProgress(state), onFinish(result), onRestart()
+// }) -> { restart(opts?), destroy(), handleKey(e), test }
+// Every keystroke emits bus 'key' {ok, key} (key sounds).
+import keys from "./keys.js";
+import settings from "./settings.js";
+import { emit } from "./bus.js";
+import { FALLBACK, splitCode } from "./words.js";
+
+const CARET_TOP = { underline: 0.82, line: 0.2, block: 0.2 };
+
+export function splitText(text) {
+  return String(text || "").trim().split(/\s+/).filter(Boolean);
+}
+
+// Where a caret moving at `wpm` is after `ms`: {index, typed} counting word.length + 1 per word.
+export function paceAt(words, wpm, ms) {
+  let chars = Math.max(0, (wpm * 5 * ms) / 60000);
+  for (let i = 0; i < words.length; i++) {
+    const len = words[i].length + 1;
+    if (chars < len) return { index: i, typed: Math.min(Math.floor(chars), words[i].length) };
+    chars -= len;
+  }
+  const last = words.length - 1;
+  return { index: Math.max(0, last), typed: last >= 0 ? words[last].length : 0 };
+}
+
+export function createTyping(el, options = {}) {
+  const E = window.Engine;
+  let o = Object.assign({ mode: "time", duration: 30, wordCount: 50 }, options);
+  let test = null, log = [], finished = false, started = false;
+  let timer = null, shift = 0, layout = null, wordEls = [], lastLive = 0;
+
+  el.classList.add("typing");
+  el.innerHTML =
+    '<div class="counter"><span class="count"></span><span class="live-wpm"></span></div>' +
+    '<div class="words-window"><div class="words"></div>' +
+    '<div class="caret pace-caret" hidden></div><div class="caret ghost-caret" hidden></div>' +
+    '<div class="caret main-caret"></div></div>';
+  const counterEl = el.querySelector(".counter");
+  const countEl = el.querySelector(".count");
+  const liveEl = el.querySelector(".live-wpm");
+  const wordsEl = el.querySelector(".words");
+  const caretEl = el.querySelector(".main-caret");
+  const paceEl = el.querySelector(".pace-caret");
+  const ghostEl = el.querySelector(".ghost-caret");
+
+  const removeKeys = o.keys === false ? () => {} : keys.set(handleKey);
+  const onResize = () => { if (test) placeCarets(); };
+  window.addEventListener("resize", onResize);
+
+  // ── lifecycle ─────────────────────────────────────────────────────────
+  function build() {
+    stopTimers();
+    finished = false; started = false; log = []; shift = 0;
+    const mode = o.mode === "text" || o.mode === "words" ? o.mode : "time";
+    const ghostWords = o.ghost && Array.isArray(o.ghost.words) && o.ghost.words.length ? o.ghost.words : null;
+    let words = ghostWords || (o.words && o.words.length ? o.words : null);
+    let text = mode === "text" && !ghostWords ? o.text : undefined;
+    layout = null;
+    if (mode === "text" && o.code && text != null) {
+      const c = splitCode(text);
+      if (c.words.length) { layout = c; words = c.words; text = undefined; }
+    }
+    if (mode === "text" && !splitText(text).length && !words) text = FALLBACK[0]; // engine throws on empty text
+    if (!words) words = FALLBACK;
+    const ordered = mode === "text" || !!ghostWords || !!o.ordered;
+    test = E.createTest({
+      mode, duration: o.duration, words, text, ordered, seed: o.seed,
+      wordCount: ghostWords && mode === "words" ? ghostWords.length : o.wordCount,
+      noBackspace: !!o.noBackspace, accents: o.accents || settings.get("accents"),
+      lang: o.lang || settings.get("lang"),
+    });
+    el.classList.toggle("blind", !!o.blind);
+    el.classList.toggle("mirror", !!o.mirror);
+    const caretStyle = CARET_TOP[settings.get("caret")] ? settings.get("caret") : "underline";
+    el.dataset.caret = caretStyle;
+    el.style.maxWidth = (o.width || settings.get("width") || 1000) + "px";
+    el.dir = o.dir === "rtl" ? "rtl" : "ltr";
+    el.classList.toggle("rtl", o.dir === "rtl");
+    el.classList.toggle("code", !!layout);
+    countEl.hidden = !!(o.hideCounter || settings.get("hideTimer"));
+    liveEl.hidden = o.liveWpm === false || !!settings.get("hideLiveWpm");
+    counterEl.hidden = countEl.hidden && liveEl.hidden;
+    liveEl.textContent = ""; lastLive = 0;
+    liveEl.style.marginInlineStart = "1em";
+    document.body.classList.remove("typing-active");
+    renderWords();
+    updateCounter();
+    placeCarets();
+    timer = setInterval(onTick, 100);
+  }
+
+  function restart(newOpts) {
+    if (newOpts) o = Object.assign({}, o, newOpts);
+    build();
+  }
+
+  function destroy() {
+    stopTimers();
+    removeKeys();
+    window.removeEventListener("resize", onResize);
+    document.body.classList.remove("typing-active");
+    el.replaceChildren();
+    el.classList.remove("blind", "mirror", "rtl", "code");
+    test = null;
+  }
+
+  function stopTimers() {
+    clearInterval(timer); timer = null;
+  }
+
+  function onTick() {
+    if (!test || !E.isRunning(test)) return;
+    E.tick(test, Date.now());
+    updateCounter();
+    updateLive();
+    placeSecondaryCarets(); // pace + ghost move on the tick (rAF stalls in background tabs)
+    if (test.finishedAt !== null) finish();
+  }
+
+  function finish() {
+    if (finished) return;
+    finished = true;
+    stopTimers();
+    const r = E.results(test);
+    r.ts = Date.now();
+    if (!Array.isArray(r.words)) r.words = test.words.slice(0, test.index + 1);
+    if (!r.lang) r.lang = o.lang || settings.get("lang");
+    if (!Array.isArray(r.log)) r.log = log;
+    const flags = ["noBackspace", "blind", "mirror", "lookAhead", "paceWpm"].filter((k) => o[k]);
+    if (flags.length) r.flags = Object.fromEntries(flags.map((k) => [k, o[k]]));
+    document.body.classList.remove("typing-active");
+    if (o.blind) { el.classList.remove("blind"); renderWords(); }
+    paceEl.hidden = true; ghostEl.hidden = true;
+    if (o.onFinish) o.onFinish(r);
+  }
+
+  // ── input ─────────────────────────────────────────────────────────────
+  function record(k, now) {
+    if (Array.isArray(test.log)) return; // the engine keeps its own log
+    log.push([test.startedAt === null ? 0 : now - test.startedAt, k]);
+  }
+
+  function handleKey(e) {
+    if (!test || keys.inField(e)) return;
+    if (e.key === "Tab" && layout && !finished) { e.preventDefault(); return; } // code: indentation is automatic, never restart
+    if (e.key === "Tab" || (e.key === "Escape" && !e.repeat)) {
+      e.preventDefault();
+      restart();
+      if (o.onRestart) o.onRestart();
+      return;
+    }
+    if (finished) return;
+    const altGr = e.ctrlKey && e.altKey; // AltGr on Windows arrives as ctrl+alt
+    if ((e.ctrlKey || e.metaKey || e.altKey) && !altGr) return;
+    const now = Date.now();
+    if (e.key === "Backspace") {
+      e.preventDefault();
+      if (o.noBackspace) return;
+      const before = test.index, len = (test.typed[test.index] || "").length;
+      E.backspace(test, now);
+      if (test.index === before && (test.typed[test.index] || "").length === len) return; // nothing to delete
+      record("\b", now);
+      emit("key", { ok: true, key: "\b" });
+      if (test.index !== before) applyLookAhead();
+      renderWord(test.index); renderWord(test.index + 1);
+      placeCarets();
+      return;
+    }
+    const eol = layout && layout.breaks[test.index];
+    if (e.key === " " || (e.key === "Enter" && eol)) {
+      e.preventDefault();
+      if (eol && e.key === " ") return; // code: the end of a line takes Enter
+      const before = test.index, typed = test.typed[test.index] || "";
+      if (!typed.length) return;
+      const ok = typed === test.words[test.index];
+      E.space(test, now);
+      if (test.startedAt !== null) record(" ", now);
+      emit("key", { ok, key: e.key === "Enter" ? "\n" : " " });
+      afterInput(before);
+      return;
+    }
+    if (e.key.length === 1) {
+      e.preventDefault();
+      const n = test.events.length;
+      E.input(test, e.key, now);
+      if (test.events.length === n) return; // capped extras: nothing happened
+      record(e.key, now);
+      emit("key", { ok: !!test.events[n].ok, key: e.key });
+      afterInput(test.index);
+    }
+  }
+
+  function afterInput(prevIndex) {
+    if (!started && test.startedAt !== null) {
+      started = true;
+      if (o.onStart) o.onStart();
+    }
+    document.body.classList.add("typing-active");
+    if (test.words.length !== wordEls.length) appendWords();
+    renderWord(prevIndex);
+    if (prevIndex !== test.index) { renderWord(test.index); applyLookAhead(); }
+    updateCounter();
+    placeCarets();
+    if (o.onProgress) o.onProgress(test);
+    if (test.finishedAt !== null) finish();
+  }
+
+  function updateCounter() {
+    if (!test) return;
+    if (test.mode === "time") {
+      countEl.textContent = test.startedAt === null ? test.duration
+        : Math.max(0, Math.ceil(test.duration - E.elapsedMs(test, Date.now()) / 1000));
+    } else {
+      countEl.textContent = Math.min(test.index, test.words.length) + "/" + test.words.length;
+    }
+  }
+
+  // correct keystrokes (spaces included) / 5 per minute, refreshed twice a second
+  function updateLive() {
+    if (liveEl.hidden || test.startedAt === null) return;
+    const now = Date.now();
+    if (now - lastLive < 500) return;
+    lastLive = now;
+    const ms = E.elapsedMs(test, now);
+    if (ms < 1000) return;
+    liveEl.textContent = Math.round(test.correct / 5 / (ms / 60000));
+  }
+
+  // ── rendering ─────────────────────────────────────────────────────────
+  function renderWords() {
+    const frag = document.createDocumentFragment();
+    wordEls = [];
+    test.words.forEach((_, i) => addWord(frag, i));
+    wordsEl.replaceChildren(frag);
+    wordsEl.style.transform = "translateY(0)";
+    applyLookAhead();
+  }
+
+  function appendWords() {
+    if (test.words.length < wordEls.length) return renderWords();
+    for (let i = wordEls.length; i < test.words.length; i++) addWord(wordsEl, i);
+    applyLookAhead();
+  }
+
+  // word element plus, in code, the line break after it (a full-width flex item, not in wordEls)
+  function addWord(parent, i) {
+    const w = buildWord(i);
+    wordEls[i] = w;
+    parent.appendChild(w);
+    if (layout && layout.breaks[i]) {
+      const nl = document.createElement("div");
+      nl.className = "nl";
+      parent.appendChild(nl);
+    }
+  }
+
+  function buildWord(i) {
+    const word = test.words[i];
+    const typed = test.typed[i] || "";
+    const blind = o.blind && !finished;
+    const w = document.createElement("div");
+    w.className = "word";
+    if (layout) {
+      if (layout.indents[i]) w.style.marginInlineStart = layout.indents[i] + "ch";
+      if (layout.breaks[i]) w.classList.add("eol");
+    }
+    if (!blind && i < test.index && typed !== word) w.classList.add("error");
+    for (let k = 0; k < word.length; k++) {
+      const s = document.createElement("span");
+      s.className = "letter";
+      s.textContent = word[k];
+      if (k < typed.length) s.classList.add(blind ? "typed" : typed[k] === word[k] ? "ok" : "bad");
+      w.appendChild(s);
+    }
+    for (let k = word.length; k < typed.length; k++) {
+      const s = document.createElement("span");
+      s.className = blind ? "letter typed" : "letter extra";
+      s.textContent = typed[k];
+      w.appendChild(s);
+    }
+    return w;
+  }
+
+  function renderWord(i) {
+    if (i < 0 || i >= test.words.length) return;
+    const old = wordEls[i];
+    if (old) {
+      const fresh = buildWord(i);
+      if (old.classList.contains("ahead")) fresh.classList.add("ahead");
+      wordsEl.replaceChild(fresh, old);
+      wordEls[i] = fresh;
+    }
+  }
+
+  function applyLookAhead() {
+    const n = Number(o.lookAhead) || 0;
+    const kids = wordEls;
+    for (let i = 0; i < kids.length; i++) kids[i].classList.toggle("ahead", n > 0 && i > test.index + n);
+  }
+
+  // {left, top, h} of the caret for word `index` with `typedLen` characters typed
+  function pos(index, typedLen) {
+    const w = wordEls[index];
+    if (!w || !w.children.length) return null;
+    const letters = w.children, h = w.offsetHeight;
+    const rtl = o.dir === "rtl";
+    // right-to-left: the caret sits at the right edge of the next letter (after the last: its left edge)
+    const cw = rtl ? caretEl.offsetWidth : 0;
+    if (typedLen < letters.length) {
+      const l = letters[typedLen];
+      return { left: rtl ? l.offsetLeft + l.offsetWidth - cw : l.offsetLeft, top: l.offsetTop, h };
+    }
+    const l = letters[letters.length - 1];
+    const left = rtl ? l.offsetLeft - cw : o.mirror ? l.offsetLeft - l.offsetWidth : l.offsetLeft + l.offsetWidth;
+    return { left, top: l.offsetTop, h };
+  }
+
+  function put(caret, p) {
+    const f = CARET_TOP[el.dataset.caret] || CARET_TOP.underline;
+    caret.style.left = p.left + "px";
+    caret.style.top = p.top - shift + p.h * f + "px";
+  }
+
+  function placeCarets() {
+    const p = pos(test.index, (test.typed[test.index] || "").length);
+    if (!p) return;
+    // scroll so the current line is the middle one once we're past the first line
+    shift = Math.max(0, Math.round(p.top / p.h) - 1) * p.h;
+    wordsEl.style.transform = `translateY(${-shift}px)`;
+    put(caretEl, p);
+    placeSecondaryCarets();
+  }
+
+  function placeSecondary(caret, st) {
+    const p = st && pos(st.index, st.typed);
+    const visible = p && p.top - shift >= 0 && p.top - shift < p.h * 3;
+    caret.hidden = !visible;
+    if (visible) put(caret, p);
+  }
+
+  function placeSecondaryCarets() {
+    if (!test) return;
+    const ms = test.startedAt === null ? 0 : E.elapsedMs(test, Date.now());
+    if (o.paceWpm && started) placeSecondary(paceEl, paceAt(test.words, Number(o.paceWpm), ms));
+    else paceEl.hidden = true;
+    if (o.ghost && started && typeof E.stateAt === "function" && Array.isArray(o.ghost.log)) {
+      let st = null;
+      try { st = E.stateAt(o.ghost.words, o.ghost.log, ms, { accents: o.ghost.accents, noBackspace: o.ghost.noBackspace }); } catch { st = null; }
+      if (st) {
+        const t = st.typed;
+        const typedLen = typeof t === "string" ? t.length : Array.isArray(t) ? (t[st.index] || "").length : 0;
+        placeSecondary(ghostEl, { index: st.index, typed: typedLen });
+      } else ghostEl.hidden = true;
+    } else ghostEl.hidden = true;
+  }
+
+  build();
+  return {
+    restart,
+    destroy,
+    handleKey,
+    get test() { return test; },
+    get finished() { return finished; },
+  };
+}
+
+export default createTyping;

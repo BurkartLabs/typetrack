@@ -1,0 +1,1602 @@
+[
+{
+"en": "the",
+"word": "ال"
+},
+{
+"en": "and",
+"word": "و"
+},
+{
+"en": "in",
+"word": "في"
+},
+{
+"en": "of",
+"word": "من"
+},
+{
+"en": "to",
+"word": "إلى"
+},
+{
+"en": "on",
+"word": "على"
+},
+{
+"en": "i",
+"word": "أنا"
+},
+{
+"en": "you",
+"word": "أنت"
+},
+{
+"en": "he",
+"word": "هو"
+},
+{
+"en": "she",
+"word": "هي"
+},
+{
+"en": "we",
+"word": "نحن"
+},
+{
+"en": "they",
+"word": "هم"
+},
+{
+"en": "this",
+"word": "هذا"
+},
+{
+"en": "that",
+"word": "ذلك"
+},
+{
+"en": "what",
+"word": "ماذا"
+},
+{
+"en": "where",
+"word": "أين"
+},
+{
+"en": "when",
+"word": "متى"
+},
+{
+"en": "why",
+"word": "لماذا"
+},
+{
+"en": "how",
+"word": "كيف"
+},
+{
+"en": "yes",
+"word": "نعم"
+},
+{
+"en": "no",
+"word": "لا"
+},
+{
+"en": "all",
+"word": "كل"
+},
+{
+"en": "one",
+"word": "واحد"
+},
+{
+"en": "two",
+"word": "اثنان"
+},
+{
+"en": "three",
+"word": "ثلاثة"
+},
+{
+"en": "four",
+"word": "أربعة"
+},
+{
+"en": "five",
+"word": "خمسة"
+},
+{
+"en": "six",
+"word": "ستة"
+},
+{
+"en": "seven",
+"word": "سبعة"
+},
+{
+"en": "eight",
+"word": "ثمانية"
+},
+{
+"en": "nine",
+"word": "تسعة"
+},
+{
+"en": "ten",
+"word": "عشرة"
+},
+{
+"en": "hundred",
+"word": "مئة"
+},
+{
+"en": "thousand",
+"word": "ألف"
+},
+{
+"en": "first",
+"word": "أول"
+},
+{
+"en": "last",
+"word": "أخير"
+},
+{
+"en": "man",
+"word": "رجل"
+},
+{
+"en": "woman",
+"word": "امرأة"
+},
+{
+"en": "child",
+"word": "طفل"
+},
+{
+"en": "father",
+"word": "أب"
+},
+{
+"en": "mother",
+"word": "أم"
+},
+{
+"en": "son",
+"word": "ابن"
+},
+{
+"en": "daughter",
+"word": "ابنة"
+},
+{
+"en": "brother",
+"word": "أخ"
+},
+{
+"en": "sister",
+"word": "أخت"
+},
+{
+"en": "friend",
+"word": "صديق"
+},
+{
+"en": "house",
+"word": "بيت"
+},
+{
+"en": "street",
+"word": "شارع"
+},
+{
+"en": "city",
+"word": "مدينة"
+},
+{
+"en": "country",
+"word": "بلد"
+},
+{
+"en": "world",
+"word": "عالم"
+},
+{
+"en": "life",
+"word": "حياة"
+},
+{
+"en": "time",
+"word": "وقت"
+},
+{
+"en": "day",
+"word": "يوم"
+},
+{
+"en": "night",
+"word": "ليلة"
+},
+{
+"en": "hour",
+"word": "ساعة"
+},
+{
+"en": "water",
+"word": "ماء"
+},
+{
+"en": "fire",
+"word": "نار"
+},
+{
+"en": "earth",
+"word": "أرض"
+},
+{
+"en": "sky",
+"word": "سماء"
+},
+{
+"en": "sun",
+"word": "شمس"
+},
+{
+"en": "moon",
+"word": "قمر"
+},
+{
+"en": "star",
+"word": "نجمة"
+},
+{
+"en": "sea",
+"word": "بحر"
+},
+{
+"en": "mountain",
+"word": "جبل"
+},
+{
+"en": "tree",
+"word": "شجرة"
+},
+{
+"en": "flower",
+"word": "زهرة"
+},
+{
+"en": "animal",
+"word": "حيوان"
+},
+{
+"en": "dog",
+"word": "كلب"
+},
+{
+"en": "cat",
+"word": "قطة"
+},
+{
+"en": "bird",
+"word": "طائر"
+},
+{
+"en": "fish",
+"word": "سمك"
+},
+{
+"en": "food",
+"word": "طعام"
+},
+{
+"en": "bread",
+"word": "خبز"
+},
+{
+"en": "meat",
+"word": "لحم"
+},
+{
+"en": "milk",
+"word": "حليب"
+},
+{
+"en": "egg",
+"word": "بيض"
+},
+{
+"en": "fruit",
+"word": "فاكهة"
+},
+{
+"en": "vegetable",
+"word": "خضار"
+},
+{
+"en": "table",
+"word": "طاولة"
+},
+{
+"en": "chair",
+"word": "كرسي"
+},
+{
+"en": "door",
+"word": "باب"
+},
+{
+"en": "window",
+"word": "نافذة"
+},
+{
+"en": "room",
+"word": "غرفة"
+},
+{
+"en": "bed",
+"word": "سرير"
+},
+{
+"en": "book",
+"word": "كتاب"
+},
+{
+"en": "paper",
+"word": "ورقة"
+},
+{
+"en": "pen",
+"word": "قلم"
+},
+{
+"en": "phone",
+"word": "هاتف"
+},
+{
+"en": "car",
+"word": "سيارة"
+},
+{
+"en": "war",
+"word": "حرب"
+},
+{
+"en": "peace",
+"word": "سلام"
+},
+{
+"en": "love",
+"word": "حب"
+},
+{
+"en": "joy",
+"word": "فرح"
+},
+{
+"en": "sadness",
+"word": "حزن"
+},
+{
+"en": "anger",
+"word": "غضب"
+},
+{
+"en": "fear",
+"word": "خوف"
+},
+{
+"en": "hope",
+"word": "أمل"
+},
+{
+"en": "dream",
+"word": "حلم"
+},
+{
+"en": "idea",
+"word": "فكرة"
+},
+{
+"en": "problem",
+"word": "مشكلة"
+},
+{
+"en": "solution",
+"word": "حل"
+},
+{
+"en": "question",
+"word": "سؤال"
+},
+{
+"en": "answer",
+"word": "جواب"
+},
+{
+"en": "work",
+"word": "عمل"
+},
+{
+"en": "school",
+"word": "مدرسة"
+},
+{
+"en": "teacher",
+"word": "معلم"
+},
+{
+"en": "student",
+"word": "طالب"
+},
+{
+"en": "language",
+"word": "لغة"
+},
+{
+"en": "word",
+"word": "كلمة"
+},
+{
+"en": "music",
+"word": "موسيقى"
+},
+{
+"en": "song",
+"word": "أغنية"
+},
+{
+"en": "dance",
+"word": "رقص"
+},
+{
+"en": "game",
+"word": "لعبة"
+},
+{
+"en": "money",
+"word": "مال"
+},
+{
+"en": "law",
+"word": "قانون"
+},
+{
+"en": "freedom",
+"word": "حرية"
+},
+{
+"en": "power",
+"word": "قوة"
+},
+{
+"en": "god",
+"word": "إله"
+},
+{
+"en": "soul",
+"word": "روح"
+},
+{
+"en": "body",
+"word": "جسد"
+},
+{
+"en": "head",
+"word": "رأس"
+},
+{
+"en": "eye",
+"word": "عين"
+},
+{
+"en": "ear",
+"word": "أذن"
+},
+{
+"en": "nose",
+"word": "أنف"
+},
+{
+"en": "mouth",
+"word": "فم"
+},
+{
+"en": "hand",
+"word": "يد"
+},
+{
+"en": "heart",
+"word": "قلب"
+},
+{
+"en": "blood",
+"word": "دم"
+},
+{
+"en": "bone",
+"word": "عظم"
+},
+{
+"en": "skin",
+"word": "جلد"
+},
+{
+"en": "tooth",
+"word": "سن"
+},
+{
+"en": "morning",
+"word": "صباح"
+},
+{
+"en": "noon",
+"word": "ظهر"
+},
+{
+"en": "evening",
+"word": "مساء"
+},
+{
+"en": "week",
+"word": "أسبوع"
+},
+{
+"en": "month",
+"word": "شهر"
+},
+{
+"en": "year",
+"word": "سنة"
+},
+{
+"en": "spring",
+"word": "ربيع"
+},
+{
+"en": "summer",
+"word": "صيف"
+},
+{
+"en": "autumn",
+"word": "خريف"
+},
+{
+"en": "winter",
+"word": "شتاء"
+},
+{
+"en": "rain",
+"word": "مطر"
+},
+{
+"en": "snow",
+"word": "ثلج"
+},
+{
+"en": "wind",
+"word": "ريح"
+},
+{
+"en": "cold",
+"word": "برد"
+},
+{
+"en": "heat",
+"word": "حر"
+},
+{
+"en": "cloud",
+"word": "غيم"
+},
+{
+"en": "forest",
+"word": "غابة"
+},
+{
+"en": "field",
+"word": "حقل"
+},
+{
+"en": "lake",
+"word": "بحيرة"
+},
+{
+"en": "river",
+"word": "نهر"
+},
+{
+"en": "island",
+"word": "جزيرة"
+},
+{
+"en": "coast",
+"word": "ساحل"
+},
+{
+"en": "sand",
+"word": "رمل"
+},
+{
+"en": "stone",
+"word": "حجر"
+},
+{
+"en": "rock",
+"word": "صخر"
+},
+{
+"en": "soil",
+"word": "تراب"
+},
+{
+"en": "wood",
+"word": "خشب"
+},
+{
+"en": "glass",
+"word": "زجاج"
+},
+{
+"en": "gold",
+"word": "ذهب"
+},
+{
+"en": "silver",
+"word": "فضة"
+},
+{
+"en": "iron",
+"word": "حديد"
+},
+{
+"en": "bridge",
+"word": "جسر"
+},
+{
+"en": "building",
+"word": "مبنى"
+},
+{
+"en": "church",
+"word": "كنيسة"
+},
+{
+"en": "museum",
+"word": "متحف"
+},
+{
+"en": "library",
+"word": "مكتبة"
+},
+{
+"en": "hospital",
+"word": "مستشفى"
+},
+{
+"en": "market",
+"word": "سوق"
+},
+{
+"en": "shop",
+"word": "محل"
+},
+{
+"en": "restaurant",
+"word": "مطعم"
+},
+{
+"en": "hotel",
+"word": "فندق"
+},
+{
+"en": "station",
+"word": "محطة"
+},
+{
+"en": "airport",
+"word": "مطار"
+},
+{
+"en": "port",
+"word": "ميناء"
+},
+{
+"en": "factory",
+"word": "مصنع"
+},
+{
+"en": "office",
+"word": "مكتب"
+},
+{
+"en": "bank",
+"word": "بنك"
+},
+{
+"en": "police",
+"word": "شرطة"
+},
+{
+"en": "court",
+"word": "محكمة"
+},
+{
+"en": "prison",
+"word": "سجن"
+},
+{
+"en": "army",
+"word": "جيش"
+},
+{
+"en": "university",
+"word": "جامعة"
+},
+{
+"en": "class",
+"word": "صف"
+},
+{
+"en": "lesson",
+"word": "درس"
+},
+{
+"en": "exam",
+"word": "امتحان"
+},
+{
+"en": "grade",
+"word": "درجة"
+},
+{
+"en": "science",
+"word": "علم"
+},
+{
+"en": "art",
+"word": "فن"
+},
+{
+"en": "history",
+"word": "تاريخ"
+},
+{
+"en": "society",
+"word": "مجتمع"
+},
+{
+"en": "culture",
+"word": "ثقافة"
+},
+{
+"en": "tradition",
+"word": "تقليد"
+},
+{
+"en": "wedding",
+"word": "زواج"
+},
+{
+"en": "birth",
+"word": "ولادة"
+},
+{
+"en": "death",
+"word": "موت"
+},
+{
+"en": "illness",
+"word": "مرض"
+},
+{
+"en": "health",
+"word": "صحة"
+},
+{
+"en": "weight",
+"word": "وزن"
+},
+{
+"en": "shape",
+"word": "شكل"
+},
+{
+"en": "color",
+"word": "لون"
+},
+{
+"en": "red",
+"word": "أحمر"
+},
+{
+"en": "blue",
+"word": "أزرق"
+},
+{
+"en": "green",
+"word": "أخضر"
+},
+{
+"en": "yellow",
+"word": "أصفر"
+},
+{
+"en": "black",
+"word": "أسود"
+},
+{
+"en": "white",
+"word": "أبيض"
+},
+{
+"en": "gray",
+"word": "رمادي"
+},
+{
+"en": "brown",
+"word": "بني"
+},
+{
+"en": "pink",
+"word": "وردي"
+},
+{
+"en": "purple",
+"word": "بنفسجي"
+},
+{
+"en": "orange",
+"word": "برتقالي"
+},
+{
+"en": "big",
+"word": "كبير"
+},
+{
+"en": "small",
+"word": "صغير"
+},
+{
+"en": "good",
+"word": "جيد"
+},
+{
+"en": "bad",
+"word": "سيء"
+},
+{
+"en": "beautiful",
+"word": "جميل"
+},
+{
+"en": "ugly",
+"word": "قبيح"
+},
+{
+"en": "new",
+"word": "جديد"
+},
+{
+"en": "old",
+"word": "قديم"
+},
+{
+"en": "fast",
+"word": "سريع"
+},
+{
+"en": "slow",
+"word": "بطيء"
+},
+{
+"en": "strong",
+"word": "قوي"
+},
+{
+"en": "weak",
+"word": "ضعيف"
+},
+{
+"en": "easy",
+"word": "سهل"
+},
+{
+"en": "difficult",
+"word": "صعب"
+},
+{
+"en": "poor",
+"word": "فقير"
+},
+{
+"en": "rich",
+"word": "غني"
+},
+{
+"en": "tall",
+"word": "طويل"
+},
+{
+"en": "short",
+"word": "قصير"
+},
+{
+"en": "hot",
+"word": "حار"
+},
+{
+"en": "clean",
+"word": "نظيف"
+},
+{
+"en": "dirty",
+"word": "قذر"
+},
+{
+"en": "open",
+"word": "مفتوح"
+},
+{
+"en": "closed",
+"word": "مغلق"
+},
+{
+"en": "full",
+"word": "ممتلئ"
+},
+{
+"en": "empty",
+"word": "فارغ"
+},
+{
+"en": "bright",
+"word": "مضيء"
+},
+{
+"en": "dark",
+"word": "مظلم"
+},
+{
+"en": "right",
+"word": "صحيح"
+},
+{
+"en": "wrong",
+"word": "خاطئ"
+},
+{
+"en": "true",
+"word": "حقيقي"
+},
+{
+"en": "false",
+"word": "كاذب"
+},
+{
+"en": "smart",
+"word": "ذكي"
+},
+{
+"en": "happy",
+"word": "سعيد"
+},
+{
+"en": "sad",
+"word": "حزين"
+},
+{
+"en": "angry",
+"word": "غاضب"
+},
+{
+"en": "quiet",
+"word": "هادئ"
+},
+{
+"en": "brave",
+"word": "شجاع"
+},
+{
+"en": "honest",
+"word": "صادق"
+},
+{
+"en": "serious",
+"word": "جاد"
+},
+{
+"en": "funny",
+"word": "مضحك"
+},
+{
+"en": "simple",
+"word": "بسيط"
+},
+{
+"en": "healthy",
+"word": "صحي"
+},
+{
+"en": "sick",
+"word": "مريض"
+},
+{
+"en": "sweet",
+"word": "حلو"
+},
+{
+"en": "sour",
+"word": "حامض"
+},
+{
+"en": "fresh",
+"word": "طازج"
+},
+{
+"en": "heavy",
+"word": "ثقيل"
+},
+{
+"en": "light",
+"word": "خفيف"
+},
+{
+"en": "wide",
+"word": "عريض"
+},
+{
+"en": "narrow",
+"word": "ضيق"
+},
+{
+"en": "deep",
+"word": "عميق"
+},
+{
+"en": "round",
+"word": "مستدير"
+},
+{
+"en": "dangerous",
+"word": "خطير"
+},
+{
+"en": "safe",
+"word": "آمن"
+},
+{
+"en": "same",
+"word": "نفسه"
+},
+{
+"en": "different",
+"word": "مختلف"
+},
+{
+"en": "rare",
+"word": "نادر"
+},
+{
+"en": "common",
+"word": "شائع"
+},
+{
+"en": "to be",
+"word": "كان"
+},
+{
+"en": "to become",
+"word": "أصبح"
+},
+{
+"en": "to come",
+"word": "جاء"
+},
+{
+"en": "to exit",
+"word": "خرج"
+},
+{
+"en": "to enter",
+"word": "دخل"
+},
+{
+"en": "to stand",
+"word": "وقف"
+},
+{
+"en": "to sit",
+"word": "جلس"
+},
+{
+"en": "to sleep",
+"word": "نام"
+},
+{
+"en": "to wake",
+"word": "استيقظ"
+},
+{
+"en": "to eat",
+"word": "أكل"
+},
+{
+"en": "to drink",
+"word": "شرب"
+},
+{
+"en": "to say",
+"word": "قال"
+},
+{
+"en": "to speak",
+"word": "تكلم"
+},
+{
+"en": "to hear",
+"word": "سمع"
+},
+{
+"en": "to see",
+"word": "رأى"
+},
+{
+"en": "to look",
+"word": "نظر"
+},
+{
+"en": "to watch",
+"word": "شاهد"
+},
+{
+"en": "to know",
+"word": "عرف"
+},
+{
+"en": "to understand",
+"word": "فهم"
+},
+{
+"en": "to think",
+"word": "اعتقد"
+},
+{
+"en": "to want",
+"word": "أراد"
+},
+{
+"en": "to love",
+"word": "أحب"
+},
+{
+"en": "to hate",
+"word": "كره"
+},
+{
+"en": "to fear",
+"word": "خاف"
+},
+{
+"en": "to hope",
+"word": "رجا"
+},
+{
+"en": "to wish",
+"word": "تمنى"
+},
+{
+"en": "to remember",
+"word": "تذكر"
+},
+{
+"en": "to forget",
+"word": "نسي"
+},
+{
+"en": "to write",
+"word": "كتب"
+},
+{
+"en": "to read",
+"word": "قرأ"
+},
+{
+"en": "to learn",
+"word": "تعلم"
+},
+{
+"en": "to pay",
+"word": "دفع"
+},
+{
+"en": "to buy",
+"word": "اشترى"
+},
+{
+"en": "to sell",
+"word": "باع"
+},
+{
+"en": "to need",
+"word": "احتاج"
+},
+{
+"en": "to try",
+"word": "حاول"
+},
+{
+"en": "to succeed",
+"word": "نجح"
+},
+{
+"en": "to fail",
+"word": "فشل"
+},
+{
+"en": "to build",
+"word": "بنى"
+},
+{
+"en": "to make",
+"word": "صنع"
+},
+{
+"en": "to break",
+"word": "كسر"
+},
+{
+"en": "to gather",
+"word": "جمع"
+},
+{
+"en": "to separate",
+"word": "فرق"
+},
+{
+"en": "to change",
+"word": "غير"
+},
+{
+"en": "to continue",
+"word": "استمر"
+},
+{
+"en": "to stop",
+"word": "توقف"
+},
+{
+"en": "to begin",
+"word": "بدأ"
+},
+{
+"en": "to finish",
+"word": "انتهى"
+},
+{
+"en": "to wait",
+"word": "انتظر"
+},
+{
+"en": "to arrive",
+"word": "وصل"
+},
+{
+"en": "to return",
+"word": "عاد"
+},
+{
+"en": "to travel",
+"word": "سافر"
+},
+{
+"en": "to drive",
+"word": "قاد"
+},
+{
+"en": "to fly",
+"word": "طار"
+},
+{
+"en": "to swim",
+"word": "سبح"
+},
+{
+"en": "to run",
+"word": "جرى"
+},
+{
+"en": "to walk",
+"word": "مشى"
+},
+{
+"en": "to jump",
+"word": "قفز"
+},
+{
+"en": "to hide",
+"word": "اختبأ"
+},
+{
+"en": "to show",
+"word": "أظهر"
+},
+{
+"en": "to search",
+"word": "بحث"
+},
+{
+"en": "to choose",
+"word": "اختار"
+},
+{
+"en": "to decide",
+"word": "قرر"
+},
+{
+"en": "to explain",
+"word": "شرح"
+},
+{
+"en": "to describe",
+"word": "وصف"
+},
+{
+"en": "to imagine",
+"word": "تخيل"
+},
+{
+"en": "to visit",
+"word": "زار"
+},
+{
+"en": "to meet",
+"word": "قابل"
+},
+{
+"en": "to invite",
+"word": "دعا"
+},
+{
+"en": "to win",
+"word": "ربح"
+},
+{
+"en": "to lose",
+"word": "خسر"
+},
+{
+"en": "to fight",
+"word": "قاتل"
+},
+{
+"en": "to defend",
+"word": "دافع"
+},
+{
+"en": "to attack",
+"word": "هاجم"
+},
+{
+"en": "to judge",
+"word": "حكم"
+},
+{
+"en": "to vote",
+"word": "صوت"
+},
+{
+"en": "to organize",
+"word": "نظم"
+},
+{
+"en": "to plan",
+"word": "خطط"
+},
+{
+"en": "to create",
+"word": "أنشأ"
+},
+{
+"en": "to destroy",
+"word": "دمر"
+},
+{
+"en": "to fix",
+"word": "أصلح"
+},
+{
+"en": "to clean",
+"word": "نظف"
+},
+{
+"en": "to cook",
+"word": "طبخ"
+},
+{
+"en": "to cut",
+"word": "قطع"
+},
+{
+"en": "to draw",
+"word": "رسم"
+},
+{
+"en": "to pull",
+"word": "سحب"
+},
+{
+"en": "to fill",
+"word": "ملأ"
+},
+{
+"en": "to open",
+"word": "فتح"
+},
+{
+"en": "to close",
+"word": "أغلق"
+},
+{
+"en": "to carry",
+"word": "حمل"
+},
+{
+"en": "to lift",
+"word": "رفع"
+},
+{
+"en": "to put",
+"word": "وضع"
+},
+{
+"en": "to take",
+"word": "أخذ"
+},
+{
+"en": "to give",
+"word": "أعطى"
+},
+{
+"en": "to send",
+"word": "أرسل"
+},
+{
+"en": "to receive",
+"word": "استقبل"
+},
+{
+"en": "to ask",
+"word": "طلب"
+},
+{
+"en": "to answer",
+"word": "أجاب"
+},
+{
+"en": "to help",
+"word": "ساعد"
+},
+{
+"en": "to thank",
+"word": "شكر"
+},
+{
+"en": "to allow",
+"word": "سمح"
+},
+{
+"en": "to forbid",
+"word": "منع"
+},
+{
+"en": "to leave",
+"word": "غادر"
+},
+{
+"en": "to stay",
+"word": "بقي"
+},
+{
+"en": "to listen",
+"word": "استمع"
+},
+{
+"en": "to shout",
+"word": "صرخ"
+},
+{
+"en": "to laugh",
+"word": "ضحك"
+},
+{
+"en": "to cry",
+"word": "بكى"
+},
+{
+"en": "to sing",
+"word": "غنى"
+},
+{
+"en": "to play",
+"word": "لعب"
+},
+{
+"en": "to feel",
+"word": "شعر"
+},
+{
+"en": "to care",
+"word": "اهتم"
+},
+{
+"en": "to observe",
+"word": "راقب"
+},
+{
+"en": "to notice",
+"word": "لاحظ"
+},
+{
+"en": "to examine",
+"word": "فحص"
+},
+{
+"en": "to test",
+"word": "اختبر"
+},
+{
+"en": "to face",
+"word": "واجه"
+},
+{
+"en": "to overcome",
+"word": "تغلب"
+},
+{
+"en": "to obey",
+"word": "أطاع"
+},
+{
+"en": "to disobey",
+"word": "عصى"
+},
+{
+"en": "to respect",
+"word": "احترم"
+},
+{
+"en": "to raise",
+"word": "ربى"
+},
+{
+"en": "to be born",
+"word": "ولد"
+},
+{
+"en": "to die",
+"word": "مات"
+},
+{
+"en": "to live",
+"word": "عاش"
+},
+{
+"en": "grandmother",
+"word": "جدة"
+},
+{
+"en": "grandfather",
+"word": "جد"
+},
+{
+"en": "uncle",
+"word": "عم"
+},
+{
+"en": "aunt",
+"word": "عمة"
+}
+]
