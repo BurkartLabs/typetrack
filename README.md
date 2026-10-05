@@ -82,4 +82,8 @@ See `docs/ARCHITECTURE.md` for how the modules fit together.
 ## Status
 
 Early (version 0.1.0) and under active development. It is a working app with a large feature set, but expect
-rough edges, and some items in `ROADMAP.md` are not built yet. No licence file is included yet.
+rough edges, and some items in `ROADMAP.md` are not built yet.
+
+## Licence
+
+All rights reserved. The source is public to read, not to reuse: see [LICENSE](LICENSE).

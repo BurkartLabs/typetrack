@@ -1,6 +1,7 @@
 {
   "name": "typetrack",
   "version": "0.1.0",
+  "license": "UNLICENSED",
   "private": true,
   "description": "Bare-bones typing test with wpm tracking over time. No dependencies, no build step.",
   "scripts": {

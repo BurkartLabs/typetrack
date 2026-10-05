@@ -1,0 +1,27 @@
+typetrack
+Copyright (c) 2026 Paul Burkart (Burkart Labs). All rights reserved.
+
+This software and its associated documentation, data and artwork (the "Work") are proprietary. No licence is
+granted to any person or organisation, by the publication of this repository or otherwise.
+
+Without the copyright holder's prior written permission, you may NOT:
+
+  - use, run or deploy the Work, or any modified version of it, as a public or private service;
+  - copy, mirror or redistribute the Work, in whole or in part;
+  - modify the Work or create derivative works from it;
+  - use the Work, or any part of it, to train a machine learning model;
+  - use the name, branding or visual identity of the Work.
+
+You MAY view the source in this repository, and fork it on GitHub, to the extent GitHub's Terms of Service
+require for public repositories. That is the only permission granted, and it gives no right to use, run, copy
+outside GitHub, modify or redistribute the Work.
+
+Contributions can only be accepted under a separate written agreement assigning copyright in the contribution
+to the copyright holder.
+
+THE WORK IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY ARISING FROM, OUT OF OR IN CONNECTION WITH
+THE WORK OR THE USE OR OTHER DEALINGS IN THE WORK.
+
+For permission beyond the scope of this notice, contact the copyright holder through https://github.com/BurkartLabs.
